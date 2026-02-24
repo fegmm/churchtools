@@ -1,19 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-
     <!-- NuGet Packaging Properties -->
     <PackageId>Fegmm.ChurchTools</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Fegmm</Authors>
     <Description>Automatically generated .NET API Client for ChurchTools.</Description>
     <RepositoryUrl>https://github.com/fegmm/churchtools</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
-
   <ItemGroup>
     <!-- Kiota Abstractions & Standard Dependencies -->
     <PackageReference Include="Microsoft.Kiota.Abstractions" Version="1.16.2" />
@@ -23,5 +20,4 @@
     <PackageReference Include="Microsoft.Kiota.Serialization.Multipart" Version="1.16.2" />
     <PackageReference Include="Microsoft.Kiota.Serialization.Text" Version="1.16.2" />
   </ItemGroup>
-
 </Project>
