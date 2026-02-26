@@ -18,8 +18,11 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         public int? CalendarId { get; set; }
         /// <summary>The id property</summary>
         public int? Id { get; set; }
-        /// <summary>The isFinal property</summary>
+        /// <summary>Use `isLocked` instead.</summary>
+        [Obsolete("")]
         public bool? IsFinal { get; set; }
+        /// <summary>If true, the agenda is locked for changes.</summary>
+        public bool? IsLocked { get; set; }
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,6 +85,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
                 { "calendarId", n => { CalendarId = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "isFinal", n => { IsFinal = n.GetBoolValue(); } },
+                { "isLocked", n => { IsLocked = n.GetBoolValue(); } },
                 { "items", n => { Items = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_agenda_meta>(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_agenda_meta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -99,6 +103,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
             writer.WriteIntValue("calendarId", CalendarId);
             writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("isFinal", IsFinal);
+            writer.WriteBoolValue("isLocked", IsLocked);
             writer.WriteObjectValue<UntypedNode>("items", Items);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_agenda_meta>("meta", Meta);
             writer.WriteStringValue("name", Name);
