@@ -18,7 +18,7 @@ public static class ServiceCollectionExtensions
     /// <param name="configureClient">An action to configure the internal used <see cref="HttpClient"/>.</param>
     /// <returns>The <see cref="IServiceCollection"/>.</returns>
     public static IServiceCollection AddChurchToolsClient(this IServiceCollection services,
-        Action<ChurchToolsOptions, ServiceProvider>? configureOptions = null,
+        Action<ChurchToolsOptions, IServiceProvider>? configureOptions = null,
         Action<HttpClient>? configureClient = null)
     {
         ArgumentNullException.ThrowIfNull(services);
