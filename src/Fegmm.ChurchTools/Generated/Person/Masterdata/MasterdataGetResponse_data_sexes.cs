@@ -16,7 +16,7 @@ namespace Fegmm.ChurchTools.Person.Masterdata
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ID of sex</summary>
         public int? Id { get; set; }
-        /// <summary>Name of sex</summary>
+        /// <summary>Name of sex (translation key)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -31,6 +31,38 @@ namespace Fegmm.ChurchTools.Person.Masterdata
 #nullable restore
 #else
         public string NameTranslated { get; set; }
+#endif
+        /// <summary>Formal salutation for this sex (translation key)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SalutationFormal { get; set; }
+#nullable restore
+#else
+        public string SalutationFormal { get; set; }
+#endif
+        /// <summary>Translated formal salutation for this sex</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SalutationFormalTranslated { get; set; }
+#nullable restore
+#else
+        public string SalutationFormalTranslated { get; set; }
+#endif
+        /// <summary>Informal salutation for this sex (translation key)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SalutationInformal { get; set; }
+#nullable restore
+#else
+        public string SalutationInformal { get; set; }
+#endif
+        /// <summary>Translated informal salutation for this sex</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SalutationInformalTranslated { get; set; }
+#nullable restore
+#else
+        public string SalutationInformalTranslated { get; set; }
 #endif
         /// <summary>Used to sort all sexes</summary>
         public int? SortKey { get; set; }
@@ -62,6 +94,10 @@ namespace Fegmm.ChurchTools.Person.Masterdata
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
+                { "salutationFormal", n => { SalutationFormal = n.GetStringValue(); } },
+                { "salutationFormalTranslated", n => { SalutationFormalTranslated = n.GetStringValue(); } },
+                { "salutationInformal", n => { SalutationInformal = n.GetStringValue(); } },
+                { "salutationInformalTranslated", n => { SalutationInformalTranslated = n.GetStringValue(); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
         }
@@ -75,6 +111,10 @@ namespace Fegmm.ChurchTools.Person.Masterdata
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nameTranslated", NameTranslated);
+            writer.WriteStringValue("salutationFormal", SalutationFormal);
+            writer.WriteStringValue("salutationFormalTranslated", SalutationFormalTranslated);
+            writer.WriteStringValue("salutationInformal", SalutationInformal);
+            writer.WriteStringValue("salutationInformalTranslated", SalutationInformalTranslated);
             writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);
         }

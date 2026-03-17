@@ -22,6 +22,7 @@ using Fegmm.ChurchTools.Groups.Item.Qrcodecheckin;
 using Fegmm.ChurchTools.Groups.Item.Roles;
 using Fegmm.ChurchTools.Groups.Item.Statistics;
 using Fegmm.ChurchTools.Groups.Item.Tags;
+using Fegmm.ChurchTools.Groups.Item.Wiki;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -147,6 +148,11 @@ namespace Fegmm.ChurchTools.Groups.Item
         public global::Fegmm.ChurchTools.Groups.Item.Tags.TagsRequestBuilder Tags
         {
             get => new global::Fegmm.ChurchTools.Groups.Item.Tags.TagsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The wiki property</summary>
+        public global::Fegmm.ChurchTools.Groups.Item.Wiki.WikiRequestBuilder Wiki
+        {
+            get => new global::Fegmm.ChurchTools.Groups.Item.Wiki.WikiRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Groups.Item.WithGroupItemRequestBuilder"/> and sets the default values.

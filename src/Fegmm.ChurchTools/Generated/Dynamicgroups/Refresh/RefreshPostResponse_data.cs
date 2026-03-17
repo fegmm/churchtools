@@ -20,6 +20,8 @@ namespace Fegmm.ChurchTools.Dynamicgroups.Refresh
         public int? Deleted { get; set; }
         /// <summary>The groupId property</summary>
         public int? GroupId { get; set; }
+        /// <summary>The unprocessed property</summary>
+        public int? Unprocessed { get; set; }
         /// <summary>The updated property</summary>
         public int? Updated { get; set; }
         /// <summary>
@@ -50,6 +52,7 @@ namespace Fegmm.ChurchTools.Dynamicgroups.Refresh
                 { "created", n => { Created = n.GetIntValue(); } },
                 { "deleted", n => { Deleted = n.GetIntValue(); } },
                 { "groupId", n => { GroupId = n.GetIntValue(); } },
+                { "unprocessed", n => { Unprocessed = n.GetIntValue(); } },
                 { "updated", n => { Updated = n.GetIntValue(); } },
             };
         }
@@ -63,6 +66,7 @@ namespace Fegmm.ChurchTools.Dynamicgroups.Refresh
             writer.WriteIntValue("created", Created);
             writer.WriteIntValue("deleted", Deleted);
             writer.WriteIntValue("groupId", GroupId);
+            writer.WriteIntValue("unprocessed", Unprocessed);
             writer.WriteIntValue("updated", Updated);
             writer.WriteAdditionalData(AdditionalData);
         }

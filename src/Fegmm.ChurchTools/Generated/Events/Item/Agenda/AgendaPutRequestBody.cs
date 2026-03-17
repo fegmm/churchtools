@@ -14,13 +14,25 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The agenda property</summary>
+        /// <summary>The calendar ID for this agenda</summary>
+        public int? CalendarId { get; set; }
+        /// <summary>Sort key position where the event starts</summary>
+        public int? EventStartPosition { get; set; }
+        /// <summary>Agenda items to create or update</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_agenda? Agenda { get; set; }
+        public List<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_items>? Items { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_agenda Agenda { get; set; }
+        public List<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_items> Items { get; set; }
+#endif
+        /// <summary>Optional series name for the agenda</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Series { get; set; }
+#nullable restore
+#else
+        public string Series { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody"/> and sets the default values.
@@ -47,7 +59,10 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agenda", n => { Agenda = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_agenda>(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_agenda.CreateFromDiscriminatorValue); } },
+                { "calendarId", n => { CalendarId = n.GetIntValue(); } },
+                { "eventStartPosition", n => { EventStartPosition = n.GetIntValue(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_items>(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_items.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "series", n => { Series = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,7 +72,10 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_agenda>("agenda", Agenda);
+            writer.WriteIntValue("calendarId", CalendarId);
+            writer.WriteIntValue("eventStartPosition", EventStartPosition);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_items>("items", Items);
+            writer.WriteStringValue("series", Series);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

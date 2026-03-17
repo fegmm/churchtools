@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -66,6 +67,8 @@ namespace Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item
         public int? RoutineStepId { get; set; }
         /// <summary>The status property</summary>
         public global::Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item.WithRunActionPostResponse_data_status? Status { get; set; }
+        /// <summary>A simple date in ISO format, e.g. &apos;2022-10-19&apos;</summary>
+        public Date? WaitingSince { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item.WithRunActionPostResponse_data"/> and sets the default values.
         /// </summary>
@@ -102,6 +105,7 @@ namespace Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item
                 { "routineId", n => { RoutineId = n.GetIntValue(); } },
                 { "routineStepId", n => { RoutineStepId = n.GetIntValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item.WithRunActionPostResponse_data_status>(); } },
+                { "waitingSince", n => { WaitingSince = n.GetDateValue(); } },
             };
         }
         /// <summary>
@@ -122,6 +126,7 @@ namespace Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item
             writer.WriteIntValue("routineId", RoutineId);
             writer.WriteIntValue("routineStepId", RoutineStepId);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item.WithRunActionPostResponse_data_status>("status", Status);
+            writer.WriteDateValue("waitingSince", WaitingSince);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>

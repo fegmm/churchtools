@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -22,6 +23,8 @@ namespace Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item
 #else
         public List<int?> RunIds { get; set; }
 #endif
+        /// <summary>Update the waiting since date for a special:wait step</summary>
+        public Date? WaitingSince { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item.WithRunActionPostRequestBody"/> and sets the default values.
         /// </summary>
@@ -48,6 +51,7 @@ namespace Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "runIds", n => { RunIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
+                { "waitingSince", n => { WaitingSince = n.GetDateValue(); } },
             };
         }
         /// <summary>
@@ -58,6 +62,7 @@ namespace Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<int?>("runIds", RunIds);
+            writer.WriteDateValue("waitingSince", WaitingSince);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

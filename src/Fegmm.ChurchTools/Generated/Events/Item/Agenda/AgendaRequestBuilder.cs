@@ -45,7 +45,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AgendaRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/events/{event%2Did}/agenda", pathParameters)
+        public AgendaRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/events/{event%2Did}/agenda{?template_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AgendaRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/events/{event%2Did}/agenda", rawUrl)
+        public AgendaRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/events/{event%2Did}/agenda{?template_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -119,11 +119,11 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutResponse?> PutAsAgendaPutResponseAsync(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutResponse?> PutAsAgendaPutResponseAsync(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaRequestBuilder.AgendaRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutResponse> PutAsAgendaPutResponseAsync(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutResponse> PutAsAgendaPutResponseAsync(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaRequestBuilder.AgendaRequestBuilderPutQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -140,11 +140,11 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         [Obsolete("This method is obsolete. Use PutAsAgendaPutResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaResponse?> PutAsync(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaResponse?> PutAsync(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaRequestBuilder.AgendaRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaResponse> PutAsync(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaResponse> PutAsync(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaRequestBuilder.AgendaRequestBuilderPutQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -197,11 +197,11 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaRequestBuilder.AgendaRequestBuilderPutQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaRequestBuilder.AgendaRequestBuilderPutQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -237,11 +237,21 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         {
         }
         /// <summary>
+        /// Create or update the agenda for an event
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class AgendaRequestBuilderPutQueryParameters 
+        {
+            /// <summary>ID of an agenda template to copy items from. If provided, the new agenda will be populated with items from the specified template. Cannot be used together with &apos;items&apos;.</summary>
+            [QueryParameter("template_id")]
+            public int? TemplateId { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgendaRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class AgendaRequestBuilderPutRequestConfiguration : RequestConfiguration<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaRequestBuilder.AgendaRequestBuilderPutQueryParameters>
         {
         }
     }

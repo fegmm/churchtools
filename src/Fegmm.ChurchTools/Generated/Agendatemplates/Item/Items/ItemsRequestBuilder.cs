@@ -47,7 +47,7 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Items
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ItemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agendatemplates/{agendaId}/items{?after_item_id*,before_item_id*}", pathParameters)
+        public ItemsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agendatemplates/{agendaId}/items{?after_id*,before_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Items
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agendatemplates/{agendaId}/items{?after_item_id*,before_item_id*}", rawUrl)
+        public ItemsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/agendatemplates/{agendaId}/items{?after_id*,before_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -136,12 +136,12 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Items
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ItemsRequestBuilderPostQueryParameters 
         {
-            /// <summary>Insert the new item after the item with this ID. Cannot be used together with `before_item_id`.</summary>
-            [QueryParameter("after_item_id")]
-            public int? AfterItemId { get; set; }
-            /// <summary>Insert the new item before the item with this ID. Cannot be used together with `after_item_id`.</summary>
-            [QueryParameter("before_item_id")]
-            public int? BeforeItemId { get; set; }
+            /// <summary>Insert the new item after the item with this ID. Cannot be used together with `before_id`.</summary>
+            [QueryParameter("after_id")]
+            public int? AfterId { get; set; }
+            /// <summary>Insert the new item before the item with this ID. Cannot be used together with `after_id`.</summary>
+            [QueryParameter("before_id")]
+            public int? BeforeId { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

@@ -56,6 +56,7 @@ using Fegmm.ChurchTools.Oauthclients;
 using Fegmm.ChurchTools.Permissions;
 using Fegmm.ChurchTools.Person;
 using Fegmm.ChurchTools.Persons;
+using Fegmm.ChurchTools.Pollfornews;
 using Fegmm.ChurchTools.Post;
 using Fegmm.ChurchTools.Posts;
 using Fegmm.ChurchTools.Pr;
@@ -386,6 +387,11 @@ namespace Fegmm.ChurchTools
         public global::Fegmm.ChurchTools.Persons.PersonsRequestBuilder Persons
         {
             get => new global::Fegmm.ChurchTools.Persons.PersonsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The pollfornews property</summary>
+        public global::Fegmm.ChurchTools.Pollfornews.PollfornewsRequestBuilder Pollfornews
+        {
+            get => new global::Fegmm.ChurchTools.Pollfornews.PollfornewsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The postPath property</summary>
         public global::Fegmm.ChurchTools.Post.PostRequestBuilder PostPath

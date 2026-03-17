@@ -5,35 +5,39 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Fegmm.ChurchTools.Events.Item.Agenda
+namespace Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class AgendaPutRequestBody_agenda_meta : IAdditionalDataHolder, IParsable
+    public partial class WithCostCenterPostResponse_data : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
-        public DateTimeOffset? ModifiedDate { get; set; }
-        /// <summary>The modifiedPid property</summary>
-        public int? ModifiedPid { get; set; }
+        /// <summary>URI of generated file</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Url { get; set; }
+#nullable restore
+#else
+        public string Url { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_agenda_meta"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostResponse_data"/> and sets the default values.
         /// </summary>
-        public AgendaPutRequestBody_agenda_meta()
+        public WithCostCenterPostResponse_data()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_agenda_meta"/></returns>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostResponse_data"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_agenda_meta CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostResponse_data CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_agenda_meta();
+            return new global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostResponse_data();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,8 +47,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "modifiedDate", n => { ModifiedDate = n.GetDateTimeOffsetValue(); } },
-                { "modifiedPid", n => { ModifiedPid = n.GetIntValue(); } },
+                { "url", n => { Url = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -54,8 +57,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("modifiedDate", ModifiedDate);
-            writer.WriteIntValue("modifiedPid", ModifiedPid);
+            writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

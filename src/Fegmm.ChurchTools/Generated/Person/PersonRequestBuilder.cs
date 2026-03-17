@@ -3,6 +3,7 @@
 using Fegmm.ChurchTools.Person.Growpaths;
 using Fegmm.ChurchTools.Person.Masterdata;
 using Fegmm.ChurchTools.Person.Relationshiptypes;
+using Fegmm.ChurchTools.Person.Sexes;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
@@ -31,6 +32,11 @@ namespace Fegmm.ChurchTools.Person
         public global::Fegmm.ChurchTools.Person.Relationshiptypes.RelationshiptypesRequestBuilder Relationshiptypes
         {
             get => new global::Fegmm.ChurchTools.Person.Relationshiptypes.RelationshiptypesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The sexes property</summary>
+        public global::Fegmm.ChurchTools.Person.Sexes.SexesRequestBuilder Sexes
+        {
+            get => new global::Fegmm.ChurchTools.Person.Sexes.SexesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Person.PersonRequestBuilder"/> and sets the default values.
