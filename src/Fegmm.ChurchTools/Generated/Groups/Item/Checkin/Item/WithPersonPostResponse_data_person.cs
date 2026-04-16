@@ -150,11 +150,19 @@ namespace Fegmm.ChurchTools.Groups.Item.Checkin.Item
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Groups.Item.Checkin.Item.WithPersonPostResponse_data_person_colorMember1"/>, <see cref="global::Fegmm.ChurchTools.Groups.Item.Checkin.Item.WithPersonPostResponse_data_person_colorMember2"/>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Groups.Item.Checkin.Item.WithPersonPostResponse_data_person_colorMember1"/>, <see cref="global::Fegmm.ChurchTools.Groups.Item.Checkin.Item.WithPersonPostResponse_data_person_colorMember2"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPersonPostResponse_data_person_color : IComposedTypeWrapper, IParsable
         {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
             /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Groups.Item.Checkin.Item.WithPersonPostResponse_data_person_colorMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -189,6 +197,10 @@ namespace Fegmm.ChurchTools.Groups.Item.Checkin.Item
                 {
                     result.WithPersonPostResponseDataPersonColorMember2 = new global::Fegmm.ChurchTools.Groups.Item.Checkin.Item.WithPersonPostResponse_data_person_colorMember2();
                 }
+                else if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
                 return result;
             }
             /// <summary>
@@ -221,6 +233,10 @@ namespace Fegmm.ChurchTools.Groups.Item.Checkin.Item
                 else if(WithPersonPostResponseDataPersonColorMember2 != null)
                 {
                     writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Checkin.Item.WithPersonPostResponse_data_person_colorMember2>(null, WithPersonPostResponseDataPersonColorMember2);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
                 }
             }
         }

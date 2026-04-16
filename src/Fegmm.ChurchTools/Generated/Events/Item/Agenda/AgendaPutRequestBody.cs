@@ -18,7 +18,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         public int? CalendarId { get; set; }
         /// <summary>Sort key position where the event starts</summary>
         public int? EventStartPosition { get; set; }
-        /// <summary>Agenda items to create or update</summary>
+        /// <summary>Agenda items to create or update. Cannot be used together with &apos;template_id&apos; or &apos;event_id&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_items>? Items { get; set; }

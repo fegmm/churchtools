@@ -28,6 +28,8 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
         public bool? HideLogin { get; set; }
         /// <summary>The showStreet property</summary>
         public bool? ShowStreet { get; set; }
+        /// <summary>The signUpEmailRequiredForAll property</summary>
+        public bool? SignUpEmailRequiredForAll { get; set; }
         /// <summary>The signUpNotificationSent property</summary>
         public bool? SignUpNotificationSent { get; set; }
         /// <summary>
@@ -62,6 +64,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
                 { "hideContactLeader", n => { HideContactLeader = n.GetBoolValue(); } },
                 { "hideLogin", n => { HideLogin = n.GetBoolValue(); } },
                 { "showStreet", n => { ShowStreet = n.GetBoolValue(); } },
+                { "signUpEmailRequiredForAll", n => { SignUpEmailRequiredForAll = n.GetBoolValue(); } },
                 { "signUpNotificationSent", n => { SignUpNotificationSent = n.GetBoolValue(); } },
             };
         }
@@ -79,6 +82,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
             writer.WriteBoolValue("hideContactLeader", HideContactLeader);
             writer.WriteBoolValue("hideLogin", HideLogin);
             writer.WriteBoolValue("showStreet", ShowStreet);
+            writer.WriteBoolValue("signUpEmailRequiredForAll", SignUpEmailRequiredForAll);
             writer.WriteBoolValue("signUpNotificationSent", SignUpNotificationSent);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "FD24C1AF93E30E2FDBA56DDA90E2CFE2807F4E9B816D4BFCF8601D881410A9615027324A0D18AEF452EDF506208336389A008030A99AB909FD7F9670C458923D",
+  "descriptionHash": "029080F8DCA4DAFAA3EC7116E65676CDA01391673C9069C5847BF74DE8F2A136FE94FF86A16402F948CE8CE5914F79C99A9FECAEA307CDA740B38C64D6E9CBFC",
   "descriptionLocation": "../../../openapi.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.30.0",
+  "kiotaVersion": "1.31.1",
   "clientClassName": "ChurchToolsClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Fegmm.ChurchTools",

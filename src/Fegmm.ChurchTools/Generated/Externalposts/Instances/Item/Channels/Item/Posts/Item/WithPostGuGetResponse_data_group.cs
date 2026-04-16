@@ -149,11 +149,19 @@ namespace Fegmm.ChurchTools.Externalposts.Instances.Item.Channels.Item.Posts.Ite
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Externalposts.Instances.Item.Channels.Item.Posts.Item.WithPostGuGetResponse_data_group_colorMember1"/>, <see cref="global::Fegmm.ChurchTools.Externalposts.Instances.Item.Channels.Item.Posts.Item.WithPostGuGetResponse_data_group_colorMember2"/>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Externalposts.Instances.Item.Channels.Item.Posts.Item.WithPostGuGetResponse_data_group_colorMember1"/>, <see cref="global::Fegmm.ChurchTools.Externalposts.Instances.Item.Channels.Item.Posts.Item.WithPostGuGetResponse_data_group_colorMember2"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPostGuGetResponse_data_group_color : IComposedTypeWrapper, IParsable
         {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
             /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Externalposts.Instances.Item.Channels.Item.Posts.Item.WithPostGuGetResponse_data_group_colorMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -188,6 +196,10 @@ namespace Fegmm.ChurchTools.Externalposts.Instances.Item.Channels.Item.Posts.Ite
                 {
                     result.WithPostGuGetResponseDataGroupColorMember2 = new global::Fegmm.ChurchTools.Externalposts.Instances.Item.Channels.Item.Posts.Item.WithPostGuGetResponse_data_group_colorMember2();
                 }
+                else if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
                 return result;
             }
             /// <summary>
@@ -220,6 +232,10 @@ namespace Fegmm.ChurchTools.Externalposts.Instances.Item.Channels.Item.Posts.Ite
                 else if(WithPostGuGetResponseDataGroupColorMember2 != null)
                 {
                     writer.WriteObjectValue<global::Fegmm.ChurchTools.Externalposts.Instances.Item.Channels.Item.Posts.Item.WithPostGuGetResponse_data_group_colorMember2>(null, WithPostGuGetResponseDataGroupColorMember2);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
                 }
             }
         }

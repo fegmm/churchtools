@@ -149,7 +149,7 @@ namespace Fegmm.ChurchTools.Profiles
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_signUpGroupMember1_group_colorMember1"/>, <see cref="global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_signUpGroupMember1_group_colorMember2"/>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_signUpGroupMember1_group_colorMember1"/>, <see cref="global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_signUpGroupMember1_group_colorMember2"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ProfilesGetResponse_data_signUpGroupMember1_group_color : IComposedTypeWrapper, IParsable
@@ -170,6 +170,14 @@ namespace Fegmm.ChurchTools.Profiles
 #else
             public global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_signUpGroupMember1_group_colorMember2 ProfilesGetResponseDataSignUpGroupMember1GroupColorMember2 { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
@@ -187,6 +195,10 @@ namespace Fegmm.ChurchTools.Profiles
                 else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.ProfilesGetResponseDataSignUpGroupMember1GroupColorMember2 = new global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_signUpGroupMember1_group_colorMember2();
+                }
+                else if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
                 }
                 return result;
             }
@@ -220,6 +232,10 @@ namespace Fegmm.ChurchTools.Profiles
                 else if(ProfilesGetResponseDataSignUpGroupMember1GroupColorMember2 != null)
                 {
                     writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_signUpGroupMember1_group_colorMember2>(null, ProfilesGetResponseDataSignUpGroupMember1GroupColorMember2);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
                 }
             }
         }

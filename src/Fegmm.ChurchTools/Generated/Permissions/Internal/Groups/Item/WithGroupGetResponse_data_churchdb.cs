@@ -66,6 +66,8 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
         /// <summary>The plus_editPersons property</summary>
         [Obsolete("")]
         public bool? PlusEditPersons { get; set; }
+        /// <summary>The plus_exitGroup property</summary>
+        public bool? PlusExitGroup { get; set; }
         /// <summary>The plus_exportGroupMembers property</summary>
         public bool? PlusExportGroupMembers { get; set; }
         /// <summary>The plus_getEmails property</summary>
@@ -147,6 +149,7 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
                 { "+edit own group member fields", n => { PlusEditOwnGroupMemberFields = n.GetDoubleValue(); } },
                 { "+edit person fields of group members", n => { PlusEditPersonFieldsOfGroupMembers = n.GetDoubleValue(); } },
                 { "+edit persons", n => { PlusEditPersons = n.GetBoolValue(); } },
+                { "+exit group", n => { PlusExitGroup = n.GetBoolValue(); } },
                 { "+export group members", n => { PlusExportGroupMembers = n.GetBoolValue(); } },
                 { "+get emails", n => { PlusGetEmails = n.GetBoolValue(); } },
                 { "+invite person", n => { PlusInvitePerson = n.GetBoolValue(); } },
@@ -195,6 +198,7 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
             writer.WriteDoubleValue("+edit own group member fields", PlusEditOwnGroupMemberFields);
             writer.WriteDoubleValue("+edit person fields of group members", PlusEditPersonFieldsOfGroupMembers);
             writer.WriteBoolValue("+edit persons", PlusEditPersons);
+            writer.WriteBoolValue("+exit group", PlusExitGroup);
             writer.WriteBoolValue("+export group members", PlusExportGroupMembers);
             writer.WriteBoolValue("+get emails", PlusGetEmails);
             writer.WriteBoolValue("+invite person", PlusInvitePerson);

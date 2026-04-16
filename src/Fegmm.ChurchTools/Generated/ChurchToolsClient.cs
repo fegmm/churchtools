@@ -50,6 +50,7 @@ using Fegmm.ChurchTools.Markdown;
 using Fegmm.ChurchTools.Masterdata;
 using Fegmm.ChurchTools.Meetingrequests;
 using Fegmm.ChurchTools.Menu;
+using Fegmm.ChurchTools.NewsletterIntegrations;
 using Fegmm.ChurchTools.Notes;
 using Fegmm.ChurchTools.Nps;
 using Fegmm.ChurchTools.Oauthclients;
@@ -357,6 +358,11 @@ namespace Fegmm.ChurchTools
         public global::Fegmm.ChurchTools.Menu.MenuRequestBuilder Menu
         {
             get => new global::Fegmm.ChurchTools.Menu.MenuRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The newsletterIntegrations property</summary>
+        public global::Fegmm.ChurchTools.NewsletterIntegrations.NewsletterIntegrationsRequestBuilder NewsletterIntegrations
+        {
+            get => new global::Fegmm.ChurchTools.NewsletterIntegrations.NewsletterIntegrationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The notes property</summary>
         public global::Fegmm.ChurchTools.Notes.NotesRequestBuilder Notes

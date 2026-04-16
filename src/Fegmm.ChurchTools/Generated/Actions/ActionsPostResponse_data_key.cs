@@ -68,6 +68,14 @@ namespace Fegmm.ChurchTools.Actions
         #pragma warning disable CS1591
         EditGroupMembership,
         #pragma warning restore CS1591
+        [EnumMember(Value = "edit-tags-for-member")]
+        #pragma warning disable CS1591
+        EditTagsForMember,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invite-member")]
+        #pragma warning disable CS1591
+        InviteMember,
+        #pragma warning restore CS1591
         [EnumMember(Value = "remove-member")]
         #pragma warning disable CS1591
         RemoveMember,

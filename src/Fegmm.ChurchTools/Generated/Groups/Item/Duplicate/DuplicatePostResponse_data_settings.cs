@@ -102,6 +102,8 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
         public bool? ShowStreet { get; set; }
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? SignUpClosingDate { get; set; }
+        /// <summary>Email is required for all participants during group sign up (spouse, children, others).</summary>
+        public bool? SignUpEmailRequiredForAll { get; set; }
         /// <summary>Headline for group sign up.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -175,6 +177,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
                 { "sendDefaultSignUpMail", n => { SendDefaultSignUpMail = n.GetBoolValue(); } },
                 { "showStreet", n => { ShowStreet = n.GetBoolValue(); } },
                 { "signUpClosingDate", n => { SignUpClosingDate = n.GetDateTimeOffsetValue(); } },
+                { "signUpEmailRequiredForAll", n => { SignUpEmailRequiredForAll = n.GetBoolValue(); } },
                 { "signUpHeadline", n => { SignUpHeadline = n.GetStringValue(); } },
                 { "signUpNotificationSentDate", n => { SignUpNotificationSentDate = n.GetDateTimeOffsetValue(); } },
                 { "signUpOpeningDate", n => { SignUpOpeningDate = n.GetDateTimeOffsetValue(); } },
@@ -221,6 +224,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
             writer.WriteBoolValue("sendDefaultSignUpMail", SendDefaultSignUpMail);
             writer.WriteBoolValue("showStreet", ShowStreet);
             writer.WriteDateTimeOffsetValue("signUpClosingDate", SignUpClosingDate);
+            writer.WriteBoolValue("signUpEmailRequiredForAll", SignUpEmailRequiredForAll);
             writer.WriteStringValue("signUpHeadline", SignUpHeadline);
             writer.WriteDateTimeOffsetValue("signUpNotificationSentDate", SignUpNotificationSentDate);
             writer.WriteDateTimeOffsetValue("signUpOpeningDate", SignUpOpeningDate);

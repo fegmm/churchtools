@@ -39,7 +39,13 @@ namespace Fegmm.ChurchTools.Externallogins.Item
         public string ClientId { get; set; }
 #endif
         /// <summary>The clientSecret property</summary>
-        public int? ClientSecret { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientSecret { get; set; }
+#nullable restore
+#else
+        public string ClientSecret { get; set; }
+#endif
         /// <summary>The urlResourceOwnerDetails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +82,7 @@ namespace Fegmm.ChurchTools.Externallogins.Item
                 { "accessTokenUrl", n => { AccessTokenUrl = n.GetStringValue(); } },
                 { "authorizeUrl", n => { AuthorizeUrl = n.GetStringValue(); } },
                 { "clientId", n => { ClientId = n.GetStringValue(); } },
-                { "clientSecret", n => { ClientSecret = n.GetIntValue(); } },
+                { "clientSecret", n => { ClientSecret = n.GetStringValue(); } },
                 { "urlResourceOwnerDetails", n => { UrlResourceOwnerDetails = n.GetStringValue(); } },
             };
         }
@@ -90,7 +96,7 @@ namespace Fegmm.ChurchTools.Externallogins.Item
             writer.WriteStringValue("accessTokenUrl", AccessTokenUrl);
             writer.WriteStringValue("authorizeUrl", AuthorizeUrl);
             writer.WriteStringValue("clientId", ClientId);
-            writer.WriteIntValue("clientSecret", ClientSecret);
+            writer.WriteStringValue("clientSecret", ClientSecret);
             writer.WriteStringValue("urlResourceOwnerDetails", UrlResourceOwnerDetails);
             writer.WriteAdditionalData(AdditionalData);
         }

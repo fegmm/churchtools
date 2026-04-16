@@ -14,6 +14,7 @@ using Fegmm.ChurchTools.Groups.Item.Meetings;
 using Fegmm.ChurchTools.Groups.Item.Memberfields;
 using Fegmm.ChurchTools.Groups.Item.Memberpreview;
 using Fegmm.ChurchTools.Groups.Item.Members;
+using Fegmm.ChurchTools.Groups.Item.NewsletterIntegrations;
 using Fegmm.ChurchTools.Groups.Item.Optins;
 using Fegmm.ChurchTools.Groups.Item.Parents;
 using Fegmm.ChurchTools.Groups.Item.Places;
@@ -108,6 +109,11 @@ namespace Fegmm.ChurchTools.Groups.Item
         public global::Fegmm.ChurchTools.Groups.Item.Members.MembersRequestBuilder Members
         {
             get => new global::Fegmm.ChurchTools.Groups.Item.Members.MembersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The newsletterIntegrations property</summary>
+        public global::Fegmm.ChurchTools.Groups.Item.NewsletterIntegrations.NewsletterIntegrationsRequestBuilder NewsletterIntegrations
+        {
+            get => new global::Fegmm.ChurchTools.Groups.Item.NewsletterIntegrations.NewsletterIntegrationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The optins property</summary>
         public global::Fegmm.ChurchTools.Groups.Item.Optins.OptinsRequestBuilder Optins

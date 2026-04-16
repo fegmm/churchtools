@@ -47,6 +47,14 @@ namespace Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members
         public Date? MemberEndDate { get; set; }
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? MemberStartDate { get; set; }
+        /// <summary>The newsletter property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members.MembersGetResponse_data_memberMember1_newsletter? Newsletter { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members.MembersGetResponse_data_memberMember1_newsletter Newsletter { get; set; }
+#endif
         /// <summary>Person as Domain Object</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -110,6 +118,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members
                 { "groupTypeRoleId", n => { GroupTypeRoleId = n.GetIntValue(); } },
                 { "memberEndDate", n => { MemberEndDate = n.GetDateValue(); } },
                 { "memberStartDate", n => { MemberStartDate = n.GetDateTimeOffsetValue(); } },
+                { "newsletter", n => { Newsletter = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members.MembersGetResponse_data_memberMember1_newsletter>(global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members.MembersGetResponse_data_memberMember1_newsletter.CreateFromDiscriminatorValue); } },
                 { "person", n => { Person = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members.MembersGetResponse_data_memberMember1_person>(global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members.MembersGetResponse_data_memberMember1_person.CreateFromDiscriminatorValue); } },
                 { "personFields", n => { PersonFields = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members.MembersGetResponse_data_memberMember1_personFields>(global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members.MembersGetResponse_data_memberMember1_personFields.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "personId", n => { PersonId = n.GetIntValue(); } },
@@ -132,6 +141,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members
             writer.WriteIntValue("groupTypeRoleId", GroupTypeRoleId);
             writer.WriteDateValue("memberEndDate", MemberEndDate);
             writer.WriteDateTimeOffsetValue("memberStartDate", MemberStartDate);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members.MembersGetResponse_data_memberMember1_newsletter>("newsletter", Newsletter);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members.MembersGetResponse_data_memberMember1_person>("person", Person);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.Members.MembersGetResponse_data_memberMember1_personFields>("personFields", PersonFields);
             writer.WriteIntValue("personId", PersonId);

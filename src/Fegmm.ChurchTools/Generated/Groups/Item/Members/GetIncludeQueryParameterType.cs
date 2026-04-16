@@ -12,6 +12,10 @@ namespace Fegmm.ChurchTools.Groups.Item.Members
         #pragma warning disable CS1591
         Aggregations,
         #pragma warning restore CS1591
+        [EnumMember(Value = "newsletter")]
+        #pragma warning disable CS1591
+        Newsletter,
+        #pragma warning restore CS1591
         [EnumMember(Value = "tags")]
         #pragma warning disable CS1591
         Tags,

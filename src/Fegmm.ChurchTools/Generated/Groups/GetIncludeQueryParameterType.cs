@@ -8,6 +8,10 @@ namespace Fegmm.ChurchTools.Groups
     public enum GetIncludeQueryParameterType
     #pragma warning restore CS1591
     {
+        [EnumMember(Value = "averageMemberAge")]
+        #pragma warning disable CS1591
+        AverageMemberAge,
+        #pragma warning restore CS1591
         [EnumMember(Value = "hasPermissions")]
         #pragma warning disable CS1591
         HasPermissions,

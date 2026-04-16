@@ -70,6 +70,14 @@ namespace Fegmm.ChurchTools.Persons.Item.Posts
 #else
         public List<string> Images { get; set; }
 #endif
+        /// <summary>The imagesMeta property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Persons.Item.Posts.PostsGetResponse_data_imagesMeta>? ImagesMeta { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Persons.Item.Posts.PostsGetResponse_data_imagesMeta> ImagesMeta { get; set; }
+#endif
         /// <summary>The instance property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -155,6 +163,7 @@ namespace Fegmm.ChurchTools.Persons.Item.Posts
                 { "guid", n => { Guid = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "images", n => { Images = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "imagesMeta", n => { ImagesMeta = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Persons.Item.Posts.PostsGetResponse_data_imagesMeta>(global::Fegmm.ChurchTools.Persons.Item.Posts.PostsGetResponse_data_imagesMeta.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "instance", n => { Instance = n.GetObjectValue<global::Fegmm.ChurchTools.Persons.Item.Posts.PostsGetResponse_data_instance>(global::Fegmm.ChurchTools.Persons.Item.Posts.PostsGetResponse_data_instance.CreateFromDiscriminatorValue); } },
                 { "isBanned", n => { IsBanned = n.GetBoolValue(); } },
                 { "lastEditedDate", n => { LastEditedDate = n.GetDateTimeOffsetValue(); } },
@@ -184,6 +193,7 @@ namespace Fegmm.ChurchTools.Persons.Item.Posts
             writer.WriteStringValue("guid", Guid);
             writer.WriteIntValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("images", Images);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Persons.Item.Posts.PostsGetResponse_data_imagesMeta>("imagesMeta", ImagesMeta);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Item.Posts.PostsGetResponse_data_instance>("instance", Instance);
             writer.WriteBoolValue("isBanned", IsBanned);
             writer.WriteDateTimeOffsetValue("lastEditedDate", LastEditedDate);

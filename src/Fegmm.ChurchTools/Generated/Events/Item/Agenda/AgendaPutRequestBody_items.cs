@@ -35,8 +35,6 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
 #else
         public string Responsible { get; set; }
 #endif
-        /// <summary>The sort order position of the item</summary>
-        public int? SortKey { get; set; }
         /// <summary>The title of the agenda item</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +74,6 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
                 { "duration", n => { Duration = n.GetIntValue(); } },
                 { "note", n => { Note = n.GetStringValue(); } },
                 { "responsible", n => { Responsible = n.GetStringValue(); } },
-                { "sortKey", n => { SortKey = n.GetIntValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_items_type>(); } },
             };
@@ -92,7 +89,6 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
             writer.WriteIntValue("duration", Duration);
             writer.WriteStringValue("note", Note);
             writer.WriteStringValue("responsible", Responsible);
-            writer.WriteIntValue("sortKey", SortKey);
             writer.WriteStringValue("title", Title);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutRequestBody_items_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

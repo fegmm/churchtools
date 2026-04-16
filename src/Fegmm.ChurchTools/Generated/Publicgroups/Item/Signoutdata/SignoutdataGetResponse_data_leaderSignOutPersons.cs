@@ -150,7 +150,7 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Signoutdata
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_leaderSignOutPersons_colorMember1"/>, <see cref="global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_leaderSignOutPersons_colorMember2"/>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_leaderSignOutPersons_colorMember1"/>, <see cref="global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_leaderSignOutPersons_colorMember2"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SignoutdataGetResponse_data_leaderSignOutPersons_color : IComposedTypeWrapper, IParsable
@@ -171,6 +171,14 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Signoutdata
 #else
             public global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_leaderSignOutPersons_colorMember2 SignoutdataGetResponseDataLeaderSignOutPersonsColorMember2 { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
@@ -188,6 +196,10 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Signoutdata
                 else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.SignoutdataGetResponseDataLeaderSignOutPersonsColorMember2 = new global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_leaderSignOutPersons_colorMember2();
+                }
+                else if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
                 }
                 return result;
             }
@@ -221,6 +233,10 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Signoutdata
                 else if(SignoutdataGetResponseDataLeaderSignOutPersonsColorMember2 != null)
                 {
                     writer.WriteObjectValue<global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_leaderSignOutPersons_colorMember2>(null, SignoutdataGetResponseDataLeaderSignOutPersonsColorMember2);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
                 }
             }
         }
