@@ -15,6 +15,14 @@ namespace Fegmm.ChurchTools.Songs.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The arrangements property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Songs.Item.WithSongPutRequestBody_arrangements>? Arrangements { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Songs.Item.WithSongPutRequestBody_arrangements> Arrangements { get; set; }
+#endif
         /// <summary>The author property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,6 +59,14 @@ namespace Fegmm.ChurchTools.Songs.Item
 #endif
         /// <summary>The shouldPractice property</summary>
         public bool? ShouldPractice { get; set; }
+        /// <summary>The tags property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Songs.Item.WithSongPutRequestBody"/> and sets the default values.
         /// </summary>
@@ -76,12 +92,14 @@ namespace Fegmm.ChurchTools.Songs.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "arrangements", n => { Arrangements = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Songs.Item.WithSongPutRequestBody_arrangements>(global::Fegmm.ChurchTools.Songs.Item.WithSongPutRequestBody_arrangements.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "author", n => { Author = n.GetStringValue(); } },
                 { "categoryId", n => { CategoryId = n.GetIntValue(); } },
                 { "ccli", n => { Ccli = n.GetStringValue(); } },
                 { "copyright", n => { Copyright = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "shouldPractice", n => { ShouldPractice = n.GetBoolValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -91,12 +109,14 @@ namespace Fegmm.ChurchTools.Songs.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Songs.Item.WithSongPutRequestBody_arrangements>("arrangements", Arrangements);
             writer.WriteStringValue("author", Author);
             writer.WriteIntValue("categoryId", CategoryId);
             writer.WriteStringValue("ccli", Ccli);
             writer.WriteStringValue("copyright", Copyright);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("shouldPractice", ShouldPractice);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

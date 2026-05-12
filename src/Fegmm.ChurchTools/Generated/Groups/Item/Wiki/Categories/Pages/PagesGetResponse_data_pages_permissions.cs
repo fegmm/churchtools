@@ -14,6 +14,8 @@ namespace Fegmm.ChurchTools.Groups.Item.Wiki.Categories.Pages
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The canDelete property</summary>
+        public bool? CanDelete { get; set; }
         /// <summary>The canEdit property</summary>
         public bool? CanEdit { get; set; }
         /// <summary>
@@ -41,6 +43,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Wiki.Categories.Pages
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "canDelete", n => { CanDelete = n.GetBoolValue(); } },
                 { "canEdit", n => { CanEdit = n.GetBoolValue(); } },
             };
         }
@@ -51,6 +54,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Wiki.Categories.Pages
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("canDelete", CanDelete);
             writer.WriteBoolValue("canEdit", CanEdit);
             writer.WriteAdditionalData(AdditionalData);
         }

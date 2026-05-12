@@ -17,10 +17,10 @@ namespace Fegmm.ChurchTools.Wiki.Search
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Fegmm.ChurchTools.Wiki.Search.SearchGetResponse_data>? Data { get; set; }
+        public UntypedNode? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Fegmm.ChurchTools.Wiki.Search.SearchGetResponse_data> Data { get; set; }
+        public UntypedNode Data { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Fegmm.ChurchTools.Wiki.Search
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Wiki.Search.SearchGetResponse_data>(global::Fegmm.ChurchTools.Wiki.Search.SearchGetResponse_data.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Wiki.Search.SearchGetResponse_meta>(global::Fegmm.ChurchTools.Wiki.Search.SearchGetResponse_meta.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Fegmm.ChurchTools.Wiki.Search
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Wiki.Search.SearchGetResponse_data>("data", Data);
+            writer.WriteObjectValue<UntypedNode>("data", Data);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Wiki.Search.SearchGetResponse_meta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }

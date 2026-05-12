@@ -38,6 +38,14 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item
 #else
         public string NameTranslated { get; set; }
 #endif
+        /// <summary>The permissions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionGetResponse_data_wikiCategory_permissions? Permissions { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionGetResponse_data_wikiCategory_permissions Permissions { get; set; }
+#endif
         /// <summary>The sortKey property</summary>
         public int? SortKey { get; set; }
         /// <summary>
@@ -71,6 +79,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item
                 { "inMenu", n => { InMenu = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionGetResponse_data_wikiCategory_permissions>(global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionGetResponse_data_wikiCategory_permissions.CreateFromDiscriminatorValue); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
         }
@@ -87,6 +96,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item
             writer.WriteBoolValue("inMenu", InMenu);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nameTranslated", NameTranslated);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionGetResponse_data_wikiCategory_permissions>("permissions", Permissions);
             writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);
         }

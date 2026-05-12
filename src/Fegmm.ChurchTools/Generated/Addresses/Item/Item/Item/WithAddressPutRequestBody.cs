@@ -54,7 +54,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item.Item
 #else
         public string District { get; set; }
 #endif
-        /// <summary>The domainIdentifier property</summary>
+        /// <summary>The identifier of the domain object. This field is set automatically from the path parameter and should not be included in the request body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DomainIdentifier { get; set; }
@@ -62,14 +62,8 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item.Item
 #else
         public string DomainIdentifier { get; set; }
 #endif
-        /// <summary>The domainType property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DomainType { get; set; }
-#nullable restore
-#else
-        public string DomainType { get; set; }
-#endif
+        /// <summary>The domain type of the address. This field is set automatically from the path parameter and should not be included in the request body.</summary>
+        public global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutRequestBody_domainType? DomainType { get; set; }
         /// <summary>The icon property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -151,7 +145,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item.Item
                 { "country", n => { Country = n.GetStringValue(); } },
                 { "district", n => { District = n.GetStringValue(); } },
                 { "domainIdentifier", n => { DomainIdentifier = n.GetStringValue(); } },
-                { "domainType", n => { DomainType = n.GetStringValue(); } },
+                { "domainType", n => { DomainType = n.GetEnumValue<global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutRequestBody_domainType>(); } },
                 { "icon", n => { Icon = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "latitude", n => { Latitude = n.GetStringValue(); } },
@@ -174,7 +168,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item.Item
             writer.WriteStringValue("country", Country);
             writer.WriteStringValue("district", District);
             writer.WriteStringValue("domainIdentifier", DomainIdentifier);
-            writer.WriteStringValue("domainType", DomainType);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutRequestBody_domainType>("domainType", DomainType);
             writer.WriteStringValue("icon", Icon);
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("latitude", Latitude);

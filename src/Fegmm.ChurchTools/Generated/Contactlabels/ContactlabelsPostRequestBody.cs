@@ -14,9 +14,9 @@ namespace Fegmm.ChurchTools.Contactlabels
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Indicator if label is new default.</summary>
+        /// <summary>Indicator if label is the default. Used for new person emails</summary>
         public bool? IsDefault { get; set; }
-        /// <summary>Name of Contact Label</summary>
+        /// <summary>Name of Label</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -24,7 +24,7 @@ namespace Fegmm.ChurchTools.Contactlabels
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>SortKey</summary>
+        /// <summary>The sortKey property</summary>
         public int? SortKey { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Contactlabels.ContactlabelsPostRequestBody"/> and sets the default values.

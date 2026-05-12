@@ -35,10 +35,10 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
         /// <summary>The address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_address? Address { get; set; }
+        public UntypedNode? Address { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_address Address { get; set; }
+        public UntypedNode Address { get; set; }
 #endif
         /// <summary>The allDay property</summary>
         public bool? AllDay { get; set; }
@@ -224,7 +224,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
             {
                 { "additionals", n => { Additionals = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_additionals>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_additionals.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "additions", n => { Additions = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_additions>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_additions.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "address", n => { Address = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_address>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_address.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "allDay", n => { AllDay = n.GetBoolValue(); } },
                 { "bookings", n => { Bookings = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_bookings>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_bookings.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "calendar", n => { Calendar = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_calendar>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_calendar.CreateFromDiscriminatorValue); } },
@@ -262,7 +262,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_additionals>("additionals", Additionals);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_additions>("additions", Additions);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_address>("address", Address);
+            writer.WriteObjectValue<UntypedNode>("address", Address);
             writer.WriteBoolValue("allDay", AllDay);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_bookings>("bookings", Bookings);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_calendar>("calendar", Calendar);

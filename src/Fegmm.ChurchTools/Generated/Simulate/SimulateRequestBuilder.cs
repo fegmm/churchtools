@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Simulate
         {
         }
         /// <summary>
-        /// Stops the current simulation
+        /// Stops the current person simulation and returns a redirect path to navigate back.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Simulate.SimulateDeleteResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Simulate
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Simulate.SimulateDeleteResponse>(requestInfo, global::Fegmm.ChurchTools.Simulate.SimulateDeleteResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Stops the current simulation
+        /// Stops the current person simulation and returns a redirect path to navigate back.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Simulate.SimulateResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Simulate
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Simulate.SimulateResponse>(requestInfo, global::Fegmm.ChurchTools.Simulate.SimulateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Starts the simulation of another person
+        /// Starts simulating another person. The current user&apos;s session will act as the specified person until the simulation is stopped.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -89,7 +89,7 @@ namespace Fegmm.ChurchTools.Simulate
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Stops the current simulation
+        /// Stops the current person simulation and returns a redirect path to navigate back.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -108,7 +108,7 @@ namespace Fegmm.ChurchTools.Simulate
             return requestInfo;
         }
         /// <summary>
-        /// Starts the simulation of another person
+        /// Starts simulating another person. The current user&apos;s session will act as the specified person until the simulation is stopped.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -125,6 +125,7 @@ namespace Fegmm.ChurchTools.Simulate
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }

@@ -84,6 +84,14 @@ namespace Fegmm.ChurchTools.Dbfields.Item
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The nameTranslated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NameTranslated { get; set; }
+#nullable restore
+#else
+        public string NameTranslated { get; set; }
+#endif
         /// <summary>The notConfigurable property</summary>
         [Obsolete("")]
         public bool? NotConfigurable { get; set; }
@@ -153,6 +161,7 @@ namespace Fegmm.ChurchTools.Dbfields.Item
                 { "length", n => { Length = n.GetIntValue(); } },
                 { "lineEnding", n => { LineEnding = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
                 { "notConfigurable", n => { NotConfigurable = n.GetBoolValue(); } },
                 { "nullable", n => { Nullable = n.GetBoolValue(); } },
                 { "options", n => { Options = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
@@ -185,6 +194,7 @@ namespace Fegmm.ChurchTools.Dbfields.Item
             writer.WriteIntValue("length", Length);
             writer.WriteStringValue("lineEnding", LineEnding);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("nameTranslated", NameTranslated);
             writer.WriteBoolValue("notConfigurable", NotConfigurable);
             writer.WriteBoolValue("nullable", Nullable);
             writer.WriteObjectValue<UntypedNode>("options", Options);

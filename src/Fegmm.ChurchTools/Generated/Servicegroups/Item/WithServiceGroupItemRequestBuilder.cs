@@ -32,6 +32,9 @@ namespace Fegmm.ChurchTools.Servicegroups.Item
         public WithServiceGroupItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/servicegroups/{serviceGroupId}", rawUrl)
         {
         }
+        /// <summary>
+        /// Returns a single service group by its ID.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,6 +50,9 @@ namespace Fegmm.ChurchTools.Servicegroups.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupGetResponse>(requestInfo, global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns a single service group by its ID.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -63,6 +69,9 @@ namespace Fegmm.ChurchTools.Servicegroups.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupResponse>(requestInfo, global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns a single service group by its ID.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Addresses.Search
         {
         }
         /// <summary>
-        /// Search for addresses in persons and global nominatim-search
+        /// Searches for addresses across persons and a global geocoding service (e.g. Nominatim/Photon). Returns matching results from both sources. The query must be at least 2 characters long.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Search.SearchGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Addresses.Search
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Addresses.Search.SearchGetResponse>(requestInfo, global::Fegmm.ChurchTools.Addresses.Search.SearchGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Search for addresses in persons and global nominatim-search
+        /// Searches for addresses across persons and a global geocoding service (e.g. Nominatim/Photon). Returns matching results from both sources. The query must be at least 2 characters long.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Search.SearchResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Addresses.Search
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Addresses.Search.SearchResponse>(requestInfo, global::Fegmm.ChurchTools.Addresses.Search.SearchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Search for addresses in persons and global nominatim-search
+        /// Searches for addresses across persons and a global geocoding service (e.g. Nominatim/Photon). Returns matching results from both sources. The query must be at least 2 characters long.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,11 +98,12 @@ namespace Fegmm.ChurchTools.Addresses.Search
             return new global::Fegmm.ChurchTools.Addresses.Search.SearchRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Search for addresses in persons and global nominatim-search
+        /// Searches for addresses across persons and a global geocoding service (e.g. Nominatim/Photon). Returns matching results from both sources. The query must be at least 2 characters long.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderGetQueryParameters 
         {
+            /// <summary>Search term to look up addresses by (e.g. street, city, person name).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("query")]

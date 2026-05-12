@@ -59,7 +59,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories
         {
         }
         /// <summary>
-        /// Get all wiki categories.
+        /// Returns all wiki categories the current user has permission to view. Each category includes individual permissions (canEdit, canDelete) and a top-level editMasterData permission.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.CategoriesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -77,7 +77,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesGetResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.CategoriesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all wiki categories.
+        /// Returns all wiki categories the current user has permission to view. Each category includes individual permissions (canEdit, canDelete) and a top-level editMasterData permission.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -96,44 +96,48 @@ namespace Fegmm.ChurchTools.Wiki.Categories
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new wiki category.
+        /// Creates a new wiki category. Requires the churchwiki edit masterdata permission.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostResponse"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostResponse?> PostAsCategoriesPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostResponse?> PostAsCategoriesPostResponseAsync(global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostResponse> PostAsCategoriesPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostResponse> PostAsCategoriesPostResponseAsync(global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToPostRequestInformation(requestConfiguration);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new wiki category.
+        /// Creates a new wiki category. Requires the churchwiki edit masterdata permission.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PostAsCategoriesPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse?> PostAsync(global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse> PostAsync(global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToPostRequestInformation(requestConfiguration);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all wiki categories.
+        /// Returns all wiki categories the current user has permission to view. Each category includes individual permissions (canEdit, canDelete) and a top-level editMasterData permission.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -152,22 +156,25 @@ namespace Fegmm.ChurchTools.Wiki.Categories
             return requestInfo;
         }
         /// <summary>
-        /// Create a new wiki category.
+        /// Creates a new wiki category. Requires the churchwiki edit masterdata permission.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>

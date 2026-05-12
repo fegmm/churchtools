@@ -116,6 +116,8 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
         public DateTimeOffset? SignUpNotificationSentDate { get; set; }
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? SignUpOpeningDate { get; set; }
+        /// <summary>The signUpOverrideRoleId property</summary>
+        public int? SignUpOverrideRoleId { get; set; }
         /// <summary>The visibility of a group.</summary>
         public global::Fegmm.ChurchTools.Groups.Item.Duplicate.DuplicatePostResponse_data_settings_visibility? Visibility { get; set; }
         /// <summary>Maximum number of persons on waiting list.</summary>
@@ -181,6 +183,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
                 { "signUpHeadline", n => { SignUpHeadline = n.GetStringValue(); } },
                 { "signUpNotificationSentDate", n => { SignUpNotificationSentDate = n.GetDateTimeOffsetValue(); } },
                 { "signUpOpeningDate", n => { SignUpOpeningDate = n.GetDateTimeOffsetValue(); } },
+                { "signUpOverrideRoleId", n => { SignUpOverrideRoleId = n.GetIntValue(); } },
                 { "visibility", n => { Visibility = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.Duplicate.DuplicatePostResponse_data_settings_visibility>(); } },
                 { "waitinglistMaxPersons", n => { WaitinglistMaxPersons = n.GetIntValue(); } },
             };
@@ -228,6 +231,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
             writer.WriteStringValue("signUpHeadline", SignUpHeadline);
             writer.WriteDateTimeOffsetValue("signUpNotificationSentDate", SignUpNotificationSentDate);
             writer.WriteDateTimeOffsetValue("signUpOpeningDate", SignUpOpeningDate);
+            writer.WriteIntValue("signUpOverrideRoleId", SignUpOverrideRoleId);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.Duplicate.DuplicatePostResponse_data_settings_visibility>("visibility", Visibility);
             writer.WriteIntValue("waitinglistMaxPersons", WaitinglistMaxPersons);
             writer.WriteAdditionalData(AdditionalData);

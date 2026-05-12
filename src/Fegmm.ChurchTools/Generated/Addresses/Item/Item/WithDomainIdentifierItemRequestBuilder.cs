@@ -18,7 +18,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
     public partial class WithDomainIdentifierItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Fegmm.ChurchTools.addresses.item.item.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The ID of the address to update or delete.</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressItemRequestBuilder"/></returns>
         public global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressItemRequestBuilder this[int position]
         {
@@ -30,7 +30,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
             }
         }
         /// <summary>Gets an item from the Fegmm.ChurchTools.addresses.item.item.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The ID of the address to update or delete.</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
         public global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressItemRequestBuilder this[string position]
@@ -59,7 +59,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
         {
         }
         /// <summary>
-        /// Get addresses by domain type and domain identfier
+        /// Returns all addresses associated with the given domain type and domain identifier (e.g. all addresses of a specific group).
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -77,7 +77,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierGetResponse>(requestInfo, global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get addresses by domain type and domain identfier
+        /// Returns all addresses associated with the given domain type and domain identifier (e.g. all addresses of a specific group).
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -96,7 +96,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierResponse>(requestInfo, global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create addresses for domain type and domain identfier
+        /// Creates a new address for the given domain type and domain identifier (e.g. a new address for a specific group). All address fields are required but may be null. The domainType and domainIdentifier are taken from the path parameters.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -116,7 +116,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierPostResponse>(requestInfo, global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create addresses for domain type and domain identfier
+        /// Creates a new address for the given domain type and domain identifier (e.g. a new address for a specific group). All address fields are required but may be null. The domainType and domainIdentifier are taken from the path parameters.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -137,7 +137,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierResponse>(requestInfo, global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get addresses by domain type and domain identfier
+        /// Returns all addresses associated with the given domain type and domain identifier (e.g. all addresses of a specific group).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -156,7 +156,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
             return requestInfo;
         }
         /// <summary>
-        /// Create addresses for domain type and domain identfier
+        /// Creates a new address for the given domain type and domain identifier (e.g. a new address for a specific group). All address fields are required but may be null. The domainType and domainIdentifier are taken from the path parameters.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

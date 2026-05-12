@@ -50,41 +50,23 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Ite
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a meeting request
+        /// Answer a meeting request as the invitee. The answer determines whether the meeting request is accepted, declined, marked as maybe, or reset to pending.
         /// </summary>
-        /// <returns>A <see cref="global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestPutResponse"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestPutResponse?> PutAsWithMeetingRequestPutResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestPutResponse> PutAsWithMeetingRequestPutResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PutAsync(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToPutRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestPutResponse>(requestInfo, global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestPutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Update a meeting request
-        /// </summary>
-        /// <returns>A <see cref="global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use PutAsWithMeetingRequestPutResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestResponse?> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestResponse> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToPutRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestResponse>(requestInfo, global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
+            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete a meeting request
@@ -106,22 +88,25 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Ite
             return requestInfo;
         }
         /// <summary>
-        /// Update a meeting request
+        /// Answer a meeting request as the invitee. The answer determines whether the meeting request is accepted, declined, marked as maybe, or reset to pending.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.Item.WithMeetingRequestPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>

@@ -22,7 +22,7 @@ namespace Fegmm.ChurchTools.Addresses
             get => new global::Fegmm.ChurchTools.Addresses.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Fegmm.ChurchTools.addresses.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The domain type to retrieve addresses for. Currently only `group` is supported.</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Item.WithDomainTypeItemRequestBuilder"/></returns>
         public global::Fegmm.ChurchTools.Addresses.Item.WithDomainTypeItemRequestBuilder this[string position]
         {

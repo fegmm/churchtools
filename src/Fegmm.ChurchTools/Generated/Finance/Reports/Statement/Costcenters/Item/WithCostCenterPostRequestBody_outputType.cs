@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item
 {
-    /// <summary>Output type for the selected financial report</summary>
+    /// <summary>Output format for the selected financial report</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WithCostCenterPostRequestBody_outputType
     {

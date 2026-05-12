@@ -8,8 +8,9 @@ using System;
 namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item
 {
     /// <summary>
-    /// Person as Domain Object
+    /// Use &apos;invitee&apos; instead
     /// </summary>
+    [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithStartDateGetResponse_data_meetingRequests_person : IAdditionalDataHolder, IParsable
     {

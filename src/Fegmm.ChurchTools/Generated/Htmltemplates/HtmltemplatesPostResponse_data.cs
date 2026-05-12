@@ -22,6 +22,14 @@ namespace Fegmm.ChurchTools.Htmltemplates
         public int? Id { get; set; }
         /// <summary>The isGlobal property</summary>
         public bool? IsGlobal { get; set; }
+        /// <summary>The meta property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_meta? Meta { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_meta Meta { get; set; }
+#endif
         /// <summary>The mjmlFileId property</summary>
         public int? MjmlFileId { get; set; }
         /// <summary>The name property</summary>
@@ -71,6 +79,7 @@ namespace Fegmm.ChurchTools.Htmltemplates
                 { "htmlFileId", n => { HtmlFileId = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "isGlobal", n => { IsGlobal = n.GetBoolValue(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_meta>(global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_meta.CreateFromDiscriminatorValue); } },
                 { "mjmlFileId", n => { MjmlFileId = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owner", n => { Owner = n.GetObjectValue<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_owner>(global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_owner.CreateFromDiscriminatorValue); } },
@@ -88,6 +97,7 @@ namespace Fegmm.ChurchTools.Htmltemplates
             writer.WriteIntValue("htmlFileId", HtmlFileId);
             writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("isGlobal", IsGlobal);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_meta>("meta", Meta);
             writer.WriteIntValue("mjmlFileId", MjmlFileId);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_owner>("owner", Owner);

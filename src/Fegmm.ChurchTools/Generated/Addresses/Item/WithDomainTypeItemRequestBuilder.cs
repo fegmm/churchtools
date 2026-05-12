@@ -16,7 +16,7 @@ namespace Fegmm.ChurchTools.Addresses.Item
     public partial class WithDomainTypeItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Fegmm.ChurchTools.addresses.item.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The identifier of the domain object (e.g. the group ID).</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierItemRequestBuilder"/></returns>
         public global::Fegmm.ChurchTools.Addresses.Item.Item.WithDomainIdentifierItemRequestBuilder this[string position]
         {

@@ -14,9 +14,11 @@ namespace Fegmm.ChurchTools.Contactlabels.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Indicator if label is new default.</summary>
+        /// <summary>ID of Record</summary>
+        public int? Id { get; set; }
+        /// <summary>Indicator if label is the default. Used for new person emails</summary>
         public bool? IsDefault { get; set; }
-        /// <summary>Name of Contact Label</summary>
+        /// <summary>Name of Label</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -24,7 +26,7 @@ namespace Fegmm.ChurchTools.Contactlabels.Item
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>SortKey</summary>
+        /// <summary>The sortKey property</summary>
         public int? SortKey { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Contactlabels.Item.ContactlabelsPutRequestBody"/> and sets the default values.
@@ -51,6 +53,7 @@ namespace Fegmm.ChurchTools.Contactlabels.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "id", n => { Id = n.GetIntValue(); } },
                 { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
@@ -63,6 +66,7 @@ namespace Fegmm.ChurchTools.Contactlabels.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("isDefault", IsDefault);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("sortKey", SortKey);

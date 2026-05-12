@@ -17,26 +17,26 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Templates.Item
         /// <summary>The address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_address? Address { get; set; }
+        public UntypedNode? Address { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_address Address { get; set; }
+        public UntypedNode Address { get; set; }
 #endif
         /// <summary>The allDay property</summary>
         public bool? AllDay { get; set; }
         /// <summary>The bookings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_bookings? Bookings { get; set; }
+        public List<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_bookings>? Bookings { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_bookings Bookings { get; set; }
+        public List<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_bookings> Bookings { get; set; }
 #endif
         /// <summary>The calendarId property</summary>
         public int? CalendarId { get; set; }
-        /// <summary>The days_archive_group_no property</summary>
+        /// <summary>The daysArchiveGroupNo property</summary>
         public int? DaysArchiveGroupNo { get; set; }
-        /// <summary>The days_forward_no property</summary>
+        /// <summary>The daysForwardNo property</summary>
         public int? DaysForwardNo { get; set; }
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,13 +47,7 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Templates.Item
         public string Description { get; set; }
 #endif
         /// <summary>Duration in seconds</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Duration { get; set; }
-#nullable restore
-#else
-        public string Duration { get; set; }
-#endif
+        public int? Duration { get; set; }
         /// <summary>The events property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,23 +56,17 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Templates.Item
 #else
         public UntypedNode Events { get; set; }
 #endif
-        /// <summary>The grouptype_id property</summary>
+        /// <summary>The grouptypeId property</summary>
         public int? GrouptypeId { get; set; }
         /// <summary>The id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Id { get; set; }
-#nullable restore
-#else
-        public string Id { get; set; }
-#endif
+        public int? Id { get; set; }
         /// <summary>The image property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_image? Image { get; set; }
+        public UntypedNode? Image { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_image Image { get; set; }
+        public UntypedNode Image { get; set; }
 #endif
         /// <summary>The isInternal property</summary>
         public bool? IsInternal { get; set; }
@@ -90,8 +78,16 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Templates.Item
 #else
         public string Link { get; set; }
 #endif
+        /// <summary>The meta property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_meta? Meta { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_meta Meta { get; set; }
+#endif
         /// <summary>The onBehalfOfPid property</summary>
-        public double? OnBehalfOfPid { get; set; }
+        public int? OnBehalfOfPid { get; set; }
         /// <summary>The repeatDuration property</summary>
         public int? RepeatDuration { get; set; }
         /// <summary>The repeatFrequency property</summary>
@@ -116,7 +112,15 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Templates.Item
 #else
         public string Subtitle { get; set; }
 #endif
-        /// <summary>The template_group_id property</summary>
+        /// <summary>List of tag IDs assigned to the appointment template</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<int?>? Tags { get; set; }
+#nullable restore
+#else
+        public List<int?> Tags { get; set; }
+#endif
+        /// <summary>The templateGroupId property</summary>
         public int? TemplateGroupId { get; set; }
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -151,28 +155,30 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Templates.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "address", n => { Address = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_address>(global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_address.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "allDay", n => { AllDay = n.GetBoolValue(); } },
-                { "bookings", n => { Bookings = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_bookings>(global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_bookings.CreateFromDiscriminatorValue); } },
+                { "bookings", n => { Bookings = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_bookings>(global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_bookings.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "calendarId", n => { CalendarId = n.GetIntValue(); } },
-                { "days_archive_group_no", n => { DaysArchiveGroupNo = n.GetIntValue(); } },
-                { "days_forward_no", n => { DaysForwardNo = n.GetIntValue(); } },
+                { "daysArchiveGroupNo", n => { DaysArchiveGroupNo = n.GetIntValue(); } },
+                { "daysForwardNo", n => { DaysForwardNo = n.GetIntValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "duration", n => { Duration = n.GetStringValue(); } },
+                { "duration", n => { Duration = n.GetIntValue(); } },
                 { "events", n => { Events = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "grouptype_id", n => { GrouptypeId = n.GetIntValue(); } },
-                { "id", n => { Id = n.GetStringValue(); } },
-                { "image", n => { Image = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_image>(global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_image.CreateFromDiscriminatorValue); } },
+                { "grouptypeId", n => { GrouptypeId = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
+                { "image", n => { Image = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "isInternal", n => { IsInternal = n.GetBoolValue(); } },
                 { "link", n => { Link = n.GetStringValue(); } },
-                { "onBehalfOfPid", n => { OnBehalfOfPid = n.GetDoubleValue(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_meta>(global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_meta.CreateFromDiscriminatorValue); } },
+                { "onBehalfOfPid", n => { OnBehalfOfPid = n.GetIntValue(); } },
                 { "repeatDuration", n => { RepeatDuration = n.GetIntValue(); } },
                 { "repeatFrequency", n => { RepeatFrequency = n.GetIntValue(); } },
                 { "repeatId", n => { RepeatId = n.GetIntValue(); } },
                 { "repeatOptionId", n => { RepeatOptionId = n.GetIntValue(); } },
                 { "startTime", n => { StartTime = n.GetStringValue(); } },
                 { "subtitle", n => { Subtitle = n.GetStringValue(); } },
-                { "template_group_id", n => { TemplateGroupId = n.GetIntValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
+                { "templateGroupId", n => { TemplateGroupId = n.GetIntValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -183,28 +189,30 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Templates.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_address>("address", Address);
+            writer.WriteObjectValue<UntypedNode>("address", Address);
             writer.WriteBoolValue("allDay", AllDay);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_bookings>("bookings", Bookings);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_bookings>("bookings", Bookings);
             writer.WriteIntValue("calendarId", CalendarId);
-            writer.WriteIntValue("days_archive_group_no", DaysArchiveGroupNo);
-            writer.WriteIntValue("days_forward_no", DaysForwardNo);
+            writer.WriteIntValue("daysArchiveGroupNo", DaysArchiveGroupNo);
+            writer.WriteIntValue("daysForwardNo", DaysForwardNo);
             writer.WriteStringValue("description", Description);
-            writer.WriteStringValue("duration", Duration);
+            writer.WriteIntValue("duration", Duration);
             writer.WriteObjectValue<UntypedNode>("events", Events);
-            writer.WriteIntValue("grouptype_id", GrouptypeId);
-            writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_image>("image", Image);
+            writer.WriteIntValue("grouptypeId", GrouptypeId);
+            writer.WriteIntValue("id", Id);
+            writer.WriteObjectValue<UntypedNode>("image", Image);
             writer.WriteBoolValue("isInternal", IsInternal);
             writer.WriteStringValue("link", Link);
-            writer.WriteDoubleValue("onBehalfOfPid", OnBehalfOfPid);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.Item.WithTemplatePutResponse_data_meta>("meta", Meta);
+            writer.WriteIntValue("onBehalfOfPid", OnBehalfOfPid);
             writer.WriteIntValue("repeatDuration", RepeatDuration);
             writer.WriteIntValue("repeatFrequency", RepeatFrequency);
             writer.WriteIntValue("repeatId", RepeatId);
             writer.WriteIntValue("repeatOptionId", RepeatOptionId);
             writer.WriteStringValue("startTime", StartTime);
             writer.WriteStringValue("subtitle", Subtitle);
-            writer.WriteIntValue("template_group_id", TemplateGroupId);
+            writer.WriteCollectionOfPrimitiveValues<int?>("tags", Tags);
+            writer.WriteIntValue("templateGroupId", TemplateGroupId);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

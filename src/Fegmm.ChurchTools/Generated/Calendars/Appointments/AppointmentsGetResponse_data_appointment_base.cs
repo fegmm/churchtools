@@ -35,10 +35,10 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
         /// <summary>The address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_address? Address { get; set; }
+        public UntypedNode? Address { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_address Address { get; set; }
+        public UntypedNode Address { get; set; }
 #endif
         /// <summary>The allDay property</summary>
         public bool? AllDay { get; set; }
@@ -200,7 +200,7 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
             {
                 { "additionals", n => { Additionals = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_additionals>(global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_additionals.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "additions", n => { Additions = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_additions>(global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_additions.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "address", n => { Address = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_address>(global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_address.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "allDay", n => { AllDay = n.GetBoolValue(); } },
                 { "calendar", n => { Calendar = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_calendar>(global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_calendar.CreateFromDiscriminatorValue); } },
                 { "caption", n => { Caption = n.GetStringValue(); } },
@@ -235,7 +235,7 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_additionals>("additionals", Additionals);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_additions>("additions", Additions);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_address>("address", Address);
+            writer.WriteObjectValue<UntypedNode>("address", Address);
             writer.WriteBoolValue("allDay", AllDay);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_calendar>("calendar", Calendar);
             writer.WriteStringValue("caption", Caption);

@@ -47,6 +47,14 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
         public int? GroupStatusId { get; set; }
         /// <summary>The groupTypeId property</summary>
         public int? GroupTypeId { get; set; }
+        /// <summary>The imageAnnotation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ImageAnnotation { get; set; }
+#nullable restore
+#else
+        public string ImageAnnotation { get; set; }
+#endif
         /// <summary>The imageUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,6 +123,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
                 { "groupHomepageUrl", n => { GroupHomepageUrl = n.GetStringValue(); } },
                 { "groupStatusId", n => { GroupStatusId = n.GetIntValue(); } },
                 { "groupTypeId", n => { GroupTypeId = n.GetIntValue(); } },
+                { "imageAnnotation", n => { ImageAnnotation = n.GetStringValue(); } },
                 { "imageUrl", n => { ImageUrl = n.GetStringValue(); } },
                 { "maxMembers", n => { MaxMembers = n.GetIntValue(); } },
                 { "meetingTime", n => { MeetingTime = n.GetStringValue(); } },
@@ -141,6 +150,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
             writer.WriteStringValue("groupHomepageUrl", GroupHomepageUrl);
             writer.WriteIntValue("groupStatusId", GroupStatusId);
             writer.WriteIntValue("groupTypeId", GroupTypeId);
+            writer.WriteStringValue("imageAnnotation", ImageAnnotation);
             writer.WriteStringValue("imageUrl", ImageUrl);
             writer.WriteIntValue("maxMembers", MaxMembers);
             writer.WriteStringValue("meetingTime", MeetingTime);

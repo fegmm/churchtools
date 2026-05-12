@@ -12,9 +12,17 @@ namespace Fegmm.ChurchTools.Actions
         #pragma warning disable CS1591
         AddMemberToGroup,
         #pragma warning restore CS1591
+        [EnumMember(Value = "add-person-to-group")]
+        #pragma warning disable CS1591
+        AddPersonToGroup,
+        #pragma warning restore CS1591
         [EnumMember(Value = "archive-member")]
         #pragma warning disable CS1591
         ArchiveMember,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "archive-person")]
+        #pragma warning disable CS1591
+        ArchivePerson,
         #pragma warning restore CS1591
         [EnumMember(Value = "change-member-status-active-requested")]
         #pragma warning disable CS1591
@@ -23,10 +31,6 @@ namespace Fegmm.ChurchTools.Actions
         [EnumMember(Value = "change-member-status-active-to_delete")]
         #pragma warning disable CS1591
         ChangeMemberStatusActiveTo_delete,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "change-member-status-active-waiting")]
-        #pragma warning disable CS1591
-        ChangeMemberStatusActiveWaiting,
         #pragma warning restore CS1591
         [EnumMember(Value = "change-member-status-requested-active")]
         #pragma warning disable CS1591
@@ -48,13 +52,13 @@ namespace Fegmm.ChurchTools.Actions
         #pragma warning disable CS1591
         ChangeMemberStatusTo_deleteRequested,
         #pragma warning restore CS1591
-        [EnumMember(Value = "change-member-status-to_delete-waiting")]
-        #pragma warning disable CS1591
-        ChangeMemberStatusTo_deleteWaiting,
-        #pragma warning restore CS1591
         [EnumMember(Value = "change-member-status-waiting-active")]
         #pragma warning disable CS1591
         ChangeMemberStatusWaitingActive,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "change-member-status-waiting-requested")]
+        #pragma warning disable CS1591
+        ChangeMemberStatusWaitingRequested,
         #pragma warning restore CS1591
         [EnumMember(Value = "change-member-status-waiting-to_delete")]
         #pragma warning disable CS1591
@@ -75,6 +79,10 @@ namespace Fegmm.ChurchTools.Actions
         [EnumMember(Value = "invite-member")]
         #pragma warning disable CS1591
         InviteMember,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invite-person")]
+        #pragma warning disable CS1591
+        InvitePerson,
         #pragma warning restore CS1591
         [EnumMember(Value = "remove-member")]
         #pragma warning disable CS1591

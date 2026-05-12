@@ -96,7 +96,7 @@ namespace Fegmm.ChurchTools.Songs
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Songs.SongsResponse>(requestInfo, global::Fegmm.ChurchTools.Songs.SongsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new song
+        /// Create a new song. Optionally, arrangements can be provided inline during creation.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Songs.SongsPostResponse"/></returns>
         /// <param name="body">Song information</param>
@@ -116,7 +116,7 @@ namespace Fegmm.ChurchTools.Songs
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Songs.SongsPostResponse>(requestInfo, global::Fegmm.ChurchTools.Songs.SongsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new song
+        /// Create a new song. Optionally, arrangements can be provided inline during creation.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Songs.SongsResponse"/></returns>
         /// <param name="body">Song information</param>
@@ -156,7 +156,7 @@ namespace Fegmm.ChurchTools.Songs
             return requestInfo;
         }
         /// <summary>
-        /// Create a new song
+        /// Create a new song. Optionally, arrangements can be provided inline during creation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Song information</param>
@@ -223,7 +223,7 @@ namespace Fegmm.ChurchTools.Songs
             [QueryParameter("include")]
             public global::Fegmm.ChurchTools.Songs.GetIncludeQueryParameterType[] IncludeAsGetIncludeQueryParameterType { get; set; }
 #endif
-            /// <summary>Filter by arrangement key. (Song plus all its arrangements are returned, if one arrangement meets the filter criterion)</summary>
+            /// <summary>Filter by arrangement key. Song plus all its arrangements are returned if one arrangement meets the filter criterion.</summary>
             [Obsolete("This property is deprecated, use KeyOfArrangementAsGetKeyOfArrangementQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -234,13 +234,13 @@ namespace Fegmm.ChurchTools.Songs
             [QueryParameter("key_of_arrangement")]
             public string KeyOfArrangement { get; set; }
 #endif
-            /// <summary>Filter by arrangement key. (Song plus all its arrangements are returned, if one arrangement meets the filter criterion)</summary>
+            /// <summary>Filter by arrangement key. Song plus all its arrangements are returned if one arrangement meets the filter criterion.</summary>
             [QueryParameter("key_of_arrangement")]
             public global::Fegmm.ChurchTools.Songs.GetKey_of_arrangementQueryParameterType? KeyOfArrangementAsGetKeyOfArrangementQueryParameterType { get; set; }
             /// <summary>Number of results per page.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>Search by song title</summary>
+            /// <summary>Search by song title.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("name")]
@@ -256,7 +256,7 @@ namespace Fegmm.ChurchTools.Songs
             /// <summary>Filter by field `shouldPractice`.</summary>
             [QueryParameter("practice")]
             public bool? Practice { get; set; }
-            /// <summary>Search by song title or author</summary>
+            /// <summary>Search by song title or author.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("query")]

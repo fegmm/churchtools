@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item.Item
         {
         }
         /// <summary>
-        /// Delete address
+        /// Deletes an existing address by its ID for the given domain type and domain identifier.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -50,7 +50,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update address
+        /// Updates an existing address for the given domain type, domain identifier and address ID. All address fields are required but may be null.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse>(requestInfo, global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update address
+        /// Updates an existing address for the given domain type, domain identifier and address ID. All address fields are required but may be null.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -91,7 +91,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressResponse>(requestInfo, global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete address
+        /// Deletes an existing address by its ID for the given domain type and domain identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -110,7 +110,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update address
+        /// Updates an existing address for the given domain type, domain identifier and address ID. All address fields are required but may be null.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

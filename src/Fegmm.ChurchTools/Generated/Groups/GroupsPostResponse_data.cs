@@ -17,6 +17,14 @@ namespace Fegmm.ChurchTools.Groups
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The averageMemberAge property</summary>
         public double? AverageMemberAge { get; set; }
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Groups.GroupsPostResponse_data_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Groups.GroupsPostResponse_data_Deprecated Deprecated { get; set; }
+#endif
         /// <summary>The followUp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -171,6 +179,7 @@ namespace Fegmm.ChurchTools.Groups
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "averageMemberAge", n => { AverageMemberAge = n.GetDoubleValue(); } },
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.GroupsPostResponse_data_Deprecated>(global::Fegmm.ChurchTools.Groups.GroupsPostResponse_data_Deprecated.CreateFromDiscriminatorValue); } },
                 { "followUp", n => { FollowUp = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.GroupsPostResponse_data_followUp>(global::Fegmm.ChurchTools.Groups.GroupsPostResponse_data_followUp.CreateFromDiscriminatorValue); } },
                 { "guid", n => { Guid = n.GetStringValue(); } },
                 { "hasPermissions", n => { HasPermissions = n.GetBoolValue(); } },
@@ -199,6 +208,7 @@ namespace Fegmm.ChurchTools.Groups
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("averageMemberAge", AverageMemberAge);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.GroupsPostResponse_data_Deprecated>("@deprecated", Deprecated);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.GroupsPostResponse_data_followUp>("followUp", FollowUp);
             writer.WriteStringValue("guid", Guid);
             writer.WriteBoolValue("hasPermissions", HasPermissions);

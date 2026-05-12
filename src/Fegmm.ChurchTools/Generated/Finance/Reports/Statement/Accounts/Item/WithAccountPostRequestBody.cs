@@ -16,8 +16,8 @@ namespace Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item
         public double? AccountingPeriodId { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Output type for the selected financial report</summary>
-        public global::Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item.WithAccountPostRequestBody_outputType? OutputType { get; set; }
+        /// <summary>Output format for the selected financial report</summary>
+        public global::Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item.WithAccountPostRequestBody_format? Format { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item.WithAccountPostRequestBody"/> and sets the default values.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "accountingPeriodId", n => { AccountingPeriodId = n.GetDoubleValue(); } },
-                { "outputType", n => { OutputType = n.GetEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item.WithAccountPostRequestBody_outputType>(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item.WithAccountPostRequestBody_format>(); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("accountingPeriodId", AccountingPeriodId);
-            writer.WriteEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item.WithAccountPostRequestBody_outputType>("outputType", OutputType);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item.WithAccountPostRequestBody_format>("format", Format);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

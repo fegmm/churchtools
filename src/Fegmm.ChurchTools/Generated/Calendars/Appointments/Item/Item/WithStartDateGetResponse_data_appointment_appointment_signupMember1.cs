@@ -16,13 +16,14 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Item.Item
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The signupDaysArchiveGroupNo property</summary>
         public int? SignupDaysArchiveGroupNo { get; set; }
+        /// <summary>The signupDaysForwardNo property</summary>
+        public int? SignupDaysForwardNo { get; set; }
         /// <summary>The signupGroupTypeId property</summary>
         public int? SignupGroupTypeId { get; set; }
-        /// <summary>The signupSetCompletionDate property</summary>
-        public bool? SignupSetCompletionDate { get; set; }
         /// <summary>The signupTemplateGroupId property</summary>
         public int? SignupTemplateGroupId { get; set; }
-        /// <summary>The singupDaysForwardNo property</summary>
+        /// <summary>Use &apos;signupDaysForwardNo&apos; instead. Misspelled legacy field.</summary>
+        [Obsolete("")]
         public int? SingupDaysForwardNo { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_appointment_signupMember1"/> and sets the default values.
@@ -50,8 +51,8 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Item.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "signupDaysArchiveGroupNo", n => { SignupDaysArchiveGroupNo = n.GetIntValue(); } },
+                { "signupDaysForwardNo", n => { SignupDaysForwardNo = n.GetIntValue(); } },
                 { "signupGroupTypeId", n => { SignupGroupTypeId = n.GetIntValue(); } },
-                { "signupSetCompletionDate", n => { SignupSetCompletionDate = n.GetBoolValue(); } },
                 { "signupTemplateGroupId", n => { SignupTemplateGroupId = n.GetIntValue(); } },
                 { "singupDaysForwardNo", n => { SingupDaysForwardNo = n.GetIntValue(); } },
             };
@@ -64,8 +65,8 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Item.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("signupDaysArchiveGroupNo", SignupDaysArchiveGroupNo);
+            writer.WriteIntValue("signupDaysForwardNo", SignupDaysForwardNo);
             writer.WriteIntValue("signupGroupTypeId", SignupGroupTypeId);
-            writer.WriteBoolValue("signupSetCompletionDate", SignupSetCompletionDate);
             writer.WriteIntValue("signupTemplateGroupId", SignupTemplateGroupId);
             writer.WriteIntValue("singupDaysForwardNo", SingupDaysForwardNo);
             writer.WriteAdditionalData(AdditionalData);

@@ -14,12 +14,26 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The campusId property</summary>
+        public int? CampusId { get; set; }
+        /// <summary>The eventTemplateId property</summary>
+        public int? EventTemplateId { get; set; }
+        /// <summary>The evTermineEventTypeId property</summary>
+        public int? EvTermineEventTypeId { get; set; }
+        /// <summary>The iCalSourceUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ICalSourceUrl { get; set; }
+#nullable restore
+#else
+        public string ICalSourceUrl { get; set; }
+#endif
         /// <summary>The id property</summary>
         public int? Id { get; set; }
-        /// <summary>The isPrivate property</summary>
+        /// <summary>Use &apos;type&apos; instead.</summary>
         [Obsolete("")]
         public bool? IsPrivate { get; set; }
-        /// <summary>The isPublic property</summary>
+        /// <summary>Use &apos;type&apos; instead.</summary>
         [Obsolete("")]
         public bool? IsPublic { get; set; }
         /// <summary>The meta property</summary>
@@ -46,6 +60,8 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
 #else
         public string RandomUrl { get; set; }
 #endif
+        /// <summary>The syncToEvTermine property</summary>
+        public bool? SyncToEvTermine { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsGetResponse_data_appointment_calendar"/> and sets the default values.
         /// </summary>
@@ -71,12 +87,17 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "campusId", n => { CampusId = n.GetIntValue(); } },
+                { "evTermineEventTypeId", n => { EvTermineEventTypeId = n.GetIntValue(); } },
+                { "eventTemplateId", n => { EventTemplateId = n.GetIntValue(); } },
+                { "iCalSourceUrl", n => { ICalSourceUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "isPrivate", n => { IsPrivate = n.GetBoolValue(); } },
                 { "isPublic", n => { IsPublic = n.GetBoolValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsGetResponse_data_appointment_calendar_meta>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsGetResponse_data_appointment_calendar_meta.CreateFromDiscriminatorValue); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
                 { "randomUrl", n => { RandomUrl = n.GetStringValue(); } },
+                { "syncToEvTermine", n => { SyncToEvTermine = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -86,12 +107,17 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("campusId", CampusId);
+            writer.WriteIntValue("eventTemplateId", EventTemplateId);
+            writer.WriteIntValue("evTermineEventTypeId", EvTermineEventTypeId);
+            writer.WriteStringValue("iCalSourceUrl", ICalSourceUrl);
             writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("isPrivate", IsPrivate);
             writer.WriteBoolValue("isPublic", IsPublic);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsGetResponse_data_appointment_calendar_meta>("meta", Meta);
             writer.WriteStringValue("nameTranslated", NameTranslated);
             writer.WriteStringValue("randomUrl", RandomUrl);
+            writer.WriteBoolValue("syncToEvTermine", SyncToEvTermine);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

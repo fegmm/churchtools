@@ -16,6 +16,16 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The calendarId property</summary>
         public int? CalendarId { get; set; }
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutResponse_data_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutResponse_data_Deprecated Deprecated { get; set; }
+#endif
+        /// <summary>Position in the agenda where the event starts (0-based).</summary>
+        public int? EventStartPosition { get; set; }
         /// <summary>The id property</summary>
         public int? Id { get; set; }
         /// <summary>Use `isLocked` instead.</summary>
@@ -83,6 +93,8 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "calendarId", n => { CalendarId = n.GetIntValue(); } },
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutResponse_data_Deprecated>(global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutResponse_data_Deprecated.CreateFromDiscriminatorValue); } },
+                { "eventStartPosition", n => { EventStartPosition = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "isFinal", n => { IsFinal = n.GetBoolValue(); } },
                 { "isLocked", n => { IsLocked = n.GetBoolValue(); } },
@@ -101,6 +113,8 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("calendarId", CalendarId);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.AgendaPutResponse_data_Deprecated>("@deprecated", Deprecated);
+            writer.WriteIntValue("eventStartPosition", EventStartPosition);
             writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("isFinal", IsFinal);
             writer.WriteBoolValue("isLocked", IsLocked);

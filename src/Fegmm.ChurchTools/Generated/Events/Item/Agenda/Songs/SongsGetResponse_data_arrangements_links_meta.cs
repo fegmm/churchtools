@@ -15,9 +15,25 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Songs
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
+        public DateTimeOffset? CreatedDate { get; set; }
+        /// <summary>The createdPerson property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links_meta_createdPerson? CreatedPerson { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links_meta_createdPerson CreatedPerson { get; set; }
+#endif
+        /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? ModifiedDate { get; set; }
-        /// <summary>The modifiedPid property</summary>
-        public int? ModifiedPid { get; set; }
+        /// <summary>The modifiedPerson property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links_meta_modifiedPerson? ModifiedPerson { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links_meta_modifiedPerson ModifiedPerson { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links_meta"/> and sets the default values.
         /// </summary>
@@ -43,8 +59,10 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Songs
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "createdDate", n => { CreatedDate = n.GetDateTimeOffsetValue(); } },
+                { "createdPerson", n => { CreatedPerson = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links_meta_createdPerson>(global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links_meta_createdPerson.CreateFromDiscriminatorValue); } },
                 { "modifiedDate", n => { ModifiedDate = n.GetDateTimeOffsetValue(); } },
-                { "modifiedPid", n => { ModifiedPid = n.GetIntValue(); } },
+                { "modifiedPerson", n => { ModifiedPerson = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links_meta_modifiedPerson>(global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links_meta_modifiedPerson.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -54,8 +72,10 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Songs
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDateTimeOffsetValue("createdDate", CreatedDate);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links_meta_createdPerson>("createdPerson", CreatedPerson);
             writer.WriteDateTimeOffsetValue("modifiedDate", ModifiedDate);
-            writer.WriteIntValue("modifiedPid", ModifiedPid);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links_meta_modifiedPerson>("modifiedPerson", ModifiedPerson);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

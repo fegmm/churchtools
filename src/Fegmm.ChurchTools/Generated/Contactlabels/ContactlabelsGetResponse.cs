@@ -17,10 +17,10 @@ namespace Fegmm.ChurchTools.Contactlabels
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Fegmm.ChurchTools.Contactlabels.ContactlabelsGetResponse_data>? Data { get; set; }
+        public UntypedNode? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Fegmm.ChurchTools.Contactlabels.ContactlabelsGetResponse_data> Data { get; set; }
+        public UntypedNode Data { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Fegmm.ChurchTools.Contactlabels
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Contactlabels.ContactlabelsGetResponse_data>(global::Fegmm.ChurchTools.Contactlabels.ContactlabelsGetResponse_data.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Contactlabels.ContactlabelsGetResponse_meta>(global::Fegmm.ChurchTools.Contactlabels.ContactlabelsGetResponse_meta.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Fegmm.ChurchTools.Contactlabels
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Contactlabels.ContactlabelsGetResponse_data>("data", Data);
+            writer.WriteObjectValue<UntypedNode>("data", Data);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Contactlabels.ContactlabelsGetResponse_meta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }

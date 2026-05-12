@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Export
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{groupId}/members/export{?type*}", pathParameters)
+        public ExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{groupId}/members/export{?format*,type*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Export
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{groupId}/members/export{?type*}", rawUrl)
+        public ExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{groupId}/members/export{?format*,type*}", rawUrl)
         {
         }
         /// <summary>
@@ -126,7 +126,21 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Export
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ExportRequestBuilderGetQueryParameters 
         {
-            /// <summary>Type of export file </summary>
+            /// <summary>Format of export file</summary>
+            [Obsolete("This property is deprecated, use FormatAsGetFormatQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("format")]
+            public string? Format { get; set; }
+#nullable restore
+#else
+            [QueryParameter("format")]
+            public string Format { get; set; }
+#endif
+            /// <summary>Format of export file</summary>
+            [QueryParameter("format")]
+            public global::Fegmm.ChurchTools.Groups.Item.Members.Export.GetFormatQueryParameterType? FormatAsGetFormatQueryParameterType { get; set; }
+            /// <summary>Use `format`</summary>
             [Obsolete("This property is deprecated, use TypeAsGetTypeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -137,7 +151,8 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Export
             [QueryParameter("type")]
             public string Type { get; set; }
 #endif
-            /// <summary>Type of export file </summary>
+            /// <summary>Use `format`</summary>
+            [Obsolete("")]
             [QueryParameter("type")]
             public global::Fegmm.ChurchTools.Groups.Item.Members.Export.GetTypeQueryParameterType? TypeAsGetTypeQueryParameterType { get; set; }
         }
@@ -155,7 +170,21 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Export
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ExportRequestBuilderPostQueryParameters 
         {
-            /// <summary>Type of export file</summary>
+            /// <summary>Format of export file</summary>
+            [Obsolete("This property is deprecated, use FormatAsPostFormatQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("format")]
+            public string? Format { get; set; }
+#nullable restore
+#else
+            [QueryParameter("format")]
+            public string Format { get; set; }
+#endif
+            /// <summary>Format of export file</summary>
+            [QueryParameter("format")]
+            public global::Fegmm.ChurchTools.Groups.Item.Members.Export.PostFormatQueryParameterType? FormatAsPostFormatQueryParameterType { get; set; }
+            /// <summary>Use `format`</summary>
             [Obsolete("This property is deprecated, use TypeAsPostTypeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -166,7 +195,8 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Export
             [QueryParameter("type")]
             public string Type { get; set; }
 #endif
-            /// <summary>Type of export file</summary>
+            /// <summary>Use `format`</summary>
+            [Obsolete("")]
             [QueryParameter("type")]
             public global::Fegmm.ChurchTools.Groups.Item.Members.Export.PostTypeQueryParameterType? TypeAsPostTypeQueryParameterType { get; set; }
         }

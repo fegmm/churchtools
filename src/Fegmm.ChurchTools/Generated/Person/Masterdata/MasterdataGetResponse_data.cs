@@ -41,10 +41,10 @@ namespace Fegmm.ChurchTools.Person.Masterdata
         /// <summary>The contactLabels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_contactLabels>? ContactLabels { get; set; }
+        public UntypedNode? ContactLabels { get; set; }
 #nullable restore
 #else
-        public List<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_contactLabels> ContactLabels { get; set; }
+        public UntypedNode ContactLabels { get; set; }
 #endif
         /// <summary>The departments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -162,7 +162,7 @@ namespace Fegmm.ChurchTools.Person.Masterdata
                 { "ageGroups", n => { AgeGroups = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "campuses", n => { Campuses = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_campuses>(global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_campuses.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "commentViewers", n => { CommentViewers = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_commentViewers>(global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_commentViewers.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "contactLabels", n => { ContactLabels = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_contactLabels>(global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_contactLabels.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "contactLabels", n => { ContactLabels = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "departments", n => { Departments = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_departments>(global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_departments.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "groupCategories", n => { GroupCategories = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "groupMeetingTemplates", n => { GroupMeetingTemplates = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
@@ -186,7 +186,7 @@ namespace Fegmm.ChurchTools.Person.Masterdata
             writer.WriteObjectValue<UntypedNode>("ageGroups", AgeGroups);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_campuses>("campuses", Campuses);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_commentViewers>("commentViewers", CommentViewers);
-            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_contactLabels>("contactLabels", ContactLabels);
+            writer.WriteObjectValue<UntypedNode>("contactLabels", ContactLabels);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_departments>("departments", Departments);
             writer.WriteObjectValue<UntypedNode>("groupCategories", GroupCategories);
             writer.WriteObjectValue<UntypedNode>("groupMeetingTemplates", GroupMeetingTemplates);

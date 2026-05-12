@@ -94,21 +94,43 @@ namespace Fegmm.ChurchTools.Group.Roles.Item
         /// <summary>
         /// Update Role
         /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Group.Roles.Item.WithRolePutResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task PutAsync(global::Fegmm.ChurchTools.Group.Roles.Item.WithRolePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Group.Roles.Item.WithRolePutResponse?> PutAsWithRolePutResponseAsync(global::Fegmm.ChurchTools.Group.Roles.Item.WithRolePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task PutAsync(global::Fegmm.ChurchTools.Group.Roles.Item.WithRolePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Group.Roles.Item.WithRolePutResponse> PutAsWithRolePutResponseAsync(global::Fegmm.ChurchTools.Group.Roles.Item.WithRolePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Group.Roles.Item.WithRolePutResponse>(requestInfo, global::Fegmm.ChurchTools.Group.Roles.Item.WithRolePutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Update Role
+        /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Group.Roles.Item.WithRoleResponse"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("This method is obsolete. Use PutAsWithRolePutResponseAsync instead.")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Fegmm.ChurchTools.Group.Roles.Item.WithRoleResponse?> PutAsync(global::Fegmm.ChurchTools.Group.Roles.Item.WithRolePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Fegmm.ChurchTools.Group.Roles.Item.WithRoleResponse> PutAsync(global::Fegmm.ChurchTools.Group.Roles.Item.WithRolePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Group.Roles.Item.WithRoleResponse>(requestInfo, global::Fegmm.ChurchTools.Group.Roles.Item.WithRoleResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete role
@@ -166,7 +188,7 @@ namespace Fegmm.ChurchTools.Group.Roles.Item
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }

@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Actions
         {
         }
         /// <summary>
-        /// Get filtered actions
+        /// Returns all available actions filtered by one or more domain types. Actions represent executable operations on domain objects (e.g. adding a member to a group, changing a member status). The optional filter object can be used to further narrow down the returned actions based on domain-specific criteria.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Actions.ActionsPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -53,7 +53,7 @@ namespace Fegmm.ChurchTools.Actions
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Actions.ActionsPostResponse>(requestInfo, global::Fegmm.ChurchTools.Actions.ActionsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get filtered actions
+        /// Returns all available actions filtered by one or more domain types. Actions represent executable operations on domain objects (e.g. adding a member to a group, changing a member status). The optional filter object can be used to further narrow down the returned actions based on domain-specific criteria.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Actions.ActionsResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -74,7 +74,7 @@ namespace Fegmm.ChurchTools.Actions
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Actions.ActionsResponse>(requestInfo, global::Fegmm.ChurchTools.Actions.ActionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get filtered actions
+        /// Returns all available actions filtered by one or more domain types. Actions represent executable operations on domain objects (e.g. adding a member to a group, changing a member status). The optional filter object can be used to further narrow down the returned actions based on domain-specific criteria.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

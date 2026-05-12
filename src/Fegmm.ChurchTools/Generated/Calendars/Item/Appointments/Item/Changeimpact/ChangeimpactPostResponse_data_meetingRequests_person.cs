@@ -8,8 +8,9 @@ using System;
 namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Changeimpact
 {
     /// <summary>
-    /// Person as Domain Object
+    /// Use &apos;invitee&apos; instead
     /// </summary>
+    [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChangeimpactPostResponse_data_meetingRequests_person : IAdditionalDataHolder, IParsable
     {

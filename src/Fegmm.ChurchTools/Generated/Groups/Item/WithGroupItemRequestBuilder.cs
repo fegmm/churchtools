@@ -12,6 +12,7 @@ using Fegmm.ChurchTools.Groups.Item.Grouphomepage;
 using Fegmm.ChurchTools.Groups.Item.Grouptype;
 using Fegmm.ChurchTools.Groups.Item.Meetings;
 using Fegmm.ChurchTools.Groups.Item.Memberfields;
+using Fegmm.ChurchTools.Groups.Item.Memberids;
 using Fegmm.ChurchTools.Groups.Item.Memberpreview;
 using Fegmm.ChurchTools.Groups.Item.Members;
 using Fegmm.ChurchTools.Groups.Item.NewsletterIntegrations;
@@ -99,6 +100,11 @@ namespace Fegmm.ChurchTools.Groups.Item
         public global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsRequestBuilder Memberfields
         {
             get => new global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The memberids property</summary>
+        public global::Fegmm.ChurchTools.Groups.Item.Memberids.MemberidsRequestBuilder Memberids
+        {
+            get => new global::Fegmm.ChurchTools.Groups.Item.Memberids.MemberidsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The memberpreview property</summary>
         public global::Fegmm.ChurchTools.Groups.Item.Memberpreview.MemberpreviewRequestBuilder Memberpreview

@@ -47,7 +47,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MeetingrequestsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests?personId={personId}", pathParameters)
+        public MeetingrequestsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MeetingrequestsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests?personId={personId}", rawUrl)
+        public MeetingrequestsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests", rawUrl)
         {
         }
         /// <summary>
@@ -99,37 +99,41 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
         /// Create a new meeting request
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse?> PostAsMeetingrequestsPostResponseAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsRequestBuilder.MeetingrequestsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse?> PostAsMeetingrequestsPostResponseAsync(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse> PostAsMeetingrequestsPostResponseAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsRequestBuilder.MeetingrequestsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse> PostAsMeetingrequestsPostResponseAsync(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToPostRequestInformation(requestConfiguration);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse>(requestInfo, global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new meeting request
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsResponse"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PostAsMeetingrequestsPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsResponse?> PostAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsRequestBuilder.MeetingrequestsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsResponse?> PostAsync(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsResponse> PostAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsRequestBuilder.MeetingrequestsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsResponse> PostAsync(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToPostRequestInformation(requestConfiguration);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsResponse>(requestInfo, global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
@@ -146,7 +150,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/calendars/{calendarId}/appointments/{appointmentId}/meetingrequests", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -155,19 +159,22 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
         /// Create a new meeting request
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsRequestBuilder.MeetingrequestsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsRequestBuilder.MeetingrequestsRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>
@@ -188,20 +195,11 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
         {
         }
         /// <summary>
-        /// Create a new meeting request
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MeetingrequestsRequestBuilderPostQueryParameters 
-        {
-            [QueryParameter("personId")]
-            public int? PersonId { get; set; }
-        }
-        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MeetingrequestsRequestBuilderPostRequestConfiguration : RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsRequestBuilder.MeetingrequestsRequestBuilderPostQueryParameters>
+        public partial class MeetingrequestsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
         {
         }
     }

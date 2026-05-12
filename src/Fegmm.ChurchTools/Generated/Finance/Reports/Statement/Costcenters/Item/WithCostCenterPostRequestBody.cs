@@ -16,7 +16,9 @@ namespace Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item
         public double? AccountingPeriodId { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Output type for the selected financial report</summary>
+        /// <summary>Output format for the selected financial report</summary>
+        public global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_format? Format { get; set; }
+        /// <summary>Output format for the selected financial report</summary>
         public global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_outputType? OutputType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody"/> and sets the default values.
@@ -44,6 +46,7 @@ namespace Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "accountingPeriodId", n => { AccountingPeriodId = n.GetDoubleValue(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_format>(); } },
                 { "outputType", n => { OutputType = n.GetEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_outputType>(); } },
             };
         }
@@ -55,6 +58,7 @@ namespace Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("accountingPeriodId", AccountingPeriodId);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_format>("format", Format);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_outputType>("outputType", OutputType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -18,14 +18,27 @@ namespace Fegmm.ChurchTools.Servicegroups
     public partial class ServicegroupsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Fegmm.ChurchTools.servicegroups.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">ID of the service group</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupItemRequestBuilder"/></returns>
-        public global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupItemRequestBuilder this[string position]
+        public global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("serviceGroupId", position);
+                return new global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
+        /// <summary>Gets an item from the Fegmm.ChurchTools.servicegroups.item collection</summary>
+        /// <param name="position">ID of the service group</param>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupItemRequestBuilder"/></returns>
+        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
+        public global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("serviceGroupId", position);
                 return new global::Fegmm.ChurchTools.Servicegroups.Item.WithServiceGroupItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }

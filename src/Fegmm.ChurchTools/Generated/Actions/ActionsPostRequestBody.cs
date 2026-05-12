@@ -14,15 +14,15 @@ namespace Fegmm.ChurchTools.Actions
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The domain_type property</summary>
+        /// <summary>One or more domain types to filter actions by.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DomainType { get; set; }
+        public List<global::Fegmm.ChurchTools.Actions.ActionsPostRequestBody_domain_type?>? DomainType { get; set; }
 #nullable restore
 #else
-        public List<string> DomainType { get; set; }
+        public List<global::Fegmm.ChurchTools.Actions.ActionsPostRequestBody_domain_type?> DomainType { get; set; }
 #endif
-        /// <summary>The filter property</summary>
+        /// <summary>Optional filter criteria to further narrow the returned actions. The structure depends on the domain type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Fegmm.ChurchTools.Actions.ActionsPostRequestBody_filter? Filter { get; set; }
@@ -55,7 +55,7 @@ namespace Fegmm.ChurchTools.Actions
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "domain_type", n => { DomainType = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "domain_type", n => { DomainType = n.GetCollectionOfEnumValues<global::Fegmm.ChurchTools.Actions.ActionsPostRequestBody_domain_type>()?.AsList(); } },
                 { "filter", n => { Filter = n.GetObjectValue<global::Fegmm.ChurchTools.Actions.ActionsPostRequestBody_filter>(global::Fegmm.ChurchTools.Actions.ActionsPostRequestBody_filter.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Fegmm.ChurchTools.Actions
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("domain_type", DomainType);
+            writer.WriteCollectionOfEnumValues<global::Fegmm.ChurchTools.Actions.ActionsPostRequestBody_domain_type>("domain_type", DomainType);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Actions.ActionsPostRequestBody_filter>("filter", Filter);
             writer.WriteAdditionalData(AdditionalData);
         }

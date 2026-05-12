@@ -18,14 +18,27 @@ namespace Fegmm.ChurchTools.Services
     public partial class ServicesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Fegmm.ChurchTools.services.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">ID of the service</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Services.Item.WithServiceItemRequestBuilder"/></returns>
-        public global::Fegmm.ChurchTools.Services.Item.WithServiceItemRequestBuilder this[string position]
+        public global::Fegmm.ChurchTools.Services.Item.WithServiceItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("serviceId", position);
+                return new global::Fegmm.ChurchTools.Services.Item.WithServiceItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
+        /// <summary>Gets an item from the Fegmm.ChurchTools.services.item collection</summary>
+        /// <param name="position">ID of the service</param>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Services.Item.WithServiceItemRequestBuilder"/></returns>
+        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
+        public global::Fegmm.ChurchTools.Services.Item.WithServiceItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("serviceId", position);
                 return new global::Fegmm.ChurchTools.Services.Item.WithServiceItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
@@ -45,6 +58,9 @@ namespace Fegmm.ChurchTools.Services
         public ServicesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/services", rawUrl)
         {
         }
+        /// <summary>
+        /// Returns all services across all service groups.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Services.ServicesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,6 +76,9 @@ namespace Fegmm.ChurchTools.Services
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Services.ServicesGetResponse>(requestInfo, global::Fegmm.ChurchTools.Services.ServicesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns all services across all service groups.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Services.ServicesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -76,6 +95,9 @@ namespace Fegmm.ChurchTools.Services
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Services.ServicesResponse>(requestInfo, global::Fegmm.ChurchTools.Services.ServicesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns all services across all service groups.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

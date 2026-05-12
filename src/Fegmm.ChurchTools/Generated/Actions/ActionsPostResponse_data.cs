@@ -22,16 +22,6 @@ namespace Fegmm.ChurchTools.Actions
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A color in ChurchTools</summary>
-        public global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data_color? Color { get; set; }
-        /// <summary>The description property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Description { get; set; }
-#nullable restore
-#else
-        public string Description { get; set; }
-#endif
         /// <summary>The domainType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,24 +38,8 @@ namespace Fegmm.ChurchTools.Actions
 #else
         public global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data.ActionsPostResponse_data_group Group { get; set; }
 #endif
-        /// <summary>The icon property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Icon { get; set; }
-#nullable restore
-#else
-        public string Icon { get; set; }
-#endif
         /// <summary>The key property</summary>
         public global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data_key? Key { get; set; }
-        /// <summary>The name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data"/> and sets the default values.
         /// </summary>
@@ -92,13 +66,9 @@ namespace Fegmm.ChurchTools.Actions
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "actionMetaData", n => { ActionMetaData = n.GetObjectValue<global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data_actionMetaData>(global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data_actionMetaData.CreateFromDiscriminatorValue); } },
-                { "color", n => { Color = n.GetEnumValue<global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data_color>(); } },
-                { "description", n => { Description = n.GetStringValue(); } },
                 { "domainType", n => { DomainType = n.GetStringValue(); } },
                 { "group", n => { Group = n.GetObjectValue<global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data.ActionsPostResponse_data_group>(global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data.ActionsPostResponse_data_group.CreateFromDiscriminatorValue); } },
-                { "icon", n => { Icon = n.GetStringValue(); } },
                 { "key", n => { Key = n.GetEnumValue<global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data_key>(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -109,13 +79,9 @@ namespace Fegmm.ChurchTools.Actions
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data_actionMetaData>("actionMetaData", ActionMetaData);
-            writer.WriteEnumValue<global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data_color>("color", Color);
-            writer.WriteStringValue("description", Description);
             writer.WriteStringValue("domainType", DomainType);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data.ActionsPostResponse_data_group>("group", Group);
-            writer.WriteStringValue("icon", Icon);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data_key>("key", Key);
-            writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>

@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Groups.Export
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/export{?type*}", pathParameters)
+        public ExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/export{?format*,type*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Fegmm.ChurchTools.Groups.Export
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/export{?type*}", rawUrl)
+        public ExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/export{?format*,type*}", rawUrl)
         {
         }
         /// <returns>A <see cref="Stream"/></returns>
@@ -82,6 +82,19 @@ namespace Fegmm.ChurchTools.Groups.Export
         public partial class ExportRequestBuilderPostQueryParameters 
         #pragma warning restore CS1591
         {
+            [Obsolete("This property is deprecated, use FormatAsPostFormatQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("format")]
+            public string? Format { get; set; }
+#nullable restore
+#else
+            [QueryParameter("format")]
+            public string Format { get; set; }
+#endif
+            [QueryParameter("format")]
+            public global::Fegmm.ChurchTools.Groups.Export.PostFormatQueryParameterType? FormatAsPostFormatQueryParameterType { get; set; }
+            /// <summary>Use `format`</summary>
             [Obsolete("This property is deprecated, use TypeAsPostTypeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,6 +105,8 @@ namespace Fegmm.ChurchTools.Groups.Export
             [QueryParameter("type")]
             public string Type { get; set; }
 #endif
+            /// <summary>Use `format`</summary>
+            [Obsolete("")]
             [QueryParameter("type")]
             public global::Fegmm.ChurchTools.Groups.Export.PostTypeQueryParameterType? TypeAsPostTypeQueryParameterType { get; set; }
         }

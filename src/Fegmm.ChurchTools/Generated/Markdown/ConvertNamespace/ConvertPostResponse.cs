@@ -146,16 +146,6 @@ namespace Fegmm.ChurchTools.Markdown.ConvertNamespace
         public global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_allowoptigemsync? Allowoptigemsync { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
         public global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_allowsync? Allowsync { get; set; }
-        /// <summary>The alpha_book_affiliate_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AlphaBookAffiliateId { get; set; }
-#nullable restore
-#else
-        public string AlphaBookAffiliateId { get; set; }
-#endif
-        /// <summary>The alpha_book_enabled property</summary>
-        public bool? AlphaBookEnabled { get; set; }
         /// <summary>The app_security_request property</summary>
         public bool? AppSecurityRequest { get; set; }
         /// <summary>The authorized_persons property</summary>
@@ -1454,8 +1444,6 @@ namespace Fegmm.ChurchTools.Markdown.ConvertNamespace
                 { "allowldap", n => { Allowldap = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_allowldap>(); } },
                 { "allowoptigemsync", n => { Allowoptigemsync = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_allowoptigemsync>(); } },
                 { "allowsync", n => { Allowsync = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_allowsync>(); } },
-                { "alpha_book_affiliate_id", n => { AlphaBookAffiliateId = n.GetStringValue(); } },
-                { "alpha_book_enabled", n => { AlphaBookEnabled = n.GetBoolValue(); } },
                 { "app_security_request", n => { AppSecurityRequest = n.GetBoolValue(); } },
                 { "authorized_persons", n => { AuthorizedPersons = n.GetStringValue(); } },
                 { "brand", n => { Brand = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_brand>(); } },
@@ -1743,8 +1731,6 @@ namespace Fegmm.ChurchTools.Markdown.ConvertNamespace
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_allowldap>("allowldap", Allowldap);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_allowoptigemsync>("allowoptigemsync", Allowoptigemsync);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_allowsync>("allowsync", Allowsync);
-            writer.WriteStringValue("alpha_book_affiliate_id", AlphaBookAffiliateId);
-            writer.WriteBoolValue("alpha_book_enabled", AlphaBookEnabled);
             writer.WriteBoolValue("app_security_request", AppSecurityRequest);
             writer.WriteStringValue("authorized_persons", AuthorizedPersons);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_brand>("brand", Brand);

@@ -24,12 +24,30 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
 #else
         public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_appointment Appointment { get; set; }
 #endif
-        /// <summary>The appointmentId property</summary>
+        /// <summary>Use &apos;appointment&apos; instead</summary>
+        [Obsolete("")]
         public int? AppointmentId { get; set; }
-        /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
+        /// <summary>Use &apos;nextStartDate&apos; instead</summary>
+        [Obsolete("")]
         public DateTimeOffset? EventDate { get; set; }
         /// <summary>The id property</summary>
         public int? Id { get; set; }
+        /// <summary>Person as Domain Object</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_invitee? Invitee { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_invitee Invitee { get; set; }
+#endif
+        /// <summary>The inviter property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UntypedNode? Inviter { get; set; }
+#nullable restore
+#else
+        public UntypedNode Inviter { get; set; }
+#endif
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? MailSendDate { get; set; }
         /// <summary>The meta property</summary>
@@ -44,7 +62,8 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
         public DateTimeOffset? NextEndDate { get; set; }
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? NextStartDate { get; set; }
-        /// <summary>Person as Domain Object</summary>
+        /// <summary>Use &apos;invitee&apos; instead</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_person? Person { get; set; }
@@ -84,6 +103,8 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
                 { "appointmentId", n => { AppointmentId = n.GetIntValue(); } },
                 { "eventDate", n => { EventDate = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
+                { "invitee", n => { Invitee = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_invitee>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_invitee.CreateFromDiscriminatorValue); } },
+                { "inviter", n => { Inviter = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "mailSendDate", n => { MailSendDate = n.GetDateTimeOffsetValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_meta>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_meta.CreateFromDiscriminatorValue); } },
                 { "nextEndDate", n => { NextEndDate = n.GetDateTimeOffsetValue(); } },
@@ -104,6 +125,8 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
             writer.WriteIntValue("appointmentId", AppointmentId);
             writer.WriteDateTimeOffsetValue("eventDate", EventDate);
             writer.WriteIntValue("id", Id);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_invitee>("invitee", Invitee);
+            writer.WriteObjectValue<UntypedNode>("inviter", Inviter);
             writer.WriteDateTimeOffsetValue("mailSendDate", MailSendDate);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_meta>("meta", Meta);
             writer.WriteDateTimeOffsetValue("nextEndDate", NextEndDate);
