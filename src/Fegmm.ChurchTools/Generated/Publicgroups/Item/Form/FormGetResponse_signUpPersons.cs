@@ -32,6 +32,8 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Form
 #else
         public global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_signUpPersons_person Person { get; set; }
 #endif
+        /// <summary>Relation of this sign-up person to the requester.</summary>
+        public global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_signUpPersons_relationType? RelationType { get; set; }
         /// <summary>Specifies whether this person is already in the group (IN_GROUP), in pending state for the group (REQUESTED), or selected by the user to be added into the group (CLICKED). Otherwise NOT_CLICKED.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,6 +70,7 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Form
                 { "formData", n => { FormData = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_signUpPersons_formData>(global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_signUpPersons_formData.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "hasAcceptedPrivacy", n => { HasAcceptedPrivacy = n.GetBoolValue(); } },
                 { "person", n => { Person = n.GetObjectValue<global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_signUpPersons_person>(global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_signUpPersons_person.CreateFromDiscriminatorValue); } },
+                { "relationType", n => { RelationType = n.GetEnumValue<global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_signUpPersons_relationType>(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
             };
         }
@@ -81,6 +84,7 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Form
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_signUpPersons_formData>("formData", FormData);
             writer.WriteBoolValue("hasAcceptedPrivacy", HasAcceptedPrivacy);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_signUpPersons_person>("person", Person);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_signUpPersons_relationType>("relationType", RelationType);
             writer.WriteStringValue("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
