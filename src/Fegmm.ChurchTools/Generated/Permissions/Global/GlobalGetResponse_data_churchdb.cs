@@ -177,6 +177,8 @@ namespace Fegmm.ChurchTools.Permissions.Global
 #else
         public List<double?> ViewGroupsOfGrouptype { get; set; }
 #endif
+        /// <summary>The viewHistory property</summary>
+        public bool? ViewHistory { get; set; }
         /// <summary>The viewMemberliste property</summary>
         public bool? ViewMemberliste { get; set; }
         /// <summary>The viewPersonHistory property</summary>
@@ -254,6 +256,7 @@ namespace Fegmm.ChurchTools.Permissions.Global
                 { "view comments", n => { ViewComments = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "view group", n => { ViewGroup = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "view groups of grouptype", n => { ViewGroupsOfGrouptype = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
+                { "view history", n => { ViewHistory = n.GetBoolValue(); } },
                 { "view memberliste", n => { ViewMemberliste = n.GetBoolValue(); } },
                 { "view person history", n => { ViewPersonHistory = n.GetBoolValue(); } },
                 { "view person tags", n => { ViewPersonTags = n.GetBoolValue(); } },
@@ -301,6 +304,7 @@ namespace Fegmm.ChurchTools.Permissions.Global
             writer.WriteCollectionOfPrimitiveValues<double?>("view comments", ViewComments);
             writer.WriteCollectionOfPrimitiveValues<double?>("view group", ViewGroup);
             writer.WriteCollectionOfPrimitiveValues<double?>("view groups of grouptype", ViewGroupsOfGrouptype);
+            writer.WriteBoolValue("view history", ViewHistory);
             writer.WriteBoolValue("view memberliste", ViewMemberliste);
             writer.WriteBoolValue("view person history", ViewPersonHistory);
             writer.WriteBoolValue("view person tags", ViewPersonTags);

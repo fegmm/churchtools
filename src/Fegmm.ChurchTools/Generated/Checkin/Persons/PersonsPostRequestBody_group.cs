@@ -40,6 +40,7 @@ namespace Fegmm.ChurchTools.Checkin.Persons
         public PersonsPostRequestBody_group()
         {
             AdditionalData = new Dictionary<string, object>();
+            IgnoreGroupSize = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

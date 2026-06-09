@@ -119,15 +119,7 @@ namespace Fegmm.ChurchTools.Persons.Item.Settings.Item
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Persons.Item.Settings.Item.WithModuleGetResponse_data.WithModuleGetResponse_data_value();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.WithModuleGetResponseDataValueMember1 = new global::Fegmm.ChurchTools.Persons.Item.Settings.Item.WithModuleGetResponse_data_valueMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.WithModuleGetResponseDataValueMember2 = new global::Fegmm.ChurchTools.Persons.Item.Settings.Item.WithModuleGetResponse_data_valueMember2();
-                }
-                else if(parseNode.GetBoolValue() is bool booleanValue)
+                if(parseNode.GetBoolValue() is bool booleanValue)
                 {
                     result.Boolean = booleanValue;
                 }

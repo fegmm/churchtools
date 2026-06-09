@@ -25,13 +25,10 @@ namespace Fegmm.ChurchTools.Securitylevels
         public string Name { get; set; }
 #endif
         /// <summary>The sortkey property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Sortkey { get; set; }
-#nullable restore
-#else
-        public string Sortkey { get; set; }
-#endif
+        [Obsolete("")]
+        public int? SecuritylevelsGetResponseDataSortkey { get; set; }
+        /// <summary>The sortKey property</summary>
+        public int? SortKey { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Securitylevels.SecuritylevelsGetResponse_data"/> and sets the default values.
         /// </summary>
@@ -59,7 +56,8 @@ namespace Fegmm.ChurchTools.Securitylevels
             {
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "sortkey", n => { Sortkey = n.GetStringValue(); } },
+                { "sortkey", n => { SecuritylevelsGetResponseDataSortkey = n.GetIntValue(); } },
+                { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -71,7 +69,8 @@ namespace Fegmm.ChurchTools.Securitylevels
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("sortkey", Sortkey);
+            writer.WriteIntValue("sortkey", SecuritylevelsGetResponseDataSortkey);
+            writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

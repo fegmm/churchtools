@@ -52,6 +52,8 @@ namespace Fegmm.ChurchTools.Routines.Item
         public WithRoutinePatchResponse_data()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsEnabled = false;
+            Priority = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

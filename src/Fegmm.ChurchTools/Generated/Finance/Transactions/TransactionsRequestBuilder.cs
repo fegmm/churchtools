@@ -83,7 +83,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TransactionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions?accounting_period_id={accounting_period_id}{&account_ids*,cost_center_ids*,created_pid*,donator_ids*,end_date*,exclude_ids*,exclude_paybacks*,exclude_stornos*,include*,include_ids*,is_donation*,is_immutable*,is_income*,limit*,order_by*,order_direction*,page*,start_date*}", pathParameters)
+        public TransactionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions{?account_ids*,cost_center_ids*,created_pid*,donator_ids*,end_date*,exclude_ids*,exclude_paybacks*,exclude_stornos*,include*,include_ids*,is_donation*,is_immutable*,is_income*,limit*,order_by*,order_direction*,page*,start_date*}", pathParameters)
         {
         }
         /// <summary>
@@ -91,7 +91,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TransactionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions?accounting_period_id={accounting_period_id}{&account_ids*,cost_center_ids*,created_pid*,donator_ids*,end_date*,exclude_ids*,exclude_paybacks*,exclude_stornos*,include*,include_ids*,is_donation*,is_immutable*,is_income*,limit*,order_by*,order_direction*,page*,start_date*}", rawUrl)
+        public TransactionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions{?account_ids*,cost_center_ids*,created_pid*,donator_ids*,end_date*,exclude_ids*,exclude_paybacks*,exclude_stornos*,include*,include_ids*,is_donation*,is_immutable*,is_income*,limit*,order_by*,order_direction*,page*,start_date*}", rawUrl)
         {
         }
         /// <summary>
@@ -227,7 +227,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Transactions.TransactionsRequestBuilder.TransactionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/finance/transactions?accounting_period_id={accounting_period_id}{&account_ids*,cost_center_ids*,created_pid*,donator_ids*,end_date*,exclude_ids*,exclude_paybacks*,exclude_stornos*,include*,include_ids*,is_donation*,is_immutable*,is_income*,limit*,order_by*,order_direction*,page*,start_date*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -248,7 +248,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/finance/transactions", PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -270,7 +270,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/finance/transactions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

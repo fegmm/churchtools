@@ -189,15 +189,7 @@ namespace Fegmm.ChurchTools.Persons.Item.Servicerequests.Item.Undo
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Persons.Item.Servicerequests.Item.Undo.UndoPostResponse_data_person.UndoPostResponse_data_person_color();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.UndoPostResponseDataPersonColorMember1 = new global::Fegmm.ChurchTools.Persons.Item.Servicerequests.Item.Undo.UndoPostResponse_data_person_colorMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.UndoPostResponseDataPersonColorMember2 = new global::Fegmm.ChurchTools.Persons.Item.Servicerequests.Item.Undo.UndoPostResponse_data_person_colorMember2();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

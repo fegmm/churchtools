@@ -190,15 +190,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_person.MeetingrequestsPostResponse_person_color();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.MeetingrequestsPostResponsePersonColorMember1 = new global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_person_colorMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.MeetingrequestsPostResponsePersonColorMember2 = new global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_person_colorMember2();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

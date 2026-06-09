@@ -7,24 +7,13 @@ using System.IO;
 using System;
 namespace Fegmm.ChurchTools.Person.Growpaths.Item
 {
-    /// <summary>
-    /// Growth path master data
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class GrowpathsPutResponse_data : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Color of the growth path</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Color { get; set; }
-#nullable restore
-#else
-        public string Color { get; set; }
-#endif
-        /// <summary>The id property</summary>
-        public int? Id { get; set; }
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,14 +21,6 @@ namespace Fegmm.ChurchTools.Person.Growpaths.Item
 #nullable restore
 #else
         public global::Fegmm.ChurchTools.Person.Growpaths.Item.GrowpathsPutResponse_data_meta Meta { get; set; }
-#endif
-        /// <summary>Name of the growth path</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
 #endif
         /// <summary>The nameTranslated property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,8 +30,6 @@ namespace Fegmm.ChurchTools.Person.Growpaths.Item
 #else
         public string NameTranslated { get; set; }
 #endif
-        /// <summary>Sort order of the growth path</summary>
-        public int? SortKey { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Person.Growpaths.Item.GrowpathsPutResponse_data"/> and sets the default values.
         /// </summary>
@@ -76,12 +55,8 @@ namespace Fegmm.ChurchTools.Person.Growpaths.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "color", n => { Color = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Person.Growpaths.Item.GrowpathsPutResponse_data_meta>(global::Fegmm.ChurchTools.Person.Growpaths.Item.GrowpathsPutResponse_data_meta.CreateFromDiscriminatorValue); } },
-                { "name", n => { Name = n.GetStringValue(); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
-                { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -91,12 +66,8 @@ namespace Fegmm.ChurchTools.Person.Growpaths.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("color", Color);
-            writer.WriteIntValue("id", Id);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Person.Growpaths.Item.GrowpathsPutResponse_data_meta>("meta", Meta);
-            writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nameTranslated", NameTranslated);
-            writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

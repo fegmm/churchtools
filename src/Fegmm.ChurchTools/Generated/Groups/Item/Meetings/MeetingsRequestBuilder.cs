@@ -26,12 +26,25 @@ namespace Fegmm.ChurchTools.Groups.Item.Meetings
         /// <summary>Gets an item from the Fegmm.ChurchTools.groups.item.meetings.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.WithMeetingItemRequestBuilder"/></returns>
-        public global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.WithMeetingItemRequestBuilder this[string position]
+        public global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.WithMeetingItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("meetingId", position);
+                return new global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.WithMeetingItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
+        /// <summary>Gets an item from the Fegmm.ChurchTools.groups.item.meetings.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.WithMeetingItemRequestBuilder"/></returns>
+        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
+        public global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.WithMeetingItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("meetingId", position);
                 return new global::Fegmm.ChurchTools.Groups.Item.Meetings.Item.WithMeetingItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }

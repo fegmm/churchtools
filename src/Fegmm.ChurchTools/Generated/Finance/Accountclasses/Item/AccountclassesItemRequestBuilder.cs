@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AccountclassesItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/accountclasses/{id}", pathParameters)
+        public AccountclassesItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/accountclasses/{id}{?dry_run*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,22 +29,22 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AccountclassesItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/accountclasses/{id}", rawUrl)
+        public AccountclassesItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/accountclasses/{id}{?dry_run*}", rawUrl)
         {
         }
         /// <summary>
-        /// Delete account class
+        /// Deletes the account class with the given id. The optional `dry_run` query parameter can be used to check for delete conflicts (e.g. account class is still in use) without actually deleting it.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Fegmm.ChurchTools.Finance.Accountclasses.Item.Accountclasses409Error">When receiving a 409 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesItemRequestBuilder.AccountclassesItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesItemRequestBuilder.AccountclassesItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -55,7 +55,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a account class
+        /// Returns the account class with the given id.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -73,7 +73,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesGetResponse>(requestInfo, global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a account class
+        /// Returns the account class with the given id.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -92,7 +92,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesResponse>(requestInfo, global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update account class
+        /// Updates an existing account class. All fields in the request body replace the current values. The name must remain unique across all account classes.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesPutResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -112,7 +112,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesPutResponse>(requestInfo, global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesPutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update account class
+        /// Updates an existing account class. All fields in the request body replace the current values. The name must remain unique across all account classes.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -133,17 +133,17 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesResponse>(requestInfo, global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete account class
+        /// Deletes the account class with the given id. The optional `dry_run` query parameter can be used to check for delete conflicts (e.g. account class is still in use) without actually deleting it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesItemRequestBuilder.AccountclassesItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesItemRequestBuilder.AccountclassesItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
@@ -152,7 +152,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get a account class
+        /// Returns the account class with the given id.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -171,7 +171,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update account class
+        /// Updates an existing account class. All fields in the request body replace the current values. The name must remain unique across all account classes.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -202,11 +202,21 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
             return new global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
+        /// Deletes the account class with the given id. The optional `dry_run` query parameter can be used to check for delete conflicts (e.g. account class is still in use) without actually deleting it.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class AccountclassesItemRequestBuilderDeleteQueryParameters 
+        {
+            /// <summary>If true, only checks for delete conflicts but does not delete the account class.</summary>
+            [QueryParameter("dry_run")]
+            public bool? DryRun { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AccountclassesItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class AccountclassesItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesItemRequestBuilder.AccountclassesItemRequestBuilderDeleteQueryParameters>
         {
         }
         /// <summary>

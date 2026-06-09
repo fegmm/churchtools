@@ -57,6 +57,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Item
         public TransactionsPutRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsImmutable = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

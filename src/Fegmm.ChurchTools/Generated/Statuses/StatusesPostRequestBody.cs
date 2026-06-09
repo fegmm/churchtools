@@ -44,6 +44,9 @@ namespace Fegmm.ChurchTools.Statuses
         public StatusesPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsSearchable = true;
+            SecurityLevelId = 1;
+            SortKey = 10;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

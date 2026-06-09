@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -16,7 +17,12 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Calculated age. (see note to that endpoint)</summary>
         public int? Age { get; set; }
+        /// <summary>A simple date in ISO format, e.g. &apos;2022-10-19&apos;</summary>
+        public Date? Anniversary { get; set; }
+        /// <summary>A simple date in ISO format, e.g. &apos;2022-10-19&apos;</summary>
+        public Date? AnniversaryInitialDate { get; set; }
         /// <summary>Actually birthday</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Date { get; set; }
@@ -24,7 +30,15 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
 #else
         public string Date { get; set; }
 #endif
-        /// <summary>The person property</summary>
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Deprecated { get; set; }
+#nullable restore
+#else
+        public string Deprecated { get; set; }
+#endif
+        /// <summary>Person as Domain Object</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person? Person { get; set; }
@@ -66,7 +80,10 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "age", n => { Age = n.GetIntValue(); } },
+                { "anniversary", n => { Anniversary = n.GetDateValue(); } },
+                { "anniversaryInitialDate", n => { AnniversaryInitialDate = n.GetDateValue(); } },
                 { "date", n => { Date = n.GetStringValue(); } },
+                { "@deprecated", n => { Deprecated = n.GetStringValue(); } },
                 { "person", n => { Person = n.GetObjectValue<global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person>(global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -79,7 +96,10 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("age", Age);
+            writer.WriteDateValue("anniversary", Anniversary);
+            writer.WriteDateValue("anniversaryInitialDate", AnniversaryInitialDate);
             writer.WriteStringValue("date", Date);
+            writer.WriteStringValue("@deprecated", Deprecated);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person>("person", Person);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

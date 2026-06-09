@@ -39,6 +39,23 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
         {
         }
         /// <summary>
+        /// Deletes all versions of the wiki page with the given guid.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToDeleteRequestInformation(requestConfiguration);
+            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// Returns the latest version of the wiki page with the given identifier.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierGetResponse"/></returns>
@@ -76,6 +93,66 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// Updates the provided properties of the wiki page with the given guid. Changing the text creates a new version of the page.
+        /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchResponse"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchResponse?> PatchAsWithIdentifierPatchResponseAsync(global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchResponse> PatchAsWithIdentifierPatchResponseAsync(global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Updates the provided properties of the wiki page with the given guid. Changing the text creates a new version of the page.
+        /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("This method is obsolete. Use PatchAsWithIdentifierPatchResponseAsync instead.")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse?> PatchAsync(global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse> PatchAsync(global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Deletes all versions of the wiki page with the given guid.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            return requestInfo;
+        }
+        /// <summary>
         /// Returns the latest version of the wiki page with the given identifier.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -95,6 +172,28 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
             return requestInfo;
         }
         /// <summary>
+        /// Updates the provided properties of the wiki page with the given guid. Changing the text creates a new version of the page.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToPatchRequestInformation(global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToPatchRequestInformation(global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
+            return requestInfo;
+        }
+        /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierItemRequestBuilder"/></returns>
@@ -108,7 +207,23 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithIdentifierItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        {
+        }
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithIdentifierItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        {
+        }
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithIdentifierItemRequestBuilderPatchRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
         {
         }
     }

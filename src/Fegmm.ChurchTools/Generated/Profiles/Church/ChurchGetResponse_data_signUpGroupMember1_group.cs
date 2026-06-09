@@ -188,15 +188,7 @@ namespace Fegmm.ChurchTools.Profiles.Church
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Profiles.Church.ChurchGetResponse_data_signUpGroupMember1_group.ChurchGetResponse_data_signUpGroupMember1_group_color();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ChurchGetResponseDataSignUpGroupMember1GroupColorMember1 = new global::Fegmm.ChurchTools.Profiles.Church.ChurchGetResponse_data_signUpGroupMember1_group_colorMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ChurchGetResponseDataSignUpGroupMember1GroupColorMember2 = new global::Fegmm.ChurchTools.Profiles.Church.ChurchGetResponse_data_signUpGroupMember1_group_colorMember2();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

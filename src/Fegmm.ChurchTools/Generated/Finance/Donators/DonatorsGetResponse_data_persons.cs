@@ -189,15 +189,7 @@ namespace Fegmm.ChurchTools.Finance.Donators
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Finance.Donators.DonatorsGetResponse_data_persons.DonatorsGetResponse_data_persons_color();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.DonatorsGetResponseDataPersonsColorMember1 = new global::Fegmm.ChurchTools.Finance.Donators.DonatorsGetResponse_data_persons_colorMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.DonatorsGetResponseDataPersonsColorMember2 = new global::Fegmm.ChurchTools.Finance.Donators.DonatorsGetResponse_data_persons_colorMember2();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

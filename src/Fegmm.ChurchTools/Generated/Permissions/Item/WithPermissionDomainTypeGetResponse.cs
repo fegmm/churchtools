@@ -17,10 +17,10 @@ namespace Fegmm.ChurchTools.Permissions.Item
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_data? Data { get; set; }
+        public List<global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_data>? Data { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_data Data { get; set; }
+        public List<global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_data> Data { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Fegmm.ChurchTools.Permissions.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_data>(global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_data.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_data>(global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_data.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_meta>(global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_meta.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Fegmm.ChurchTools.Permissions.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_data>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_data>("data", Data);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeGetResponse_meta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }

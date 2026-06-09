@@ -96,11 +96,7 @@ namespace Fegmm.ChurchTools.Followups.Item.Notes
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Followups.Item.Notes.NotesPostRequestBody.NotesPostRequestBody_commentViewerId();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.NotesPostRequestBodyCommentViewerIdMember1 = new global::Fegmm.ChurchTools.Followups.Item.Notes.NotesPostRequestBody_commentViewerIdMember1();
-                }
-                else if(parseNode.GetIntValue() is int integerValue)
+                if(parseNode.GetIntValue() is int integerValue)
                 {
                     result.Integer = integerValue;
                 }

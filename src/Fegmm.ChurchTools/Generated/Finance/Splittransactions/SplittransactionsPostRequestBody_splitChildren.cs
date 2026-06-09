@@ -27,6 +27,14 @@ namespace Fegmm.ChurchTools.Finance.Splittransactions
         public int? ContraAccountId { get; set; }
         /// <summary>The costCenterId property</summary>
         public int? CostCenterId { get; set; }
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_Deprecated Deprecated { get; set; }
+#endif
         /// <summary>The documentDate property</summary>
         public Date? DocumentDate { get; set; }
         /// <summary>The documentNumber property</summary>
@@ -37,22 +45,28 @@ namespace Fegmm.ChurchTools.Finance.Splittransactions
 #else
         public string DocumentNumber { get; set; }
 #endif
-        /// <summary>Person as Domain Object</summary>
+        /// <summary>The donator property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_donator? Donator { get; set; }
+        public UntypedNode? Donator { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_donator Donator { get; set; }
+        public UntypedNode Donator { get; set; }
 #endif
-        /// <summary>Person as Domain Object</summary>
+        /// <summary>The donatorId property</summary>
+        [Obsolete("")]
+        public int? DonatorId { get; set; }
+        /// <summary>The donatorSpouse property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_donatorSpouse? DonatorSpouse { get; set; }
+        public UntypedNode? DonatorSpouse { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_donatorSpouse DonatorSpouse { get; set; }
+        public UntypedNode DonatorSpouse { get; set; }
 #endif
+        /// <summary>The donatorSpouseId property</summary>
+        [Obsolete("")]
+        public int? DonatorSpouseId { get; set; }
         /// <summary>The id property</summary>
         public int? Id { get; set; }
         /// <summary>If a transaction is immutable, no field can be change or deleted.</summary>
@@ -87,10 +101,18 @@ namespace Fegmm.ChurchTools.Finance.Splittransactions
 #endif
         /// <summary>The splitTransactionId property</summary>
         public int? SplitTransactionId { get; set; }
+        /// <summary>Reference to the transaction which gets stornoed by this transaction.</summary>
+        public int? StornoBaseId { get; set; }
+        /// <summary>Reference to the transaction which stornoed this transaction.</summary>
+        public int? StornoTransactionId { get; set; }
+        /// <summary>Reference to the transaction which is the base for a tax split booking.</summary>
+        public int? TaxBaseId { get; set; }
         /// <summary>If a tax rate is set for the transaction, the corresponding tax transaction is returned in the field taxTransactionId.</summary>
         public int? TaxRateId { get; set; }
         /// <summary>Reference to the transaction which is a split booking for taxes.</summary>
         public int? TaxTransactionId { get; set; }
+        /// <summary>Date of the transaction. This is the date which counts for the booking, not the document date.</summary>
+        public Date? TransactionDate { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren"/> and sets the default values.
         /// </summary>
@@ -122,10 +144,13 @@ namespace Fegmm.ChurchTools.Finance.Splittransactions
                 { "cashDiscountId", n => { CashDiscountId = n.GetIntValue(); } },
                 { "contraAccountId", n => { ContraAccountId = n.GetIntValue(); } },
                 { "costCenterId", n => { CostCenterId = n.GetIntValue(); } },
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_Deprecated>(global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_Deprecated.CreateFromDiscriminatorValue); } },
                 { "documentDate", n => { DocumentDate = n.GetDateValue(); } },
                 { "documentNumber", n => { DocumentNumber = n.GetStringValue(); } },
-                { "donator", n => { Donator = n.GetObjectValue<global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_donator>(global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_donator.CreateFromDiscriminatorValue); } },
-                { "donatorSpouse", n => { DonatorSpouse = n.GetObjectValue<global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_donatorSpouse>(global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_donatorSpouse.CreateFromDiscriminatorValue); } },
+                { "donator", n => { Donator = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "donatorId", n => { DonatorId = n.GetIntValue(); } },
+                { "donatorSpouse", n => { DonatorSpouse = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "donatorSpouseId", n => { DonatorSpouseId = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "isImmutable", n => { IsImmutable = n.GetBoolValue(); } },
                 { "isSynced", n => { IsSynced = n.GetBoolValue(); } },
@@ -134,8 +159,12 @@ namespace Fegmm.ChurchTools.Finance.Splittransactions
                 { "note", n => { Note = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_permissions>(global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_permissions.CreateFromDiscriminatorValue); } },
                 { "splitTransactionId", n => { SplitTransactionId = n.GetIntValue(); } },
+                { "stornoBaseId", n => { StornoBaseId = n.GetIntValue(); } },
+                { "stornoTransactionId", n => { StornoTransactionId = n.GetIntValue(); } },
+                { "taxBaseId", n => { TaxBaseId = n.GetIntValue(); } },
                 { "taxRateId", n => { TaxRateId = n.GetIntValue(); } },
                 { "taxTransactionId", n => { TaxTransactionId = n.GetIntValue(); } },
+                { "transactionDate", n => { TransactionDate = n.GetDateValue(); } },
             };
         }
         /// <summary>
@@ -151,10 +180,13 @@ namespace Fegmm.ChurchTools.Finance.Splittransactions
             writer.WriteIntValue("cashDiscountId", CashDiscountId);
             writer.WriteIntValue("contraAccountId", ContraAccountId);
             writer.WriteIntValue("costCenterId", CostCenterId);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_Deprecated>("@deprecated", Deprecated);
             writer.WriteDateValue("documentDate", DocumentDate);
             writer.WriteStringValue("documentNumber", DocumentNumber);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_donator>("donator", Donator);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_donatorSpouse>("donatorSpouse", DonatorSpouse);
+            writer.WriteObjectValue<UntypedNode>("donator", Donator);
+            writer.WriteIntValue("donatorId", DonatorId);
+            writer.WriteObjectValue<UntypedNode>("donatorSpouse", DonatorSpouse);
+            writer.WriteIntValue("donatorSpouseId", DonatorSpouseId);
             writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("isImmutable", IsImmutable);
             writer.WriteBoolValue("isSynced", IsSynced);
@@ -163,8 +195,12 @@ namespace Fegmm.ChurchTools.Finance.Splittransactions
             writer.WriteStringValue("note", Note);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Splittransactions.SplittransactionsPostRequestBody_splitChildren_permissions>("permissions", Permissions);
             writer.WriteIntValue("splitTransactionId", SplitTransactionId);
+            writer.WriteIntValue("stornoBaseId", StornoBaseId);
+            writer.WriteIntValue("stornoTransactionId", StornoTransactionId);
+            writer.WriteIntValue("taxBaseId", TaxBaseId);
             writer.WriteIntValue("taxRateId", TaxRateId);
             writer.WriteIntValue("taxTransactionId", TaxTransactionId);
+            writer.WriteDateValue("transactionDate", TransactionDate);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

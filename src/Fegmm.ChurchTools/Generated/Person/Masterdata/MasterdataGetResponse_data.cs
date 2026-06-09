@@ -89,10 +89,10 @@ namespace Fegmm.ChurchTools.Person.Masterdata
         /// <summary>The growPaths property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_growPaths>? GrowPaths { get; set; }
+        public UntypedNode? GrowPaths { get; set; }
 #nullable restore
 #else
-        public List<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_growPaths> GrowPaths { get; set; }
+        public UntypedNode GrowPaths { get; set; }
 #endif
         /// <summary>The relationshipTypes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -113,10 +113,10 @@ namespace Fegmm.ChurchTools.Person.Masterdata
         /// <summary>The sexes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_sexes>? Sexes { get; set; }
+        public UntypedNode? Sexes { get; set; }
 #nullable restore
 #else
-        public List<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_sexes> Sexes { get; set; }
+        public UntypedNode Sexes { get; set; }
 #endif
         /// <summary>The statuses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -168,10 +168,10 @@ namespace Fegmm.ChurchTools.Person.Masterdata
                 { "groupMeetingTemplates", n => { GroupMeetingTemplates = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "groupStatuses", n => { GroupStatuses = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_groupStatuses>(global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_groupStatuses.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "groupTypes", n => { GroupTypes = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "growPaths", n => { GrowPaths = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_growPaths>(global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_growPaths.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "growPaths", n => { GrowPaths = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "relationshipTypes", n => { RelationshipTypes = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_relationshipTypes>(global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_relationshipTypes.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "roles", n => { Roles = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "sexes", n => { Sexes = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_sexes>(global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_sexes.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "sexes", n => { Sexes = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "statuses", n => { Statuses = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_statuses>(global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_statuses.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "targetGroups", n => { TargetGroups = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
@@ -192,10 +192,10 @@ namespace Fegmm.ChurchTools.Person.Masterdata
             writer.WriteObjectValue<UntypedNode>("groupMeetingTemplates", GroupMeetingTemplates);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_groupStatuses>("groupStatuses", GroupStatuses);
             writer.WriteObjectValue<UntypedNode>("groupTypes", GroupTypes);
-            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_growPaths>("growPaths", GrowPaths);
+            writer.WriteObjectValue<UntypedNode>("growPaths", GrowPaths);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_relationshipTypes>("relationshipTypes", RelationshipTypes);
             writer.WriteObjectValue<UntypedNode>("roles", Roles);
-            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_sexes>("sexes", Sexes);
+            writer.WriteObjectValue<UntypedNode>("sexes", Sexes);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_statuses>("statuses", Statuses);
             writer.WriteObjectValue<UntypedNode>("targetGroups", TargetGroups);
             writer.WriteAdditionalData(AdditionalData);

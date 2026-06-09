@@ -28,6 +28,7 @@ namespace Fegmm.ChurchTools.Finance.Accounts.Exporttemplate
         public ExporttemplatePostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            WithClients = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

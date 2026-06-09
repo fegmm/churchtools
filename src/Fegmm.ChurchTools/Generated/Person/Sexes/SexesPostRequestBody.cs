@@ -47,6 +47,7 @@ namespace Fegmm.ChurchTools.Person.Sexes
         public SexesPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            SortKey = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -189,15 +189,7 @@ namespace Fegmm.ChurchTools.Bookings.Item.Item
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Bookings.Item.Item.WithAnswerPutResponse_data_involvedPersonsDomainObjects_onBehalfOf.WithAnswerPutResponse_data_involvedPersonsDomainObjects_onBehalfOf_color();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.WithAnswerPutResponseDataInvolvedPersonsDomainObjectsOnBehalfOfColorMember1 = new global::Fegmm.ChurchTools.Bookings.Item.Item.WithAnswerPutResponse_data_involvedPersonsDomainObjects_onBehalfOf_colorMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.WithAnswerPutResponseDataInvolvedPersonsDomainObjectsOnBehalfOfColorMember2 = new global::Fegmm.ChurchTools.Bookings.Item.Item.WithAnswerPutResponse_data_involvedPersonsDomainObjects_onBehalfOf_colorMember2();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

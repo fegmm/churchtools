@@ -189,15 +189,7 @@ namespace Fegmm.ChurchTools.Events.Item
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_calendar.EventPutResponse_data_calendar_color();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventPutResponseDataCalendarColorMember1 = new global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_calendar_colorMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventPutResponseDataCalendarColorMember2 = new global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_calendar_colorMember2();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

@@ -38,6 +38,7 @@ namespace Fegmm.ChurchTools.Login
         public LoginPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            RememberMe = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

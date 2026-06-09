@@ -22,6 +22,14 @@ namespace Fegmm.ChurchTools.Finance.Cashdiscounts
 #else
         public List<global::Fegmm.ChurchTools.Finance.Cashdiscounts.CashdiscountsGetResponse_data> Data { get; set; }
 #endif
+        /// <summary>The meta property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Finance.Cashdiscounts.CashdiscountsGetResponse_meta? Meta { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Finance.Cashdiscounts.CashdiscountsGetResponse_meta Meta { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Finance.Cashdiscounts.CashdiscountsGetResponse"/> and sets the default values.
         /// </summary>
@@ -48,6 +56,7 @@ namespace Fegmm.ChurchTools.Finance.Cashdiscounts
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Finance.Cashdiscounts.CashdiscountsGetResponse_data>(global::Fegmm.ChurchTools.Finance.Cashdiscounts.CashdiscountsGetResponse_data.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Finance.Cashdiscounts.CashdiscountsGetResponse_meta>(global::Fegmm.ChurchTools.Finance.Cashdiscounts.CashdiscountsGetResponse_meta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,6 +67,7 @@ namespace Fegmm.ChurchTools.Finance.Cashdiscounts
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Finance.Cashdiscounts.CashdiscountsGetResponse_data>("data", Data);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Cashdiscounts.CashdiscountsGetResponse_meta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

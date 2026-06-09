@@ -18,6 +18,8 @@ namespace Fegmm.ChurchTools.Finance.Accountingperiods
         public bool? CanUseExpertMode { get; set; }
         /// <summary>Flag if current user can edit this accounting period, like changing the name.</summary>
         public bool? EditAccountingPeriod { get; set; }
+        /// <summary>Flag if current user can view this accounting period, like see the name and dates.</summary>
+        public bool? ViewAccountingPeriod { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Finance.Accountingperiods.AccountingperiodsGetResponse_data_permissions"/> and sets the default values.
         /// </summary>
@@ -45,6 +47,7 @@ namespace Fegmm.ChurchTools.Finance.Accountingperiods
             {
                 { "canUseExpertMode", n => { CanUseExpertMode = n.GetBoolValue(); } },
                 { "edit accounting period", n => { EditAccountingPeriod = n.GetBoolValue(); } },
+                { "view accounting period", n => { ViewAccountingPeriod = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -56,6 +59,7 @@ namespace Fegmm.ChurchTools.Finance.Accountingperiods
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("canUseExpertMode", CanUseExpertMode);
             writer.WriteBoolValue("edit accounting period", EditAccountingPeriod);
+            writer.WriteBoolValue("view accounting period", ViewAccountingPeriod);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

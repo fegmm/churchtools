@@ -12,7 +12,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
     public partial class AccountclassesPutResponse_data : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The accountTypeId property</summary>
+        /// <summary>ID of the related account type.</summary>
         public int? AccountTypeId { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -36,7 +36,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The sortKey property</summary>
+        /// <summary>Sort order of the account class.</summary>
         public int? SortKey { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Finance.Accountclasses.Item.AccountclassesPutResponse_data"/> and sets the default values.
@@ -44,6 +44,8 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses.Item
         public AccountclassesPutResponse_data()
         {
             AdditionalData = new Dictionary<string, object>();
+            IncludeProfitLoss = false;
+            SortKey = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

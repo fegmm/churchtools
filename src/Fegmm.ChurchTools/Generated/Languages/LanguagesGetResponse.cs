@@ -22,6 +22,14 @@ namespace Fegmm.ChurchTools.Languages
 #else
         public List<global::Fegmm.ChurchTools.Languages.LanguagesGetResponse_data> Data { get; set; }
 #endif
+        /// <summary>The meta property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Languages.LanguagesGetResponse_meta? Meta { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Languages.LanguagesGetResponse_meta Meta { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Languages.LanguagesGetResponse"/> and sets the default values.
         /// </summary>
@@ -48,6 +56,7 @@ namespace Fegmm.ChurchTools.Languages
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Languages.LanguagesGetResponse_data>(global::Fegmm.ChurchTools.Languages.LanguagesGetResponse_data.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Languages.LanguagesGetResponse_meta>(global::Fegmm.ChurchTools.Languages.LanguagesGetResponse_meta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,6 +67,7 @@ namespace Fegmm.ChurchTools.Languages
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Languages.LanguagesGetResponse_data>("data", Data);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Languages.LanguagesGetResponse_meta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

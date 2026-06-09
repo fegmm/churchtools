@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -14,6 +15,8 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>A simple date in ISO format, e.g. &apos;2022-10-19&apos;</summary>
+        public Date? DateOfDeath { get; set; }
         /// <summary>The firstName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,7 +25,7 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
 #else
         public string FirstName { get; set; }
 #endif
-        /// <summary>The guid property</summary>
+        /// <summary>Globally Unique Identifier</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Guid { get; set; }
@@ -30,6 +33,8 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
 #else
         public string Guid { get; set; }
 #endif
+        /// <summary>The isArchived property</summary>
+        public bool? IsArchived { get; set; }
         /// <summary>The lastName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,8 +68,10 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "dateOfDeath", n => { DateOfDeath = n.GetDateValue(); } },
                 { "firstName", n => { FirstName = n.GetStringValue(); } },
                 { "guid", n => { Guid = n.GetStringValue(); } },
+                { "isArchived", n => { IsArchived = n.GetBoolValue(); } },
                 { "lastName", n => { LastName = n.GetStringValue(); } },
             };
         }
@@ -75,8 +82,10 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDateValue("dateOfDeath", DateOfDeath);
             writer.WriteStringValue("firstName", FirstName);
             writer.WriteStringValue("guid", Guid);
+            writer.WriteBoolValue("isArchived", IsArchived);
             writer.WriteStringValue("lastName", LastName);
             writer.WriteAdditionalData(AdditionalData);
         }

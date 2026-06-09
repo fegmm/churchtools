@@ -16,10 +16,16 @@ namespace Fegmm.ChurchTools.Finance.Costcenters
         public int? AccountingPeriodId { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Provide budget in cent.</summary>
+        /// <summary>The annotation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Annotation { get; set; }
+#nullable restore
+#else
+        public string Annotation { get; set; }
+#endif
+        /// <summary>Budget is in cent.</summary>
         public int? Budget { get; set; }
-        /// <summary>The groupId property</summary>
-        public int? GroupId { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,8 +68,8 @@ namespace Fegmm.ChurchTools.Finance.Costcenters
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "accountingPeriodId", n => { AccountingPeriodId = n.GetIntValue(); } },
+                { "annotation", n => { Annotation = n.GetStringValue(); } },
                 { "budget", n => { Budget = n.GetIntValue(); } },
-                { "groupId", n => { GroupId = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "number", n => { Number = n.GetStringValue(); } },
             };
@@ -76,8 +82,8 @@ namespace Fegmm.ChurchTools.Finance.Costcenters
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("accountingPeriodId", AccountingPeriodId);
+            writer.WriteStringValue("annotation", Annotation);
             writer.WriteIntValue("budget", Budget);
-            writer.WriteIntValue("groupId", GroupId);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("number", Number);
             writer.WriteAdditionalData(AdditionalData);

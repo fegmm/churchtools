@@ -16,8 +16,16 @@ namespace Fegmm.ChurchTools.Persons.Duplicates
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The count property</summary>
         public int? Count { get; set; }
+        /// <summary>The counts_marked property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_meta_counts_marked? CountsMarked { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_meta_counts_marked CountsMarked { get; set; }
+#endif
         /// <summary>The duration property</summary>
-        public int? Duration { get; set; }
+        public double? Duration { get; set; }
         /// <summary>The evaluations property</summary>
         public int? Evaluations { get; set; }
         /// <summary>The memory_used property</summary>
@@ -54,7 +62,8 @@ namespace Fegmm.ChurchTools.Persons.Duplicates
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "count", n => { Count = n.GetIntValue(); } },
-                { "duration", n => { Duration = n.GetIntValue(); } },
+                { "counts_marked", n => { CountsMarked = n.GetObjectValue<global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_meta_counts_marked>(global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_meta_counts_marked.CreateFromDiscriminatorValue); } },
+                { "duration", n => { Duration = n.GetDoubleValue(); } },
                 { "evaluations", n => { Evaluations = n.GetIntValue(); } },
                 { "memory_used", n => { MemoryUsed = n.GetStringValue(); } },
             };
@@ -67,7 +76,8 @@ namespace Fegmm.ChurchTools.Persons.Duplicates
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("count", Count);
-            writer.WriteIntValue("duration", Duration);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_meta_counts_marked>("counts_marked", CountsMarked);
+            writer.WriteDoubleValue("duration", Duration);
             writer.WriteIntValue("evaluations", Evaluations);
             writer.WriteStringValue("memory_used", MemoryUsed);
             writer.WriteAdditionalData(AdditionalData);

@@ -14,14 +14,6 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Group Internal Permission, which Affect a Person</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Fegmm.ChurchTools.Permissions.Internal.Groups.GroupsGetResponse_data_churchdb? Churchdb { get; set; }
-#nullable restore
-#else
-        public global::Fegmm.ChurchTools.Permissions.Internal.Groups.GroupsGetResponse_data_churchdb Churchdb { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Permissions.Internal.Groups.GroupsGetResponse_data"/> and sets the default values.
         /// </summary>
@@ -47,7 +39,6 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "churchdb", n => { Churchdb = n.GetObjectValue<global::Fegmm.ChurchTools.Permissions.Internal.Groups.GroupsGetResponse_data_churchdb>(global::Fegmm.ChurchTools.Permissions.Internal.Groups.GroupsGetResponse_data_churchdb.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +48,6 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Permissions.Internal.Groups.GroupsGetResponse_data_churchdb>("churchdb", Churchdb);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

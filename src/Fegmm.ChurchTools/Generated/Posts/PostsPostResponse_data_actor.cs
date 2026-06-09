@@ -189,15 +189,7 @@ namespace Fegmm.ChurchTools.Posts
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Posts.PostsPostResponse_data_actor.PostsPostResponse_data_actor_color();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.PostsPostResponseDataActorColorMember1 = new global::Fegmm.ChurchTools.Posts.PostsPostResponse_data_actor_colorMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.PostsPostResponseDataActorColorMember2 = new global::Fegmm.ChurchTools.Posts.PostsPostResponse_data_actor_colorMember2();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

@@ -63,6 +63,7 @@ namespace Fegmm.ChurchTools.Bookings.Conflicts
         public ConflictsPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            RepeatId = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

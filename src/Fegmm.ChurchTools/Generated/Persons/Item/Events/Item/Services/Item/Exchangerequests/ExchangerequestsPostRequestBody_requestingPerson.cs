@@ -533,11 +533,7 @@ namespace Fegmm.ChurchTools.Persons.Item.Events.Item.Services.Item.Exchangereque
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Persons.Item.Events.Item.Services.Item.Exchangerequests.ExchangerequestsPostRequestBody_requestingPerson.ExchangerequestsPostRequestBody_requestingPerson_invitationStatus();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ExchangerequestsPostRequestBodyRequestingPersonInvitationStatusMember1 = new global::Fegmm.ChurchTools.Persons.Item.Events.Item.Services.Item.Exchangerequests.ExchangerequestsPostRequestBody_requestingPerson_invitationStatusMember1();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

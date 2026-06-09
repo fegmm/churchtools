@@ -52,6 +52,8 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Routines
         public RoutinesGetResponse_data_routine()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsEnabled = false;
+            Priority = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

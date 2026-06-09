@@ -60,6 +60,14 @@ namespace Fegmm.ChurchTools.Permissions.Global
 #endif
         /// <summary>The useChurchquery property</summary>
         public bool? UseChurchquery { get; set; }
+        /// <summary>The viewLinks property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<double?>? ViewLinks { get; set; }
+#nullable restore
+#else
+        public List<double?> ViewLinks { get; set; }
+#endif
         /// <summary>The viewLogfile property</summary>
         public bool? ViewLogfile { get; set; }
         /// <summary>The viewWebsite property</summary>
@@ -103,6 +111,7 @@ namespace Fegmm.ChurchTools.Permissions.Global
                 { "simulate persons", n => { SimulatePersons = n.GetBoolValue(); } },
                 { "use church html templates", n => { UseChurchHtmlTemplates = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "use churchquery", n => { UseChurchquery = n.GetBoolValue(); } },
+                { "view links", n => { ViewLinks = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
                 { "view logfile", n => { ViewLogfile = n.GetBoolValue(); } },
                 { "view website", n => { ViewWebsite = n.GetBoolValue(); } },
             };
@@ -128,6 +137,7 @@ namespace Fegmm.ChurchTools.Permissions.Global
             writer.WriteBoolValue("simulate persons", SimulatePersons);
             writer.WriteCollectionOfPrimitiveValues<double?>("use church html templates", UseChurchHtmlTemplates);
             writer.WriteBoolValue("use churchquery", UseChurchquery);
+            writer.WriteCollectionOfPrimitiveValues<double?>("view links", ViewLinks);
             writer.WriteBoolValue("view logfile", ViewLogfile);
             writer.WriteBoolValue("view website", ViewWebsite);
             writer.WriteAdditionalData(AdditionalData);

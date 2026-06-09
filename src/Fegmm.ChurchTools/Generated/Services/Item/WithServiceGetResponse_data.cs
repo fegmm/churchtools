@@ -43,6 +43,14 @@ namespace Fegmm.ChurchTools.Services.Item
         /// <summary>use `allowCommentOnConfirmation` instead</summary>
         [Obsolete("")]
         public bool? CommentOnConfirmation { get; set; }
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Services.Item.WithServiceGetResponse_data_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Services.Item.WithServiceGetResponse_data_Deprecated Deprecated { get; set; }
+#endif
         /// <summary>The groupIds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,6 +132,7 @@ namespace Fegmm.ChurchTools.Services.Item
                 { "calTextTemplate", n => { CalTextTemplate = n.GetStringValue(); } },
                 { "comment", n => { Comment = n.GetStringValue(); } },
                 { "commentOnConfirmation", n => { CommentOnConfirmation = n.GetBoolValue(); } },
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Services.Item.WithServiceGetResponse_data_Deprecated>(global::Fegmm.ChurchTools.Services.Item.WithServiceGetResponse_data_Deprecated.CreateFromDiscriminatorValue); } },
                 { "groupIds", n => { GroupIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "hidePersonName", n => { HidePersonName = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
@@ -153,6 +162,7 @@ namespace Fegmm.ChurchTools.Services.Item
             writer.WriteStringValue("calTextTemplate", CalTextTemplate);
             writer.WriteStringValue("comment", Comment);
             writer.WriteBoolValue("commentOnConfirmation", CommentOnConfirmation);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Services.Item.WithServiceGetResponse_data_Deprecated>("@deprecated", Deprecated);
             writer.WriteCollectionOfPrimitiveValues<int?>("groupIds", GroupIds);
             writer.WriteBoolValue("hidePersonName", HidePersonName);
             writer.WriteIntValue("id", Id);

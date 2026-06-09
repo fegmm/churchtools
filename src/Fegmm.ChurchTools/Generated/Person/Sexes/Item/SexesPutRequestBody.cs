@@ -7,14 +7,15 @@ using System.IO;
 using System;
 namespace Fegmm.ChurchTools.Person.Sexes.Item
 {
-    /// <summary>
-    /// Request body for creating a sex.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class SexesPutRequestBody : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>ID of sex</summary>
+        public int? Id { get; set; }
         /// <summary>Name of the sex (translation key)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,6 +48,7 @@ namespace Fegmm.ChurchTools.Person.Sexes.Item
         public SexesPutRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            SortKey = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -66,6 +68,7 @@ namespace Fegmm.ChurchTools.Person.Sexes.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "id", n => { Id = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "salutationFormal", n => { SalutationFormal = n.GetStringValue(); } },
                 { "salutationInformal", n => { SalutationInformal = n.GetStringValue(); } },
@@ -79,6 +82,7 @@ namespace Fegmm.ChurchTools.Person.Sexes.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("salutationFormal", SalutationFormal);
             writer.WriteStringValue("salutationInformal", SalutationInformal);

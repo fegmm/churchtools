@@ -16,8 +16,8 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Persons.Item
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The plus_doFollowup property</summary>
         public bool? PlusDoFollowup { get; set; }
-        /// <summary>The plus_editPersonFieldOfGroupMembers property</summary>
-        public double? PlusEditPersonFieldOfGroupMembers { get; set; }
+        /// <summary>The plus_editPersonFieldsOfGroupMembers property</summary>
+        public double? PlusEditPersonFieldsOfGroupMembers { get; set; }
         /// <summary>The plus_editPersons property</summary>
         public bool? PlusEditPersons { get; set; }
         /// <summary>The plus_invitePerson property</summary>
@@ -52,7 +52,7 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Persons.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "+do followup", n => { PlusDoFollowup = n.GetBoolValue(); } },
-                { "+edit person field of group members", n => { PlusEditPersonFieldOfGroupMembers = n.GetDoubleValue(); } },
+                { "+edit person fields of group members", n => { PlusEditPersonFieldsOfGroupMembers = n.GetDoubleValue(); } },
                 { "+edit persons", n => { PlusEditPersons = n.GetBoolValue(); } },
                 { "+invite person", n => { PlusInvitePerson = n.GetBoolValue(); } },
                 { "+see persons", n => { PlusSeePersons = n.GetDoubleValue(); } },
@@ -67,7 +67,7 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Persons.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("+do followup", PlusDoFollowup);
-            writer.WriteDoubleValue("+edit person field of group members", PlusEditPersonFieldOfGroupMembers);
+            writer.WriteDoubleValue("+edit person fields of group members", PlusEditPersonFieldsOfGroupMembers);
             writer.WriteBoolValue("+edit persons", PlusEditPersons);
             writer.WriteBoolValue("+invite person", PlusInvitePerson);
             writer.WriteDoubleValue("+see persons", PlusSeePersons);

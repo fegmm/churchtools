@@ -23,7 +23,7 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
         public bool? PlusAdminFollowup { get; set; }
         /// <summary>The plus_adminGroupChat property</summary>
         public bool? PlusAdminGroupChat { get; set; }
-        /// <summary>The plus_adminGroupFields property</summary>
+        /// <summary>Use &quot;+admin group member fields&quot; instead.</summary>
         [Obsolete("")]
         public bool? PlusAdminGroupFields { get; set; }
         /// <summary>The plus_adminGroupMemberFields property</summary>
@@ -42,6 +42,8 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
         public bool? PlusCreatePostGroupIntern { get; set; }
         /// <summary>The plus_createPostGroupVisible property</summary>
         public bool? PlusCreatePostGroupVisible { get; set; }
+        /// <summary>The plus_createPosts property</summary>
+        public bool? PlusCreatePosts { get; set; }
         /// <summary>The plus_doFollowup property</summary>
         public bool? PlusDoFollowup { get; set; }
         /// <summary>The plus_doGroupMeeting property</summary>
@@ -50,20 +52,25 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
         public bool? PlusEditBasicGroupMemberships { get; set; }
         /// <summary>The plus_editGroupBasicSettings property</summary>
         public bool? PlusEditGroupBasicSettings { get; set; }
+        /// <summary>Use &quot;edit group member fields&quot; instead.</summary>
+        [Obsolete("")]
+        public double? PlusEditGroupFields { get; set; }
         /// <summary>The plus_editGroupHierarchy property</summary>
         public bool? PlusEditGroupHierarchy { get; set; }
         /// <summary>The plus_editGroupInfos property</summary>
         public bool? PlusEditGroupInfos { get; set; }
         /// <summary>The plus_editGroupMemberFields property</summary>
         public double? PlusEditGroupMemberFields { get; set; }
-        /// <summary>The plus_editGroupMemberships property</summary>
+        /// <summary>Use &quot;+edit basic group memberships&quot; instead.</summary>
         [Obsolete("")]
         public bool? PlusEditGroupMemberships { get; set; }
+        /// <summary>The plus_editGroupmemberstatus property</summary>
+        public bool? PlusEditGroupmemberstatus { get; set; }
         /// <summary>The plus_editOwnGroupMemberFields property</summary>
         public double? PlusEditOwnGroupMemberFields { get; set; }
         /// <summary>The plus_editPersonFieldsOfGroupMembers property</summary>
         public double? PlusEditPersonFieldsOfGroupMembers { get; set; }
-        /// <summary>The plus_editPersons property</summary>
+        /// <summary>Use &quot;+edit person fields of group members&quot; instead.</summary>
         [Obsolete("")]
         public bool? PlusEditPersons { get; set; }
         /// <summary>The plus_exitGroup property</summary>
@@ -94,10 +101,10 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
         public bool? PlusSeeTags { get; set; }
         /// <summary>The plus_viewHistory property</summary>
         public bool? PlusViewHistory { get; set; }
-        /// <summary>The plus_editOwnGroupmemberfields property</summary>
+        /// <summary>Use &quot;+edit own group member fields&quot; instead.</summary>
         [Obsolete("")]
-        public bool? WithGroupGetResponseDataChurchdbPlusEditOwnGroupmemberfields { get; set; }
-        /// <summary>The plus_seeGroupmemberfields property</summary>
+        public double? WithGroupGetResponseDataChurchdbPlusEditOwnGroupmemberfields { get; set; }
+        /// <summary>Use &quot;+see group member fields&quot; instead.</summary>
         [Obsolete("")]
         public double? WithGroupGetResponseDataChurchdbPlusSeeGroupmemberfields { get; set; }
         /// <summary>
@@ -138,14 +145,17 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
                 { "+create notes", n => { PlusCreateNotes = n.GetBoolValue(); } },
                 { "+create post group intern", n => { PlusCreatePostGroupIntern = n.GetBoolValue(); } },
                 { "+create post group visible", n => { PlusCreatePostGroupVisible = n.GetBoolValue(); } },
+                { "+create posts", n => { PlusCreatePosts = n.GetBoolValue(); } },
                 { "+do followup", n => { PlusDoFollowup = n.GetBoolValue(); } },
                 { "+do group meeting", n => { PlusDoGroupMeeting = n.GetBoolValue(); } },
                 { "+edit basic group memberships", n => { PlusEditBasicGroupMemberships = n.GetBoolValue(); } },
                 { "+edit group basic settings", n => { PlusEditGroupBasicSettings = n.GetBoolValue(); } },
+                { "+edit group fields", n => { PlusEditGroupFields = n.GetDoubleValue(); } },
                 { "+edit group hierarchy", n => { PlusEditGroupHierarchy = n.GetBoolValue(); } },
                 { "+edit group infos", n => { PlusEditGroupInfos = n.GetBoolValue(); } },
                 { "+edit group member fields", n => { PlusEditGroupMemberFields = n.GetDoubleValue(); } },
                 { "+edit group memberships", n => { PlusEditGroupMemberships = n.GetBoolValue(); } },
+                { "+edit groupmemberstatus", n => { PlusEditGroupmemberstatus = n.GetBoolValue(); } },
                 { "+edit own group member fields", n => { PlusEditOwnGroupMemberFields = n.GetDoubleValue(); } },
                 { "+edit person fields of group members", n => { PlusEditPersonFieldsOfGroupMembers = n.GetDoubleValue(); } },
                 { "+edit persons", n => { PlusEditPersons = n.GetBoolValue(); } },
@@ -163,7 +173,7 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
                 { "+see persons", n => { PlusSeePersons = n.GetDoubleValue(); } },
                 { "+see tags", n => { PlusSeeTags = n.GetBoolValue(); } },
                 { "+view history", n => { PlusViewHistory = n.GetBoolValue(); } },
-                { "+edit own groupmemberfields", n => { WithGroupGetResponseDataChurchdbPlusEditOwnGroupmemberfields = n.GetBoolValue(); } },
+                { "+edit own groupmemberfields", n => { WithGroupGetResponseDataChurchdbPlusEditOwnGroupmemberfields = n.GetDoubleValue(); } },
                 { "+see groupmemberfields", n => { WithGroupGetResponseDataChurchdbPlusSeeGroupmemberfields = n.GetDoubleValue(); } },
             };
         }
@@ -187,14 +197,17 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
             writer.WriteBoolValue("+create notes", PlusCreateNotes);
             writer.WriteBoolValue("+create post group intern", PlusCreatePostGroupIntern);
             writer.WriteBoolValue("+create post group visible", PlusCreatePostGroupVisible);
+            writer.WriteBoolValue("+create posts", PlusCreatePosts);
             writer.WriteBoolValue("+do followup", PlusDoFollowup);
             writer.WriteBoolValue("+do group meeting", PlusDoGroupMeeting);
             writer.WriteBoolValue("+edit basic group memberships", PlusEditBasicGroupMemberships);
             writer.WriteBoolValue("+edit group basic settings", PlusEditGroupBasicSettings);
+            writer.WriteDoubleValue("+edit group fields", PlusEditGroupFields);
             writer.WriteBoolValue("+edit group hierarchy", PlusEditGroupHierarchy);
             writer.WriteBoolValue("+edit group infos", PlusEditGroupInfos);
             writer.WriteDoubleValue("+edit group member fields", PlusEditGroupMemberFields);
             writer.WriteBoolValue("+edit group memberships", PlusEditGroupMemberships);
+            writer.WriteBoolValue("+edit groupmemberstatus", PlusEditGroupmemberstatus);
             writer.WriteDoubleValue("+edit own group member fields", PlusEditOwnGroupMemberFields);
             writer.WriteDoubleValue("+edit person fields of group members", PlusEditPersonFieldsOfGroupMembers);
             writer.WriteBoolValue("+edit persons", PlusEditPersons);
@@ -212,7 +225,7 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
             writer.WriteDoubleValue("+see persons", PlusSeePersons);
             writer.WriteBoolValue("+see tags", PlusSeeTags);
             writer.WriteBoolValue("+view history", PlusViewHistory);
-            writer.WriteBoolValue("+edit own groupmemberfields", WithGroupGetResponseDataChurchdbPlusEditOwnGroupmemberfields);
+            writer.WriteDoubleValue("+edit own groupmemberfields", WithGroupGetResponseDataChurchdbPlusEditOwnGroupmemberfields);
             writer.WriteDoubleValue("+see groupmemberfields", WithGroupGetResponseDataChurchdbPlusSeeGroupmemberfields);
             writer.WriteAdditionalData(AdditionalData);
         }

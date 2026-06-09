@@ -14,15 +14,13 @@ namespace Fegmm.ChurchTools.Person.Sexes.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>ID of sex</summary>
-        public int? Id { get; set; }
-        /// <summary>Name of sex (translation key)</summary>
+        /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public global::Fegmm.ChurchTools.Person.Sexes.Item.SexesPutResponse_data_meta? Meta { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public global::Fegmm.ChurchTools.Person.Sexes.Item.SexesPutResponse_data_meta Meta { get; set; }
 #endif
         /// <summary>Translated name of sex</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,14 +30,6 @@ namespace Fegmm.ChurchTools.Person.Sexes.Item
 #else
         public string NameTranslated { get; set; }
 #endif
-        /// <summary>Formal salutation for this sex (translation key)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SalutationFormal { get; set; }
-#nullable restore
-#else
-        public string SalutationFormal { get; set; }
-#endif
         /// <summary>Translated formal salutation for this sex</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,14 +37,6 @@ namespace Fegmm.ChurchTools.Person.Sexes.Item
 #nullable restore
 #else
         public string SalutationFormalTranslated { get; set; }
-#endif
-        /// <summary>Informal salutation for this sex (translation key)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SalutationInformal { get; set; }
-#nullable restore
-#else
-        public string SalutationInformal { get; set; }
 #endif
         /// <summary>Translated informal salutation for this sex</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,8 +46,6 @@ namespace Fegmm.ChurchTools.Person.Sexes.Item
 #else
         public string SalutationInformalTranslated { get; set; }
 #endif
-        /// <summary>Used to sort all sexes</summary>
-        public int? SortKey { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Person.Sexes.Item.SexesPutResponse_data"/> and sets the default values.
         /// </summary>
@@ -91,14 +71,10 @@ namespace Fegmm.ChurchTools.Person.Sexes.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetIntValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Person.Sexes.Item.SexesPutResponse_data_meta>(global::Fegmm.ChurchTools.Person.Sexes.Item.SexesPutResponse_data_meta.CreateFromDiscriminatorValue); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
-                { "salutationFormal", n => { SalutationFormal = n.GetStringValue(); } },
                 { "salutationFormalTranslated", n => { SalutationFormalTranslated = n.GetStringValue(); } },
-                { "salutationInformal", n => { SalutationInformal = n.GetStringValue(); } },
                 { "salutationInformalTranslated", n => { SalutationInformalTranslated = n.GetStringValue(); } },
-                { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -108,14 +84,10 @@ namespace Fegmm.ChurchTools.Person.Sexes.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("id", Id);
-            writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Person.Sexes.Item.SexesPutResponse_data_meta>("meta", Meta);
             writer.WriteStringValue("nameTranslated", NameTranslated);
-            writer.WriteStringValue("salutationFormal", SalutationFormal);
             writer.WriteStringValue("salutationFormalTranslated", SalutationFormalTranslated);
-            writer.WriteStringValue("salutationInformal", SalutationInformal);
             writer.WriteStringValue("salutationInformalTranslated", SalutationInformalTranslated);
-            writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

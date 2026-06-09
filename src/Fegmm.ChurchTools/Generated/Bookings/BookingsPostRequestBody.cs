@@ -93,6 +93,7 @@ namespace Fegmm.ChurchTools.Bookings
         public BookingsPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            RepeatId = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

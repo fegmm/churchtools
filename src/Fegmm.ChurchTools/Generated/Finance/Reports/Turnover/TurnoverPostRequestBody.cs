@@ -26,6 +26,7 @@ namespace Fegmm.ChurchTools.Finance.Reports.Turnover
         public TurnoverPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            ShowEmptyAccounts = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

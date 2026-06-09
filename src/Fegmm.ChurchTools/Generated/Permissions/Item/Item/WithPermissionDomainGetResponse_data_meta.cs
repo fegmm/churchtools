@@ -16,14 +16,8 @@ namespace Fegmm.ChurchTools.Permissions.Item.Item
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? ModifiedDate { get; set; }
-        /// <summary>The modifiedPerson property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Fegmm.ChurchTools.Permissions.Item.Item.WithPermissionDomainGetResponse_data_meta_modifiedPerson? ModifiedPerson { get; set; }
-#nullable restore
-#else
-        public global::Fegmm.ChurchTools.Permissions.Item.Item.WithPermissionDomainGetResponse_data_meta_modifiedPerson ModifiedPerson { get; set; }
-#endif
+        /// <summary>The modifiedPid property</summary>
+        public int? ModifiedPid { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Permissions.Item.Item.WithPermissionDomainGetResponse_data_meta"/> and sets the default values.
         /// </summary>
@@ -50,7 +44,7 @@ namespace Fegmm.ChurchTools.Permissions.Item.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "modifiedDate", n => { ModifiedDate = n.GetDateTimeOffsetValue(); } },
-                { "modifiedPerson", n => { ModifiedPerson = n.GetObjectValue<global::Fegmm.ChurchTools.Permissions.Item.Item.WithPermissionDomainGetResponse_data_meta_modifiedPerson>(global::Fegmm.ChurchTools.Permissions.Item.Item.WithPermissionDomainGetResponse_data_meta_modifiedPerson.CreateFromDiscriminatorValue); } },
+                { "modifiedPid", n => { ModifiedPid = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -61,7 +55,7 @@ namespace Fegmm.ChurchTools.Permissions.Item.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("modifiedDate", ModifiedDate);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Permissions.Item.Item.WithPermissionDomainGetResponse_data_meta_modifiedPerson>("modifiedPerson", ModifiedPerson);
+            writer.WriteIntValue("modifiedPid", ModifiedPid);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

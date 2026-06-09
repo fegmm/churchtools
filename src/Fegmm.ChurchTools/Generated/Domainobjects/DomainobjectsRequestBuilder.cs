@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Domainobjects
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DomainobjectsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/domainobjects?domain_identifiers[]={domain_identifiers%5B%5D}&domain_types[]={domain_types%5B%5D}", pathParameters)
+        public DomainobjectsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/domainobjects", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Fegmm.ChurchTools.Domainobjects
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DomainobjectsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/domainobjects?domain_identifiers[]={domain_identifiers%5B%5D}&domain_types[]={domain_types%5B%5D}", rawUrl)
+        public DomainobjectsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/domainobjects", rawUrl)
         {
         }
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Domainobjects.DomainobjectsGetResponse"/></returns>
@@ -109,7 +109,7 @@ namespace Fegmm.ChurchTools.Domainobjects
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Domainobjects.DomainobjectsRequestBuilder.DomainobjectsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/domainobjects?domain_identifiers[]={domain_identifiers%5B%5D}&domain_types[]={domain_types%5B%5D}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -127,7 +127,7 @@ namespace Fegmm.ChurchTools.Domainobjects
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/domainobjects", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

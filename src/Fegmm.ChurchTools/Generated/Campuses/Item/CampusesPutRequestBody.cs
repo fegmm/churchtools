@@ -14,44 +14,8 @@ namespace Fegmm.ChurchTools.Campuses.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The address property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_address? Address { get; set; }
-#nullable restore
-#else
-        public global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_address Address { get; set; }
-#endif
-        /// <summary>The associationId property</summary>
-        public int? AssociationId { get; set; }
-        /// <summary>Either exact string or denomination object with name property</summary>
-        public global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_denomination? Denomination { get; set; }
-        /// <summary>The description property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Description { get; set; }
-#nullable restore
-#else
-        public string Description { get; set; }
-#endif
-        /// <summary>The email property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Email { get; set; }
-#nullable restore
-#else
-        public string Email { get; set; }
-#endif
-        /// <summary>Either array of group IDs or array of objects with group-property, which is a domain object wiht &apos;domainIdentifier&apos;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<double?>? Groups { get; set; }
-#nullable restore
-#else
-        public List<double?> Groups { get; set; }
-#endif
-        /// <summary>The isPublished property</summary>
-        public bool? IsPublished { get; set; }
+        /// <summary>The id property</summary>
+        public int? Id { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,30 +23,6 @@ namespace Fegmm.ChurchTools.Campuses.Item
 #nullable restore
 #else
         public string Name { get; set; }
-#endif
-        /// <summary>The phone property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Phone { get; set; }
-#nullable restore
-#else
-        public string Phone { get; set; }
-#endif
-        /// <summary>The services property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_services>? Services { get; set; }
-#nullable restore
-#else
-        public List<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_services> Services { get; set; }
-#endif
-        /// <summary>The shortName property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ShortName { get; set; }
-#nullable restore
-#else
-        public string ShortName { get; set; }
 #endif
         /// <summary>The shorty property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,72 +32,15 @@ namespace Fegmm.ChurchTools.Campuses.Item
 #else
         public string Shorty { get; set; }
 #endif
-        /// <summary>SignUp Group; Either groupId or domainObject</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_signUpGroup? SignUpGroup { get; set; }
-#nullable restore
-#else
-        public global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_signUpGroup SignUpGroup { get; set; }
-#endif
-        /// <summary>The slug property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Slug { get; set; }
-#nullable restore
-#else
-        public string Slug { get; set; }
-#endif
-        /// <summary>Key-Value Pair, where key is the name of the network and value is the absolute link</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_socialMedia? SocialMedia { get; set; }
-#nullable restore
-#else
-        public global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_socialMedia SocialMedia { get; set; }
-#endif
         /// <summary>The sortKey property</summary>
         public int? SortKey { get; set; }
-        /// <summary>List of tags.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? Tags { get; set; }
-#nullable restore
-#else
-        public List<string> Tags { get; set; }
-#endif
-        /// <summary>The team property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_team>? Team { get; set; }
-#nullable restore
-#else
-        public List<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_team> Team { get; set; }
-#endif
-        /// <summary>The teamTitle property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TeamTitle { get; set; }
-#nullable restore
-#else
-        public string TeamTitle { get; set; }
-#endif
-        /// <summary>Single integer, which represents a range.</summary>
-        public int? Visitors { get; set; }
-        /// <summary>The website property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Website { get; set; }
-#nullable restore
-#else
-        public string Website { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody"/> and sets the default values.
         /// </summary>
         public CampusesPutRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            SortKey = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -177,27 +60,10 @@ namespace Fegmm.ChurchTools.Campuses.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "address", n => { Address = n.GetObjectValue<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_address>(global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_address.CreateFromDiscriminatorValue); } },
-                { "associationId", n => { AssociationId = n.GetIntValue(); } },
-                { "denomination", n => { Denomination = n.GetEnumValue<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_denomination>(); } },
-                { "description", n => { Description = n.GetStringValue(); } },
-                { "email", n => { Email = n.GetStringValue(); } },
-                { "groups", n => { Groups = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
-                { "isPublished", n => { IsPublished = n.GetBoolValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "phone", n => { Phone = n.GetStringValue(); } },
-                { "services", n => { Services = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_services>(global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_services.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "shortName", n => { ShortName = n.GetStringValue(); } },
                 { "shorty", n => { Shorty = n.GetStringValue(); } },
-                { "signUpGroup", n => { SignUpGroup = n.GetObjectValue<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_signUpGroup>(global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_signUpGroup.CreateFromDiscriminatorValue); } },
-                { "slug", n => { Slug = n.GetStringValue(); } },
-                { "socialMedia", n => { SocialMedia = n.GetObjectValue<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_socialMedia>(global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_socialMedia.CreateFromDiscriminatorValue); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
-                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "team", n => { Team = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_team>(global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_team.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "teamTitle", n => { TeamTitle = n.GetStringValue(); } },
-                { "visitors", n => { Visitors = n.GetIntValue(); } },
-                { "website", n => { Website = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -207,27 +73,10 @@ namespace Fegmm.ChurchTools.Campuses.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_address>("address", Address);
-            writer.WriteIntValue("associationId", AssociationId);
-            writer.WriteEnumValue<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_denomination>("denomination", Denomination);
-            writer.WriteStringValue("description", Description);
-            writer.WriteStringValue("email", Email);
-            writer.WriteCollectionOfPrimitiveValues<double?>("groups", Groups);
-            writer.WriteBoolValue("isPublished", IsPublished);
+            writer.WriteIntValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("phone", Phone);
-            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_services>("services", Services);
-            writer.WriteStringValue("shortName", ShortName);
             writer.WriteStringValue("shorty", Shorty);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_signUpGroup>("signUpGroup", SignUpGroup);
-            writer.WriteStringValue("slug", Slug);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_socialMedia>("socialMedia", SocialMedia);
             writer.WriteIntValue("sortKey", SortKey);
-            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutRequestBody_team>("team", Team);
-            writer.WriteStringValue("teamTitle", TeamTitle);
-            writer.WriteIntValue("visitors", Visitors);
-            writer.WriteStringValue("website", Website);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

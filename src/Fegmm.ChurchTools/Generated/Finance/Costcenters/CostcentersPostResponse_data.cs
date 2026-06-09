@@ -37,10 +37,10 @@ namespace Fegmm.ChurchTools.Finance.Costcenters
         /// <summary>The group property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Finance.Costcenters.CostcentersPostResponse_data_group? Group { get; set; }
+        public UntypedNode? Group { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Finance.Costcenters.CostcentersPostResponse_data_group Group { get; set; }
+        public UntypedNode Group { get; set; }
 #endif
         /// <summary>The id property</summary>
         public int? Id { get; set; }
@@ -100,7 +100,7 @@ namespace Fegmm.ChurchTools.Finance.Costcenters
                 { "budgetBalanceLastPeriod", n => { BudgetBalanceLastPeriod = n.GetIntValue(); } },
                 { "budgetLastPeriod", n => { BudgetLastPeriod = n.GetIntValue(); } },
                 { "budgetSpent", n => { BudgetSpent = n.GetIntValue(); } },
-                { "group", n => { Group = n.GetObjectValue<global::Fegmm.ChurchTools.Finance.Costcenters.CostcentersPostResponse_data_group>(global::Fegmm.ChurchTools.Finance.Costcenters.CostcentersPostResponse_data_group.CreateFromDiscriminatorValue); } },
+                { "group", n => { Group = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Finance.Costcenters.CostcentersPostResponse_data_meta>(global::Fegmm.ChurchTools.Finance.Costcenters.CostcentersPostResponse_data_meta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -121,7 +121,7 @@ namespace Fegmm.ChurchTools.Finance.Costcenters
             writer.WriteIntValue("budgetBalanceLastPeriod", BudgetBalanceLastPeriod);
             writer.WriteIntValue("budgetLastPeriod", BudgetLastPeriod);
             writer.WriteIntValue("budgetSpent", BudgetSpent);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Costcenters.CostcentersPostResponse_data_group>("group", Group);
+            writer.WriteObjectValue<UntypedNode>("group", Group);
             writer.WriteIntValue("id", Id);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Costcenters.CostcentersPostResponse_data_meta>("meta", Meta);
             writer.WriteStringValue("name", Name);

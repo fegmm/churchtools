@@ -39,13 +39,7 @@ namespace Fegmm.ChurchTools.Persons.Duplicates
         public global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_data_relationships_p2 P2 { get; set; }
 #endif
         /// <summary>The relationshipId property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RelationshipId { get; set; }
-#nullable restore
-#else
-        public string RelationshipId { get; set; }
-#endif
+        public int? RelationshipId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_data_relationships"/> and sets the default values.
         /// </summary>
@@ -74,7 +68,7 @@ namespace Fegmm.ChurchTools.Persons.Duplicates
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "p1", n => { P1 = n.GetObjectValue<global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_data_relationships_p1>(global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_data_relationships_p1.CreateFromDiscriminatorValue); } },
                 { "p2", n => { P2 = n.GetObjectValue<global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_data_relationships_p2>(global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_data_relationships_p2.CreateFromDiscriminatorValue); } },
-                { "relationshipId", n => { RelationshipId = n.GetStringValue(); } },
+                { "relationshipId", n => { RelationshipId = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -87,7 +81,7 @@ namespace Fegmm.ChurchTools.Persons.Duplicates
             writer.WriteStringValue("key", Key);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_data_relationships_p1>("p1", P1);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Duplicates.DuplicatesGetResponse_data_relationships_p2>("p2", P2);
-            writer.WriteStringValue("relationshipId", RelationshipId);
+            writer.WriteIntValue("relationshipId", RelationshipId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

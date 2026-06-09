@@ -54,6 +54,7 @@ namespace Fegmm.ChurchTools.Oauthclients
         public OauthclientsGetResponse_data()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsConfidential = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

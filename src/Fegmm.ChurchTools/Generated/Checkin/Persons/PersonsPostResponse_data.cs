@@ -533,11 +533,7 @@ namespace Fegmm.ChurchTools.Checkin.Persons
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Checkin.Persons.PersonsPostResponse_data.PersonsPostResponse_data_invitationStatus();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.PersonsPostResponseDataInvitationStatusMember1 = new global::Fegmm.ChurchTools.Checkin.Persons.PersonsPostResponse_data_invitationStatusMember1();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

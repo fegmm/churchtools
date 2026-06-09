@@ -22,6 +22,22 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
 #else
         public global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchdb Churchdb { get; set; }
 #endif
+        /// <summary>Group Internal Permission, which Affect a Person</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchservice? Churchservice { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchservice Churchservice { get; set; }
+#endif
+        /// <summary>Group Internal Permission, which Affect a Person</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_finance? Finance { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_finance Finance { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data"/> and sets the default values.
         /// </summary>
@@ -48,6 +64,8 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "churchdb", n => { Churchdb = n.GetObjectValue<global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchdb>(global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchdb.CreateFromDiscriminatorValue); } },
+                { "churchservice", n => { Churchservice = n.GetObjectValue<global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchservice>(global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchservice.CreateFromDiscriminatorValue); } },
+                { "finance", n => { Finance = n.GetObjectValue<global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_finance>(global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_finance.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,6 +76,8 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchdb>("churchdb", Churchdb);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchservice>("churchservice", Churchservice);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_finance>("finance", Finance);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

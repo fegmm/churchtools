@@ -41,6 +41,7 @@ namespace Fegmm.ChurchTools.Finance.Accountingperiods
         public AccountingperiodsPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            CopyMasterData = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

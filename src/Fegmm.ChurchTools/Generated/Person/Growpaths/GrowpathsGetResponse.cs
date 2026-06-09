@@ -17,10 +17,18 @@ namespace Fegmm.ChurchTools.Person.Growpaths
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Fegmm.ChurchTools.Person.Growpaths.GrowpathsGetResponse_data>? Data { get; set; }
+        public UntypedNode? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Fegmm.ChurchTools.Person.Growpaths.GrowpathsGetResponse_data> Data { get; set; }
+        public UntypedNode Data { get; set; }
+#endif
+        /// <summary>The meta property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Person.Growpaths.GrowpathsGetResponse_meta? Meta { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Person.Growpaths.GrowpathsGetResponse_meta Meta { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Person.Growpaths.GrowpathsGetResponse"/> and sets the default values.
@@ -47,7 +55,8 @@ namespace Fegmm.ChurchTools.Person.Growpaths
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Growpaths.GrowpathsGetResponse_data>(global::Fegmm.ChurchTools.Person.Growpaths.GrowpathsGetResponse_data.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Person.Growpaths.GrowpathsGetResponse_meta>(global::Fegmm.ChurchTools.Person.Growpaths.GrowpathsGetResponse_meta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +66,8 @@ namespace Fegmm.ChurchTools.Person.Growpaths
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Person.Growpaths.GrowpathsGetResponse_data>("data", Data);
+            writer.WriteObjectValue<UntypedNode>("data", Data);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Person.Growpaths.GrowpathsGetResponse_meta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

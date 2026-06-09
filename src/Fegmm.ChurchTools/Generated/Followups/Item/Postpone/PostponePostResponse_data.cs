@@ -185,11 +185,7 @@ namespace Fegmm.ChurchTools.Followups.Item.Postpone
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Followups.Item.Postpone.PostponePostResponse_data.PostponePostResponse_data_successGroupMemberStatus();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.PostponePostResponseDataSuccessGroupMemberStatusMember1 = new global::Fegmm.ChurchTools.Followups.Item.Postpone.PostponePostResponse_data_successGroupMemberStatusMember1();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

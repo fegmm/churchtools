@@ -51,10 +51,10 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Templates
         /// <summary>The events property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Events { get; set; }
+        public List<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.TemplatesPostResponse_data_events>? Events { get; set; }
 #nullable restore
 #else
-        public UntypedNode Events { get; set; }
+        public List<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.TemplatesPostResponse_data_events> Events { get; set; }
 #endif
         /// <summary>The grouptypeId property</summary>
         public int? GrouptypeId { get; set; }
@@ -163,7 +163,7 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Templates
                 { "daysForwardNo", n => { DaysForwardNo = n.GetIntValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "duration", n => { Duration = n.GetIntValue(); } },
-                { "events", n => { Events = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "events", n => { Events = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.TemplatesPostResponse_data_events>(global::Fegmm.ChurchTools.Calendars.Appointments.Templates.TemplatesPostResponse_data_events.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "grouptypeId", n => { GrouptypeId = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "image", n => { Image = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
@@ -197,7 +197,7 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Templates
             writer.WriteIntValue("daysForwardNo", DaysForwardNo);
             writer.WriteStringValue("description", Description);
             writer.WriteIntValue("duration", Duration);
-            writer.WriteObjectValue<UntypedNode>("events", Events);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.Templates.TemplatesPostResponse_data_events>("events", Events);
             writer.WriteIntValue("grouptypeId", GrouptypeId);
             writer.WriteIntValue("id", Id);
             writer.WriteObjectValue<UntypedNode>("image", Image);

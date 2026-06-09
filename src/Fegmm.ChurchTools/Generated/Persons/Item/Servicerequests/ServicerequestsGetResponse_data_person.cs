@@ -189,15 +189,7 @@ namespace Fegmm.ChurchTools.Persons.Item.Servicerequests
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Persons.Item.Servicerequests.ServicerequestsGetResponse_data_person.ServicerequestsGetResponse_data_person_color();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ServicerequestsGetResponseDataPersonColorMember1 = new global::Fegmm.ChurchTools.Persons.Item.Servicerequests.ServicerequestsGetResponse_data_person_colorMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ServicerequestsGetResponseDataPersonColorMember2 = new global::Fegmm.ChurchTools.Persons.Item.Servicerequests.ServicerequestsGetResponse_data_person_colorMember2();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

@@ -108,6 +108,7 @@ namespace Fegmm.ChurchTools.Finance.Masterdata
         public MasterdataGetResponse_data_clients()
         {
             AdditionalData = new Dictionary<string, object>();
+            DatevSupported = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -18,10 +18,10 @@ namespace Fegmm.ChurchTools.Campuses.Item
         /// <summary>The address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Campuses.Item.CampusesPutResponse_data_address? Address { get; set; }
+        public UntypedNode? Address { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Campuses.Item.CampusesPutResponse_data_address Address { get; set; }
+        public UntypedNode Address { get; set; }
 #endif
         /// <summary>The guid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,14 +56,6 @@ namespace Fegmm.ChurchTools.Campuses.Item
 #nullable restore
 #else
         public string NameTranslated { get; set; }
-#endif
-        /// <summary>The shortName property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ShortName { get; set; }
-#nullable restore
-#else
-        public string ShortName { get; set; }
 #endif
         /// <summary>The shorty property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -100,13 +92,12 @@ namespace Fegmm.ChurchTools.Campuses.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "address", n => { Address = n.GetObjectValue<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutResponse_data_address>(global::Fegmm.ChurchTools.Campuses.Item.CampusesPutResponse_data_address.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "guid", n => { Guid = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutResponse_data_meta>(global::Fegmm.ChurchTools.Campuses.Item.CampusesPutResponse_data_meta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
-                { "shortName", n => { ShortName = n.GetStringValue(); } },
                 { "shorty", n => { Shorty = n.GetStringValue(); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
@@ -118,13 +109,12 @@ namespace Fegmm.ChurchTools.Campuses.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutResponse_data_address>("address", Address);
+            writer.WriteObjectValue<UntypedNode>("address", Address);
             writer.WriteStringValue("guid", Guid);
             writer.WriteIntValue("id", Id);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Campuses.Item.CampusesPutResponse_data_meta>("meta", Meta);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nameTranslated", NameTranslated);
-            writer.WriteStringValue("shortName", ShortName);
             writer.WriteStringValue("shorty", Shorty);
             writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);

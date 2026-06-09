@@ -22,6 +22,7 @@ namespace Fegmm.ChurchTools.Persons.Item.Archive
         public ArchivePostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            Archived = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

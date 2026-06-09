@@ -12,11 +12,11 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses
     public partial class AccountclassesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The accountTypeId property</summary>
+        /// <summary>ID of the related account type.</summary>
         public int? AccountTypeId { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The includeProfitLoss property</summary>
+        /// <summary>If true, an additional row is added to that class in the report, which lists the profit-loss sum.</summary>
         public bool? IncludeProfitLoss { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -26,7 +26,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The sortKey property</summary>
+        /// <summary>Sort order of the account class.</summary>
         public int? SortKey { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesPostRequestBody"/> and sets the default values.
@@ -34,6 +34,8 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses
         public AccountclassesPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            IncludeProfitLoss = false;
+            SortKey = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

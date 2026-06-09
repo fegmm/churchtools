@@ -24,7 +24,7 @@ namespace Fegmm.ChurchTools.Posts.Item
 #else
         public string Content { get; set; }
 #endif
-        /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
+        /// <summary>The expirationDate property</summary>
         public DateTimeOffset? ExpirationDate { get; set; }
         /// <summary>The imageIds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,7 +34,7 @@ namespace Fegmm.ChurchTools.Posts.Item
 #else
         public List<int?> ImageIds { get; set; }
 #endif
-        /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
+        /// <summary>The publicationDate property</summary>
         public DateTimeOffset? PublicationDate { get; set; }
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

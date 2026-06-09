@@ -55,6 +55,10 @@ namespace Fegmm.ChurchTools.Languages
         #pragma warning disable CS1591
         Ru,
         #pragma warning restore CS1591
+        [EnumMember(Value = "sv")]
+        #pragma warning disable CS1591
+        Sv,
+        #pragma warning restore CS1591
         [EnumMember(Value = "tw")]
         #pragma warning disable CS1591
         Tw,

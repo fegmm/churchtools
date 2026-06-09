@@ -46,6 +46,14 @@ namespace Fegmm.ChurchTools.Externallogins.Item
 #else
         public string ClientSecret { get; set; }
 #endif
+        /// <summary>The scope property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Scope { get; set; }
+#nullable restore
+#else
+        public string Scope { get; set; }
+#endif
         /// <summary>The urlResourceOwnerDetails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,6 +91,7 @@ namespace Fegmm.ChurchTools.Externallogins.Item
                 { "authorizeUrl", n => { AuthorizeUrl = n.GetStringValue(); } },
                 { "clientId", n => { ClientId = n.GetStringValue(); } },
                 { "clientSecret", n => { ClientSecret = n.GetStringValue(); } },
+                { "scope", n => { Scope = n.GetStringValue(); } },
                 { "urlResourceOwnerDetails", n => { UrlResourceOwnerDetails = n.GetStringValue(); } },
             };
         }
@@ -97,6 +106,7 @@ namespace Fegmm.ChurchTools.Externallogins.Item
             writer.WriteStringValue("authorizeUrl", AuthorizeUrl);
             writer.WriteStringValue("clientId", ClientId);
             writer.WriteStringValue("clientSecret", ClientSecret);
+            writer.WriteStringValue("scope", Scope);
             writer.WriteStringValue("urlResourceOwnerDetails", UrlResourceOwnerDetails);
             writer.WriteAdditionalData(AdditionalData);
         }

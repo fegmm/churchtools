@@ -46,6 +46,14 @@ namespace Fegmm.ChurchTools.Statuses.Item
 #else
         public string Shorty { get; set; }
 #endif
+        /// <summary>Translated abbreviation of name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ShortyTranslated { get; set; }
+#nullable restore
+#else
+        public string ShortyTranslated { get; set; }
+#endif
         /// <summary>Used to sort all statuses</summary>
         public int? SortKey { get; set; }
         /// <summary>
@@ -80,6 +88,7 @@ namespace Fegmm.ChurchTools.Statuses.Item
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
                 { "securityLevelId", n => { SecurityLevelId = n.GetIntValue(); } },
                 { "shorty", n => { Shorty = n.GetStringValue(); } },
+                { "shortyTranslated", n => { ShortyTranslated = n.GetStringValue(); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
         }
@@ -97,6 +106,7 @@ namespace Fegmm.ChurchTools.Statuses.Item
             writer.WriteStringValue("nameTranslated", NameTranslated);
             writer.WriteIntValue("securityLevelId", SecurityLevelId);
             writer.WriteStringValue("shorty", Shorty);
+            writer.WriteStringValue("shortyTranslated", ShortyTranslated);
             writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -168,6 +168,7 @@ namespace Fegmm.ChurchTools.Bookings.Item.Item
         public WithAnswerPutResponse_data()
         {
             AdditionalData = new Dictionary<string, object>();
+            RepeatId = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -343,14 +344,6 @@ namespace Fegmm.ChurchTools.Bookings.Item.Item
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Bookings.Item.Item.WithAnswerPutResponse_data.WithAnswerPutResponse_data_simpleAppointment();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.WithAnswerPutResponseDataSimpleAppointmentMember1 = new global::Fegmm.ChurchTools.Bookings.Item.Item.WithAnswerPutResponse_data_simpleAppointmentMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.WithAnswerPutResponseDataSimpleAppointmentMember2 = new global::Fegmm.ChurchTools.Bookings.Item.Item.WithAnswerPutResponse_data_simpleAppointmentMember2();
-                }
                 return result;
             }
             /// <summary>

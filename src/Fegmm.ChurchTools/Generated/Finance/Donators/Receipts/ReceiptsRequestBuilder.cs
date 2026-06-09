@@ -117,7 +117,7 @@ namespace Fegmm.ChurchTools.Finance.Donators.Receipts
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Donators.Receipts.ReceiptsRequestBuilder.ReceiptsRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/finance/donators/receipts?accounting_period_id={accounting_period_id}", PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             return requestInfo;
         }
@@ -154,7 +154,7 @@ namespace Fegmm.ChurchTools.Finance.Donators.Receipts
         public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Donators.Receipts.ReceiptsRequestBuilder.ReceiptsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/finance/donators/receipts?accounting_period_id={accounting_period_id}", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             return requestInfo;
         }

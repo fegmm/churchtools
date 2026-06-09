@@ -53,7 +53,7 @@ namespace Fegmm.ChurchTools.Bookings
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BookingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bookings?resource_ids[]={resource_ids%5B%5D}{&from*,include%5B%5D*,person_id*,query*,status_ids%5B%5D*,to*}", pathParameters)
+        public BookingsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bookings{?from*,include%5B%5D*,person_id*,query*,status_ids%5B%5D*,to*}", pathParameters)
         {
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Fegmm.ChurchTools.Bookings
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public BookingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bookings?resource_ids[]={resource_ids%5B%5D}{&from*,include%5B%5D*,person_id*,query*,status_ids%5B%5D*,to*}", rawUrl)
+        public BookingsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/bookings{?from*,include%5B%5D*,person_id*,query*,status_ids%5B%5D*,to*}", rawUrl)
         {
         }
         /// <summary>
@@ -156,7 +156,7 @@ namespace Fegmm.ChurchTools.Bookings
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Bookings.BookingsRequestBuilder.BookingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/bookings?resource_ids[]={resource_ids%5B%5D}{&from*,include%5B%5D*,person_id*,query*,status_ids%5B%5D*,to*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -177,7 +177,7 @@ namespace Fegmm.ChurchTools.Bookings
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/bookings", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

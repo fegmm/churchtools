@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Fegmm.ChurchTools.Persons.Birthdays
 {
+    /// <summary>
+    /// Person as Domain Object
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class BirthdaysGetResponse_data_person : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -21,6 +22,14 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
 #nullable restore
 #else
         public string ApiUrl { get; set; }
+#endif
+        /// <summary>The color property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person.BirthdaysGetResponse_data_person_color? Color { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person.BirthdaysGetResponse_data_person_color Color { get; set; }
 #endif
         /// <summary>The domainAttributes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,13 +48,7 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
         public string DomainIdentifier { get; set; }
 #endif
         /// <summary>The domainType property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DomainType { get; set; }
-#nullable restore
-#else
-        public string DomainType { get; set; }
-#endif
+        public global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_domainType? DomainType { get; set; }
         /// <summary>The frontendUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,6 +57,8 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
 #else
         public string FrontendUrl { get; set; }
 #endif
+        /// <summary>The icon property</summary>
+        public global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_icon? Icon { get; set; }
         /// <summary>The imageUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,6 +66,22 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
 #nullable restore
 #else
         public string ImageUrl { get; set; }
+#endif
+        /// <summary>The infos property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Infos { get; set; }
+#nullable restore
+#else
+        public List<string> Infos { get; set; }
+#endif
+        /// <summary>The initials property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Initials { get; set; }
+#nullable restore
+#else
+        public string Initials { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -96,11 +117,15 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "apiUrl", n => { ApiUrl = n.GetStringValue(); } },
+                { "color", n => { Color = n.GetObjectValue<global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person.BirthdaysGetResponse_data_person_color>(global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person.BirthdaysGetResponse_data_person_color.CreateFromDiscriminatorValue); } },
                 { "domainAttributes", n => { DomainAttributes = n.GetObjectValue<global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_domainAttributes>(global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_domainAttributes.CreateFromDiscriminatorValue); } },
                 { "domainIdentifier", n => { DomainIdentifier = n.GetStringValue(); } },
-                { "domainType", n => { DomainType = n.GetStringValue(); } },
+                { "domainType", n => { DomainType = n.GetEnumValue<global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_domainType>(); } },
                 { "frontendUrl", n => { FrontendUrl = n.GetStringValue(); } },
+                { "icon", n => { Icon = n.GetEnumValue<global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_icon>(); } },
                 { "imageUrl", n => { ImageUrl = n.GetStringValue(); } },
+                { "infos", n => { Infos = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "initials", n => { Initials = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -112,13 +137,100 @@ namespace Fegmm.ChurchTools.Persons.Birthdays
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("apiUrl", ApiUrl);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person.BirthdaysGetResponse_data_person_color>("color", Color);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_domainAttributes>("domainAttributes", DomainAttributes);
             writer.WriteStringValue("domainIdentifier", DomainIdentifier);
-            writer.WriteStringValue("domainType", DomainType);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_domainType>("domainType", DomainType);
             writer.WriteStringValue("frontendUrl", FrontendUrl);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_icon>("icon", Icon);
             writer.WriteStringValue("imageUrl", ImageUrl);
+            writer.WriteCollectionOfPrimitiveValues<string>("infos", Infos);
+            writer.WriteStringValue("initials", Initials);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_colorMember1"/>, <see cref="global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_colorMember2"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class BirthdaysGetResponse_data_person_color : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_colorMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_colorMember1? BirthdaysGetResponseDataPersonColorMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_colorMember1 BirthdaysGetResponseDataPersonColorMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_colorMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_colorMember2? BirthdaysGetResponseDataPersonColorMember2 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_colorMember2 BirthdaysGetResponseDataPersonColorMember2 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person.BirthdaysGetResponse_data_person_color"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person.BirthdaysGetResponse_data_person_color CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person.BirthdaysGetResponse_data_person_color();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(BirthdaysGetResponseDataPersonColorMember1 != null)
+                {
+                    return BirthdaysGetResponseDataPersonColorMember1.GetFieldDeserializers();
+                }
+                else if(BirthdaysGetResponseDataPersonColorMember2 != null)
+                {
+                    return BirthdaysGetResponseDataPersonColorMember2.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(BirthdaysGetResponseDataPersonColorMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_colorMember1>(null, BirthdaysGetResponseDataPersonColorMember1);
+                }
+                else if(BirthdaysGetResponseDataPersonColorMember2 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Birthdays.BirthdaysGetResponse_data_person_colorMember2>(null, BirthdaysGetResponseDataPersonColorMember2);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
         }
     }
 }

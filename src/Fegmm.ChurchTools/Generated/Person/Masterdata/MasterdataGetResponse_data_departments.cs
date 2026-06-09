@@ -32,6 +32,14 @@ namespace Fegmm.ChurchTools.Person.Masterdata
 #else
         public string NameTranslated { get; set; }
 #endif
+        /// <summary>The short property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Short { get; set; }
+#nullable restore
+#else
+        public string Short { get; set; }
+#endif
         /// <summary>The sortKey property</summary>
         public int? SortKey { get; set; }
         /// <summary>
@@ -62,6 +70,7 @@ namespace Fegmm.ChurchTools.Person.Masterdata
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
+                { "short", n => { Short = n.GetStringValue(); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
         }
@@ -75,6 +84,7 @@ namespace Fegmm.ChurchTools.Person.Masterdata
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nameTranslated", NameTranslated);
+            writer.WriteStringValue("short", Short);
             writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);
         }

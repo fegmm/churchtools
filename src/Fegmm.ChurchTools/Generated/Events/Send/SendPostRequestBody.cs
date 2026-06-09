@@ -64,6 +64,7 @@ namespace Fegmm.ChurchTools.Events.Send
         public SendPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            SendCopyToMe = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -14,6 +14,8 @@ namespace Fegmm.ChurchTools.Finance.Masterdata
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The canViewAllTransactions property</summary>
+        public bool? CanViewAllTransactions { get; set; }
         /// <summary>The canViewBudgets property</summary>
         public bool? CanViewBudgets { get; set; }
         /// <summary>The canViewDonators property</summary>
@@ -49,6 +51,7 @@ namespace Fegmm.ChurchTools.Finance.Masterdata
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "canViewAllTransactions", n => { CanViewAllTransactions = n.GetBoolValue(); } },
                 { "canViewBudgets", n => { CanViewBudgets = n.GetBoolValue(); } },
                 { "canViewDonators", n => { CanViewDonators = n.GetBoolValue(); } },
                 { "canViewReports", n => { CanViewReports = n.GetBoolValue(); } },
@@ -63,6 +66,7 @@ namespace Fegmm.ChurchTools.Finance.Masterdata
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("canViewAllTransactions", CanViewAllTransactions);
             writer.WriteBoolValue("canViewBudgets", CanViewBudgets);
             writer.WriteBoolValue("canViewDonators", CanViewDonators);
             writer.WriteBoolValue("canViewReports", CanViewReports);

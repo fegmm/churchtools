@@ -59,7 +59,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses
         {
         }
         /// <summary>
-        /// Get all account classes ordered by id
+        /// Returns all account classes ordered by id. Account classes group account types and are part of the finance master data.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -77,7 +77,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesGetResponse>(requestInfo, global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all account classes ordered by id
+        /// Returns all account classes ordered by id. Account classes group account types and are part of the finance master data.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -96,7 +96,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesResponse>(requestInfo, global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create new account class
+        /// Creates a new account class. The name must be unique across all account classes. The optional `includeProfitLoss` flag can only be set on account classes whose account type allows it.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -116,7 +116,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesPostResponse>(requestInfo, global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create new account class
+        /// Creates a new account class. The name must be unique across all account classes. The optional `includeProfitLoss` flag can only be set on account classes whose account type allows it.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -137,7 +137,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesResponse>(requestInfo, global::Fegmm.ChurchTools.Finance.Accountclasses.AccountclassesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all account classes ordered by id
+        /// Returns all account classes ordered by id. Account classes group account types and are part of the finance master data.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -156,7 +156,7 @@ namespace Fegmm.ChurchTools.Finance.Accountclasses
             return requestInfo;
         }
         /// <summary>
-        /// Create new account class
+        /// Creates a new account class. The name must be unique across all account classes. The optional `includeProfitLoss` flag can only be set on account classes whose account type allows it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

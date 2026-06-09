@@ -33,25 +33,44 @@ namespace Fegmm.ChurchTools.Finance.Accounts.Bulkcreate
         {
         }
         /// <summary>
-        /// TODO 200
+        /// Bulk create accounts
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Accounts.Bulkcreate.BulkcreatePostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Finance.Accounts.Bulkcreate.BulkcreatePostResponse?> PostAsBulkcreatePostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Finance.Accounts.Bulkcreate.BulkcreatePostResponse> PostAsBulkcreatePostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Finance.Accounts.Bulkcreate.BulkcreatePostResponse>(requestInfo, global::Fegmm.ChurchTools.Finance.Accounts.Bulkcreate.BulkcreatePostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// TODO 200
+        /// Bulk create accounts
+        /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Accounts.Bulkcreate.BulkcreateResponse"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("This method is obsolete. Use PostAsBulkcreatePostResponseAsync instead.")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Fegmm.ChurchTools.Finance.Accounts.Bulkcreate.BulkcreateResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Fegmm.ChurchTools.Finance.Accounts.Bulkcreate.BulkcreateResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToPostRequestInformation(requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Finance.Accounts.Bulkcreate.BulkcreateResponse>(requestInfo, global::Fegmm.ChurchTools.Finance.Accounts.Bulkcreate.BulkcreateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Bulk create accounts
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +85,7 @@ namespace Fegmm.ChurchTools.Finance.Accounts.Bulkcreate
 #endif
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>

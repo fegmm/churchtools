@@ -14,7 +14,15 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The identifier property</summary>
+        /// <summary>The guid property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Guid { get; set; }
+#nullable restore
+#else
+        public string Guid { get; set; }
+#endif
+        /// <summary>use `guid` instead</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Identifier { get; set; }
@@ -93,6 +101,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "guid", n => { Guid = n.GetStringValue(); } },
                 { "identifier", n => { Identifier = n.GetStringValue(); } },
                 { "isMarkdown", n => { IsMarkdown = n.GetBoolValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesGetResponse_data_meta>(global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesGetResponse_data_meta.CreateFromDiscriminatorValue); } },
@@ -111,6 +120,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("guid", Guid);
             writer.WriteStringValue("identifier", Identifier);
             writer.WriteBoolValue("isMarkdown", IsMarkdown);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesGetResponse_data_meta>("meta", Meta);

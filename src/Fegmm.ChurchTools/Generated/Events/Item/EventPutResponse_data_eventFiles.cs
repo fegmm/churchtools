@@ -188,15 +188,7 @@ namespace Fegmm.ChurchTools.Events.Item
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventFiles.EventPutResponse_data_eventFiles_color();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventPutResponseDataEventFilesColorMember1 = new global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventFiles_colorMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventPutResponseDataEventFilesColorMember2 = new global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventFiles_colorMember2();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

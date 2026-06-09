@@ -39,10 +39,10 @@ namespace Fegmm.ChurchTools.Groups.Item.Meetings.Item
         /// <summary>The pollResult property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PollResult { get; set; }
+        public UntypedNode? PollResult { get; set; }
 #nullable restore
 #else
-        public string PollResult { get; set; }
+        public UntypedNode PollResult { get; set; }
 #endif
         /// <summary>The startDate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,6 +58,8 @@ namespace Fegmm.ChurchTools.Groups.Item.Meetings.Item
         public WithMeetingPutRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsCanceled = false;
+            IsCompleted = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -82,7 +84,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Meetings.Item
                 { "isCanceled", n => { IsCanceled = n.GetBoolValue(); } },
                 { "isCompleted", n => { IsCompleted = n.GetBoolValue(); } },
                 { "numGuests", n => { NumGuests = n.GetIntValue(); } },
-                { "pollResult", n => { PollResult = n.GetStringValue(); } },
+                { "pollResult", n => { PollResult = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "startDate", n => { StartDate = n.GetStringValue(); } },
             };
         }
@@ -98,7 +100,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Meetings.Item
             writer.WriteBoolValue("isCanceled", IsCanceled);
             writer.WriteBoolValue("isCompleted", IsCompleted);
             writer.WriteIntValue("numGuests", NumGuests);
-            writer.WriteStringValue("pollResult", PollResult);
+            writer.WriteObjectValue<UntypedNode>("pollResult", PollResult);
             writer.WriteStringValue("startDate", StartDate);
             writer.WriteAdditionalData(AdditionalData);
         }

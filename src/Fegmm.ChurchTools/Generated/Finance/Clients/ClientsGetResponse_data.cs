@@ -108,6 +108,7 @@ namespace Fegmm.ChurchTools.Finance.Clients
         public ClientsGetResponse_data()
         {
             AdditionalData = new Dictionary<string, object>();
+            DatevSupported = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

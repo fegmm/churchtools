@@ -116,14 +116,6 @@ namespace Fegmm.ChurchTools.Actions
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data.ActionsPostResponse_data_group();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ActionsPostResponseDataGroupMember1 = new global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data_groupMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.ActionsPostResponseDataGroupMember2 = new global::Fegmm.ChurchTools.Actions.ActionsPostResponse_data_groupMember2();
-                }
                 return result;
             }
             /// <summary>

@@ -161,14 +161,6 @@ namespace Fegmm.ChurchTools.Routines.Item.Runs
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Routines.Item.Runs.RunsGetResponse_data.RunsGetResponse_data_meta();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.RunsGetResponseDataMetaMember1 = new global::Fegmm.ChurchTools.Routines.Item.Runs.RunsGetResponse_data_metaMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.RunsGetResponseDataMetaMember2 = new global::Fegmm.ChurchTools.Routines.Item.Runs.RunsGetResponse_data_metaMember2();
-                }
                 return result;
             }
             /// <summary>

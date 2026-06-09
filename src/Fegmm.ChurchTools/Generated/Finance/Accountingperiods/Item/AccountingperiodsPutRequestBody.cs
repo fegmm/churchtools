@@ -39,6 +39,7 @@ namespace Fegmm.ChurchTools.Finance.Accountingperiods.Item
         public AccountingperiodsPutRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            SetImmutable = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

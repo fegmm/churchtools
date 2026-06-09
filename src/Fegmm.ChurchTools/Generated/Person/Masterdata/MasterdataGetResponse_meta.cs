@@ -38,6 +38,8 @@ namespace Fegmm.ChurchTools.Person.Masterdata
         public int? GrowPaths { get; set; }
         /// <summary>The roles property</summary>
         public int? Roles { get; set; }
+        /// <summary>The sexes property</summary>
+        public int? Sexes { get; set; }
         /// <summary>The statuses property</summary>
         public int? Statuses { get; set; }
         /// <summary>The targetGroups property</summary>
@@ -79,6 +81,7 @@ namespace Fegmm.ChurchTools.Person.Masterdata
                 { "groupTypes", n => { GroupTypes = n.GetIntValue(); } },
                 { "growPaths", n => { GrowPaths = n.GetIntValue(); } },
                 { "roles", n => { Roles = n.GetIntValue(); } },
+                { "sexes", n => { Sexes = n.GetIntValue(); } },
                 { "statuses", n => { Statuses = n.GetIntValue(); } },
                 { "targetGroups", n => { TargetGroups = n.GetIntValue(); } },
             };
@@ -102,6 +105,7 @@ namespace Fegmm.ChurchTools.Person.Masterdata
             writer.WriteIntValue("groupTypes", GroupTypes);
             writer.WriteIntValue("growPaths", GrowPaths);
             writer.WriteIntValue("roles", Roles);
+            writer.WriteIntValue("sexes", Sexes);
             writer.WriteIntValue("statuses", Statuses);
             writer.WriteIntValue("targetGroups", TargetGroups);
             writer.WriteAdditionalData(AdditionalData);

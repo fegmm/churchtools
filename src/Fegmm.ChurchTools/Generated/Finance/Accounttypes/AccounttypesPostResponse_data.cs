@@ -45,6 +45,7 @@ namespace Fegmm.ChurchTools.Finance.Accounttypes
         public AccounttypesPostResponse_data()
         {
             AdditionalData = new Dictionary<string, object>();
+            SortKey = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

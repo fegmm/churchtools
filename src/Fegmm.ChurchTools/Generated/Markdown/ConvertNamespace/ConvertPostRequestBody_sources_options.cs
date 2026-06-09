@@ -33,6 +33,7 @@ namespace Fegmm.ChurchTools.Markdown.ConvertNamespace
         public ConvertPostRequestBody_sources_options()
         {
             AdditionalData = new Dictionary<string, object>();
+            AllowHtml = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

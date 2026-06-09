@@ -156,11 +156,7 @@ namespace Fegmm.ChurchTools.History
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data.HistoryGetResponse_data_origin();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.HistoryGetResponseDataOriginMember1 = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_originMember1();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

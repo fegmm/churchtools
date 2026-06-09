@@ -44,6 +44,14 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Form
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>A note for the user filling out the form, e.g. to explain why certain information is required.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Note { get; set; }
+#nullable restore
+#else
+        public string Note { get; set; }
+#endif
         /// <summary>Provides the set of allowed options for select fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,6 +101,7 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Form
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "mandatory", n => { Mandatory = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "note", n => { Note = n.GetStringValue(); } },
                 { "options", n => { Options = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_form_options>(global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_form_options.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
@@ -111,6 +120,7 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Form
             writer.WriteStringValue("label", Label);
             writer.WriteBoolValue("mandatory", Mandatory);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("note", Note);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Publicgroups.Item.Form.FormGetResponse_form_options>("options", Options);
             writer.WriteIntValue("sortKey", SortKey);
             writer.WriteStringValue("type", Type);

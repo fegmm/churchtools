@@ -142,11 +142,7 @@ namespace Fegmm.ChurchTools.History
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslated();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.HistoryGetResponseDataBeforeAfterValuesAfterTranslatedMember1 = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterTranslatedMember1();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -213,11 +209,7 @@ namespace Fegmm.ChurchTools.History
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslationKey();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.HistoryGetResponseDataBeforeAfterValuesAfterTranslationKeyMember1 = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterTranslationKeyMember1();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -284,11 +276,7 @@ namespace Fegmm.ChurchTools.History
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslated();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.HistoryGetResponseDataBeforeAfterValuesBeforeTranslatedMember1 = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeTranslatedMember1();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }
@@ -355,11 +343,7 @@ namespace Fegmm.ChurchTools.History
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKey();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.HistoryGetResponseDataBeforeAfterValuesBeforeTranslationKeyMember1 = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKeyMember1();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

@@ -14,56 +14,8 @@ namespace Fegmm.ChurchTools.Tags.Item.Item.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A color in ChurchTools</summary>
-        public global::Fegmm.ChurchTools.Tags.Item.Item.Item.WithTagPutResponse_data_color? Color { get; set; }
-        /// <summary>The description property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Description { get; set; }
-#nullable restore
-#else
-        public string Description { get; set; }
-#endif
-        /// <summary>The id property</summary>
-        public int? Id { get; set; }
-        /// <summary>The modifiedAt property</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ModifiedAt { get; set; }
-#nullable restore
-#else
-        public string ModifiedAt { get; set; }
-#endif
-        /// <summary>The modifiedBy property</summary>
-        [Obsolete("")]
-        public int? ModifiedBy { get; set; }
-        /// <summary>The modifiedDate property</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ModifiedDate { get; set; }
-#nullable restore
-#else
-        public string ModifiedDate { get; set; }
-#endif
-        /// <summary>The modifiedPid property</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ModifiedPid { get; set; }
-#nullable restore
-#else
-        public string ModifiedPid { get; set; }
-#endif
-        /// <summary>The name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
-#endif
+        /// <summary>The count property</summary>
+        public int? Count { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Tags.Item.Item.Item.WithTagPutResponse_data"/> and sets the default values.
         /// </summary>
@@ -89,14 +41,7 @@ namespace Fegmm.ChurchTools.Tags.Item.Item.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "color", n => { Color = n.GetEnumValue<global::Fegmm.ChurchTools.Tags.Item.Item.Item.WithTagPutResponse_data_color>(); } },
-                { "description", n => { Description = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
-                { "modifiedAt", n => { ModifiedAt = n.GetStringValue(); } },
-                { "modifiedBy", n => { ModifiedBy = n.GetIntValue(); } },
-                { "modifiedDate", n => { ModifiedDate = n.GetStringValue(); } },
-                { "modifiedPid", n => { ModifiedPid = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "count", n => { Count = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -106,14 +51,7 @@ namespace Fegmm.ChurchTools.Tags.Item.Item.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Fegmm.ChurchTools.Tags.Item.Item.Item.WithTagPutResponse_data_color>("color", Color);
-            writer.WriteStringValue("description", Description);
-            writer.WriteIntValue("id", Id);
-            writer.WriteStringValue("modifiedAt", ModifiedAt);
-            writer.WriteIntValue("modifiedBy", ModifiedBy);
-            writer.WriteStringValue("modifiedDate", ModifiedDate);
-            writer.WriteStringValue("modifiedPid", ModifiedPid);
-            writer.WriteStringValue("name", Name);
+            writer.WriteIntValue("count", Count);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

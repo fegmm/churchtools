@@ -22,14 +22,6 @@ namespace Fegmm.ChurchTools.Campuses
 #else
         public global::Fegmm.ChurchTools.Campuses.CampusesPostResponse_data Data { get; set; }
 #endif
-        /// <summary>The meta property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Fegmm.ChurchTools.Campuses.CampusesPostResponse_meta? Meta { get; set; }
-#nullable restore
-#else
-        public global::Fegmm.ChurchTools.Campuses.CampusesPostResponse_meta Meta { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Campuses.CampusesPostResponse"/> and sets the default values.
         /// </summary>
@@ -56,7 +48,6 @@ namespace Fegmm.ChurchTools.Campuses
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetObjectValue<global::Fegmm.ChurchTools.Campuses.CampusesPostResponse_data>(global::Fegmm.ChurchTools.Campuses.CampusesPostResponse_data.CreateFromDiscriminatorValue); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Campuses.CampusesPostResponse_meta>(global::Fegmm.ChurchTools.Campuses.CampusesPostResponse_meta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,7 +58,6 @@ namespace Fegmm.ChurchTools.Campuses
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Campuses.CampusesPostResponse_data>("data", Data);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Campuses.CampusesPostResponse_meta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

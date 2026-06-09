@@ -6,6 +6,7 @@ using Fegmm.ChurchTools.Agendas;
 using Fegmm.ChurchTools.Agendatemplates;
 using Fegmm.ChurchTools.Bookings;
 using Fegmm.ChurchTools.Bulkjobs;
+using Fegmm.ChurchTools.Bulkletters;
 using Fegmm.ChurchTools.Calendars;
 using Fegmm.ChurchTools.Campuses;
 using Fegmm.ChurchTools.Captcha;
@@ -138,6 +139,11 @@ namespace Fegmm.ChurchTools
         public global::Fegmm.ChurchTools.Bulkjobs.BulkjobsRequestBuilder Bulkjobs
         {
             get => new global::Fegmm.ChurchTools.Bulkjobs.BulkjobsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The bulkletters property</summary>
+        public global::Fegmm.ChurchTools.Bulkletters.BulklettersRequestBuilder Bulkletters
+        {
+            get => new global::Fegmm.ChurchTools.Bulkletters.BulklettersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The calendars property</summary>
         public global::Fegmm.ChurchTools.Calendars.CalendarsRequestBuilder Calendars

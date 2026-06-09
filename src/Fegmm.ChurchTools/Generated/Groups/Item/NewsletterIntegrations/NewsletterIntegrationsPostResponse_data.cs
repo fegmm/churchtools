@@ -120,11 +120,7 @@ namespace Fegmm.ChurchTools.Groups.Item.NewsletterIntegrations
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Groups.Item.NewsletterIntegrations.NewsletterIntegrationsPostResponse_data.NewsletterIntegrationsPostResponse_data_listName();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.NewsletterIntegrationsPostResponseDataListNameMember1 = new global::Fegmm.ChurchTools.Groups.Item.NewsletterIntegrations.NewsletterIntegrationsPostResponse_data_listNameMember1();
-                }
-                else if(parseNode.GetStringValue() is string stringValue)
+                if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
                 }

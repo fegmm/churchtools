@@ -17,10 +17,10 @@ namespace Fegmm.ChurchTools.Finance.Accounttypes
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Fegmm.ChurchTools.Finance.Accounttypes.AccounttypesPostResponse_data>? Data { get; set; }
+        public global::Fegmm.ChurchTools.Finance.Accounttypes.AccounttypesPostResponse_data? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Fegmm.ChurchTools.Finance.Accounttypes.AccounttypesPostResponse_data> Data { get; set; }
+        public global::Fegmm.ChurchTools.Finance.Accounttypes.AccounttypesPostResponse_data Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Finance.Accounttypes.AccounttypesPostResponse"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Fegmm.ChurchTools.Finance.Accounttypes
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Finance.Accounttypes.AccounttypesPostResponse_data>(global::Fegmm.ChurchTools.Finance.Accounttypes.AccounttypesPostResponse_data.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetObjectValue<global::Fegmm.ChurchTools.Finance.Accounttypes.AccounttypesPostResponse_data>(global::Fegmm.ChurchTools.Finance.Accounttypes.AccounttypesPostResponse_data.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Fegmm.ChurchTools.Finance.Accounttypes
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Finance.Accounttypes.AccounttypesPostResponse_data>("data", Data);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Accounttypes.AccounttypesPostResponse_data>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

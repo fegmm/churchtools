@@ -14,46 +14,27 @@ namespace Fegmm.ChurchTools.Externallogins
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The adminIds property</summary>
+        /// <summary>The config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? AdminIds { get; set; }
+        public global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_config? Config { get; set; }
 #nullable restore
 #else
-        public List<int?> AdminIds { get; set; }
+        public global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_config Config { get; set; }
 #endif
-        /// <summary>The description property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Description { get; set; }
-#nullable restore
-#else
-        public string Description { get; set; }
-#endif
-        /// <summary>use `needsAppointment` instead</summary>
-        [Obsolete("")]
-        public bool? DoesRequireCalEntry { get; set; }
-        /// <summary>The iCalLocation property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ICalLocation { get; set; }
-#nullable restore
-#else
-        public string ICalLocation { get; set; }
-#endif
+        /// <summary>The createNewPerson property</summary>
+        public bool? CreateNewPerson { get; set; }
+        /// <summary>The hasRegistration property</summary>
+        public bool? HasRegistration { get; set; }
         /// <summary>The id property</summary>
         public int? Id { get; set; }
-        /// <summary>The isAutoAccept property</summary>
-        public bool? IsAutoAccept { get; set; }
-        /// <summary>The isVirtual property</summary>
-        public bool? IsVirtual { get; set; }
-        /// <summary>The location property</summary>
+        /// <summary>The logoUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Location { get; set; }
+        public string? LogoUrl { get; set; }
 #nullable restore
 #else
-        public string Location { get; set; }
+        public string LogoUrl { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,28 +44,22 @@ namespace Fegmm.ChurchTools.Externallogins
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The nameTranslated property</summary>
+        /// <summary>The newPersonCampusId property</summary>
+        public int? NewPersonCampusId { get; set; }
+        /// <summary>The newPersonDepartmentId property</summary>
+        public int? NewPersonDepartmentId { get; set; }
+        /// <summary>The newPersonStatusId property</summary>
+        public int? NewPersonStatusId { get; set; }
+        /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NameTranslated { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public string NameTranslated { get; set; }
+        public string Type { get; set; }
 #endif
-        /// <summary>The needsAppointment property</summary>
-        public bool? NeedsAppointment { get; set; }
-        /// <summary>The randomString property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RandomString { get; set; }
-#nullable restore
-#else
-        public string RandomString { get; set; }
-#endif
-        /// <summary>The resourceTypeId property</summary>
-        public int? ResourceTypeId { get; set; }
-        /// <summary>The sortKey property</summary>
-        public int? SortKey { get; set; }
+        /// <summary>The updateDataOnLogin property</summary>
+        public bool? UpdateDataOnLogin { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data"/> and sets the default values.
         /// </summary>
@@ -110,20 +85,17 @@ namespace Fegmm.ChurchTools.Externallogins
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "adminIds", n => { AdminIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
-                { "description", n => { Description = n.GetStringValue(); } },
-                { "doesRequireCalEntry", n => { DoesRequireCalEntry = n.GetBoolValue(); } },
-                { "iCalLocation", n => { ICalLocation = n.GetStringValue(); } },
+                { "config", n => { Config = n.GetObjectValue<global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_config>(global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_config.CreateFromDiscriminatorValue); } },
+                { "createNewPerson", n => { CreateNewPerson = n.GetBoolValue(); } },
+                { "hasRegistration", n => { HasRegistration = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
-                { "isAutoAccept", n => { IsAutoAccept = n.GetBoolValue(); } },
-                { "isVirtual", n => { IsVirtual = n.GetBoolValue(); } },
-                { "location", n => { Location = n.GetStringValue(); } },
+                { "logoUrl", n => { LogoUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
-                { "needsAppointment", n => { NeedsAppointment = n.GetBoolValue(); } },
-                { "randomString", n => { RandomString = n.GetStringValue(); } },
-                { "resourceTypeId", n => { ResourceTypeId = n.GetIntValue(); } },
-                { "sortKey", n => { SortKey = n.GetIntValue(); } },
+                { "newPersonCampusId", n => { NewPersonCampusId = n.GetIntValue(); } },
+                { "newPersonDepartmentId", n => { NewPersonDepartmentId = n.GetIntValue(); } },
+                { "newPersonStatusId", n => { NewPersonStatusId = n.GetIntValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "updateDataOnLogin", n => { UpdateDataOnLogin = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -133,20 +105,17 @@ namespace Fegmm.ChurchTools.Externallogins
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<int?>("adminIds", AdminIds);
-            writer.WriteStringValue("description", Description);
-            writer.WriteBoolValue("doesRequireCalEntry", DoesRequireCalEntry);
-            writer.WriteStringValue("iCalLocation", ICalLocation);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_config>("config", Config);
+            writer.WriteBoolValue("createNewPerson", CreateNewPerson);
+            writer.WriteBoolValue("hasRegistration", HasRegistration);
             writer.WriteIntValue("id", Id);
-            writer.WriteBoolValue("isAutoAccept", IsAutoAccept);
-            writer.WriteBoolValue("isVirtual", IsVirtual);
-            writer.WriteStringValue("location", Location);
+            writer.WriteStringValue("logoUrl", LogoUrl);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("nameTranslated", NameTranslated);
-            writer.WriteBoolValue("needsAppointment", NeedsAppointment);
-            writer.WriteStringValue("randomString", RandomString);
-            writer.WriteIntValue("resourceTypeId", ResourceTypeId);
-            writer.WriteIntValue("sortKey", SortKey);
+            writer.WriteIntValue("newPersonCampusId", NewPersonCampusId);
+            writer.WriteIntValue("newPersonDepartmentId", NewPersonDepartmentId);
+            writer.WriteIntValue("newPersonStatusId", NewPersonStatusId);
+            writer.WriteStringValue("type", Type);
+            writer.WriteBoolValue("updateDataOnLogin", UpdateDataOnLogin);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
