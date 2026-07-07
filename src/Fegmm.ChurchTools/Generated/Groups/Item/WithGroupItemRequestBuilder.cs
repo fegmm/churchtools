@@ -18,12 +18,10 @@ using Fegmm.ChurchTools.Groups.Item.Members;
 using Fegmm.ChurchTools.Groups.Item.NewsletterIntegrations;
 using Fegmm.ChurchTools.Groups.Item.Optins;
 using Fegmm.ChurchTools.Groups.Item.Parents;
-using Fegmm.ChurchTools.Groups.Item.Places;
 using Fegmm.ChurchTools.Groups.Item.Poststatistics;
 using Fegmm.ChurchTools.Groups.Item.Qrcodecheckin;
 using Fegmm.ChurchTools.Groups.Item.Roles;
 using Fegmm.ChurchTools.Groups.Item.Statistics;
-using Fegmm.ChurchTools.Groups.Item.Tags;
 using Fegmm.ChurchTools.Groups.Item.Wiki;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -131,11 +129,6 @@ namespace Fegmm.ChurchTools.Groups.Item
         {
             get => new global::Fegmm.ChurchTools.Groups.Item.Parents.ParentsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The places property</summary>
-        public global::Fegmm.ChurchTools.Groups.Item.Places.PlacesRequestBuilder Places
-        {
-            get => new global::Fegmm.ChurchTools.Groups.Item.Places.PlacesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The poststatistics property</summary>
         public global::Fegmm.ChurchTools.Groups.Item.Poststatistics.PoststatisticsRequestBuilder Poststatistics
         {
@@ -155,11 +148,6 @@ namespace Fegmm.ChurchTools.Groups.Item
         public global::Fegmm.ChurchTools.Groups.Item.Statistics.StatisticsRequestBuilder Statistics
         {
             get => new global::Fegmm.ChurchTools.Groups.Item.Statistics.StatisticsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The tags property</summary>
-        public global::Fegmm.ChurchTools.Groups.Item.Tags.TagsRequestBuilder Tags
-        {
-            get => new global::Fegmm.ChurchTools.Groups.Item.Tags.TagsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The wiki property</summary>
         public global::Fegmm.ChurchTools.Groups.Item.Wiki.WikiRequestBuilder Wiki

@@ -34,7 +34,7 @@ namespace Fegmm.ChurchTools.Dbfields
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DbfieldsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dbfields{?include%5B%5D*}", pathParameters)
+        public DbfieldsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dbfields{?categories%5B%5D*,include%5B%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Fegmm.ChurchTools.Dbfields
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DbfieldsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dbfields{?include%5B%5D*}", rawUrl)
+        public DbfieldsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dbfields{?categories%5B%5D*,include%5B%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -179,6 +179,27 @@ namespace Fegmm.ChurchTools.Dbfields
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DbfieldsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filters the result to the given field category intern codes</summary>
+            [Obsolete("This property is deprecated, use CategoriesAsGetCategoriesQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("categories%5B%5D")]
+            public string[]? Categories { get; set; }
+#nullable restore
+#else
+            [QueryParameter("categories%5B%5D")]
+            public string[] Categories { get; set; }
+#endif
+            /// <summary>Filters the result to the given field category intern codes</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("categories%5B%5D")]
+            public global::Fegmm.ChurchTools.Dbfields.GetCategoriesQueryParameterType[]? CategoriesAsGetCategoriesQueryParameterType { get; set; }
+#nullable restore
+#else
+            [QueryParameter("categories%5B%5D")]
+            public global::Fegmm.ChurchTools.Dbfields.GetCategoriesQueryParameterType[] CategoriesAsGetCategoriesQueryParameterType { get; set; }
+#endif
             /// <summary>Includes additional data in the response</summary>
             [Obsolete("This property is deprecated, use IncludeAsGetIncludeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

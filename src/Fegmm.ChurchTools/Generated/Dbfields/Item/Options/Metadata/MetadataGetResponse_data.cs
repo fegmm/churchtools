@@ -16,6 +16,8 @@ namespace Fegmm.ChurchTools.Dbfields.Item.Options.Metadata
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The isAutoIncrement property</summary>
         public bool? IsAutoIncrement { get; set; }
+        /// <summary>The isNullable property</summary>
+        public bool? IsNullable { get; set; }
         /// <summary>The length property</summary>
         public int? Length { get; set; }
         /// <summary>The name property</summary>
@@ -60,6 +62,7 @@ namespace Fegmm.ChurchTools.Dbfields.Item.Options.Metadata
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "isAutoIncrement", n => { IsAutoIncrement = n.GetBoolValue(); } },
+                { "isNullable", n => { IsNullable = n.GetBoolValue(); } },
                 { "length", n => { Length = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
@@ -73,6 +76,7 @@ namespace Fegmm.ChurchTools.Dbfields.Item.Options.Metadata
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("isAutoIncrement", IsAutoIncrement);
+            writer.WriteBoolValue("isNullable", IsNullable);
             writer.WriteIntValue("length", Length);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("type", Type);

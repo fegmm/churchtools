@@ -11,7 +11,7 @@ using System;
 namespace Fegmm.ChurchTools.Htmltemplates.Item.Export
 {
     /// <summary>
-    /// Builds and executes requests for operations under \htmltemplates\{id}\export
+    /// Builds and executes requests for operations under \htmltemplates\{templateId}\export
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ExportRequestBuilder : BaseRequestBuilder
@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Htmltemplates.Item.Export
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates/{id}/export", pathParameters)
+        public ExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates/{templateId}/export", pathParameters)
         {
         }
         /// <summary>
@@ -29,11 +29,11 @@ namespace Fegmm.ChurchTools.Htmltemplates.Item.Export
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates/{id}/export", rawUrl)
+        public ExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates/{templateId}/export", rawUrl)
         {
         }
         /// <summary>
-        /// Export specific HTML template
+        /// Exports the HTML template, its content, and its image assets as a JSON file and returns the relative download URL.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.Item.Export.ExportGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Htmltemplates.Item.Export
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Htmltemplates.Item.Export.ExportGetResponse>(requestInfo, global::Fegmm.ChurchTools.Htmltemplates.Item.Export.ExportGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Export specific HTML template
+        /// Exports the HTML template, its content, and its image assets as a JSON file and returns the relative download URL.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.Item.Export.ExportResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Htmltemplates.Item.Export
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Htmltemplates.Item.Export.ExportResponse>(requestInfo, global::Fegmm.ChurchTools.Htmltemplates.Item.Export.ExportResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Export specific HTML template
+        /// Exports the HTML template, its content, and its image assets as a JSON file and returns the relative download URL.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

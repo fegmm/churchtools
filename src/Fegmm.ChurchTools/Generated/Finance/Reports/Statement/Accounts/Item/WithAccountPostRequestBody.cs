@@ -12,8 +12,6 @@ namespace Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item
     public partial class WithAccountPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>ID of accounting period</summary>
-        public double? AccountingPeriodId { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Output format for the selected financial report</summary>
@@ -43,7 +41,6 @@ namespace Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accountingPeriodId", n => { AccountingPeriodId = n.GetDoubleValue(); } },
                 { "format", n => { Format = n.GetEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item.WithAccountPostRequestBody_format>(); } },
             };
         }
@@ -54,7 +51,6 @@ namespace Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("accountingPeriodId", AccountingPeriodId);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Accounts.Item.WithAccountPostRequestBody_format>("format", Format);
             writer.WriteAdditionalData(AdditionalData);
         }

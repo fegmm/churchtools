@@ -13,9 +13,11 @@ namespace Fegmm.ChurchTools.Finance.Reports.Turnover
     #pragma warning restore CS1591
     {
         /// <summary>ID of Accounting Period</summary>
-        public double? AccountingPeriodId { get; set; }
+        public int? AccountingPeriodId { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Output format for the selected financial report</summary>
+        public global::Fegmm.ChurchTools.Finance.Reports.Turnover.TurnoverPostRequestBody_format? Format { get; set; }
         /// <summary>Select monthly oder quarterly report</summary>
         public global::Fegmm.ChurchTools.Finance.Reports.Turnover.TurnoverPostRequestBody_period? Period { get; set; }
         /// <summary>Show Accounts With No Transactions</summary>
@@ -46,7 +48,8 @@ namespace Fegmm.ChurchTools.Finance.Reports.Turnover
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accountingPeriodId", n => { AccountingPeriodId = n.GetDoubleValue(); } },
+                { "accountingPeriodId", n => { AccountingPeriodId = n.GetIntValue(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Turnover.TurnoverPostRequestBody_format>(); } },
                 { "period", n => { Period = n.GetEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Turnover.TurnoverPostRequestBody_period>(); } },
                 { "showEmptyAccounts", n => { ShowEmptyAccounts = n.GetBoolValue(); } },
             };
@@ -58,7 +61,8 @@ namespace Fegmm.ChurchTools.Finance.Reports.Turnover
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("accountingPeriodId", AccountingPeriodId);
+            writer.WriteIntValue("accountingPeriodId", AccountingPeriodId);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Turnover.TurnoverPostRequestBody_format>("format", Format);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Turnover.TurnoverPostRequestBody_period>("period", Period);
             writer.WriteBoolValue("showEmptyAccounts", ShowEmptyAccounts);
             writer.WriteAdditionalData(AdditionalData);

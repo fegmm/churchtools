@@ -23,23 +23,37 @@ namespace Fegmm.ChurchTools.Grouphomepages.Item
 #else
         public UntypedNode AgeGroups { get; set; }
 #endif
-        /// <summary>Campus with possible address.</summary>
+        /// <summary>The campus property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campus? Campus { get; set; }
+        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_campus? Campus { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campus Campus { get; set; }
+        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_campus Campus { get; set; }
 #endif
-        /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
-        public DateTimeOffset? DateOfFoundation { get; set; }
+        /// <summary>Color key used for displaying the group.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Color { get; set; }
+#nullable restore
+#else
+        public string Color { get; set; }
+#endif
+        /// <summary>The dateOfFoundation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_dateOfFoundation? DateOfFoundation { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_dateOfFoundation DateOfFoundation { get; set; }
+#endif
         /// <summary>The groupCategory property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_groupCategory? GroupCategory { get; set; }
+        public UntypedNode? GroupCategory { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_groupCategory GroupCategory { get; set; }
+        public UntypedNode GroupCategory { get; set; }
 #endif
         /// <summary>List of the group&apos;s meeting places. Only returned if the group homepage is set to display a map.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,6 +65,14 @@ namespace Fegmm.ChurchTools.Grouphomepages.Item
 #endif
         /// <summary>The groupStatusId property</summary>
         public int? GroupStatusId { get; set; }
+        /// <summary>Annotation text for the group image if provided.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ImageAnnotation { get; set; }
+#nullable restore
+#else
+        public string ImageAnnotation { get; set; }
+#endif
         /// <summary>URL to a group image if provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,18 +108,18 @@ namespace Fegmm.ChurchTools.Grouphomepages.Item
         /// <summary>The targetGroup property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_targetGroup? TargetGroup { get; set; }
+        public UntypedNode? TargetGroup { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_targetGroup TargetGroup { get; set; }
+        public UntypedNode TargetGroup { get; set; }
 #endif
         /// <summary>Week day when group meetings take place.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekday? Weekday { get; set; }
+        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_weekday? Weekday { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekday Weekday { get; set; }
+        public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_weekday Weekday { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information"/> and sets the default values.
@@ -125,17 +147,19 @@ namespace Fegmm.ChurchTools.Grouphomepages.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ageGroups", n => { AgeGroups = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "campus", n => { Campus = n.GetObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campus>(global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campus.CreateFromDiscriminatorValue); } },
-                { "dateOfFoundation", n => { DateOfFoundation = n.GetDateTimeOffsetValue(); } },
-                { "groupCategory", n => { GroupCategory = n.GetObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_groupCategory>(global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_groupCategory.CreateFromDiscriminatorValue); } },
+                { "campus", n => { Campus = n.GetObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_campus>(global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_campus.CreateFromDiscriminatorValue); } },
+                { "color", n => { Color = n.GetStringValue(); } },
+                { "dateOfFoundation", n => { DateOfFoundation = n.GetObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_dateOfFoundation>(global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_dateOfFoundation.CreateFromDiscriminatorValue); } },
+                { "groupCategory", n => { GroupCategory = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "groupPlaces", n => { GroupPlaces = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_groupPlaces>(global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_groupPlaces.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "groupStatusId", n => { GroupStatusId = n.GetIntValue(); } },
+                { "imageAnnotation", n => { ImageAnnotation = n.GetStringValue(); } },
                 { "imageUrl", n => { ImageUrl = n.GetStringValue(); } },
                 { "leader", n => { Leader = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_leader>(global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_leader.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "meetingTime", n => { MeetingTime = n.GetStringValue(); } },
                 { "note", n => { Note = n.GetStringValue(); } },
-                { "targetGroup", n => { TargetGroup = n.GetObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_targetGroup>(global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_targetGroup.CreateFromDiscriminatorValue); } },
-                { "weekday", n => { Weekday = n.GetObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekday>(global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekday.CreateFromDiscriminatorValue); } },
+                { "targetGroup", n => { TargetGroup = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "weekday", n => { Weekday = n.GetObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_weekday>(global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_weekday.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -146,18 +170,215 @@ namespace Fegmm.ChurchTools.Grouphomepages.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<UntypedNode>("ageGroups", AgeGroups);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campus>("campus", Campus);
-            writer.WriteDateTimeOffsetValue("dateOfFoundation", DateOfFoundation);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_groupCategory>("groupCategory", GroupCategory);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_campus>("campus", Campus);
+            writer.WriteStringValue("color", Color);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_dateOfFoundation>("dateOfFoundation", DateOfFoundation);
+            writer.WriteObjectValue<UntypedNode>("groupCategory", GroupCategory);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_groupPlaces>("groupPlaces", GroupPlaces);
             writer.WriteIntValue("groupStatusId", GroupStatusId);
+            writer.WriteStringValue("imageAnnotation", ImageAnnotation);
             writer.WriteStringValue("imageUrl", ImageUrl);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_leader>("leader", Leader);
             writer.WriteStringValue("meetingTime", MeetingTime);
             writer.WriteStringValue("note", Note);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_targetGroup>("targetGroup", TargetGroup);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekday>("weekday", Weekday);
+            writer.WriteObjectValue<UntypedNode>("targetGroup", TargetGroup);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_weekday>("weekday", Weekday);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campusMember1"/>, <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campusMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithHashGetResponse_data_groups_information_campus : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campusMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campusMember1? WithHashGetResponseDataGroupsInformationCampusMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campusMember1 WithHashGetResponseDataGroupsInformationCampusMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campusMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campusMember2? WithHashGetResponseDataGroupsInformationCampusMember2 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campusMember2 WithHashGetResponseDataGroupsInformationCampusMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_campus"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_campus CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_campus();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(WithHashGetResponseDataGroupsInformationCampusMember1 != null)
+                {
+                    return WithHashGetResponseDataGroupsInformationCampusMember1.GetFieldDeserializers();
+                }
+                else if(WithHashGetResponseDataGroupsInformationCampusMember2 != null)
+                {
+                    return WithHashGetResponseDataGroupsInformationCampusMember2.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(WithHashGetResponseDataGroupsInformationCampusMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campusMember1>(null, WithHashGetResponseDataGroupsInformationCampusMember1);
+                }
+                else if(WithHashGetResponseDataGroupsInformationCampusMember2 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_campusMember2>(null, WithHashGetResponseDataGroupsInformationCampusMember2);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="DateTimeOffset"/>, <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_dateOfFoundationMember1"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithHashGetResponse_data_groups_information_dateOfFoundation : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="DateTimeOffset"/></summary>
+            public DateTimeOffset? DateTimeOffset { get; set; }
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_dateOfFoundationMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_dateOfFoundationMember1? WithHashGetResponseDataGroupsInformationDateOfFoundationMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_dateOfFoundationMember1 WithHashGetResponseDataGroupsInformationDateOfFoundationMember1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_dateOfFoundation"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_dateOfFoundation CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_dateOfFoundation();
+                if(parseNode.GetDateTimeOffsetValue() is DateTimeOffset dateTimeOffsetValue)
+                {
+                    result.DateTimeOffset = dateTimeOffsetValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(WithHashGetResponseDataGroupsInformationDateOfFoundationMember1 != null)
+                {
+                    return WithHashGetResponseDataGroupsInformationDateOfFoundationMember1.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(WithHashGetResponseDataGroupsInformationDateOfFoundationMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_dateOfFoundationMember1>(null, WithHashGetResponseDataGroupsInformationDateOfFoundationMember1);
+                }
+                else if(DateTimeOffset != null)
+                {
+                    writer.WriteDateTimeOffsetValue(null, DateTimeOffset);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekdayMember1"/>, <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekdayMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithHashGetResponse_data_groups_information_weekday : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekdayMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekdayMember1? WithHashGetResponseDataGroupsInformationWeekdayMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekdayMember1 WithHashGetResponseDataGroupsInformationWeekdayMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekdayMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekdayMember2? WithHashGetResponseDataGroupsInformationWeekdayMember2 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekdayMember2 WithHashGetResponseDataGroupsInformationWeekdayMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_weekday"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_weekday CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information.WithHashGetResponse_data_groups_information_weekday();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(WithHashGetResponseDataGroupsInformationWeekdayMember1 != null)
+                {
+                    return WithHashGetResponseDataGroupsInformationWeekdayMember1.GetFieldDeserializers();
+                }
+                else if(WithHashGetResponseDataGroupsInformationWeekdayMember2 != null)
+                {
+                    return WithHashGetResponseDataGroupsInformationWeekdayMember2.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(WithHashGetResponseDataGroupsInformationWeekdayMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekdayMember1>(null, WithHashGetResponseDataGroupsInformationWeekdayMember1);
+                }
+                else if(WithHashGetResponseDataGroupsInformationWeekdayMember2 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data_groups_information_weekdayMember2>(null, WithHashGetResponseDataGroupsInformationWeekdayMember2);
+                }
+            }
         }
     }
 }

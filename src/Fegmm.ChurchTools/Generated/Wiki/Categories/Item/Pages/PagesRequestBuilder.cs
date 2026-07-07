@@ -46,7 +46,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
         {
         }
         /// <summary>
-        /// Returns all Wiki Pages in the given Category. Only the latest version of each page is returned.
+        /// Returns all wiki pages in the given category. Only the latest version of each page is returned and the page `text` is omitted to keep the response small; use the single-page endpoint to fetch the full content.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -64,7 +64,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesGetResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns all Wiki Pages in the given Category. Only the latest version of each page is returned.
+        /// Returns all wiki pages in the given category. Only the latest version of each page is returned and the page `text` is omitted to keep the response small; use the single-page endpoint to fetch the full content.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -83,7 +83,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a wiki page in the given category.
+        /// Creates a new wiki page in the given category. The page is created at version 1 and a GUID is generated automatically. The optional `text` defaults to `null` and `isMarkdown`/`onStartpage` default to `false`.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -103,7 +103,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesPostResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a wiki page in the given category.
+        /// Creates a new wiki page in the given category. The page is created at version 1 and a GUID is generated automatically. The optional `text` defaults to `null` and `isMarkdown`/`onStartpage` default to `false`.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -124,7 +124,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns all Wiki Pages in the given Category. Only the latest version of each page is returned.
+        /// Returns all wiki pages in the given category. Only the latest version of each page is returned and the page `text` is omitted to keep the response small; use the single-page endpoint to fetch the full content.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +143,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
             return requestInfo;
         }
         /// <summary>
-        /// Creates a wiki page in the given category.
+        /// Creates a new wiki page in the given category. The page is created at version 1 and a GUID is generated automatically. The optional `text` defaults to `null` and `isMarkdown`/`onStartpage` default to `false`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

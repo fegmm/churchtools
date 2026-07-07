@@ -14,6 +14,14 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesPostResponse_data_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesPostResponse_data_Deprecated Deprecated { get; set; }
+#endif
         /// <summary>The guid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,7 +30,8 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
 #else
         public string Guid { get; set; }
 #endif
-        /// <summary>use `guid` instead</summary>
+        /// <summary>Deprecated alias for `guid`. Use `guid` instead.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Identifier { get; set; }
@@ -57,6 +66,14 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
 #nullable restore
 #else
         public string RedirectTo { get; set; }
+#endif
+        /// <summary>Present when the page list endpoint is called with a search query.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SearchPreview { get; set; }
+#nullable restore
+#else
+        public string SearchPreview { get; set; }
 #endif
         /// <summary>The text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,6 +126,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesPostResponse_data_Deprecated>(global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesPostResponse_data_Deprecated.CreateFromDiscriminatorValue); } },
                 { "guid", n => { Guid = n.GetStringValue(); } },
                 { "identifier", n => { Identifier = n.GetStringValue(); } },
                 { "isMarkdown", n => { IsMarkdown = n.GetBoolValue(); } },
@@ -116,6 +134,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
                 { "onStartpage", n => { OnStartpage = n.GetBoolValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesPostResponse_data_permissions>(global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesPostResponse_data_permissions.CreateFromDiscriminatorValue); } },
                 { "redirectTo", n => { RedirectTo = n.GetStringValue(); } },
+                { "searchPreview", n => { SearchPreview = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetIntValue(); } },
@@ -129,6 +148,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesPostResponse_data_Deprecated>("@deprecated", Deprecated);
             writer.WriteStringValue("guid", Guid);
             writer.WriteStringValue("identifier", Identifier);
             writer.WriteBoolValue("isMarkdown", IsMarkdown);
@@ -136,6 +156,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
             writer.WriteBoolValue("onStartpage", OnStartpage);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.PagesPostResponse_data_permissions>("permissions", Permissions);
             writer.WriteStringValue("redirectTo", RedirectTo);
+            writer.WriteStringValue("searchPreview", SearchPreview);
             writer.WriteStringValue("text", Text);
             writer.WriteStringValue("title", Title);
             writer.WriteIntValue("version", Version);

@@ -48,6 +48,10 @@ namespace Fegmm.ChurchTools.Finance.Masterdata
 #endif
         /// <summary>The isDonationAccount property</summary>
         public bool? IsDonationAccount { get; set; }
+        /// <summary>Flag indicating if this account must be included in euBP submissions.</summary>
+        public bool? IsMandatoryEubp { get; set; }
+        /// <summary>Flag indicating if isMandatoryEubp was set by a ChurchTools account template and cannot be edited manually.</summary>
+        public bool? IsMandatoryEubpLocked { get; set; }
         /// <summary>The isOpeningBalanceAccount property</summary>
         public bool? IsOpeningBalanceAccount { get; set; }
         /// <summary>The meta property</summary>
@@ -120,6 +124,8 @@ namespace Fegmm.ChurchTools.Finance.Masterdata
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "identifier", n => { Identifier = n.GetStringValue(); } },
                 { "isDonationAccount", n => { IsDonationAccount = n.GetBoolValue(); } },
+                { "isMandatoryEubp", n => { IsMandatoryEubp = n.GetBoolValue(); } },
+                { "isMandatoryEubpLocked", n => { IsMandatoryEubpLocked = n.GetBoolValue(); } },
                 { "isOpeningBalanceAccount", n => { IsOpeningBalanceAccount = n.GetBoolValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Finance.Masterdata.MasterdataGetResponse_data_accounts_meta>(global::Fegmm.ChurchTools.Finance.Masterdata.MasterdataGetResponse_data_accounts_meta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -146,6 +152,8 @@ namespace Fegmm.ChurchTools.Finance.Masterdata
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("identifier", Identifier);
             writer.WriteBoolValue("isDonationAccount", IsDonationAccount);
+            writer.WriteBoolValue("isMandatoryEubp", IsMandatoryEubp);
+            writer.WriteBoolValue("isMandatoryEubpLocked", IsMandatoryEubpLocked);
             writer.WriteBoolValue("isOpeningBalanceAccount", IsOpeningBalanceAccount);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Masterdata.MasterdataGetResponse_data_accounts_meta>("meta", Meta);
             writer.WriteStringValue("name", Name);

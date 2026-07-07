@@ -57,6 +57,14 @@ namespace Fegmm.ChurchTools.Person.Masterdata
 #else
         public string NameTranslated { get; set; }
 #endif
+        /// <summary>The shortName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ShortName { get; set; }
+#nullable restore
+#else
+        public string ShortName { get; set; }
+#endif
         /// <summary>The shorty property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,6 +106,7 @@ namespace Fegmm.ChurchTools.Person.Masterdata
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_campuses_meta>(global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_campuses_meta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
+                { "shortName", n => { ShortName = n.GetStringValue(); } },
                 { "shorty", n => { Shorty = n.GetStringValue(); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
@@ -115,6 +124,7 @@ namespace Fegmm.ChurchTools.Person.Masterdata
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_campuses_meta>("meta", Meta);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nameTranslated", NameTranslated);
+            writer.WriteStringValue("shortName", ShortName);
             writer.WriteStringValue("shorty", Shorty);
             writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);

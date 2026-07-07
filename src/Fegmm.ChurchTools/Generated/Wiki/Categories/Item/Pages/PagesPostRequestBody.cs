@@ -40,7 +40,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages
         public PagesPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
-            IsMarkdown = true;
+            IsMarkdown = false;
             OnStartpage = false;
         }
         /// <summary>

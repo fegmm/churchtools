@@ -17,15 +17,21 @@ namespace Fegmm.ChurchTools.Profiles.Campuses.Item
         /// <summary>The address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_address? Address { get; set; }
+        public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_address? Address { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_address Address { get; set; }
+        public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_address Address { get; set; }
 #endif
         /// <summary>The associationId property</summary>
         public int? AssociationId { get; set; }
-        /// <summary>Either exact string or denomination object with name property</summary>
-        public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_denomination? Denomination { get; set; }
+        /// <summary>Either exact denomination key or denomination object with name property.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_denomination? Denomination { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_denomination Denomination { get; set; }
+#endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,14 +48,16 @@ namespace Fegmm.ChurchTools.Profiles.Campuses.Item
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>Either array of group IDs or array of objects with group-property, which is a domain object wiht &apos;domainIdentifier&apos;</summary>
+        /// <summary>List of group IDs shown on the profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? Groups { get; set; }
+        public List<int?>? Groups { get; set; }
 #nullable restore
 #else
-        public List<double?> Groups { get; set; }
+        public List<int?> Groups { get; set; }
 #endif
+        /// <summary>Campus profile ID. For `/profiles/church`, this is ignored.</summary>
+        public int? Id { get; set; }
         /// <summary>The isPublished property</summary>
         public bool? IsPublished { get; set; }
         /// <summary>The name property</summary>
@@ -92,14 +100,8 @@ namespace Fegmm.ChurchTools.Profiles.Campuses.Item
 #else
         public string Shorty { get; set; }
 #endif
-        /// <summary>SignUp Group; Either groupId or domainObject</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_signUpGroup? SignUpGroup { get; set; }
-#nullable restore
-#else
-        public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_signUpGroup SignUpGroup { get; set; }
-#endif
+        /// <summary>Group ID used for profile sign-up or null to disable sign-up.</summary>
+        public int? SignUpGroupId { get; set; }
         /// <summary>The slug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -158,6 +160,7 @@ namespace Fegmm.ChurchTools.Profiles.Campuses.Item
         public CampusesPutRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsPublished = false;
             SortKey = 0;
         }
         /// <summary>
@@ -178,19 +181,20 @@ namespace Fegmm.ChurchTools.Profiles.Campuses.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "address", n => { Address = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_address>(global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_address.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_address>(global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_address.CreateFromDiscriminatorValue); } },
                 { "associationId", n => { AssociationId = n.GetIntValue(); } },
-                { "denomination", n => { Denomination = n.GetEnumValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_denomination>(); } },
+                { "denomination", n => { Denomination = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_denomination>(global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_denomination.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "groups", n => { Groups = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
+                { "groups", n => { Groups = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
                 { "isPublished", n => { IsPublished = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
                 { "services", n => { Services = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_services>(global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_services.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "shortName", n => { ShortName = n.GetStringValue(); } },
                 { "shorty", n => { Shorty = n.GetStringValue(); } },
-                { "signUpGroup", n => { SignUpGroup = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_signUpGroup>(global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_signUpGroup.CreateFromDiscriminatorValue); } },
+                { "signUpGroupId", n => { SignUpGroupId = n.GetIntValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "socialMedia", n => { SocialMedia = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_socialMedia>(global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_socialMedia.CreateFromDiscriminatorValue); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
@@ -208,19 +212,20 @@ namespace Fegmm.ChurchTools.Profiles.Campuses.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_address>("address", Address);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_address>("address", Address);
             writer.WriteIntValue("associationId", AssociationId);
-            writer.WriteEnumValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_denomination>("denomination", Denomination);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_denomination>("denomination", Denomination);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("email", Email);
-            writer.WriteCollectionOfPrimitiveValues<double?>("groups", Groups);
+            writer.WriteCollectionOfPrimitiveValues<int?>("groups", Groups);
+            writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("isPublished", IsPublished);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("phone", Phone);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_services>("services", Services);
             writer.WriteStringValue("shortName", ShortName);
             writer.WriteStringValue("shorty", Shorty);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_signUpGroup>("signUpGroup", SignUpGroup);
+            writer.WriteIntValue("signUpGroupId", SignUpGroupId);
             writer.WriteStringValue("slug", Slug);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_socialMedia>("socialMedia", SocialMedia);
             writer.WriteIntValue("sortKey", SortKey);
@@ -230,6 +235,130 @@ namespace Fegmm.ChurchTools.Profiles.Campuses.Item
             writer.WriteIntValue("visitors", Visitors);
             writer.WriteStringValue("website", Website);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_addressMember1"/>, <see cref="global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_addressMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class CampusesPutRequestBody_address : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_addressMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_addressMember1? CampusesPutRequestBodyAddressMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_addressMember1 CampusesPutRequestBodyAddressMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_addressMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_addressMember2? CampusesPutRequestBodyAddressMember2 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_addressMember2 CampusesPutRequestBodyAddressMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_address"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_address CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_address();
+                result.CampusesPutRequestBodyAddressMember1 = new global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_addressMember1();
+                result.CampusesPutRequestBodyAddressMember2 = new global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_addressMember2();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(CampusesPutRequestBodyAddressMember1 != null || CampusesPutRequestBodyAddressMember2 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(CampusesPutRequestBodyAddressMember1, CampusesPutRequestBodyAddressMember2);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_addressMember1>(null, CampusesPutRequestBodyAddressMember1, CampusesPutRequestBodyAddressMember2);
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_denominationMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class CampusesPutRequestBody_denomination : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_denominationMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_denominationMember1? CampusesPutRequestBodyDenominationMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_denominationMember1 CampusesPutRequestBodyDenominationMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_denomination"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_denomination CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody.CampusesPutRequestBody_denomination();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(CampusesPutRequestBodyDenominationMember1 != null)
+                {
+                    return CampusesPutRequestBodyDenominationMember1.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(CampusesPutRequestBodyDenominationMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Campuses.Item.CampusesPutRequestBody_denominationMember1>(null, CampusesPutRequestBodyDenominationMember1);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
         }
     }
 }

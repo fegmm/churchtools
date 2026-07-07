@@ -14,37 +14,47 @@ namespace Fegmm.ChurchTools.History
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The afterTranslated property</summary>
+        /// <summary>The afterValue property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslated? AfterTranslated { get; set; }
+        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValue? AfterValue { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslated AfterTranslated { get; set; }
+        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValue AfterValue { get; set; }
 #endif
-        /// <summary>The afterTranslationKey property</summary>
+        /// <summary>The afterValueTranslated property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslationKey? AfterTranslationKey { get; set; }
+        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValueTranslated? AfterValueTranslated { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslationKey AfterTranslationKey { get; set; }
+        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValueTranslated AfterValueTranslated { get; set; }
 #endif
-        /// <summary>The beforeTranslated property</summary>
+        /// <summary>The beforeValue property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslated? BeforeTranslated { get; set; }
+        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValue? BeforeValue { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslated BeforeTranslated { get; set; }
+        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValue BeforeValue { get; set; }
 #endif
-        /// <summary>The beforeTranslationKey property</summary>
+        /// <summary>The beforeValueTranslated property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKey? BeforeTranslationKey { get; set; }
+        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslated? BeforeValueTranslated { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKey BeforeTranslationKey { get; set; }
+        public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslated BeforeValueTranslated { get; set; }
+#endif
+        /// <summary>The id property</summary>
+        public int? Id { get; set; }
+        /// <summary>The key property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Key { get; set; }
+#nullable restore
+#else
+        public string Key { get; set; }
 #endif
         /// <summary>The keyTranslated property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,14 +63,6 @@ namespace Fegmm.ChurchTools.History
 #nullable restore
 #else
         public string KeyTranslated { get; set; }
-#endif
-        /// <summary>The keyTranslationKey property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? KeyTranslationKey { get; set; }
-#nullable restore
-#else
-        public string KeyTranslationKey { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues"/> and sets the default values.
@@ -87,12 +89,13 @@ namespace Fegmm.ChurchTools.History
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "afterTranslated", n => { AfterTranslated = n.GetObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslated>(global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslated.CreateFromDiscriminatorValue); } },
-                { "afterTranslationKey", n => { AfterTranslationKey = n.GetObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslationKey>(global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslationKey.CreateFromDiscriminatorValue); } },
-                { "beforeTranslated", n => { BeforeTranslated = n.GetObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslated>(global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslated.CreateFromDiscriminatorValue); } },
-                { "beforeTranslationKey", n => { BeforeTranslationKey = n.GetObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKey>(global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKey.CreateFromDiscriminatorValue); } },
+                { "afterValue", n => { AfterValue = n.GetObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValue>(global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValue.CreateFromDiscriminatorValue); } },
+                { "afterValueTranslated", n => { AfterValueTranslated = n.GetObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValueTranslated>(global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValueTranslated.CreateFromDiscriminatorValue); } },
+                { "beforeValue", n => { BeforeValue = n.GetObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValue>(global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValue.CreateFromDiscriminatorValue); } },
+                { "beforeValueTranslated", n => { BeforeValueTranslated = n.GetObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslated>(global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslated.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetIntValue(); } },
+                { "key", n => { Key = n.GetStringValue(); } },
                 { "keyTranslated", n => { KeyTranslated = n.GetStringValue(); } },
-                { "keyTranslationKey", n => { KeyTranslationKey = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -102,27 +105,28 @@ namespace Fegmm.ChurchTools.History
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslated>("afterTranslated", AfterTranslated);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslationKey>("afterTranslationKey", AfterTranslationKey);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslated>("beforeTranslated", BeforeTranslated);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKey>("beforeTranslationKey", BeforeTranslationKey);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValue>("afterValue", AfterValue);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValueTranslated>("afterValueTranslated", AfterValueTranslated);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValue>("beforeValue", BeforeValue);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslated>("beforeValueTranslated", BeforeValueTranslated);
+            writer.WriteIntValue("id", Id);
+            writer.WriteStringValue("key", Key);
             writer.WriteStringValue("keyTranslated", KeyTranslated);
-            writer.WriteStringValue("keyTranslationKey", KeyTranslationKey);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterTranslatedMember1"/>, <see cref="string"/>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterValueMember1"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HistoryGetResponse_data_beforeAfterValues_afterTranslated : IComposedTypeWrapper, IParsable
+        public partial class HistoryGetResponse_data_beforeAfterValues_afterValue : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterTranslatedMember1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterValueMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterTranslatedMember1? HistoryGetResponseDataBeforeAfterValuesAfterTranslatedMember1 { get; set; }
+            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterValueMember1? HistoryGetResponseDataBeforeAfterValuesAfterValueMember1 { get; set; }
 #nullable restore
 #else
-            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterTranslatedMember1 HistoryGetResponseDataBeforeAfterValuesAfterTranslatedMember1 { get; set; }
+            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterValueMember1 HistoryGetResponseDataBeforeAfterValuesAfterValueMember1 { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,13 +139,13 @@ namespace Fegmm.ChurchTools.History
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslated"/></returns>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValue"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslated CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValue CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslated();
+                var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValue();
                 if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
@@ -154,9 +158,9 @@ namespace Fegmm.ChurchTools.History
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(HistoryGetResponseDataBeforeAfterValuesAfterTranslatedMember1 != null)
+                if(HistoryGetResponseDataBeforeAfterValuesAfterValueMember1 != null)
                 {
-                    return HistoryGetResponseDataBeforeAfterValuesAfterTranslatedMember1.GetFieldDeserializers();
+                    return HistoryGetResponseDataBeforeAfterValuesAfterValueMember1.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -167,9 +171,9 @@ namespace Fegmm.ChurchTools.History
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(HistoryGetResponseDataBeforeAfterValuesAfterTranslatedMember1 != null)
+                if(HistoryGetResponseDataBeforeAfterValuesAfterValueMember1 != null)
                 {
-                    writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterTranslatedMember1>(null, HistoryGetResponseDataBeforeAfterValuesAfterTranslatedMember1);
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterValueMember1>(null, HistoryGetResponseDataBeforeAfterValuesAfterValueMember1);
                 }
                 else if(String != null)
                 {
@@ -178,18 +182,18 @@ namespace Fegmm.ChurchTools.History
             }
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterTranslationKeyMember1"/>, <see cref="string"/>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterValueTranslatedMember1"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HistoryGetResponse_data_beforeAfterValues_afterTranslationKey : IComposedTypeWrapper, IParsable
+        public partial class HistoryGetResponse_data_beforeAfterValues_afterValueTranslated : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterTranslationKeyMember1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterValueTranslatedMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterTranslationKeyMember1? HistoryGetResponseDataBeforeAfterValuesAfterTranslationKeyMember1 { get; set; }
+            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterValueTranslatedMember1? HistoryGetResponseDataBeforeAfterValuesAfterValueTranslatedMember1 { get; set; }
 #nullable restore
 #else
-            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterTranslationKeyMember1 HistoryGetResponseDataBeforeAfterValuesAfterTranslationKeyMember1 { get; set; }
+            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterValueTranslatedMember1 HistoryGetResponseDataBeforeAfterValuesAfterValueTranslatedMember1 { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -202,13 +206,13 @@ namespace Fegmm.ChurchTools.History
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslationKey"/></returns>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValueTranslated"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslationKey CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValueTranslated CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterTranslationKey();
+                var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_afterValueTranslated();
                 if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
@@ -221,9 +225,9 @@ namespace Fegmm.ChurchTools.History
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(HistoryGetResponseDataBeforeAfterValuesAfterTranslationKeyMember1 != null)
+                if(HistoryGetResponseDataBeforeAfterValuesAfterValueTranslatedMember1 != null)
                 {
-                    return HistoryGetResponseDataBeforeAfterValuesAfterTranslationKeyMember1.GetFieldDeserializers();
+                    return HistoryGetResponseDataBeforeAfterValuesAfterValueTranslatedMember1.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -234,9 +238,9 @@ namespace Fegmm.ChurchTools.History
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(HistoryGetResponseDataBeforeAfterValuesAfterTranslationKeyMember1 != null)
+                if(HistoryGetResponseDataBeforeAfterValuesAfterValueTranslatedMember1 != null)
                 {
-                    writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterTranslationKeyMember1>(null, HistoryGetResponseDataBeforeAfterValuesAfterTranslationKeyMember1);
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_afterValueTranslatedMember1>(null, HistoryGetResponseDataBeforeAfterValuesAfterValueTranslatedMember1);
                 }
                 else if(String != null)
                 {
@@ -245,18 +249,18 @@ namespace Fegmm.ChurchTools.History
             }
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeTranslatedMember1"/>, <see cref="string"/>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeValueMember1"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HistoryGetResponse_data_beforeAfterValues_beforeTranslated : IComposedTypeWrapper, IParsable
+        public partial class HistoryGetResponse_data_beforeAfterValues_beforeValue : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeTranslatedMember1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeValueMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeTranslatedMember1? HistoryGetResponseDataBeforeAfterValuesBeforeTranslatedMember1 { get; set; }
+            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeValueMember1? HistoryGetResponseDataBeforeAfterValuesBeforeValueMember1 { get; set; }
 #nullable restore
 #else
-            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeTranslatedMember1 HistoryGetResponseDataBeforeAfterValuesBeforeTranslatedMember1 { get; set; }
+            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeValueMember1 HistoryGetResponseDataBeforeAfterValuesBeforeValueMember1 { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -269,13 +273,13 @@ namespace Fegmm.ChurchTools.History
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslated"/></returns>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValue"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslated CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValue CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslated();
+                var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValue();
                 if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
@@ -288,9 +292,9 @@ namespace Fegmm.ChurchTools.History
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(HistoryGetResponseDataBeforeAfterValuesBeforeTranslatedMember1 != null)
+                if(HistoryGetResponseDataBeforeAfterValuesBeforeValueMember1 != null)
                 {
-                    return HistoryGetResponseDataBeforeAfterValuesBeforeTranslatedMember1.GetFieldDeserializers();
+                    return HistoryGetResponseDataBeforeAfterValuesBeforeValueMember1.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -301,9 +305,9 @@ namespace Fegmm.ChurchTools.History
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(HistoryGetResponseDataBeforeAfterValuesBeforeTranslatedMember1 != null)
+                if(HistoryGetResponseDataBeforeAfterValuesBeforeValueMember1 != null)
                 {
-                    writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeTranslatedMember1>(null, HistoryGetResponseDataBeforeAfterValuesBeforeTranslatedMember1);
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeValueMember1>(null, HistoryGetResponseDataBeforeAfterValuesBeforeValueMember1);
                 }
                 else if(String != null)
                 {
@@ -312,18 +316,18 @@ namespace Fegmm.ChurchTools.History
             }
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKeyMember1"/>, <see cref="string"/>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslatedMember1"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class HistoryGetResponse_data_beforeAfterValues_beforeTranslationKey : IComposedTypeWrapper, IParsable
+        public partial class HistoryGetResponse_data_beforeAfterValues_beforeValueTranslated : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKeyMember1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslatedMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKeyMember1? HistoryGetResponseDataBeforeAfterValuesBeforeTranslationKeyMember1 { get; set; }
+            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslatedMember1? HistoryGetResponseDataBeforeAfterValuesBeforeValueTranslatedMember1 { get; set; }
 #nullable restore
 #else
-            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKeyMember1 HistoryGetResponseDataBeforeAfterValuesBeforeTranslationKeyMember1 { get; set; }
+            public global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslatedMember1 HistoryGetResponseDataBeforeAfterValuesBeforeValueTranslatedMember1 { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -336,13 +340,13 @@ namespace Fegmm.ChurchTools.History
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKey"/></returns>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslated"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKey CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslated CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKey();
+                var result = new global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslated();
                 if(parseNode.GetStringValue() is string stringValue)
                 {
                     result.String = stringValue;
@@ -355,9 +359,9 @@ namespace Fegmm.ChurchTools.History
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(HistoryGetResponseDataBeforeAfterValuesBeforeTranslationKeyMember1 != null)
+                if(HistoryGetResponseDataBeforeAfterValuesBeforeValueTranslatedMember1 != null)
                 {
-                    return HistoryGetResponseDataBeforeAfterValuesBeforeTranslationKeyMember1.GetFieldDeserializers();
+                    return HistoryGetResponseDataBeforeAfterValuesBeforeValueTranslatedMember1.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -368,9 +372,9 @@ namespace Fegmm.ChurchTools.History
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(HistoryGetResponseDataBeforeAfterValuesBeforeTranslationKeyMember1 != null)
+                if(HistoryGetResponseDataBeforeAfterValuesBeforeValueTranslatedMember1 != null)
                 {
-                    writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeTranslationKeyMember1>(null, HistoryGetResponseDataBeforeAfterValuesBeforeTranslationKeyMember1);
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues_beforeValueTranslatedMember1>(null, HistoryGetResponseDataBeforeAfterValuesBeforeValueTranslatedMember1);
                 }
                 else if(String != null)
                 {

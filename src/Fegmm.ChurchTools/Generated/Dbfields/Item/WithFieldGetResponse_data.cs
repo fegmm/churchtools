@@ -27,6 +27,14 @@ namespace Fegmm.ChurchTools.Dbfields.Item
         public bool? CreatedByChurch { get; set; }
         /// <summary>The deleteOnArchive property</summary>
         public bool? DeleteOnArchive { get; set; }
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Dbfields.Item.WithFieldGetResponse_data_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Dbfields.Item.WithFieldGetResponse_data_Deprecated Deprecated { get; set; }
+#endif
         /// <summary>The fieldCategory property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -148,6 +156,7 @@ namespace Fegmm.ChurchTools.Dbfields.Item
                 { "column", n => { Column = n.GetStringValue(); } },
                 { "createdByChurch", n => { CreatedByChurch = n.GetBoolValue(); } },
                 { "deleteOnArchive", n => { DeleteOnArchive = n.GetBoolValue(); } },
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Dbfields.Item.WithFieldGetResponse_data_Deprecated>(global::Fegmm.ChurchTools.Dbfields.Item.WithFieldGetResponse_data_Deprecated.CreateFromDiscriminatorValue); } },
                 { "fieldCategory", n => { FieldCategory = n.GetObjectValue<global::Fegmm.ChurchTools.Dbfields.Item.WithFieldGetResponse_data_fieldCategory>(global::Fegmm.ChurchTools.Dbfields.Item.WithFieldGetResponse_data_fieldCategory.CreateFromDiscriminatorValue); } },
                 { "fieldType", n => { FieldType = n.GetObjectValue<global::Fegmm.ChurchTools.Dbfields.Item.WithFieldGetResponse_data_fieldType>(global::Fegmm.ChurchTools.Dbfields.Item.WithFieldGetResponse_data_fieldType.CreateFromDiscriminatorValue); } },
                 { "hideInFrontend", n => { HideInFrontend = n.GetBoolValue(); } },
@@ -181,6 +190,7 @@ namespace Fegmm.ChurchTools.Dbfields.Item
             writer.WriteStringValue("column", Column);
             writer.WriteBoolValue("createdByChurch", CreatedByChurch);
             writer.WriteBoolValue("deleteOnArchive", DeleteOnArchive);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Dbfields.Item.WithFieldGetResponse_data_Deprecated>("@deprecated", Deprecated);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Dbfields.Item.WithFieldGetResponse_data_fieldCategory>("fieldCategory", FieldCategory);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Dbfields.Item.WithFieldGetResponse_data_fieldType>("fieldType", FieldType);
             writer.WriteBoolValue("hideInFrontend", HideInFrontend);

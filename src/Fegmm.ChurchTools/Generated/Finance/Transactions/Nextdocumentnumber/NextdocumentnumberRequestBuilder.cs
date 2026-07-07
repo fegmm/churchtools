@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NextdocumentnumberRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions/nextdocumentnumber{?accounting_period_id*}", pathParameters)
+        public NextdocumentnumberRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions/nextdocumentnumber?accounting_period_id={accounting_period_id}", pathParameters)
         {
         }
         /// <summary>
@@ -29,29 +29,48 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NextdocumentnumberRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions/nextdocumentnumber{?accounting_period_id*}", rawUrl)
+        public NextdocumentnumberRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions/nextdocumentnumber?accounting_period_id={accounting_period_id}", rawUrl)
         {
         }
         /// <summary>
-        /// TODO 200 - Get suggestion for next document number
+        /// Returns a suggested next document number for new transactions in the given accounting period, derived from the most recently used document number. The suggestion is returned as a string (e.g. `&quot;1&quot;` when the period has no transactions yet).
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberRequestBuilder.NextdocumentnumberRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberGetResponse?> GetAsNextdocumentnumberGetResponseAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberRequestBuilder.NextdocumentnumberRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberRequestBuilder.NextdocumentnumberRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberGetResponse> GetAsNextdocumentnumberGetResponseAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberRequestBuilder.NextdocumentnumberRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberGetResponse>(requestInfo, global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// TODO 200 - Get suggestion for next document number
+        /// Returns a suggested next document number for new transactions in the given accounting period, derived from the most recently used document number. The suggestion is returned as a string (e.g. `&quot;1&quot;` when the period has no transactions yet).
+        /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberResponse"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("This method is obsolete. Use GetAsNextdocumentnumberGetResponseAsync instead.")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberResponse?> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberRequestBuilder.NextdocumentnumberRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberResponse> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberRequestBuilder.NextdocumentnumberRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberResponse>(requestInfo, global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Returns a suggested next document number for new transactions in the given accounting period, derived from the most recently used document number. The suggestion is returned as a string (e.g. `&quot;1&quot;` when the period has no transactions yet).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +85,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
@@ -79,20 +98,14 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber
             return new global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// TODO 200 - Get suggestion for next document number
+        /// Returns a suggested next document number for new transactions in the given accounting period, derived from the most recently used document number. The suggestion is returned as a string (e.g. `&quot;1&quot;` when the period has no transactions yet).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class NextdocumentnumberRequestBuilderGetQueryParameters 
         {
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            /// <summary>ID of accounting period to get master data for</summary>
             [QueryParameter("accounting_period_id")]
-            public string? AccountingPeriodId { get; set; }
-#nullable restore
-#else
-            [QueryParameter("accounting_period_id")]
-            public string AccountingPeriodId { get; set; }
-#endif
+            public int? AccountingPeriodId { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

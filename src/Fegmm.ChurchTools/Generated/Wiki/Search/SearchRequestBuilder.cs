@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Wiki.Search
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SearchRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wiki/search{?query*,wiki_category_ids%5B%5D*}", pathParameters)
+        public SearchRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wiki/search?query={query}{&wiki_category_ids%5B%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,11 +29,11 @@ namespace Fegmm.ChurchTools.Wiki.Search
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SearchRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wiki/search{?query*,wiki_category_ids%5B%5D*}", rawUrl)
+        public SearchRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wiki/search?query={query}{&wiki_category_ids%5B%5D*}", rawUrl)
         {
         }
         /// <summary>
-        /// Full text search in all wiki pages
+        /// Performs a full-text search across wiki pages. The search matches the page title and content; results contain a `preview` excerpt with the matched query highlighted (Markdown `**bold**`).
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Search.SearchGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Wiki.Search
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Search.SearchGetResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Search.SearchGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Full text search in all wiki pages
+        /// Performs a full-text search across wiki pages. The search matches the page title and content; results contain a `preview` excerpt with the matched query highlighted (Markdown `**bold**`).
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Search.SearchResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Wiki.Search
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Search.SearchResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Search.SearchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Full text search in all wiki pages
+        /// Performs a full-text search across wiki pages. The search matches the page title and content; results contain a `preview` excerpt with the matched query highlighted (Markdown `**bold**`).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,11 +98,12 @@ namespace Fegmm.ChurchTools.Wiki.Search
             return new global::Fegmm.ChurchTools.Wiki.Search.SearchRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Full text search in all wiki pages
+        /// Performs a full-text search across wiki pages. The search matches the page title and content; results contain a `preview` excerpt with the matched query highlighted (Markdown `**bold**`).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderGetQueryParameters 
         {
+            /// <summary>Search term. Must contain at least one character.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("query")]
@@ -112,7 +113,7 @@ namespace Fegmm.ChurchTools.Wiki.Search
             [QueryParameter("query")]
             public string Query { get; set; }
 #endif
-            /// <summary>wiki categories that should be searched. if noone is given all categories are searched</summary>
+            /// <summary>Wiki categories that should be searched. If none are given, all categories the user can view are searched. Categories the user is not allowed to view are silently filtered out.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("wiki_category_ids%5B%5D")]

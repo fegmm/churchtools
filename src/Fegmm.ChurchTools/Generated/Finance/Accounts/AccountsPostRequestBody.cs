@@ -30,6 +30,8 @@ namespace Fegmm.ChurchTools.Finance.Accounts
 #endif
         /// <summary>The isDonationAccount property</summary>
         public bool? IsDonationAccount { get; set; }
+        /// <summary>The isMandatoryEubp property</summary>
+        public bool? IsMandatoryEubp { get; set; }
         /// <summary>The isOpeningBalanceAccount property</summary>
         public bool? IsOpeningBalanceAccount { get; set; }
         /// <summary>The name property</summary>
@@ -78,6 +80,7 @@ namespace Fegmm.ChurchTools.Finance.Accounts
                 { "budget", n => { Budget = n.GetIntValue(); } },
                 { "identifier", n => { Identifier = n.GetStringValue(); } },
                 { "isDonationAccount", n => { IsDonationAccount = n.GetBoolValue(); } },
+                { "isMandatoryEubp", n => { IsMandatoryEubp = n.GetBoolValue(); } },
                 { "isOpeningBalanceAccount", n => { IsOpeningBalanceAccount = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "number", n => { Number = n.GetStringValue(); } },
@@ -95,6 +98,7 @@ namespace Fegmm.ChurchTools.Finance.Accounts
             writer.WriteIntValue("budget", Budget);
             writer.WriteStringValue("identifier", Identifier);
             writer.WriteBoolValue("isDonationAccount", IsDonationAccount);
+            writer.WriteBoolValue("isMandatoryEubp", IsMandatoryEubp);
             writer.WriteBoolValue("isOpeningBalanceAccount", IsOpeningBalanceAccount);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("number", Number);

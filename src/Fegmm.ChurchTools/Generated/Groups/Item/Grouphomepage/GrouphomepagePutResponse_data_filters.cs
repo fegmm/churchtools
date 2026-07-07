@@ -14,7 +14,15 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The show property</summary>
+        /// <summary>Available options for this filter type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters_options>? Options { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters_options> Options { get; set; }
+#endif
+        /// <summary>If true, this filter is enabled on the group homepage.</summary>
         public bool? Show { get; set; }
         /// <summary>The type property</summary>
         public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters_type? Type { get; set; }
@@ -43,6 +51,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "options", n => { Options = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters_options>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters_options.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "show", n => { Show = n.GetBoolValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters_type>(); } },
             };
@@ -54,6 +63,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters_options>("options", Options);
             writer.WriteBoolValue("show", Show);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

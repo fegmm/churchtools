@@ -96,7 +96,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new wiki category. Requires the churchwiki edit masterdata permission.
+        /// Creates a new wiki category. Requires the `churchwiki` &quot;edit masterdata&quot; permission. The response `permissions` object is always empty for newly created categories; per-category permissions are only populated by the list endpoint.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -116,7 +116,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.CategoriesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new wiki category. Requires the churchwiki edit masterdata permission.
+        /// Creates a new wiki category. Requires the `churchwiki` &quot;edit masterdata&quot; permission. The response `permissions` object is always empty for newly created categories; per-category permissions are only populated by the list endpoint.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.CategoriesResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -156,7 +156,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new wiki category. Requires the churchwiki edit masterdata permission.
+        /// Creates a new wiki category. Requires the `churchwiki` &quot;edit masterdata&quot; permission. The response `permissions` object is always empty for newly created categories; per-category permissions are only populated by the list endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

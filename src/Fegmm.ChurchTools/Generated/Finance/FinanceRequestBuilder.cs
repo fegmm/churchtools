@@ -10,6 +10,7 @@ using Fegmm.ChurchTools.Finance.Cashdiscounts;
 using Fegmm.ChurchTools.Finance.Clients;
 using Fegmm.ChurchTools.Finance.Costcenters;
 using Fegmm.ChurchTools.Finance.Donators;
+using Fegmm.ChurchTools.Finance.Eubp;
 using Fegmm.ChurchTools.Finance.Masterdata;
 using Fegmm.ChurchTools.Finance.Reports;
 using Fegmm.ChurchTools.Finance.Splittransactions;
@@ -81,6 +82,11 @@ namespace Fegmm.ChurchTools.Finance
         public global::Fegmm.ChurchTools.Finance.Donators.DonatorsRequestBuilder Donators
         {
             get => new global::Fegmm.ChurchTools.Finance.Donators.DonatorsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The eubp property</summary>
+        public global::Fegmm.ChurchTools.Finance.Eubp.EubpRequestBuilder Eubp
+        {
+            get => new global::Fegmm.ChurchTools.Finance.Eubp.EubpRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The masterdata property</summary>
         public global::Fegmm.ChurchTools.Finance.Masterdata.MasterdataRequestBuilder Masterdata

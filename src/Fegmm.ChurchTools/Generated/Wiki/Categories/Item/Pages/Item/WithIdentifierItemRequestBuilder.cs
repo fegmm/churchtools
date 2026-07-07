@@ -27,7 +27,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithIdentifierItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wiki/categories/{wikiCategoryId}/pages/{identifier}", pathParameters)
+        public WithIdentifierItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wiki/categories/{wikiCategoryId}/pages/{identifier}{?version*}", pathParameters)
         {
         }
         /// <summary>
@@ -35,11 +35,11 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithIdentifierItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wiki/categories/{wikiCategoryId}/pages/{identifier}", rawUrl)
+        public WithIdentifierItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wiki/categories/{wikiCategoryId}/pages/{identifier}{?version*}", rawUrl)
         {
         }
         /// <summary>
-        /// Deletes all versions of the wiki page with the given guid.
+        /// Deletes the wiki page identified by its GUID, including all of its versions. System pages and pages the user is not allowed to delete return 403.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -56,25 +56,25 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the latest version of the wiki page with the given identifier.
+        /// Returns the latest version of the wiki page with the given identifier. The identifier may be the page GUID (recommended) or the page title (legacy, for backwards compatibility only).
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierGetResponse?> GetAsWithIdentifierGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierGetResponse?> GetAsWithIdentifierGetResponseAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierItemRequestBuilder.WithIdentifierItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierGetResponse> GetAsWithIdentifierGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierGetResponse> GetAsWithIdentifierGetResponseAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierItemRequestBuilder.WithIdentifierItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierGetResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the latest version of the wiki page with the given identifier.
+        /// Returns the latest version of the wiki page with the given identifier. The identifier may be the page GUID (recommended) or the page title (legacy, for backwards compatibility only).
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,18 +82,18 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
         [Obsolete("This method is obsolete. Use GetAsWithIdentifierGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse?> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierItemRequestBuilder.WithIdentifierItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierItemRequestBuilder.WithIdentifierItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the provided properties of the wiki page with the given guid. Changing the text creates a new version of the page.
+        /// Updates the provided properties of the wiki page with the given GUID. Only fields that are present in the request body are changed. Changing the `text` creates a new version of the page; changing only other fields modifies the latest version in place.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -113,7 +113,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the provided properties of the wiki page with the given guid. Changing the text creates a new version of the page.
+        /// Updates the provided properties of the wiki page with the given GUID. Only fields that are present in the request body are changed. Changing the `text` creates a new version of the page; changing only other fields modifies the latest version in place.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -134,7 +134,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes all versions of the wiki page with the given guid.
+        /// Deletes the wiki page identified by its GUID, including all of its versions. System pages and pages the user is not allowed to delete return 403.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -153,17 +153,17 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
             return requestInfo;
         }
         /// <summary>
-        /// Returns the latest version of the wiki page with the given identifier.
+        /// Returns the latest version of the wiki page with the given identifier. The identifier may be the page GUID (recommended) or the page title (legacy, for backwards compatibility only).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierItemRequestBuilder.WithIdentifierItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierItemRequestBuilder.WithIdentifierItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -172,7 +172,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates the provided properties of the wiki page with the given guid. Changing the text creates a new version of the page.
+        /// Updates the provided properties of the wiki page with the given GUID. Only fields that are present in the request body are changed. Changing the `text` creates a new version of the page; changing only other fields modifies the latest version in place.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -211,11 +211,21 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
         {
         }
         /// <summary>
+        /// Returns the latest version of the wiki page with the given identifier. The identifier may be the page GUID (recommended) or the page title (legacy, for backwards compatibility only).
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithIdentifierItemRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Optional version number. If omitted, the latest version is returned.</summary>
+            [QueryParameter("version")]
+            public int? Version { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithIdentifierItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class WithIdentifierItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierItemRequestBuilder.WithIdentifierItemRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

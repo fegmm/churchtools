@@ -16,14 +16,8 @@ namespace Fegmm.ChurchTools.Dbfieldtypes
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The id property</summary>
         public int? Id { get; set; }
-        /// <summary>The internCode property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? InternCode { get; set; }
-#nullable restore
-#else
-        public string InternCode { get; set; }
-#endif
+        /// <summary>The intern code of the field type the field belongs to. This is used to define the type of the field.</summary>
+        public global::Fegmm.ChurchTools.Dbfieldtypes.DbfieldtypesGetResponse_data_internCode? InternCode { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,7 +54,7 @@ namespace Fegmm.ChurchTools.Dbfieldtypes
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetIntValue(); } },
-                { "internCode", n => { InternCode = n.GetStringValue(); } },
+                { "internCode", n => { InternCode = n.GetEnumValue<global::Fegmm.ChurchTools.Dbfieldtypes.DbfieldtypesGetResponse_data_internCode>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
@@ -73,7 +67,7 @@ namespace Fegmm.ChurchTools.Dbfieldtypes
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("id", Id);
-            writer.WriteStringValue("internCode", InternCode);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Dbfieldtypes.DbfieldtypesGetResponse_data_internCode>("internCode", InternCode);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);

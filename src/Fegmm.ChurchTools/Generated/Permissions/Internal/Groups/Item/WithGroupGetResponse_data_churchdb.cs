@@ -35,7 +35,13 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
         /// <summary>The plus_adminRoutines property</summary>
         public bool? PlusAdminRoutines { get; set; }
         /// <summary>The plus_createGroup property</summary>
-        public bool? PlusCreateGroup { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchdb.WithGroupGetResponse_data_churchdb_plus_createGroup? PlusCreateGroup { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchdb.WithGroupGetResponse_data_churchdb_plus_createGroup PlusCreateGroup { get; set; }
+#endif
         /// <summary>The plus_createNotes property</summary>
         public bool? PlusCreateNotes { get; set; }
         /// <summary>The plus_createPostGroupIntern property</summary>
@@ -141,7 +147,7 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
                 { "+admin meetings", n => { PlusAdminMeetings = n.GetBoolValue(); } },
                 { "+admin posts", n => { PlusAdminPosts = n.GetBoolValue(); } },
                 { "+admin routines", n => { PlusAdminRoutines = n.GetBoolValue(); } },
-                { "+create group", n => { PlusCreateGroup = n.GetBoolValue(); } },
+                { "+create group", n => { PlusCreateGroup = n.GetObjectValue<global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchdb.WithGroupGetResponse_data_churchdb_plus_createGroup>(global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchdb.WithGroupGetResponse_data_churchdb_plus_createGroup.CreateFromDiscriminatorValue); } },
                 { "+create notes", n => { PlusCreateNotes = n.GetBoolValue(); } },
                 { "+create post group intern", n => { PlusCreatePostGroupIntern = n.GetBoolValue(); } },
                 { "+create post group visible", n => { PlusCreatePostGroupVisible = n.GetBoolValue(); } },
@@ -193,7 +199,7 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
             writer.WriteBoolValue("+admin meetings", PlusAdminMeetings);
             writer.WriteBoolValue("+admin posts", PlusAdminPosts);
             writer.WriteBoolValue("+admin routines", PlusAdminRoutines);
-            writer.WriteBoolValue("+create group", PlusCreateGroup);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchdb.WithGroupGetResponse_data_churchdb_plus_createGroup>("+create group", PlusCreateGroup);
             writer.WriteBoolValue("+create notes", PlusCreateNotes);
             writer.WriteBoolValue("+create post group intern", PlusCreatePostGroupIntern);
             writer.WriteBoolValue("+create post group visible", PlusCreatePostGroupVisible);
@@ -228,6 +234,67 @@ namespace Fegmm.ChurchTools.Permissions.Internal.Groups.Item
             writer.WriteDoubleValue("+edit own groupmemberfields", WithGroupGetResponseDataChurchdbPlusEditOwnGroupmemberfields);
             writer.WriteDoubleValue("+see groupmemberfields", WithGroupGetResponseDataChurchdbPlusSeeGroupmemberfields);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="int"/>, List&lt;int&gt;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithGroupGetResponse_data_churchdb_plus_createGroup : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type List&lt;int&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<int?>? Integer { get; set; }
+#nullable restore
+#else
+            public List<int?> Integer { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? WithGroupGetResponseDataChurchdbPlusCreateGroupInteger { get; set; }
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchdb.WithGroupGetResponse_data_churchdb_plus_createGroup"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchdb.WithGroupGetResponse_data_churchdb_plus_createGroup CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Permissions.Internal.Groups.Item.WithGroupGetResponse_data_churchdb.WithGroupGetResponse_data_churchdb_plus_createGroup();
+                if(parseNode.GetIntValue() is int withGroupGetResponseDataChurchdbPlusCreateGroupIntegerValue)
+                {
+                    result.WithGroupGetResponseDataChurchdbPlusCreateGroupInteger = withGroupGetResponseDataChurchdbPlusCreateGroupIntegerValue;
+                }
+                else if(parseNode.GetCollectionOfPrimitiveValues<int?>()?.AsList() is List<int?> integerValue)
+                {
+                    result.Integer = integerValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(WithGroupGetResponseDataChurchdbPlusCreateGroupInteger != null)
+                {
+                    writer.WriteIntValue(null, WithGroupGetResponseDataChurchdbPlusCreateGroupInteger);
+                }
+                else if(Integer != null)
+                {
+                    writer.WriteCollectionOfPrimitiveValues<int?>(null, Integer);
+                }
+            }
         }
     }
 }

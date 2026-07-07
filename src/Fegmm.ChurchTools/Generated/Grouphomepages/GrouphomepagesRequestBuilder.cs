@@ -18,7 +18,7 @@ namespace Fegmm.ChurchTools.Grouphomepages
     public partial class GrouphomepagesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Fegmm.ChurchTools.grouphomepages.item collection</summary>
-        /// <param name="position">Random hash for public groups</param>
+        /// <param name="position">Random hash of the group homepage.</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashItemRequestBuilder"/></returns>
         public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashItemRequestBuilder this[string position]
         {
@@ -46,7 +46,7 @@ namespace Fegmm.ChurchTools.Grouphomepages
         {
         }
         /// <summary>
-        /// Get all Grouphomepages
+        /// Returns all enabled group homepages as lightweight domain objects. Each item contains the public API URL and frontend URL with the random group homepage hash, plus the parent group ID and all child group IDs used by the public page.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Grouphomepages.GrouphomepagesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -64,7 +64,7 @@ namespace Fegmm.ChurchTools.Grouphomepages
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Grouphomepages.GrouphomepagesGetResponse>(requestInfo, global::Fegmm.ChurchTools.Grouphomepages.GrouphomepagesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all Grouphomepages
+        /// Returns all enabled group homepages as lightweight domain objects. Each item contains the public API URL and frontend URL with the random group homepage hash, plus the parent group ID and all child group IDs used by the public page.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Grouphomepages.GrouphomepagesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -83,7 +83,7 @@ namespace Fegmm.ChurchTools.Grouphomepages
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Grouphomepages.GrouphomepagesResponse>(requestInfo, global::Fegmm.ChurchTools.Grouphomepages.GrouphomepagesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all Grouphomepages
+        /// Returns all enabled group homepages as lightweight domain objects. Each item contains the public API URL and frontend URL with the random group homepage hash, plus the parent group ID and all child group IDs used by the public page.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

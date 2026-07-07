@@ -8,7 +8,7 @@ using System;
 namespace Fegmm.ChurchTools.Profiles.Church
 {
     /// <summary>
-    /// Campus with possible address.
+    /// Profiles are representing campuses and the church itself.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChurchPutResponse_data : IAdditionalDataHolder, IParsable
@@ -23,6 +23,78 @@ namespace Fegmm.ChurchTools.Profiles.Church
 #else
         public UntypedNode Address { get; set; }
 #endif
+        /// <summary>Will be the same for all profiles.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_association? Association { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_association Association { get; set; }
+#endif
+        /// <summary>The banner property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UntypedNode? Banner { get; set; }
+#nullable restore
+#else
+        public UntypedNode Banner { get; set; }
+#endif
+        /// <summary>The denomination property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_denomination? Denomination { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_denomination Denomination { get; set; }
+#endif
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_Deprecated Deprecated { get; set; }
+#endif
+        /// <summary>The description property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
+        /// <summary>The email property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Email { get; set; }
+#nullable restore
+#else
+        public string Email { get; set; }
+#endif
+        /// <summary>The finderUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FinderUrl { get; set; }
+#nullable restore
+#else
+        public string FinderUrl { get; set; }
+#endif
+        /// <summary>The gallery property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_gallery>? Gallery { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_gallery> Gallery { get; set; }
+#endif
+        /// <summary>The groups property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_groups>? Groups { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_groups> Groups { get; set; }
+#endif
         /// <summary>The guid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,6 +105,18 @@ namespace Fegmm.ChurchTools.Profiles.Church
 #endif
         /// <summary>The id property</summary>
         public int? Id { get; set; }
+        /// <summary>The isPublished property</summary>
+        public bool? IsPublished { get; set; }
+        /// <summary>Indicates whether registration is currently available for this profile. Only present when registration is active.</summary>
+        public bool? IsRegistrationOpen { get; set; }
+        /// <summary>The logo property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UntypedNode? Logo { get; set; }
+#nullable restore
+#else
+        public UntypedNode Logo { get; set; }
+#endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,6 +141,49 @@ namespace Fegmm.ChurchTools.Profiles.Church
 #else
         public string NameTranslated { get; set; }
 #endif
+        /// <summary>The phone property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Phone { get; set; }
+#nullable restore
+#else
+        public string Phone { get; set; }
+#endif
+        /// <summary>church: Church profile for this installation; campus: one specific campus profile</summary>
+        public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_profileType? ProfileType { get; set; }
+        /// <summary>Use `serviceBanner_new` instead.</summary>
+        [Obsolete("")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ServiceBanner { get; set; }
+#nullable restore
+#else
+        public string ServiceBanner { get; set; }
+#endif
+        /// <summary>The serviceBanner_new property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UntypedNode? ServiceBannerNew { get; set; }
+#nullable restore
+#else
+        public UntypedNode ServiceBannerNew { get; set; }
+#endif
+        /// <summary>The services property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_services>? Services { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_services> Services { get; set; }
+#endif
+        /// <summary>The shortName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ShortName { get; set; }
+#nullable restore
+#else
+        public string ShortName { get; set; }
+#endif
         /// <summary>The shorty property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,8 +192,66 @@ namespace Fegmm.ChurchTools.Profiles.Church
 #else
         public string Shorty { get; set; }
 #endif
+        /// <summary>The signUpGroup property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_signUpGroup? SignUpGroup { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_signUpGroup SignUpGroup { get; set; }
+#endif
+        /// <summary>The slug property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Slug { get; set; }
+#nullable restore
+#else
+        public string Slug { get; set; }
+#endif
+        /// <summary>The socialMedia property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_socialMedia? SocialMedia { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_socialMedia SocialMedia { get; set; }
+#endif
         /// <summary>The sortKey property</summary>
         public int? SortKey { get; set; }
+        /// <summary>The tags property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_tags>? Tags { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_tags> Tags { get; set; }
+#endif
+        /// <summary>The team property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_team>? Team { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_team> Team { get; set; }
+#endif
+        /// <summary>The teamTitle property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TeamTitle { get; set; }
+#nullable restore
+#else
+        public string TeamTitle { get; set; }
+#endif
+        /// <summary>The visitors property</summary>
+        public int? Visitors { get; set; }
+        /// <summary>The website property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Website { get; set; }
+#nullable restore
+#else
+        public string Website { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data"/> and sets the default values.
         /// </summary>
@@ -93,13 +278,39 @@ namespace Fegmm.ChurchTools.Profiles.Church
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "address", n => { Address = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "association", n => { Association = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_association>(global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_association.CreateFromDiscriminatorValue); } },
+                { "banner", n => { Banner = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "denomination", n => { Denomination = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_denomination>(global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_denomination.CreateFromDiscriminatorValue); } },
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_Deprecated>(global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_Deprecated.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "finderUrl", n => { FinderUrl = n.GetStringValue(); } },
+                { "gallery", n => { Gallery = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_gallery>(global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_gallery.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "groups", n => { Groups = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_groups>(global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_groups.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "guid", n => { Guid = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
+                { "isPublished", n => { IsPublished = n.GetBoolValue(); } },
+                { "isRegistrationOpen", n => { IsRegistrationOpen = n.GetBoolValue(); } },
+                { "logo", n => { Logo = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_meta>(global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_meta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
+                { "phone", n => { Phone = n.GetStringValue(); } },
+                { "profileType", n => { ProfileType = n.GetEnumValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_profileType>(); } },
+                { "serviceBanner", n => { ServiceBanner = n.GetStringValue(); } },
+                { "serviceBanner_new", n => { ServiceBannerNew = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "services", n => { Services = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_services>(global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_services.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "shortName", n => { ShortName = n.GetStringValue(); } },
                 { "shorty", n => { Shorty = n.GetStringValue(); } },
+                { "signUpGroup", n => { SignUpGroup = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_signUpGroup>(global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_signUpGroup.CreateFromDiscriminatorValue); } },
+                { "slug", n => { Slug = n.GetStringValue(); } },
+                { "socialMedia", n => { SocialMedia = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_socialMedia>(global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_socialMedia.CreateFromDiscriminatorValue); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_tags>(global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_tags.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "team", n => { Team = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_team>(global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_team.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "teamTitle", n => { TeamTitle = n.GetStringValue(); } },
+                { "visitors", n => { Visitors = n.GetIntValue(); } },
+                { "website", n => { Website = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -110,14 +321,211 @@ namespace Fegmm.ChurchTools.Profiles.Church
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<UntypedNode>("address", Address);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_association>("association", Association);
+            writer.WriteObjectValue<UntypedNode>("banner", Banner);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_denomination>("denomination", Denomination);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_Deprecated>("@deprecated", Deprecated);
+            writer.WriteStringValue("description", Description);
+            writer.WriteStringValue("email", Email);
+            writer.WriteStringValue("finderUrl", FinderUrl);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_gallery>("gallery", Gallery);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_groups>("groups", Groups);
             writer.WriteStringValue("guid", Guid);
             writer.WriteIntValue("id", Id);
+            writer.WriteBoolValue("isPublished", IsPublished);
+            writer.WriteBoolValue("isRegistrationOpen", IsRegistrationOpen);
+            writer.WriteObjectValue<UntypedNode>("logo", Logo);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_meta>("meta", Meta);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nameTranslated", NameTranslated);
+            writer.WriteStringValue("phone", Phone);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_profileType>("profileType", ProfileType);
+            writer.WriteStringValue("serviceBanner", ServiceBanner);
+            writer.WriteObjectValue<UntypedNode>("serviceBanner_new", ServiceBannerNew);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_services>("services", Services);
+            writer.WriteStringValue("shortName", ShortName);
             writer.WriteStringValue("shorty", Shorty);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_signUpGroup>("signUpGroup", SignUpGroup);
+            writer.WriteStringValue("slug", Slug);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_socialMedia>("socialMedia", SocialMedia);
             writer.WriteIntValue("sortKey", SortKey);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_tags>("tags", Tags);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_team>("team", Team);
+            writer.WriteStringValue("teamTitle", TeamTitle);
+            writer.WriteIntValue("visitors", Visitors);
+            writer.WriteStringValue("website", Website);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_associationMember1"/>, <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_associationMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ChurchPutResponse_data_association : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_associationMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_associationMember1? ChurchPutResponseDataAssociationMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_associationMember1 ChurchPutResponseDataAssociationMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_associationMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_associationMember2? ChurchPutResponseDataAssociationMember2 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_associationMember2 ChurchPutResponseDataAssociationMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_association"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_association CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_association();
+                result.ChurchPutResponseDataAssociationMember1 = new global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_associationMember1();
+                result.ChurchPutResponseDataAssociationMember2 = new global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_associationMember2();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ChurchPutResponseDataAssociationMember1 != null || ChurchPutResponseDataAssociationMember2 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChurchPutResponseDataAssociationMember1, ChurchPutResponseDataAssociationMember2);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_associationMember1>(null, ChurchPutResponseDataAssociationMember1, ChurchPutResponseDataAssociationMember2);
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_denominationMember1"/>, <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_denominationMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ChurchPutResponse_data_denomination : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_denominationMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_denominationMember1? ChurchPutResponseDataDenominationMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_denominationMember1 ChurchPutResponseDataDenominationMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_denominationMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_denominationMember2? ChurchPutResponseDataDenominationMember2 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_denominationMember2 ChurchPutResponseDataDenominationMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_denomination"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_denomination CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_denomination();
+                result.ChurchPutResponseDataDenominationMember1 = new global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_denominationMember1();
+                result.ChurchPutResponseDataDenominationMember2 = new global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_denominationMember2();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ChurchPutResponseDataDenominationMember1 != null || ChurchPutResponseDataDenominationMember2 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChurchPutResponseDataDenominationMember1, ChurchPutResponseDataDenominationMember2);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_denominationMember1>(null, ChurchPutResponseDataDenominationMember1, ChurchPutResponseDataDenominationMember2);
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_signUpGroupMember1"/>, <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_signUpGroupMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ChurchPutResponse_data_signUpGroup : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_signUpGroupMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_signUpGroupMember1? ChurchPutResponseDataSignUpGroupMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_signUpGroupMember1 ChurchPutResponseDataSignUpGroupMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_signUpGroupMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_signUpGroupMember2? ChurchPutResponseDataSignUpGroupMember2 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_signUpGroupMember2 ChurchPutResponseDataSignUpGroupMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_signUpGroup"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_signUpGroup CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data.ChurchPutResponse_data_signUpGroup();
+                result.ChurchPutResponseDataSignUpGroupMember1 = new global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_signUpGroupMember1();
+                result.ChurchPutResponseDataSignUpGroupMember2 = new global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_signUpGroupMember2();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ChurchPutResponseDataSignUpGroupMember1 != null || ChurchPutResponseDataSignUpGroupMember2 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChurchPutResponseDataSignUpGroupMember1, ChurchPutResponseDataSignUpGroupMember2);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchPutResponse_data_signUpGroupMember1>(null, ChurchPutResponseDataSignUpGroupMember1, ChurchPutResponseDataSignUpGroupMember2);
+            }
         }
     }
 }

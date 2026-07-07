@@ -31,7 +31,13 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Item
         /// <summary>The signUpEmailRequiredForAll property</summary>
         public bool? SignUpEmailRequiredForAll { get; set; }
         /// <summary>The signUpNotificationSent property</summary>
-        public bool? SignUpNotificationSent { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SignUpNotificationSent { get; set; }
+#nullable restore
+#else
+        public string SignUpNotificationSent { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Publicgroups.Item.Item.WithHashGetResponse_settings"/> and sets the default values.
         /// </summary>
@@ -65,7 +71,7 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Item
                 { "hideLogin", n => { HideLogin = n.GetBoolValue(); } },
                 { "showStreet", n => { ShowStreet = n.GetBoolValue(); } },
                 { "signUpEmailRequiredForAll", n => { SignUpEmailRequiredForAll = n.GetBoolValue(); } },
-                { "signUpNotificationSent", n => { SignUpNotificationSent = n.GetBoolValue(); } },
+                { "signUpNotificationSent", n => { SignUpNotificationSent = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -83,7 +89,7 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Item
             writer.WriteBoolValue("hideLogin", HideLogin);
             writer.WriteBoolValue("showStreet", ShowStreet);
             writer.WriteBoolValue("signUpEmailRequiredForAll", SignUpEmailRequiredForAll);
-            writer.WriteBoolValue("signUpNotificationSent", SignUpNotificationSent);
+            writer.WriteStringValue("signUpNotificationSent", SignUpNotificationSent);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

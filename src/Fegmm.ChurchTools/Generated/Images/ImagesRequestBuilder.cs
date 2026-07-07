@@ -17,27 +17,27 @@ namespace Fegmm.ChurchTools.Images
     {
         /// <summary>Gets an item from the Fegmm.ChurchTools.images.item collection</summary>
         /// <param name="position">ID of Entity</param>
-        /// <returns>A <see cref="global::Fegmm.ChurchTools.Images.Item.ImagesItemRequestBuilder"/></returns>
-        public global::Fegmm.ChurchTools.Images.Item.ImagesItemRequestBuilder this[int position]
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Images.Item.FileItemRequestBuilder"/></returns>
+        public global::Fegmm.ChurchTools.Images.Item.FileItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("id", position);
-                return new global::Fegmm.ChurchTools.Images.Item.ImagesItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("file%2Did", position);
+                return new global::Fegmm.ChurchTools.Images.Item.FileItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>Gets an item from the Fegmm.ChurchTools.images.item collection</summary>
         /// <param name="position">ID of Entity</param>
-        /// <returns>A <see cref="global::Fegmm.ChurchTools.Images.Item.ImagesItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Images.Item.FileItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Fegmm.ChurchTools.Images.Item.ImagesItemRequestBuilder this[string position]
+        public global::Fegmm.ChurchTools.Images.Item.FileItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Fegmm.ChurchTools.Images.Item.ImagesItemRequestBuilder(urlTplParams, RequestAdapter);
+                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("file%2Did", position);
+                return new global::Fegmm.ChurchTools.Images.Item.FileItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

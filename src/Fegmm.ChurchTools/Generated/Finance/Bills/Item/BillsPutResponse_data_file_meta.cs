@@ -16,7 +16,7 @@ namespace Fegmm.ChurchTools.Finance.Bills.Item
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? CreatedDate { get; set; }
-        /// <summary>Person as Domain Object</summary>
+        /// <summary>The createdPerson property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Fegmm.ChurchTools.Finance.Bills.Item.BillsPutResponse_data_file_meta_createdPerson? CreatedPerson { get; set; }
@@ -26,7 +26,7 @@ namespace Fegmm.ChurchTools.Finance.Bills.Item
 #endif
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? ModifiedDate { get; set; }
-        /// <summary>Person as Domain Object</summary>
+        /// <summary>The modifiedPerson property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Fegmm.ChurchTools.Finance.Bills.Item.BillsPutResponse_data_file_meta_modifiedPerson? ModifiedPerson { get; set; }

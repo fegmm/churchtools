@@ -28,15 +28,15 @@ namespace Fegmm.ChurchTools.Permissions
             get => new global::Fegmm.ChurchTools.Permissions.Internal.InternalRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Fegmm.ChurchTools.permissions.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeItemRequestBuilder"/></returns>
-        public global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeItemRequestBuilder this[string position]
+        /// <param name="position">Permission domain type to read or change</param>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Permissions.Item.WithDomainTypeItemRequestBuilder"/></returns>
+        public global::Fegmm.ChurchTools.Permissions.Item.WithDomainTypeItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("permissionDomainType", position);
-                return new global::Fegmm.ChurchTools.Permissions.Item.WithPermissionDomainTypeItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("domainType", position);
+                return new global::Fegmm.ChurchTools.Permissions.Item.WithDomainTypeItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

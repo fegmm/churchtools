@@ -7,90 +7,15 @@ using System.IO;
 using System;
 namespace Fegmm.ChurchTools.Finance.Bills
 {
-    /// <summary>
-    /// Person as Domain Object
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class BillsPostResponse_data_file_meta_modifiedPerson : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The apiUrl property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ApiUrl { get; set; }
-#nullable restore
-#else
-        public string ApiUrl { get; set; }
-#endif
-        /// <summary>The color property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson.BillsPostResponse_data_file_meta_modifiedPerson_color? Color { get; set; }
-#nullable restore
-#else
-        public global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson.BillsPostResponse_data_file_meta_modifiedPerson_color Color { get; set; }
-#endif
-        /// <summary>The domainAttributes property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_domainAttributes? DomainAttributes { get; set; }
-#nullable restore
-#else
-        public global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_domainAttributes DomainAttributes { get; set; }
-#endif
-        /// <summary>The domainIdentifier property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DomainIdentifier { get; set; }
-#nullable restore
-#else
-        public string DomainIdentifier { get; set; }
-#endif
-        /// <summary>The domainType property</summary>
-        public global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_domainType? DomainType { get; set; }
-        /// <summary>The frontendUrl property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? FrontendUrl { get; set; }
-#nullable restore
-#else
-        public string FrontendUrl { get; set; }
-#endif
-        /// <summary>The icon property</summary>
-        public global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_icon? Icon { get; set; }
-        /// <summary>The imageUrl property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ImageUrl { get; set; }
-#nullable restore
-#else
-        public string ImageUrl { get; set; }
-#endif
-        /// <summary>The infos property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? Infos { get; set; }
-#nullable restore
-#else
-        public List<string> Infos { get; set; }
-#endif
-        /// <summary>The initials property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Initials { get; set; }
-#nullable restore
-#else
-        public string Initials { get; set; }
-#endif
-        /// <summary>The title property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Title { get; set; }
-#nullable restore
-#else
-        public string Title { get; set; }
-#endif
+        /// <summary>The id property</summary>
+        public int? Id { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson"/> and sets the default values.
         /// </summary>
@@ -116,17 +41,7 @@ namespace Fegmm.ChurchTools.Finance.Bills
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "apiUrl", n => { ApiUrl = n.GetStringValue(); } },
-                { "color", n => { Color = n.GetObjectValue<global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson.BillsPostResponse_data_file_meta_modifiedPerson_color>(global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson.BillsPostResponse_data_file_meta_modifiedPerson_color.CreateFromDiscriminatorValue); } },
-                { "domainAttributes", n => { DomainAttributes = n.GetObjectValue<global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_domainAttributes>(global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_domainAttributes.CreateFromDiscriminatorValue); } },
-                { "domainIdentifier", n => { DomainIdentifier = n.GetStringValue(); } },
-                { "domainType", n => { DomainType = n.GetEnumValue<global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_domainType>(); } },
-                { "frontendUrl", n => { FrontendUrl = n.GetStringValue(); } },
-                { "icon", n => { Icon = n.GetEnumValue<global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_icon>(); } },
-                { "imageUrl", n => { ImageUrl = n.GetStringValue(); } },
-                { "infos", n => { Infos = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "initials", n => { Initials = n.GetStringValue(); } },
-                { "title", n => { Title = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -136,101 +51,8 @@ namespace Fegmm.ChurchTools.Finance.Bills
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("apiUrl", ApiUrl);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson.BillsPostResponse_data_file_meta_modifiedPerson_color>("color", Color);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_domainAttributes>("domainAttributes", DomainAttributes);
-            writer.WriteStringValue("domainIdentifier", DomainIdentifier);
-            writer.WriteEnumValue<global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_domainType>("domainType", DomainType);
-            writer.WriteStringValue("frontendUrl", FrontendUrl);
-            writer.WriteEnumValue<global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_icon>("icon", Icon);
-            writer.WriteStringValue("imageUrl", ImageUrl);
-            writer.WriteCollectionOfPrimitiveValues<string>("infos", Infos);
-            writer.WriteStringValue("initials", Initials);
-            writer.WriteStringValue("title", Title);
+            writer.WriteIntValue("id", Id);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_colorMember1"/>, <see cref="global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_colorMember2"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class BillsPostResponse_data_file_meta_modifiedPerson_color : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_colorMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_colorMember1? BillsPostResponseDataFileMetaModifiedPersonColorMember1 { get; set; }
-#nullable restore
-#else
-            public global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_colorMember1 BillsPostResponseDataFileMetaModifiedPersonColorMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_colorMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_colorMember2? BillsPostResponseDataFileMetaModifiedPersonColorMember2 { get; set; }
-#nullable restore
-#else
-            public global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_colorMember2 BillsPostResponseDataFileMetaModifiedPersonColorMember2 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson.BillsPostResponse_data_file_meta_modifiedPerson_color"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson.BillsPostResponse_data_file_meta_modifiedPerson_color CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson.BillsPostResponse_data_file_meta_modifiedPerson_color();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(BillsPostResponseDataFileMetaModifiedPersonColorMember1 != null)
-                {
-                    return BillsPostResponseDataFileMetaModifiedPersonColorMember1.GetFieldDeserializers();
-                }
-                else if(BillsPostResponseDataFileMetaModifiedPersonColorMember2 != null)
-                {
-                    return BillsPostResponseDataFileMetaModifiedPersonColorMember2.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(BillsPostResponseDataFileMetaModifiedPersonColorMember1 != null)
-                {
-                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_colorMember1>(null, BillsPostResponseDataFileMetaModifiedPersonColorMember1);
-                }
-                else if(BillsPostResponseDataFileMetaModifiedPersonColorMember2 != null)
-                {
-                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Bills.BillsPostResponse_data_file_meta_modifiedPerson_colorMember2>(null, BillsPostResponseDataFileMetaModifiedPersonColorMember2);
-                }
-                else if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-            }
         }
     }
 }

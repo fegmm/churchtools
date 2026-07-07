@@ -22,6 +22,30 @@ namespace Fegmm.ChurchTools.Files.Item.Meta
 #else
         public List<string> AdditionalInfos { get; set; }
 #endif
+        /// <summary>The annotation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Annotation { get; set; }
+#nullable restore
+#else
+        public string Annotation { get; set; }
+#endif
+        /// <summary>The annotationLink property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AnnotationLink { get; set; }
+#nullable restore
+#else
+        public string AnnotationLink { get; set; }
+#endif
+        /// <summary>The description property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
         /// <summary>The domainId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -138,6 +162,9 @@ namespace Fegmm.ChurchTools.Files.Item.Meta
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "additionalInfos", n => { AdditionalInfos = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "annotation", n => { Annotation = n.GetStringValue(); } },
+                { "annotationLink", n => { AnnotationLink = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "domainId", n => { DomainId = n.GetStringValue(); } },
                 { "domainType", n => { DomainType = n.GetStringValue(); } },
                 { "fileUrl", n => { FileUrl = n.GetStringValue(); } },
@@ -163,6 +190,9 @@ namespace Fegmm.ChurchTools.Files.Item.Meta
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("additionalInfos", AdditionalInfos);
+            writer.WriteStringValue("annotation", Annotation);
+            writer.WriteStringValue("annotationLink", AnnotationLink);
+            writer.WriteStringValue("description", Description);
             writer.WriteStringValue("domainId", DomainId);
             writer.WriteStringValue("domainType", DomainType);
             writer.WriteStringValue("filename", Filename);

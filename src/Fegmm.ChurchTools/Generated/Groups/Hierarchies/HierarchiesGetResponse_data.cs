@@ -26,10 +26,10 @@ namespace Fegmm.ChurchTools.Groups.Hierarchies
         /// <summary>The group property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Groups.Hierarchies.HierarchiesGetResponse_data_group? Group { get; set; }
+        public UntypedNode? Group { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Groups.Hierarchies.HierarchiesGetResponse_data_group Group { get; set; }
+        public UntypedNode Group { get; set; }
 #endif
         /// <summary>The groupId property</summary>
         public int? GroupId { get; set; }
@@ -67,7 +67,7 @@ namespace Fegmm.ChurchTools.Groups.Hierarchies
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "children", n => { Children = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
-                { "group", n => { Group = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.Hierarchies.HierarchiesGetResponse_data_group>(global::Fegmm.ChurchTools.Groups.Hierarchies.HierarchiesGetResponse_data_group.CreateFromDiscriminatorValue); } },
+                { "group", n => { Group = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "groupId", n => { GroupId = n.GetIntValue(); } },
                 { "parents", n => { Parents = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
             };
@@ -80,7 +80,7 @@ namespace Fegmm.ChurchTools.Groups.Hierarchies
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<int?>("children", Children);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Hierarchies.HierarchiesGetResponse_data_group>("group", Group);
+            writer.WriteObjectValue<UntypedNode>("group", Group);
             writer.WriteIntValue("groupId", GroupId);
             writer.WriteCollectionOfPrimitiveValues<int?>("parents", Parents);
             writer.WriteAdditionalData(AdditionalData);

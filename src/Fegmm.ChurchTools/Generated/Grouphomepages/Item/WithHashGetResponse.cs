@@ -14,7 +14,7 @@ namespace Fegmm.ChurchTools.Grouphomepages.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The hierarchy of one group</summary>
+        /// <summary>Public group homepage settings, filter definitions, and all public groups displayed on the page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse_data? Data { get; set; }

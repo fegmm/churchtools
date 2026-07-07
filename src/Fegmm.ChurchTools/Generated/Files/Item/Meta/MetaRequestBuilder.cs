@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Files.Item.Meta
         {
         }
         /// <summary>
-        /// Get a file by id
+        /// Returns metadata for the file with the given ID.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Files.Item.Meta.MetaGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Files.Item.Meta
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Files.Item.Meta.MetaGetResponse>(requestInfo, global::Fegmm.ChurchTools.Files.Item.Meta.MetaGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a file by id
+        /// Returns metadata for the file with the given ID.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Files.Item.Meta.MetaResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Files.Item.Meta
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Files.Item.Meta.MetaResponse>(requestInfo, global::Fegmm.ChurchTools.Files.Item.Meta.MetaResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a file by id
+        /// Returns metadata for the file with the given ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

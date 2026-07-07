@@ -7,14 +7,45 @@ using System.IO;
 using System;
 namespace Fegmm.ChurchTools.Files.Item.Item.Link
 {
-    /// <summary>
-    /// File or Link for a specific domain type. E.g. uploaded music file for songs or avatar of a person.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class LinkPostResponse_data : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The additionalInfos property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AdditionalInfos { get; set; }
+#nullable restore
+#else
+        public List<string> AdditionalInfos { get; set; }
+#endif
+        /// <summary>The annotation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Annotation { get; set; }
+#nullable restore
+#else
+        public string Annotation { get; set; }
+#endif
+        /// <summary>The annotationLink property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AnnotationLink { get; set; }
+#nullable restore
+#else
+        public string AnnotationLink { get; set; }
+#endif
+        /// <summary>The description property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
         /// <summary>The domainId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,7 +54,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item.Link
 #else
         public string DomainId { get; set; }
 #endif
-        /// <summary>ChurchTools Domain Type. Where does this file belong to?</summary>
+        /// <summary>The domainType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DomainType { get; set; }
@@ -31,7 +62,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item.Link
 #else
         public string DomainType { get; set; }
 #endif
-        /// <summary>Filename of uploaded file or name of the link</summary>
+        /// <summary>The filename property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Filename { get; set; }
@@ -39,13 +70,39 @@ namespace Fegmm.ChurchTools.Files.Item.Item.Link
 #else
         public string Filename { get; set; }
 #endif
-        /// <summary>Link to external website or link to file in ChurchTools</summary>
+        /// <summary>The fileUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FileUrl { get; set; }
 #nullable restore
 #else
         public string FileUrl { get; set; }
+#endif
+        /// <summary>The id property</summary>
+        public int? Id { get; set; }
+        /// <summary>Read-only image dimensions calculated from the file. Cannot be modified via API.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_imageMetadata? ImageMetadata { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_imageMetadata ImageMetadata { get; set; }
+#endif
+        /// <summary>The imageOption property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_imageOption? ImageOption { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_imageOption ImageOption { get; set; }
+#endif
+        /// <summary>The imageUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ImageUrl { get; set; }
+#nullable restore
+#else
+        public string ImageUrl { get; set; }
 #endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +112,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item.Link
 #else
         public global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_meta Meta { get; set; }
 #endif
-        /// <summary>Name of that file, when it&apos;s been uploaded</summary>
+        /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -63,6 +120,22 @@ namespace Fegmm.ChurchTools.Files.Item.Item.Link
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The relativeUrl property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RelativeUrl { get; set; }
+#nullable restore
+#else
+        public string RelativeUrl { get; set; }
+#endif
+        /// <summary>The securityLevelId property</summary>
+        public int? SecurityLevelId { get; set; }
+        /// <summary>The showOnlyWhenEditable property</summary>
+        public bool? ShowOnlyWhenEditable { get; set; }
+        /// <summary>The file size in byte</summary>
+        public int? Size { get; set; }
+        /// <summary>The type property</summary>
+        public global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data"/> and sets the default values.
         /// </summary>
@@ -88,12 +161,25 @@ namespace Fegmm.ChurchTools.Files.Item.Item.Link
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "additionalInfos", n => { AdditionalInfos = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "annotation", n => { Annotation = n.GetStringValue(); } },
+                { "annotationLink", n => { AnnotationLink = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "domainId", n => { DomainId = n.GetStringValue(); } },
                 { "domainType", n => { DomainType = n.GetStringValue(); } },
                 { "fileUrl", n => { FileUrl = n.GetStringValue(); } },
                 { "filename", n => { Filename = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
+                { "imageMetadata", n => { ImageMetadata = n.GetObjectValue<global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_imageMetadata>(global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_imageMetadata.CreateFromDiscriminatorValue); } },
+                { "imageOption", n => { ImageOption = n.GetObjectValue<global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_imageOption>(global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_imageOption.CreateFromDiscriminatorValue); } },
+                { "imageUrl", n => { ImageUrl = n.GetStringValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_meta>(global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_meta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "relativeUrl", n => { RelativeUrl = n.GetStringValue(); } },
+                { "securityLevelId", n => { SecurityLevelId = n.GetIntValue(); } },
+                { "showOnlyWhenEditable", n => { ShowOnlyWhenEditable = n.GetBoolValue(); } },
+                { "size", n => { Size = n.GetIntValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_type>(); } },
             };
         }
         /// <summary>
@@ -103,12 +189,25 @@ namespace Fegmm.ChurchTools.Files.Item.Item.Link
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<string>("additionalInfos", AdditionalInfos);
+            writer.WriteStringValue("annotation", Annotation);
+            writer.WriteStringValue("annotationLink", AnnotationLink);
+            writer.WriteStringValue("description", Description);
             writer.WriteStringValue("domainId", DomainId);
             writer.WriteStringValue("domainType", DomainType);
             writer.WriteStringValue("filename", Filename);
             writer.WriteStringValue("fileUrl", FileUrl);
+            writer.WriteIntValue("id", Id);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_imageMetadata>("imageMetadata", ImageMetadata);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_imageOption>("imageOption", ImageOption);
+            writer.WriteStringValue("imageUrl", ImageUrl);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_meta>("meta", Meta);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("relativeUrl", RelativeUrl);
+            writer.WriteIntValue("securityLevelId", SecurityLevelId);
+            writer.WriteBoolValue("showOnlyWhenEditable", ShowOnlyWhenEditable);
+            writer.WriteIntValue("size", Size);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

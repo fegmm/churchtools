@@ -12,20 +12,21 @@ namespace Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item
     public partial class WithCostCenterPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>ID of accounting period</summary>
-        public double? AccountingPeriodId { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Output format for the selected financial report</summary>
         public global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_format? Format { get; set; }
-        /// <summary>Output format for the selected financial report</summary>
-        public global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_outputType? OutputType { get; set; }
+        /// <summary>Include rebooking transactions in the statement</summary>
+        public bool? IncludeRebookings { get; set; }
+        /// <summary>Deprecated alias for `format`</summary>
+        public global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody"/> and sets the default values.
         /// </summary>
         public WithCostCenterPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            IncludeRebookings = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,9 +46,9 @@ namespace Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accountingPeriodId", n => { AccountingPeriodId = n.GetDoubleValue(); } },
                 { "format", n => { Format = n.GetEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_format>(); } },
-                { "outputType", n => { OutputType = n.GetEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_outputType>(); } },
+                { "includeRebookings", n => { IncludeRebookings = n.GetBoolValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_type>(); } },
             };
         }
         /// <summary>
@@ -57,9 +58,9 @@ namespace Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("accountingPeriodId", AccountingPeriodId);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_format>("format", Format);
-            writer.WriteEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_outputType>("outputType", OutputType);
+            writer.WriteBoolValue("includeRebookings", IncludeRebookings);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Finance.Reports.Statement.Costcenters.Item.WithCostCenterPostRequestBody_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

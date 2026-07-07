@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Datevexport
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DatevexportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions/datevexport", pathParameters)
+        public DatevexportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions/datevexport?accounting_period_id={accounting_period_id}{&account_ids*,cost_center_ids*,created_pid*,donator_ids*,end_date*,exclude_ids*,include_ids*,is_donation*,is_immutable*,is_income*,is_waiver_of_reimbursement_of_expenses*,order_by*,order_direction*,query*,start_date*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,44 +29,44 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Datevexport
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DatevexportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions/datevexport", rawUrl)
+        public DatevexportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions/datevexport?accounting_period_id={accounting_period_id}{&account_ids*,cost_center_ids*,created_pid*,donator_ids*,end_date*,exclude_ids*,include_ids*,is_donation*,is_immutable*,is_income*,is_waiver_of_reimbursement_of_expenses*,order_by*,order_direction*,query*,start_date*}", rawUrl)
         {
         }
         /// <summary>
-        /// TODO 200
+        /// Exports the transactions of an accounting period as a DATEV &quot;Buchungsstapel&quot; CSV file (`text/csv`, semicolon-delimited, with the DATEV EXTF header rows), applying the same filters as `GET /finance/transactions`. The file is offered as a download named `EXTF_transactions_&lt;date&gt;.csv`.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Transactions.Datevexport.DatevexportRequestBuilder.DatevexportRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Transactions.Datevexport.DatevexportRequestBuilder.DatevexportRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// TODO 200
+        /// Exports the transactions of an accounting period as a DATEV &quot;Buchungsstapel&quot; CSV file (`text/csv`, semicolon-delimited, with the DATEV EXTF header rows), applying the same filters as `GET /finance/transactions`. The file is offered as a download named `EXTF_transactions_&lt;date&gt;.csv`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Transactions.Datevexport.DatevexportRequestBuilder.DatevexportRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Transactions.Datevexport.DatevexportRequestBuilder.DatevexportRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            requestInfo.Headers.TryAdd("Accept", "text/csv, text/plain;q=0.9");
             return requestInfo;
         }
         /// <summary>
@@ -79,11 +79,130 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Datevexport
             return new global::Fegmm.ChurchTools.Finance.Transactions.Datevexport.DatevexportRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
+        /// Exports the transactions of an accounting period as a DATEV &quot;Buchungsstapel&quot; CSV file (`text/csv`, semicolon-delimited, with the DATEV EXTF header rows), applying the same filters as `GET /finance/transactions`. The file is offered as a download named `EXTF_transactions_&lt;date&gt;.csv`.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class DatevexportRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Filter by account/contra account. All transactions match, where either account or contra account is in the list.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("account_ids")]
+            public int?[]? AccountIds { get; set; }
+#nullable restore
+#else
+            [QueryParameter("account_ids")]
+            public int?[] AccountIds { get; set; }
+#endif
+            /// <summary>ID of accounting period to get master data for</summary>
+            [QueryParameter("accounting_period_id")]
+            public int? AccountingPeriodId { get; set; }
+            /// <summary>Filter by cost centers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("cost_center_ids")]
+            public int?[]? CostCenterIds { get; set; }
+#nullable restore
+#else
+            [QueryParameter("cost_center_ids")]
+            public int?[] CostCenterIds { get; set; }
+#endif
+            /// <summary>Filter by person ID. Get all transactions the person has created. But only show those the user can see.</summary>
+            [QueryParameter("created_pid")]
+            public int? CreatedPid { get; set; }
+            /// <summary>Filter by donator or donator spouse. Provide an array of person ids.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("donator_ids")]
+            public int?[]? DonatorIds { get; set; }
+#nullable restore
+#else
+            [QueryParameter("donator_ids")]
+            public int?[] DonatorIds { get; set; }
+#endif
+            /// <summary>Show transactions before this date.</summary>
+            [QueryParameter("end_date")]
+            public Date? EndDate { get; set; }
+            /// <summary>Filter by ids to exclude.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("exclude_ids")]
+            public int?[]? ExcludeIds { get; set; }
+#nullable restore
+#else
+            [QueryParameter("exclude_ids")]
+            public int?[] ExcludeIds { get; set; }
+#endif
+            /// <summary>Filter by ids to include.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("include_ids")]
+            public int?[]? IncludeIds { get; set; }
+#nullable restore
+#else
+            [QueryParameter("include_ids")]
+            public int?[] IncludeIds { get; set; }
+#endif
+            /// <summary>Filter by donations. `true` = Only donations, `false` = Other than donation.</summary>
+            [QueryParameter("is_donation")]
+            public bool? IsDonation { get; set; }
+            /// <summary>Filter transactions, whether transaction is immutable.</summary>
+            [QueryParameter("is_immutable")]
+            public bool? IsImmutable { get; set; }
+            /// <summary>Filter transactions by income or outcome transactions. An account group has a flag `cash asset account` to indicate accounts for income/outcome.</summary>
+            [QueryParameter("is_income")]
+            public bool? IsIncome { get; set; }
+            /// <summary>Filter by waiver of reimbursement of expenses (Aufwandsspende).</summary>
+            [QueryParameter("is_waiver_of_reimbursement_of_expenses")]
+            public bool? IsWaiverOfReimbursementOfExpenses { get; set; }
+            /// <summary>Default is `date`. Column the transactions are ordered by.</summary>
+            [Obsolete("This property is deprecated, use OrderByAsGetOrderByQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("order_by")]
+            public string? OrderBy { get; set; }
+#nullable restore
+#else
+            [QueryParameter("order_by")]
+            public string OrderBy { get; set; }
+#endif
+            /// <summary>Default is `date`. Column the transactions are ordered by.</summary>
+            [QueryParameter("order_by")]
+            public global::Fegmm.ChurchTools.Finance.Transactions.Datevexport.GetOrder_byQueryParameterType? OrderByAsGetOrderByQueryParameterType { get; set; }
+            /// <summary>Way of direction: ascending or descending. Default is `DESC`.</summary>
+            [Obsolete("This property is deprecated, use OrderDirectionAsGetOrderDirectionQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("order_direction")]
+            public string? OrderDirection { get; set; }
+#nullable restore
+#else
+            [QueryParameter("order_direction")]
+            public string OrderDirection { get; set; }
+#endif
+            /// <summary>Way of direction: ascending or descending. Default is `DESC`.</summary>
+            [QueryParameter("order_direction")]
+            public global::Fegmm.ChurchTools.Finance.Transactions.Datevexport.GetOrder_directionQueryParameterType? OrderDirectionAsGetOrderDirectionQueryParameterType { get; set; }
+            /// <summary>Full text search query.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("query")]
+            public string? Query { get; set; }
+#nullable restore
+#else
+            [QueryParameter("query")]
+            public string Query { get; set; }
+#endif
+            /// <summary>Show transactions after this date.</summary>
+            [QueryParameter("start_date")]
+            public Date? StartDate { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class DatevexportRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class DatevexportRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Fegmm.ChurchTools.Finance.Transactions.Datevexport.DatevexportRequestBuilder.DatevexportRequestBuilderGetQueryParameters>
         {
         }
     }

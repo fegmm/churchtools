@@ -14,7 +14,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The geoLat property</summary>
+        /// <summary>Use `latitude` instead</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,7 +23,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
 #else
         public string GeoLat { get; set; }
 #endif
-        /// <summary>The geoLng property</summary>
+        /// <summary>Use `longitude` instead</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,7 +32,8 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
 #else
         public string GeoLng { get; set; }
 #endif
-        /// <summary>The latitudeLoose property</summary>
+        /// <summary>Use `latitude` instead</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LatitudeLoose { get; set; }
@@ -40,7 +41,8 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
 #else
         public string LatitudeLoose { get; set; }
 #endif
-        /// <summary>The longitudeLoose property</summary>
+        /// <summary>Use `longitude` instead</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LongitudeLoose { get; set; }
@@ -48,7 +50,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
 #else
         public string LongitudeLoose { get; set; }
 #endif
-        /// <summary>The markerColor property</summary>
+        /// <summary>Use `color` instead</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +59,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
 #else
         public string MarkerColor { get; set; }
 #endif
-        /// <summary>The markerIcon property</summary>
+        /// <summary>Use `icon` instead</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,7 +77,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
 #else
         public string MarkerUrl { get; set; }
 #endif
-        /// <summary>The meetingAt property</summary>
+        /// <summary>Use `name` instead</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,7 +86,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
 #else
         public string MeetingAt { get; set; }
 #endif
-        /// <summary>The postalcode property</summary>
+        /// <summary>Use `zip` instead</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

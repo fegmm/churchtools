@@ -25,13 +25,7 @@ namespace Fegmm.ChurchTools.Profiles.Church
         public string Note { get; set; }
 #endif
         /// <summary>The repetition property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Repetition { get; set; }
-#nullable restore
-#else
-        public string Repetition { get; set; }
-#endif
+        public global::Fegmm.ChurchTools.Profiles.Church.ChurchGetResponse_data_services_repetition? Repetition { get; set; }
         /// <summary>The time property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +61,7 @@ namespace Fegmm.ChurchTools.Profiles.Church
             {
                 { "day", n => { Day = n.GetIntValue(); } },
                 { "note", n => { Note = n.GetStringValue(); } },
-                { "repetition", n => { Repetition = n.GetStringValue(); } },
+                { "repetition", n => { Repetition = n.GetEnumValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchGetResponse_data_services_repetition>(); } },
                 { "time", n => { Time = n.GetStringValue(); } },
             };
         }
@@ -80,7 +74,7 @@ namespace Fegmm.ChurchTools.Profiles.Church
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("day", Day);
             writer.WriteStringValue("note", Note);
-            writer.WriteStringValue("repetition", Repetition);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Profiles.Church.ChurchGetResponse_data_services_repetition>("repetition", Repetition);
             writer.WriteStringValue("time", Time);
             writer.WriteAdditionalData(AdditionalData);
         }

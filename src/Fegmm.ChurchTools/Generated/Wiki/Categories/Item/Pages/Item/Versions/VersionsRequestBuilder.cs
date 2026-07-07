@@ -18,14 +18,27 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions
     public partial class VersionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Fegmm.ChurchTools.wiki.categories.item.pages.item.versions.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">Version number of the wiki page</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionItemRequestBuilder"/></returns>
-        public global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionItemRequestBuilder this[string position]
+        public global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("version", position);
+                return new global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
+        /// <summary>Gets an item from the Fegmm.ChurchTools.wiki.categories.item.pages.item.versions.item collection</summary>
+        /// <param name="position">Version number of the wiki page</param>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionItemRequestBuilder"/></returns>
+        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
+        public global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("version", position);
                 return new global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
@@ -46,7 +59,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions
         {
         }
         /// <summary>
-        /// Returns all version of the wiki page for the given identifier.
+        /// Returns all versions of the wiki page identified by the given GUID (or legacy title), ordered by version descending (latest first).
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.VersionsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -64,7 +77,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.VersionsGetResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.VersionsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns all version of the wiki page for the given identifier.
+        /// Returns all versions of the wiki page identified by the given GUID (or legacy title), ordered by version descending (latest first).
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.VersionsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -83,7 +96,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.VersionsResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.VersionsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns all version of the wiki page for the given identifier.
+        /// Returns all versions of the wiki page identified by the given GUID (or legacy title), ordered by version descending (latest first).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

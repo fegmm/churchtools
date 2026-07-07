@@ -14,11 +14,11 @@ namespace Fegmm.ChurchTools.Htmltemplates
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The copyAssetsFromId property</summary>
+        /// <summary>ID of an existing template whose image assets should be copied to the new template.</summary>
         public int? CopyAssetsFromId { get; set; }
         /// <summary>The domainType property</summary>
         public global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostRequestBody_domainType? DomainType { get; set; }
-        /// <summary>The html property</summary>
+        /// <summary>Initial HTML content to store for the template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Html { get; set; }
@@ -26,9 +26,9 @@ namespace Fegmm.ChurchTools.Htmltemplates
 #else
         public string Html { get; set; }
 #endif
-        /// <summary>The isGlobal property</summary>
+        /// <summary>Whether the template is globally available for the domain type.</summary>
         public bool? IsGlobal { get; set; }
-        /// <summary>The mjml property</summary>
+        /// <summary>Initial MJML content to store for the template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Mjml { get; set; }
@@ -36,7 +36,7 @@ namespace Fegmm.ChurchTools.Htmltemplates
 #else
         public string Mjml { get; set; }
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>Display name of the HTML template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -50,6 +50,7 @@ namespace Fegmm.ChurchTools.Htmltemplates
         public HtmltemplatesPostRequestBody()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsGlobal = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

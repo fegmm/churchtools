@@ -3,6 +3,7 @@
 using Fegmm.ChurchTools.Finance.Accountingperiods.Item.Accounts;
 using Fegmm.ChurchTools.Finance.Accountingperiods.Item.Bills;
 using Fegmm.ChurchTools.Finance.Accountingperiods.Item.Statements;
+using Fegmm.ChurchTools.Finance.Accountingperiods.Item.Taxrates;
 using Fegmm.ChurchTools.Finance.Accountingperiods.Item.Userrules;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
@@ -34,6 +35,11 @@ namespace Fegmm.ChurchTools.Finance.Accountingperiods.Item
         public global::Fegmm.ChurchTools.Finance.Accountingperiods.Item.Statements.StatementsRequestBuilder Statements
         {
             get => new global::Fegmm.ChurchTools.Finance.Accountingperiods.Item.Statements.StatementsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The taxrates property</summary>
+        public global::Fegmm.ChurchTools.Finance.Accountingperiods.Item.Taxrates.TaxratesRequestBuilder Taxrates
+        {
+            get => new global::Fegmm.ChurchTools.Finance.Accountingperiods.Item.Taxrates.TaxratesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The userrules property</summary>
         public global::Fegmm.ChurchTools.Finance.Accountingperiods.Item.Userrules.UserrulesRequestBuilder Userrules

@@ -39,7 +39,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item
         {
         }
         /// <summary>
-        /// Delete files that are matching the domainType and domainIdentifier
+        /// Deletes all files that belong to the given domain object.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -56,7 +56,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all files for a specific domain object
+        /// Returns all files that belong to the given domain object.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -74,7 +74,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierGetResponse>(requestInfo, global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all files for a specific domain object
+        /// Returns all files that belong to the given domain object.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -93,24 +93,26 @@ namespace Fegmm.ChurchTools.Files.Item.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierResponse>(requestInfo, global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// TODO
+        /// Renames all files for the given domain object or updates their sort key.
         /// </summary>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task PatchAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PatchAsync(global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task PatchAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PatchAsync(global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToPatchRequestInformation(requestConfiguration);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Upload files
+        /// Uploads one or more files for the given domain object.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -130,7 +132,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierPostResponse>(requestInfo, global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Upload files
+        /// Uploads one or more files for the given domain object.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -151,7 +153,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierResponse>(requestInfo, global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete files that are matching the domainType and domainIdentifier
+        /// Deletes all files that belong to the given domain object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -170,7 +172,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get all files for a specific domain object
+        /// Returns all files that belong to the given domain object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -189,26 +191,29 @@ namespace Fegmm.ChurchTools.Files.Item.Item
             return requestInfo;
         }
         /// <summary>
-        /// TODO
+        /// Renames all files for the given domain object or updates their sort key.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Fegmm.ChurchTools.Files.Item.Item.WithDomainIdentifierPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>
-        /// Upload files
+        /// Uploads one or more files for the given domain object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

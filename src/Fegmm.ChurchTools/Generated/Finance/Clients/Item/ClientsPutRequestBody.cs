@@ -30,6 +30,22 @@ namespace Fegmm.ChurchTools.Finance.Clients.Item
 #else
         public string Email { get; set; }
 #endif
+        /// <summary>The eubpBusinessName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EubpBusinessName { get; set; }
+#nullable restore
+#else
+        public string EubpBusinessName { get; set; }
+#endif
+        /// <summary>The eubpBusinessNumber property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EubpBusinessNumber { get; set; }
+#nullable restore
+#else
+        public string EubpBusinessNumber { get; set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,6 +109,8 @@ namespace Fegmm.ChurchTools.Finance.Clients.Item
             {
                 { "city", n => { City = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
+                { "eubpBusinessName", n => { EubpBusinessName = n.GetStringValue(); } },
+                { "eubpBusinessNumber", n => { EubpBusinessNumber = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
                 { "postalCode", n => { PostalCode = n.GetStringValue(); } },
@@ -110,6 +128,8 @@ namespace Fegmm.ChurchTools.Finance.Clients.Item
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("city", City);
             writer.WriteStringValue("email", Email);
+            writer.WriteStringValue("eubpBusinessName", EubpBusinessName);
+            writer.WriteStringValue("eubpBusinessNumber", EubpBusinessNumber);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("phone", Phone);
             writer.WriteStringValue("postalCode", PostalCode);

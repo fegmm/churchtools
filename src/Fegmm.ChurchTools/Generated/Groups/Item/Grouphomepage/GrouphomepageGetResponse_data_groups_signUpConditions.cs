@@ -15,10 +15,25 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The atLeastOneLeaderCanCreateNewPerson property</summary>
+        public bool? AtLeastOneLeaderCanCreateNewPerson { get; set; }
         /// <summary>If false, none of the group&apos;s leaders have an email address set. Only persons already signed in can sign up.</summary>
         public bool? CanContactLeader { get; set; }
+        /// <summary>The canSignUp property</summary>
+        public bool? CanSignUp { get; set; }
+        /// <summary>The canSignUpAsNewPerson property</summary>
+        public bool? CanSignUpAsNewPerson { get; set; }
         /// <summary>The defaultRoleSetInGroup property</summary>
+        [Obsolete("")]
         public bool? DefaultRoleSetInGroup { get; set; }
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepageGetResponse_data_groups_signUpConditions_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepageGetResponse_data_groups_signUpConditions_Deprecated Deprecated { get; set; }
+#endif
         /// <summary>If false, the group&apos;s end date has passed and nobody can sign up.</summary>
         public bool? EndDateNotPassed { get; set; }
         /// <summary>The groupAllowsWaitinglist property</summary>
@@ -49,6 +64,8 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
         public bool? NewPersonStatusIsSet { get; set; }
         /// <summary>If false, the standard role and requester role are not set for the group and nobody can sign up.</summary>
         public bool? RolesSetInGroup { get; set; }
+        /// <summary>If false, the sign-up role is not set for the group and nobody can sign up when that role is required.</summary>
+        public bool? SignUpRoleSetInGroup { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepageGetResponse_data_groups_signUpConditions"/> and sets the default values.
         /// </summary>
@@ -74,8 +91,12 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "atLeastOneLeaderCanCreateNewPerson", n => { AtLeastOneLeaderCanCreateNewPerson = n.GetBoolValue(); } },
                 { "canContactLeader", n => { CanContactLeader = n.GetBoolValue(); } },
+                { "canSignUp", n => { CanSignUp = n.GetBoolValue(); } },
+                { "canSignUpAsNewPerson", n => { CanSignUpAsNewPerson = n.GetBoolValue(); } },
                 { "defaultRoleSetInGroup", n => { DefaultRoleSetInGroup = n.GetBoolValue(); } },
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepageGetResponse_data_groups_signUpConditions_Deprecated>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepageGetResponse_data_groups_signUpConditions_Deprecated.CreateFromDiscriminatorValue); } },
                 { "endDateNotPassed", n => { EndDateNotPassed = n.GetBoolValue(); } },
                 { "groupAllowsWaitinglist", n => { GroupAllowsWaitinglist = n.GetBoolValue(); } },
                 { "groupHasLeader", n => { GroupHasLeader = n.GetBoolValue(); } },
@@ -91,6 +112,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
                 { "newPersonStationIsSet", n => { NewPersonStationIsSet = n.GetBoolValue(); } },
                 { "newPersonStatusIsSet", n => { NewPersonStatusIsSet = n.GetBoolValue(); } },
                 { "rolesSetInGroup", n => { RolesSetInGroup = n.GetBoolValue(); } },
+                { "signUpRoleSetInGroup", n => { SignUpRoleSetInGroup = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -100,8 +122,12 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("atLeastOneLeaderCanCreateNewPerson", AtLeastOneLeaderCanCreateNewPerson);
             writer.WriteBoolValue("canContactLeader", CanContactLeader);
+            writer.WriteBoolValue("canSignUp", CanSignUp);
+            writer.WriteBoolValue("canSignUpAsNewPerson", CanSignUpAsNewPerson);
             writer.WriteBoolValue("defaultRoleSetInGroup", DefaultRoleSetInGroup);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepageGetResponse_data_groups_signUpConditions_Deprecated>("@deprecated", Deprecated);
             writer.WriteBoolValue("endDateNotPassed", EndDateNotPassed);
             writer.WriteBoolValue("groupAllowsWaitinglist", GroupAllowsWaitinglist);
             writer.WriteBoolValue("groupHasLeader", GroupHasLeader);
@@ -117,6 +143,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
             writer.WriteBoolValue("newPersonStationIsSet", NewPersonStationIsSet);
             writer.WriteBoolValue("newPersonStatusIsSet", NewPersonStatusIsSet);
             writer.WriteBoolValue("rolesSetInGroup", RolesSetInGroup);
+            writer.WriteBoolValue("signUpRoleSetInGroup", SignUpRoleSetInGroup);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

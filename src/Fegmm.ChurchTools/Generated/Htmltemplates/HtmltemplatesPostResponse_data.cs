@@ -16,11 +16,11 @@ namespace Fegmm.ChurchTools.Htmltemplates
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The domainType property</summary>
         public global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_domainType? DomainType { get; set; }
-        /// <summary>The htmlFileId property</summary>
+        /// <summary>ID of the stored HTML content file, or `null` if no HTML content is stored.</summary>
         public int? HtmlFileId { get; set; }
-        /// <summary>The id property</summary>
+        /// <summary>ID of the HTML template.</summary>
         public int? Id { get; set; }
-        /// <summary>The isGlobal property</summary>
+        /// <summary>Whether the template is globally available for the domain type.</summary>
         public bool? IsGlobal { get; set; }
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,9 +30,9 @@ namespace Fegmm.ChurchTools.Htmltemplates
 #else
         public global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_meta Meta { get; set; }
 #endif
-        /// <summary>The mjmlFileId property</summary>
+        /// <summary>ID of the stored MJML content file, or `null` if no MJML content is stored.</summary>
         public int? MjmlFileId { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>Display name of the HTML template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -40,22 +40,21 @@ namespace Fegmm.ChurchTools.Htmltemplates
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Person as Domain Object</summary>
+        /// <summary>Owner of a private template, or `null` for templates without an owner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_owner? Owner { get; set; }
+        public UntypedNode? Owner { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_owner Owner { get; set; }
+        public UntypedNode Owner { get; set; }
 #endif
-        /// <summary>The usedByAutomaticEmails property</summary>
-        public bool? UsedByAutomaticEmails { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data"/> and sets the default values.
         /// </summary>
         public HtmltemplatesPostResponse_data()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsGlobal = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -82,8 +81,7 @@ namespace Fegmm.ChurchTools.Htmltemplates
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_meta>(global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_meta.CreateFromDiscriminatorValue); } },
                 { "mjmlFileId", n => { MjmlFileId = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "owner", n => { Owner = n.GetObjectValue<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_owner>(global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_owner.CreateFromDiscriminatorValue); } },
-                { "usedByAutomaticEmails", n => { UsedByAutomaticEmails = n.GetBoolValue(); } },
+                { "owner", n => { Owner = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -100,8 +98,7 @@ namespace Fegmm.ChurchTools.Htmltemplates
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_meta>("meta", Meta);
             writer.WriteIntValue("mjmlFileId", MjmlFileId);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse_data_owner>("owner", Owner);
-            writer.WriteBoolValue("usedByAutomaticEmails", UsedByAutomaticEmails);
+            writer.WriteObjectValue<UntypedNode>("owner", Owner);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

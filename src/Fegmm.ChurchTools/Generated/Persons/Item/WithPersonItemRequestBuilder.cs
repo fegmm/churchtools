@@ -18,7 +18,6 @@ using Fegmm.ChurchTools.Persons.Item.Privacypolicy;
 using Fegmm.ChurchTools.Persons.Item.Relationships;
 using Fegmm.ChurchTools.Persons.Item.Servicerequests;
 using Fegmm.ChurchTools.Persons.Item.Settings;
-using Fegmm.ChurchTools.Persons.Item.Tags;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -124,11 +123,6 @@ namespace Fegmm.ChurchTools.Persons.Item
         public global::Fegmm.ChurchTools.Persons.Item.Settings.SettingsRequestBuilder Settings
         {
             get => new global::Fegmm.ChurchTools.Persons.Item.Settings.SettingsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The tags property</summary>
-        public global::Fegmm.ChurchTools.Persons.Item.Tags.TagsRequestBuilder Tags
-        {
-            get => new global::Fegmm.ChurchTools.Persons.Item.Tags.TagsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Persons.Item.WithPersonItemRequestBuilder"/> and sets the default values.

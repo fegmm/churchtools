@@ -8,7 +8,7 @@ using System;
 namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
 {
     /// <summary>
-    /// The hierarchy of one group
+    /// Public group homepage settings, filter definitions, and all public groups displayed on the page.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GrouphomepagePutResponse_data : IAdditionalDataHolder, IParsable
@@ -17,16 +17,24 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Type how groups are listed on the page.</summary>
         public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_defaultView? DefaultView { get; set; }
+        /// <summary>Maps deprecated response field names to their replacements.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_Deprecated Deprecated { get; set; }
+#endif
         /// <summary>The depth of the group hierarchy that should be displayed on the group homepage.</summary>
         public int? Depth { get; set; }
-        /// <summary>The filter property</summary>
+        /// <summary>Deprecated alias of filters.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Filter { get; set; }
+        public List<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filter>? Filter { get; set; }
 #nullable restore
 #else
-        public UntypedNode Filter { get; set; }
+        public List<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filter> Filter { get; set; }
 #endif
         /// <summary>Specifies all filters that can be applied for this group homepage.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,15 +54,25 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
 #endif
         /// <summary>Group Homepage ID</summary>
         public int? Id { get; set; }
-        /// <summary>Wheather the group homepage is enabled. Clients should not display the group homepage if it is not enabled.</summary>
+        /// <summary>If true, nested groups are collapsed by default.</summary>
+        public bool? IsCollapsed { get; set; }
+        /// <summary>Whether the group homepage is enabled. Clients should not display the group homepage if it is not enabled.</summary>
         public bool? IsEnabled { get; set; }
-        /// <summary>Entity meta data</summary>
+        /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_meta? Meta { get; set; }
 #nullable restore
 #else
         public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_meta Meta { get; set; }
+#endif
+        /// <summary>Name of the group homepage&apos;s parent group.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
 #endif
         /// <summary>Group field to sort groups by.</summary>
         public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_orderBy? OrderBy { get; set; }
@@ -70,41 +88,23 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
 #else
         public string RandomUrl { get; set; }
 #endif
-        /// <summary>The showFilter property</summary>
+        /// <summary>Deprecated alias of showFilters.</summary>
         [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? ShowFilter { get; set; }
-#nullable restore
-#else
-        public UntypedNode ShowFilter { get; set; }
-#endif
+        public bool? ShowFilter { get; set; }
         /// <summary>If true, selected filters are displayed.</summary>
         public bool? ShowFilters { get; set; }
         /// <summary>If true, the group homepage is set to display group images.</summary>
         public bool? ShowGroupImages { get; set; }
-        /// <summary>The showLeader property</summary>
+        /// <summary>Deprecated alias of showLeaders.</summary>
         [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? ShowLeader { get; set; }
-#nullable restore
-#else
-        public UntypedNode ShowLeader { get; set; }
-#endif
+        public bool? ShowLeader { get; set; }
         /// <summary>If true, the group homepage is set to display the leaders of each group.</summary>
         public bool? ShowLeaders { get; set; }
         /// <summary>If true, the group homepage is set to display an overview map of all groups.</summary>
         public bool? ShowMap { get; set; }
         /// <summary>Use &apos;orderBy&apos; instead.</summary>
         [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? SortBy { get; set; }
-#nullable restore
-#else
-        public UntypedNode SortBy { get; set; }
-#endif
+        public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_sortBy? SortBy { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data"/> and sets the default values.
         /// </summary>
@@ -131,24 +131,27 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "defaultView", n => { DefaultView = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_defaultView>(); } },
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_Deprecated>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_Deprecated.CreateFromDiscriminatorValue); } },
                 { "depth", n => { Depth = n.GetIntValue(); } },
-                { "filter", n => { Filter = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "filter", n => { Filter = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filter>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filter.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "groups", n => { Groups = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_groups>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_groups.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
+                { "isCollapsed", n => { IsCollapsed = n.GetBoolValue(); } },
                 { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_meta>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_meta.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetStringValue(); } },
                 { "orderBy", n => { OrderBy = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_orderBy>(); } },
                 { "orderDirection", n => { OrderDirection = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_orderDirection>(); } },
                 { "parentGroup", n => { ParentGroup = n.GetIntValue(); } },
                 { "randomUrl", n => { RandomUrl = n.GetStringValue(); } },
-                { "showFilter", n => { ShowFilter = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "showFilter", n => { ShowFilter = n.GetBoolValue(); } },
                 { "showFilters", n => { ShowFilters = n.GetBoolValue(); } },
                 { "showGroupImages", n => { ShowGroupImages = n.GetBoolValue(); } },
-                { "showLeader", n => { ShowLeader = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "showLeader", n => { ShowLeader = n.GetBoolValue(); } },
                 { "showLeaders", n => { ShowLeaders = n.GetBoolValue(); } },
                 { "showMap", n => { ShowMap = n.GetBoolValue(); } },
-                { "sortBy", n => { SortBy = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "sortBy", n => { SortBy = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_sortBy>(); } },
             };
         }
         /// <summary>
@@ -159,24 +162,27 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_defaultView>("defaultView", DefaultView);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_Deprecated>("@deprecated", Deprecated);
             writer.WriteIntValue("depth", Depth);
-            writer.WriteObjectValue<UntypedNode>("filter", Filter);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filter>("filter", Filter);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters>("filters", Filters);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_groups>("groups", Groups);
             writer.WriteIntValue("id", Id);
+            writer.WriteBoolValue("isCollapsed", IsCollapsed);
             writer.WriteBoolValue("isEnabled", IsEnabled);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_meta>("meta", Meta);
+            writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_orderBy>("orderBy", OrderBy);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_orderDirection>("orderDirection", OrderDirection);
             writer.WriteIntValue("parentGroup", ParentGroup);
             writer.WriteStringValue("randomUrl", RandomUrl);
-            writer.WriteObjectValue<UntypedNode>("showFilter", ShowFilter);
+            writer.WriteBoolValue("showFilter", ShowFilter);
             writer.WriteBoolValue("showFilters", ShowFilters);
             writer.WriteBoolValue("showGroupImages", ShowGroupImages);
-            writer.WriteObjectValue<UntypedNode>("showLeader", ShowLeader);
+            writer.WriteBoolValue("showLeader", ShowLeader);
             writer.WriteBoolValue("showLeaders", ShowLeaders);
             writer.WriteBoolValue("showMap", ShowMap);
-            writer.WriteObjectValue<UntypedNode>("sortBy", SortBy);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_sortBy>("sortBy", SortBy);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

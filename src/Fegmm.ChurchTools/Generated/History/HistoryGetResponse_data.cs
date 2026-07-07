@@ -32,6 +32,14 @@ namespace Fegmm.ChurchTools.History
 #endif
         /// <summary>The id property</summary>
         public int? Id { get; set; }
+        /// <summary>The links property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_links>? Links { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_links> Links { get; set; }
+#endif
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,6 +108,7 @@ namespace Fegmm.ChurchTools.History
                 { "action", n => { Action = n.GetStringValue(); } },
                 { "beforeAfterValues", n => { BeforeAfterValues = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues>(global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
+                { "links", n => { Links = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_links>(global::Fegmm.ChurchTools.History.HistoryGetResponse_data_links.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_meta>(global::Fegmm.ChurchTools.History.HistoryGetResponse_data_meta.CreateFromDiscriminatorValue); } },
                 { "origin", n => { Origin = n.GetObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data.HistoryGetResponse_data_origin>(global::Fegmm.ChurchTools.History.HistoryGetResponse_data.HistoryGetResponse_data_origin.CreateFromDiscriminatorValue); } },
                 { "translatedTitle", n => { TranslatedTitle = n.GetStringValue(); } },
@@ -117,6 +126,7 @@ namespace Fegmm.ChurchTools.History
             writer.WriteStringValue("action", Action);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_beforeAfterValues>("beforeAfterValues", BeforeAfterValues);
             writer.WriteIntValue("id", Id);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_links>("links", Links);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data_meta>("meta", Meta);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_data.HistoryGetResponse_data_origin>("origin", Origin);
             writer.WriteStringValue("translatedTitle", TranslatedTitle);

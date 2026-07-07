@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Persons.Properties
         {
         }
         /// <summary>
-        /// Retrieve people&apos;s properties, whether they own an email adress
+        /// Returns lightweight account and communication properties for the given person IDs. The response object is keyed by person ID. If `ids` is empty or omitted, no person properties are returned.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -53,7 +53,7 @@ namespace Fegmm.ChurchTools.Persons.Properties
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse>(requestInfo, global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve people&apos;s properties, whether they own an email adress
+        /// Returns lightweight account and communication properties for the given person IDs. The response object is keyed by person ID. If `ids` is empty or omitted, no person properties are returned.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Persons.Properties.PropertiesResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -74,7 +74,7 @@ namespace Fegmm.ChurchTools.Persons.Properties
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Persons.Properties.PropertiesResponse>(requestInfo, global::Fegmm.ChurchTools.Persons.Properties.PropertiesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieve people&apos;s properties, whether they own an email adress
+        /// Returns lightweight account and communication properties for the given person IDs. The response object is keyed by person ID. If `ids` is empty or omitted, no person properties are returned.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

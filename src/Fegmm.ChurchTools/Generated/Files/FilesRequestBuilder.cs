@@ -16,27 +16,14 @@ namespace Fegmm.ChurchTools.Files
     public partial class FilesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Fegmm.ChurchTools.files.item collection</summary>
-        /// <param name="position">ID of Entity</param>
+        /// <param name="position">The domain type. Currently supported are &apos;avatar&apos;, &apos;groupimage&apos;, &apos;appointment_image&apos;, &apos;logo&apos;, &apos;attachments&apos;, &apos;bulkletter_template&apos;, &apos;service&apos;, &apos;song_arrangement&apos;, &apos;importtable&apos;, &apos;person&apos;, &apos;familyavatar&apos;, &apos;post&apos;, &apos;wiki_.?&apos;.</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Files.Item.DomainTypeItemRequestBuilder"/></returns>
-        public global::Fegmm.ChurchTools.Files.Item.DomainTypeItemRequestBuilder this[int position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("domainType%2Did", position);
-                return new global::Fegmm.ChurchTools.Files.Item.DomainTypeItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
-        /// <summary>Gets an item from the Fegmm.ChurchTools.files.item collection</summary>
-        /// <param name="position">ID of Entity</param>
-        /// <returns>A <see cref="global::Fegmm.ChurchTools.Files.Item.DomainTypeItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
         public global::Fegmm.ChurchTools.Files.Item.DomainTypeItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("domainType%2Did", position);
+                urlTplParams.Add("domainType%2Did", position);
                 return new global::Fegmm.ChurchTools.Files.Item.DomainTypeItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }

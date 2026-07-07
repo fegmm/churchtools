@@ -39,7 +39,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item
         {
         }
         /// <summary>
-        /// Deletes a wiki category and all its pages. Requires the churchwiki edit masterdata permission.
+        /// Deletes a wiki category and all its pages. Requires the `churchwiki` &quot;edit masterdata&quot; permission. Always returns 204, even if the given ID does not exist.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -56,7 +56,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates an existing wiki category. Requires the churchwiki edit masterdata permission.
+        /// Updates an existing wiki category. Requires the `churchwiki` &quot;edit masterdata&quot; permission. All fields in the request body are required; the response `permissions` object is always empty (per-category permissions are only populated by the list endpoint).
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.WithWikiCategoryPutResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -76,7 +76,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.WithWikiCategoryPutResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.WithWikiCategoryPutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates an existing wiki category. Requires the churchwiki edit masterdata permission.
+        /// Updates an existing wiki category. Requires the `churchwiki` &quot;edit masterdata&quot; permission. All fields in the request body are required; the response `permissions` object is always empty (per-category permissions are only populated by the list endpoint).
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.WithWikiCategoryResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -97,7 +97,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.WithWikiCategoryResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.WithWikiCategoryResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deletes a wiki category and all its pages. Requires the churchwiki edit masterdata permission.
+        /// Deletes a wiki category and all its pages. Requires the `churchwiki` &quot;edit masterdata&quot; permission. Always returns 204, even if the given ID does not exist.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -116,7 +116,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates an existing wiki category. Requires the churchwiki edit masterdata permission.
+        /// Updates an existing wiki category. Requires the `churchwiki` &quot;edit masterdata&quot; permission. All fields in the request body are required; the response `permissions` object is always empty (per-category permissions are only populated by the list endpoint).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

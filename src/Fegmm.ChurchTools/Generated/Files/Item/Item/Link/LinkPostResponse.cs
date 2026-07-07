@@ -14,7 +14,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item.Link
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>File or Link for a specific domain type. E.g. uploaded music file for songs or avatar of a person.</summary>
+        /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse_data? Data { get; set; }

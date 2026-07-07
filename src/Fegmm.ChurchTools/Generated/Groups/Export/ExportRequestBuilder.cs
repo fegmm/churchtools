@@ -32,33 +32,39 @@ namespace Fegmm.ChurchTools.Groups.Export
         public ExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/export{?format*,type*}", rawUrl)
         {
         }
+        /// <summary>
+        /// Exports the selected groups as a CSV or XLSX file. The request body contains the group IDs to export. Groups that are not visible to the current user are omitted from the generated file.
+        /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(List<global::Fegmm.ChurchTools.Groups.Export.Export> body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Groups.Export.ExportRequestBuilder.ExportRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> PostAsync(global::Fegmm.ChurchTools.Groups.Export.ExportPostRequestBody body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Groups.Export.ExportRequestBuilder.ExportRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(List<global::Fegmm.ChurchTools.Groups.Export.Export> body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Groups.Export.ExportRequestBuilder.ExportRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> PostAsync(global::Fegmm.ChurchTools.Groups.Export.ExportPostRequestBody body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Groups.Export.ExportRequestBuilder.ExportRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Exports the selected groups as a CSV or XLSX file. The request body contains the group IDs to export. Groups that are not visible to the current user are omitted from the generated file.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(List<global::Fegmm.ChurchTools.Groups.Export.Export> body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Groups.Export.ExportRequestBuilder.ExportRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Fegmm.ChurchTools.Groups.Export.ExportPostRequestBody body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Groups.Export.ExportRequestBuilder.ExportRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(List<global::Fegmm.ChurchTools.Groups.Export.Export> body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Groups.Export.ExportRequestBuilder.ExportRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Fegmm.ChurchTools.Groups.Export.ExportPostRequestBody body, Action<RequestConfiguration<global::Fegmm.ChurchTools.Groups.Export.ExportRequestBuilder.ExportRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -77,11 +83,13 @@ namespace Fegmm.ChurchTools.Groups.Export
         {
             return new global::Fegmm.ChurchTools.Groups.Export.ExportRequestBuilder(rawUrl, RequestAdapter);
         }
+        /// <summary>
+        /// Exports the selected groups as a CSV or XLSX file. The request body contains the group IDs to export. Groups that are not visible to the current user are omitted from the generated file.
+        /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        #pragma warning disable CS1591
         public partial class ExportRequestBuilderPostQueryParameters 
-        #pragma warning restore CS1591
         {
+            /// <summary>Export file format. Defaults to `csv` when omitted. The response content type depends on the selected format.</summary>
             [Obsolete("This property is deprecated, use FormatAsPostFormatQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,6 +100,7 @@ namespace Fegmm.ChurchTools.Groups.Export
             [QueryParameter("format")]
             public string Format { get; set; }
 #endif
+            /// <summary>Export file format. Defaults to `csv` when omitted. The response content type depends on the selected format.</summary>
             [QueryParameter("format")]
             public global::Fegmm.ChurchTools.Groups.Export.PostFormatQueryParameterType? FormatAsPostFormatQueryParameterType { get; set; }
             /// <summary>Use `format`</summary>

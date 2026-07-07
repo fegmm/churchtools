@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Dbfields.Item.Options.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithOptionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dbfields/{fieldId}/options/{optionId}", pathParameters)
+        public WithOptionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dbfields/{fieldId}/options/{optionId}{?dryRun*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,25 +29,30 @@ namespace Fegmm.ChurchTools.Dbfields.Item.Options.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithOptionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dbfields/{fieldId}/options/{optionId}", rawUrl)
+        public WithOptionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/dbfields/{fieldId}/options/{optionId}{?dryRun*}", rawUrl)
         {
         }
         /// <summary>
-        /// Delete db field option
+        /// Delete the specified db field option. Use the `dryRun` query parameter to simulate the deletion and check for blocking references without actually deleting the option.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Fegmm.ChurchTools.Dbfields.Item.Options.Item.WithOption409Error">When receiving a 409 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Dbfields.Item.Options.Item.WithOptionItemRequestBuilder.WithOptionItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Dbfields.Item.Options.Item.WithOptionItemRequestBuilder.WithOptionItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "409", global::Fegmm.ChurchTools.Dbfields.Item.Options.Item.WithOption409Error.CreateFromDiscriminatorValue },
+            };
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The request body and response body vary depending on the field id. See /dbfields/{fieldId}/options/metadata for details
@@ -91,22 +96,22 @@ namespace Fegmm.ChurchTools.Dbfields.Item.Options.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Dbfields.Item.Options.Item.WithOptionResponse>(requestInfo, global::Fegmm.ChurchTools.Dbfields.Item.Options.Item.WithOptionResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete db field option
+        /// Delete the specified db field option. Use the `dryRun` query parameter to simulate the deletion and check for blocking references without actually deleting the option.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Dbfields.Item.Options.Item.WithOptionItemRequestBuilder.WithOptionItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Dbfields.Item.Options.Item.WithOptionItemRequestBuilder.WithOptionItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            requestInfo.Headers.TryAdd("Accept", "application/json, text/plain;q=0.9");
             return requestInfo;
         }
         /// <summary>
@@ -141,11 +146,21 @@ namespace Fegmm.ChurchTools.Dbfields.Item.Options.Item
             return new global::Fegmm.ChurchTools.Dbfields.Item.Options.Item.WithOptionItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
+        /// Delete the specified db field option. Use the `dryRun` query parameter to simulate the deletion and check for blocking references without actually deleting the option.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithOptionItemRequestBuilderDeleteQueryParameters 
+        {
+            /// <summary>If true, the deletion is only simulated and the option is not deleted. The response describes whether the option can be deleted.</summary>
+            [QueryParameter("dryRun")]
+            public bool? DryRun { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithOptionItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class WithOptionItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<global::Fegmm.ChurchTools.Dbfields.Item.Options.Item.WithOptionItemRequestBuilder.WithOptionItemRequestBuilderDeleteQueryParameters>
         {
         }
         /// <summary>

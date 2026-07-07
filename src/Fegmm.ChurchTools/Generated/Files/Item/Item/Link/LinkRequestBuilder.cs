@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item.Link
         {
         }
         /// <summary>
-        /// Add the given link to the specified domain object.
+        /// Adds the given external link to the specified domain object.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -53,7 +53,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item.Link
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse>(requestInfo, global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Add the given link to the specified domain object.
+        /// Adds the given external link to the specified domain object.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -74,7 +74,7 @@ namespace Fegmm.ChurchTools.Files.Item.Item.Link
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkResponse>(requestInfo, global::Fegmm.ChurchTools.Files.Item.Item.Link.LinkResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Add the given link to the specified domain object.
+        /// Adds the given external link to the specified domain object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

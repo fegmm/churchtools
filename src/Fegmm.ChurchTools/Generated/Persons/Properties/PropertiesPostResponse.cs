@@ -14,13 +14,21 @@ namespace Fegmm.ChurchTools.Persons.Properties
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The data property</summary>
+        /// <summary>Person properties keyed by person ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse_data? Data { get; set; }
 #nullable restore
 #else
         public global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse_data Data { get; set; }
+#endif
+        /// <summary>The meta property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse_meta? Meta { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse_meta Meta { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse"/> and sets the default values.
@@ -48,6 +56,7 @@ namespace Fegmm.ChurchTools.Persons.Properties
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetObjectValue<global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse_data>(global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse_data.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse_meta>(global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse_meta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,6 +67,7 @@ namespace Fegmm.ChurchTools.Persons.Properties
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse_data>("data", Data);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Properties.PropertiesPostResponse_meta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

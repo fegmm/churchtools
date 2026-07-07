@@ -3,7 +3,9 @@
 using Fegmm.ChurchTools.Finance.Transactions.Bulkcreate;
 using Fegmm.ChurchTools.Finance.Transactions.CsvEscaped;
 using Fegmm.ChurchTools.Finance.Transactions.Datevexport;
+using Fegmm.ChurchTools.Finance.Transactions.Documentnumberavailable;
 using Fegmm.ChurchTools.Finance.Transactions.Export;
+using Fegmm.ChurchTools.Finance.Transactions.Ids;
 using Fegmm.ChurchTools.Finance.Transactions.Item;
 using Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber;
 using Fegmm.ChurchTools.Finance.Transactions.Summary;
@@ -38,10 +40,20 @@ namespace Fegmm.ChurchTools.Finance.Transactions
         {
             get => new global::Fegmm.ChurchTools.Finance.Transactions.Datevexport.DatevexportRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The documentnumberavailable property</summary>
+        public global::Fegmm.ChurchTools.Finance.Transactions.Documentnumberavailable.DocumentnumberavailableRequestBuilder Documentnumberavailable
+        {
+            get => new global::Fegmm.ChurchTools.Finance.Transactions.Documentnumberavailable.DocumentnumberavailableRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The export property</summary>
         public global::Fegmm.ChurchTools.Finance.Transactions.Export.ExportRequestBuilder Export
         {
             get => new global::Fegmm.ChurchTools.Finance.Transactions.Export.ExportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The ids property</summary>
+        public global::Fegmm.ChurchTools.Finance.Transactions.Ids.IdsRequestBuilder Ids
+        {
+            get => new global::Fegmm.ChurchTools.Finance.Transactions.Ids.IdsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The nextdocumentnumber property</summary>
         public global::Fegmm.ChurchTools.Finance.Transactions.Nextdocumentnumber.NextdocumentnumberRequestBuilder Nextdocumentnumber

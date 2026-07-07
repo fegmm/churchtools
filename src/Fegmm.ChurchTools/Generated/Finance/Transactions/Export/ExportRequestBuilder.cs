@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Export
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions/export{?accounting_period_id*,direction*,limit*,order_by*,page*,target*}", pathParameters)
+        public ExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions/export?accounting_period_id={accounting_period_id}{&account_ids*,cost_center_ids*,created_pid*,donator_ids*,end_date*,exclude_ids*,format*,include_ids*,is_donation*,is_immutable*,is_income*,is_waiver_of_reimbursement_of_expenses*,order_by*,order_direction*,query*,start_date*,target*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,11 +29,11 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Export
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions/export{?accounting_period_id*,direction*,limit*,order_by*,page*,target*}", rawUrl)
+        public ExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/finance/transactions/export?accounting_period_id={accounting_period_id}{&account_ids*,cost_center_ids*,created_pid*,donator_ids*,end_date*,exclude_ids*,format*,include_ids*,is_donation*,is_immutable*,is_income*,is_waiver_of_reimbursement_of_expenses*,order_by*,order_direction*,query*,start_date*,target*}", rawUrl)
         {
         }
         /// <summary>
-        /// TODO 200
+        /// Exports the transactions of an accounting period as a file, applying the same filters as `GET /finance/transactions`. The output format is selected with the `format` parameter: `csv` returns a `text/csv` file, `xlsx` returns an Excel file (`application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`). This endpoint replaces the deprecated `GET /finance/transactions/csv`.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Export
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// TODO 200
+        /// Exports the transactions of an accounting period as a file, applying the same filters as `GET /finance/transactions`. The output format is selected with the `format` parameter: `csv` returns a `text/csv` file, `xlsx` returns an Excel file (`application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`). This endpoint replaces the deprecated `GET /finance/transactions/csv`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -66,7 +66,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Export
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            requestInfo.Headers.TryAdd("Accept", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, text/csv, text/plain;q=0.9");
             return requestInfo;
         }
         /// <summary>
@@ -79,32 +79,98 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Export
             return new global::Fegmm.ChurchTools.Finance.Transactions.Export.ExportRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// TODO 200
+        /// Exports the transactions of an accounting period as a file, applying the same filters as `GET /finance/transactions`. The output format is selected with the `format` parameter: `csv` returns a `text/csv` file, `xlsx` returns an Excel file (`application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`). This endpoint replaces the deprecated `GET /finance/transactions/csv`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ExportRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter by account/contra account. All transactions match, where either account or contra account is in the list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("accounting_period_id")]
-            public string? AccountingPeriodId { get; set; }
+            [QueryParameter("account_ids")]
+            public int?[]? AccountIds { get; set; }
 #nullable restore
 #else
-            [QueryParameter("accounting_period_id")]
-            public string AccountingPeriodId { get; set; }
+            [QueryParameter("account_ids")]
+            public int?[] AccountIds { get; set; }
 #endif
+            /// <summary>ID of accounting period to get master data for</summary>
+            [QueryParameter("accounting_period_id")]
+            public int? AccountingPeriodId { get; set; }
+            /// <summary>Filter by cost centers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("direction")]
-            public string? Direction { get; set; }
+            [QueryParameter("cost_center_ids")]
+            public int?[]? CostCenterIds { get; set; }
 #nullable restore
 #else
-            [QueryParameter("direction")]
-            public string Direction { get; set; }
+            [QueryParameter("cost_center_ids")]
+            public int?[] CostCenterIds { get; set; }
 #endif
-            /// <summary>Number of results per page.</summary>
-            [QueryParameter("limit")]
-            public int? Limit { get; set; }
+            /// <summary>Filter by person ID. Get all transactions the person has created. But only show those the user can see.</summary>
+            [QueryParameter("created_pid")]
+            public int? CreatedPid { get; set; }
+            /// <summary>Filter by donator or donator spouse. Provide an array of person ids.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("donator_ids")]
+            public int?[]? DonatorIds { get; set; }
+#nullable restore
+#else
+            [QueryParameter("donator_ids")]
+            public int?[] DonatorIds { get; set; }
+#endif
+            /// <summary>Show transactions before this date.</summary>
+            [QueryParameter("end_date")]
+            public Date? EndDate { get; set; }
+            /// <summary>Filter by ids to exclude.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("exclude_ids")]
+            public int?[]? ExcludeIds { get; set; }
+#nullable restore
+#else
+            [QueryParameter("exclude_ids")]
+            public int?[] ExcludeIds { get; set; }
+#endif
+            /// <summary>Output file format. Default is `csv`.</summary>
+            [Obsolete("This property is deprecated, use FormatAsGetFormatQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("format")]
+            public string? Format { get; set; }
+#nullable restore
+#else
+            [QueryParameter("format")]
+            public string Format { get; set; }
+#endif
+            /// <summary>Output file format. Default is `csv`.</summary>
+            [QueryParameter("format")]
+            public global::Fegmm.ChurchTools.Finance.Transactions.Export.GetFormatQueryParameterType? FormatAsGetFormatQueryParameterType { get; set; }
+            /// <summary>Filter by ids to include.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("include_ids")]
+            public int?[]? IncludeIds { get; set; }
+#nullable restore
+#else
+            [QueryParameter("include_ids")]
+            public int?[] IncludeIds { get; set; }
+#endif
+            /// <summary>Filter by donations. `true` = Only donations, `false` = Other than donation.</summary>
+            [QueryParameter("is_donation")]
+            public bool? IsDonation { get; set; }
+            /// <summary>Filter transactions, whether transaction is immutable.</summary>
+            [QueryParameter("is_immutable")]
+            public bool? IsImmutable { get; set; }
+            /// <summary>Filter transactions by income or outcome transactions. An account group has a flag `cash asset account` to indicate accounts for income/outcome.</summary>
+            [QueryParameter("is_income")]
+            public bool? IsIncome { get; set; }
+            /// <summary>Filter by waiver of reimbursement of expenses (Aufwandsspende).</summary>
+            [QueryParameter("is_waiver_of_reimbursement_of_expenses")]
+            public bool? IsWaiverOfReimbursementOfExpenses { get; set; }
+            /// <summary>Default is `date`. Column the transactions are ordered by.</summary>
+            [Obsolete("This property is deprecated, use OrderByAsGetOrderByQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("order_by")]
@@ -114,10 +180,37 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Export
             [QueryParameter("order_by")]
             public string OrderBy { get; set; }
 #endif
-            /// <summary>Page number to show page in pagination. If empty, start at first page.</summary>
-            [QueryParameter("page")]
-            public int? Page { get; set; }
-            /// <summary>select special Columns for particular target</summary>
+            /// <summary>Default is `date`. Column the transactions are ordered by.</summary>
+            [QueryParameter("order_by")]
+            public global::Fegmm.ChurchTools.Finance.Transactions.Export.GetOrder_byQueryParameterType? OrderByAsGetOrderByQueryParameterType { get; set; }
+            /// <summary>Way of direction: ascending or descending. Default is `DESC`.</summary>
+            [Obsolete("This property is deprecated, use OrderDirectionAsGetOrderDirectionQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("order_direction")]
+            public string? OrderDirection { get; set; }
+#nullable restore
+#else
+            [QueryParameter("order_direction")]
+            public string OrderDirection { get; set; }
+#endif
+            /// <summary>Way of direction: ascending or descending. Default is `DESC`.</summary>
+            [QueryParameter("order_direction")]
+            public global::Fegmm.ChurchTools.Finance.Transactions.Export.GetOrder_directionQueryParameterType? OrderDirectionAsGetOrderDirectionQueryParameterType { get; set; }
+            /// <summary>Full text search query.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("query")]
+            public string? Query { get; set; }
+#nullable restore
+#else
+            [QueryParameter("query")]
+            public string Query { get; set; }
+#endif
+            /// <summary>Show transactions after this date.</summary>
+            [QueryParameter("start_date")]
+            public Date? StartDate { get; set; }
+            /// <summary>Select special columns for a particular target.</summary>
             [Obsolete("This property is deprecated, use TargetAsGetTargetQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -128,7 +221,7 @@ namespace Fegmm.ChurchTools.Finance.Transactions.Export
             [QueryParameter("target")]
             public string Target { get; set; }
 #endif
-            /// <summary>select special Columns for particular target</summary>
+            /// <summary>Select special columns for a particular target.</summary>
             [QueryParameter("target")]
             public global::Fegmm.ChurchTools.Finance.Transactions.Export.GetTargetQueryParameterType? TargetAsGetTargetQueryParameterType { get; set; }
         }

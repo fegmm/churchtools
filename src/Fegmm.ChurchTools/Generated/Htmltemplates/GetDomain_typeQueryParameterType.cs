@@ -12,9 +12,21 @@ namespace Fegmm.ChurchTools.Htmltemplates
         #pragma warning disable CS1591
         Bulkletter,
         #pragma warning restore CS1591
+        [EnumMember(Value = "donation-receipt-attachment")]
+        #pragma warning disable CS1591
+        DonationReceiptAttachment,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "donation-receipt-letter")]
+        #pragma warning disable CS1591
+        DonationReceiptLetter,
+        #pragma warning restore CS1591
         [EnumMember(Value = "email")]
         #pragma warning disable CS1591
         Email,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "groupmember-document")]
+        #pragma warning disable CS1591
+        GroupmemberDocument,
         #pragma warning restore CS1591
     }
 }

@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Fegmm.ChurchTools.Files.Item.Item
 {
+    /// <summary>
+    /// Optional image crop and focus settings
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class WithDomainIdentifierPostRequestBody : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

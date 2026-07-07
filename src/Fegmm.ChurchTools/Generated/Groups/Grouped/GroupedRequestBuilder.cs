@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Groups.Grouped
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GroupedRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/grouped{?group_by*,limit*}", pathParameters)
+        public GroupedRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/grouped?group_by={group_by}{&limit*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,9 +29,12 @@ namespace Fegmm.ChurchTools.Groups.Grouped
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GroupedRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/grouped{?group_by*,limit*}", rawUrl)
+        public GroupedRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/grouped?group_by={group_by}{&limit*}", rawUrl)
         {
         }
+        /// <summary>
+        /// Returns visible groups grouped by the requested group attribute. Each group contains a preview list limited by `limit` and the total number of matching groups in `all`.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Grouped.GroupedGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,6 +50,9 @@ namespace Fegmm.ChurchTools.Groups.Grouped
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Groups.Grouped.GroupedGetResponse>(requestInfo, global::Fegmm.ChurchTools.Groups.Grouped.GroupedGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns visible groups grouped by the requested group attribute. Each group contains a preview list limited by `limit` and the total number of matching groups in `all`.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Grouped.GroupedResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -63,6 +69,9 @@ namespace Fegmm.ChurchTools.Groups.Grouped
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Groups.Grouped.GroupedResponse>(requestInfo, global::Fegmm.ChurchTools.Groups.Grouped.GroupedResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns visible groups grouped by the requested group attribute. Each group contains a preview list limited by `limit` and the total number of matching groups in `all`.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,11 +97,13 @@ namespace Fegmm.ChurchTools.Groups.Grouped
         {
             return new global::Fegmm.ChurchTools.Groups.Grouped.GroupedRequestBuilder(rawUrl, RequestAdapter);
         }
+        /// <summary>
+        /// Returns visible groups grouped by the requested group attribute. Each group contains a preview list limited by `limit` and the total number of matching groups in `all`.
+        /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        #pragma warning disable CS1591
         public partial class GroupedRequestBuilderGetQueryParameters 
-        #pragma warning restore CS1591
         {
+            /// <summary>Group attribute used to build the response buckets</summary>
             [Obsolete("This property is deprecated, use GroupByAsGetGroupByQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -103,6 +114,7 @@ namespace Fegmm.ChurchTools.Groups.Grouped
             [QueryParameter("group_by")]
             public string GroupBy { get; set; }
 #endif
+            /// <summary>Group attribute used to build the response buckets</summary>
             [QueryParameter("group_by")]
             public global::Fegmm.ChurchTools.Groups.Grouped.GetGroup_byQueryParameterType? GroupByAsGetGroupByQueryParameterType { get; set; }
             /// <summary>Number of results per page.</summary>

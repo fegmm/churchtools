@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Groups.Members
         {
         }
         /// <summary>
-        /// Returns all group members. Only accessible for users with right &quot;administer persons&quot;
+        /// Returns all group members. Only accessible for users with right &quot;administer persons&quot;.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Members.MembersGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Groups.Members
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Groups.Members.MembersGetResponse>(requestInfo, global::Fegmm.ChurchTools.Groups.Members.MembersGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns all group members. Only accessible for users with right &quot;administer persons&quot;
+        /// Returns all group members. Only accessible for users with right &quot;administer persons&quot;.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Members.MembersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Groups.Members
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Groups.Members.MembersResponse>(requestInfo, global::Fegmm.ChurchTools.Groups.Members.MembersResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns all group members. Only accessible for users with right &quot;administer persons&quot;
+        /// Returns all group members. Only accessible for users with right &quot;administer persons&quot;.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,7 +98,7 @@ namespace Fegmm.ChurchTools.Groups.Members
             return new global::Fegmm.ChurchTools.Groups.Members.MembersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns all group members. Only accessible for users with right &quot;administer persons&quot;
+        /// Returns all group members. Only accessible for users with right &quot;administer persons&quot;.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MembersRequestBuilderGetQueryParameters 

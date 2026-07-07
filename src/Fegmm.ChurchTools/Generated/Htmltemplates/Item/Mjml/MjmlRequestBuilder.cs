@@ -11,7 +11,7 @@ using System;
 namespace Fegmm.ChurchTools.Htmltemplates.Item.Mjml
 {
     /// <summary>
-    /// Builds and executes requests for operations under \htmltemplates\{id}\mjml
+    /// Builds and executes requests for operations under \htmltemplates\{templateId}\mjml
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MjmlRequestBuilder : BaseRequestBuilder
@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Htmltemplates.Item.Mjml
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MjmlRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates/{id}/mjml", pathParameters)
+        public MjmlRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates/{templateId}/mjml", pathParameters)
         {
         }
         /// <summary>
@@ -29,11 +29,11 @@ namespace Fegmm.ChurchTools.Htmltemplates.Item.Mjml
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MjmlRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates/{id}/mjml", rawUrl)
+        public MjmlRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates/{templateId}/mjml", rawUrl)
         {
         }
         /// <summary>
-        /// GET MJML content of a specific HTML template
+        /// Returns the stored MJML content of the HTML template, or `null` if no MJML file is attached.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.Item.Mjml.MjmlGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Htmltemplates.Item.Mjml
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Htmltemplates.Item.Mjml.MjmlGetResponse>(requestInfo, global::Fegmm.ChurchTools.Htmltemplates.Item.Mjml.MjmlGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// GET MJML content of a specific HTML template
+        /// Returns the stored MJML content of the HTML template, or `null` if no MJML file is attached.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.Item.Mjml.MjmlResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Htmltemplates.Item.Mjml
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Htmltemplates.Item.Mjml.MjmlResponse>(requestInfo, global::Fegmm.ChurchTools.Htmltemplates.Item.Mjml.MjmlResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// GET MJML content of a specific HTML template
+        /// Returns the stored MJML content of the HTML template, or `null` if no MJML file is attached.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

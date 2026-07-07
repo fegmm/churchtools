@@ -11,7 +11,7 @@ using System;
 namespace Fegmm.ChurchTools.Htmltemplates.Item.Html
 {
     /// <summary>
-    /// Builds and executes requests for operations under \htmltemplates\{id}\html
+    /// Builds and executes requests for operations under \htmltemplates\{templateId}\html
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class HtmlRequestBuilder : BaseRequestBuilder
@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Htmltemplates.Item.Html
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HtmlRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates/{id}/html", pathParameters)
+        public HtmlRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates/{templateId}/html", pathParameters)
         {
         }
         /// <summary>
@@ -29,11 +29,11 @@ namespace Fegmm.ChurchTools.Htmltemplates.Item.Html
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HtmlRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates/{id}/html", rawUrl)
+        public HtmlRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates/{templateId}/html", rawUrl)
         {
         }
         /// <summary>
-        /// GET HTML content of a specific HTML template
+        /// Returns the stored HTML content of the HTML template, or `null` if no HTML file is attached.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.Item.Html.HtmlGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Htmltemplates.Item.Html
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Htmltemplates.Item.Html.HtmlGetResponse>(requestInfo, global::Fegmm.ChurchTools.Htmltemplates.Item.Html.HtmlGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// GET HTML content of a specific HTML template
+        /// Returns the stored HTML content of the HTML template, or `null` if no HTML file is attached.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.Item.Html.HtmlResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Htmltemplates.Item.Html
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Htmltemplates.Item.Html.HtmlResponse>(requestInfo, global::Fegmm.ChurchTools.Htmltemplates.Item.Html.HtmlResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// GET HTML content of a specific HTML template
+        /// Returns the stored HTML content of the HTML template, or `null` if no HTML file is attached.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -18,10 +18,10 @@ namespace Fegmm.ChurchTools.Profiles
         /// <summary>The address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_address? Address { get; set; }
+        public UntypedNode? Address { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_address Address { get; set; }
+        public UntypedNode Address { get; set; }
 #endif
         /// <summary>Will be the same for all profiles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,6 +46,14 @@ namespace Fegmm.ChurchTools.Profiles
 #nullable restore
 #else
         public global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data.ProfilesGetResponse_data_denomination Denomination { get; set; }
+#endif
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_Deprecated Deprecated { get; set; }
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,6 +107,8 @@ namespace Fegmm.ChurchTools.Profiles
         public int? Id { get; set; }
         /// <summary>The isPublished property</summary>
         public bool? IsPublished { get; set; }
+        /// <summary>Indicates whether registration is currently available for this profile. Only present when registration is active.</summary>
+        public bool? IsRegistrationOpen { get; set; }
         /// <summary>The logo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -141,6 +151,15 @@ namespace Fegmm.ChurchTools.Profiles
 #endif
         /// <summary>church: Church profile for this installation; campus: one specific campus profile</summary>
         public global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_profileType? ProfileType { get; set; }
+        /// <summary>Use `serviceBanner_new` instead.</summary>
+        [Obsolete("")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ServiceBanner { get; set; }
+#nullable restore
+#else
+        public string ServiceBanner { get; set; }
+#endif
         /// <summary>The serviceBanner_new property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -258,10 +277,11 @@ namespace Fegmm.ChurchTools.Profiles
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "address", n => { Address = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_address>(global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_address.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "association", n => { Association = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data.ProfilesGetResponse_data_association>(global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data.ProfilesGetResponse_data_association.CreateFromDiscriminatorValue); } },
                 { "banner", n => { Banner = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "denomination", n => { Denomination = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data.ProfilesGetResponse_data_denomination>(global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data.ProfilesGetResponse_data_denomination.CreateFromDiscriminatorValue); } },
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_Deprecated>(global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_Deprecated.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "finderUrl", n => { FinderUrl = n.GetStringValue(); } },
@@ -270,12 +290,14 @@ namespace Fegmm.ChurchTools.Profiles
                 { "guid", n => { Guid = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "isPublished", n => { IsPublished = n.GetBoolValue(); } },
+                { "isRegistrationOpen", n => { IsRegistrationOpen = n.GetBoolValue(); } },
                 { "logo", n => { Logo = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_meta>(global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_meta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
                 { "profileType", n => { ProfileType = n.GetEnumValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_profileType>(); } },
+                { "serviceBanner", n => { ServiceBanner = n.GetStringValue(); } },
                 { "serviceBanner_new", n => { ServiceBannerNew = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "services", n => { Services = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_services>(global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_services.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "shortName", n => { ShortName = n.GetStringValue(); } },
@@ -298,10 +320,11 @@ namespace Fegmm.ChurchTools.Profiles
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_address>("address", Address);
+            writer.WriteObjectValue<UntypedNode>("address", Address);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data.ProfilesGetResponse_data_association>("association", Association);
             writer.WriteObjectValue<UntypedNode>("banner", Banner);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data.ProfilesGetResponse_data_denomination>("denomination", Denomination);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_Deprecated>("@deprecated", Deprecated);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("finderUrl", FinderUrl);
@@ -310,12 +333,14 @@ namespace Fegmm.ChurchTools.Profiles
             writer.WriteStringValue("guid", Guid);
             writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("isPublished", IsPublished);
+            writer.WriteBoolValue("isRegistrationOpen", IsRegistrationOpen);
             writer.WriteObjectValue<UntypedNode>("logo", Logo);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_meta>("meta", Meta);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nameTranslated", NameTranslated);
             writer.WriteStringValue("phone", Phone);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_profileType>("profileType", ProfileType);
+            writer.WriteStringValue("serviceBanner", ServiceBanner);
             writer.WriteObjectValue<UntypedNode>("serviceBanner_new", ServiceBannerNew);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Profiles.ProfilesGetResponse_data_services>("services", Services);
             writer.WriteStringValue("shortName", ShortName);

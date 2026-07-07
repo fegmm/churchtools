@@ -159,10 +159,10 @@ namespace Fegmm.ChurchTools.Config
         /// <summary>The auth_cache_time property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthCacheTime { get; set; }
+        public global::Fegmm.ChurchTools.Config.ConfigGetResponse.ConfigGetResponse_auth_cache_time? AuthCacheTime { get; set; }
 #nullable restore
 #else
-        public string AuthCacheTime { get; set; }
+        public global::Fegmm.ChurchTools.Config.ConfigGetResponse.ConfigGetResponse_auth_cache_time AuthCacheTime { get; set; }
 #endif
         /// <summary>The authorized_persons property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -192,6 +192,8 @@ namespace Fegmm.ChurchTools.Config
 #endif
         /// <summary>The ccli_auto_reporting_enabled property</summary>
         public bool? CcliAutoReportingEnabled { get; set; }
+        /// <summary>The ccli_enabled property</summary>
+        public bool? CcliEnabled { get; set; }
         /// <summary>The ccli_last_token_refresh property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -456,8 +458,6 @@ namespace Fegmm.ChurchTools.Config
 #else
         public string ChurchdbEmailseparator { get; set; }
 #endif
-        /// <summary>The churchdb_groupnotchoosable property</summary>
-        public int? ChurchdbGroupnotchoosable { get; set; }
         /// <summary>The churchdb_home_lat property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -595,13 +595,7 @@ namespace Fegmm.ChurchTools.Config
         public string ChurchgroupNameDefault { get; set; }
 #endif
         /// <summary>The churchgroup_sortcode property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ChurchgroupSortcode { get; set; }
-#nullable restore
-#else
-        public string ChurchgroupSortcode { get; set; }
-#endif
+        public int? ChurchgroupSortcode { get; set; }
         /// <summary>The churchreport_active property</summary>
         public bool? ChurchreportActive { get; set; }
         /// <summary>The churchreport_name property</summary>
@@ -717,13 +711,7 @@ namespace Fegmm.ChurchTools.Config
         public string ChurchsyncNameDefault { get; set; }
 #endif
         /// <summary>The churchsync_sortcode property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ChurchsyncSortcode { get; set; }
-#nullable restore
-#else
-        public string ChurchsyncSortcode { get; set; }
-#endif
+        public int? ChurchsyncSortcode { get; set; }
         /// <summary>The churchwiki_active property</summary>
         public bool? ChurchwikiActive { get; set; }
         /// <summary>The churchwiki_name property</summary>
@@ -920,6 +908,8 @@ namespace Fegmm.ChurchTools.Config
         public global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_darkmode? FeatureDarkmode { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
         public global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_dynamic_groups? FeatureDynamicGroups { get; set; }
+        /// <summary>The feature_eubp property</summary>
+        public bool? FeatureEubp { get; set; }
         /// <summary>The feature_event_fact_widget property</summary>
         public bool? FeatureEventFactWidget { get; set; }
         /// <summary>The feature_flags_ui property</summary>
@@ -928,6 +918,8 @@ namespace Fegmm.ChurchTools.Config
         public global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_group? FeatureGroup { get; set; }
         /// <summary>The feature_markdown property</summary>
         public bool? FeatureMarkdown { get; set; }
+        /// <summary>The feature_markdown_group property</summary>
+        public bool? FeatureMarkdownGroup { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
         public global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_mobile_groups? FeatureMobileGroups { get; set; }
         /// <summary>The feature_org_chart_groups property</summary>
@@ -1686,12 +1678,13 @@ namespace Fegmm.ChurchTools.Config
                 { "allowoptigemsync", n => { Allowoptigemsync = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_allowoptigemsync>(); } },
                 { "allowsync", n => { Allowsync = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_allowsync>(); } },
                 { "app_security_request", n => { AppSecurityRequest = n.GetBoolValue(); } },
-                { "auth_cache_time", n => { AuthCacheTime = n.GetStringValue(); } },
+                { "auth_cache_time", n => { AuthCacheTime = n.GetObjectValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse.ConfigGetResponse_auth_cache_time>(global::Fegmm.ChurchTools.Config.ConfigGetResponse.ConfigGetResponse_auth_cache_time.CreateFromDiscriminatorValue); } },
                 { "authorized_persons", n => { AuthorizedPersons = n.GetStringValue(); } },
                 { "brand", n => { Brand = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_brand>(); } },
                 { "build", n => { Build = n.GetStringValue(); } },
                 { "ccli_access_token", n => { CcliAccessToken = n.GetStringValue(); } },
                 { "ccli_auto_reporting_enabled", n => { CcliAutoReportingEnabled = n.GetBoolValue(); } },
+                { "ccli_enabled", n => { CcliEnabled = n.GetBoolValue(); } },
                 { "ccli_last_token_refresh", n => { CcliLastTokenRefresh = n.GetStringValue(); } },
                 { "ccli_refresh_token", n => { CcliRefreshToken = n.GetStringValue(); } },
                 { "chatServer", n => { ChatServer = n.GetStringValue(); } },
@@ -1740,7 +1733,6 @@ namespace Fegmm.ChurchTools.Config
                 { "churchdb_cleverreach_scopes", n => { ChurchdbCleverreachScopes = n.GetStringValue(); } },
                 { "churchdb_cleverreach_token_expiry", n => { ChurchdbCleverreachTokenExpiry = n.GetStringValue(); } },
                 { "churchdb_emailseparator", n => { ChurchdbEmailseparator = n.GetStringValue(); } },
-                { "churchdb_groupnotchoosable", n => { ChurchdbGroupnotchoosable = n.GetIntValue(); } },
                 { "churchdb_home_lat", n => { ChurchdbHomeLat = n.GetStringValue(); } },
                 { "churchdb_home_lng", n => { ChurchdbHomeLng = n.GetStringValue(); } },
                 { "churchdb_mailchimp_apikey", n => { ChurchdbMailchimpApikey = n.GetStringValue(); } },
@@ -1764,7 +1756,7 @@ namespace Fegmm.ChurchTools.Config
                 { "churchgroup_inmenu", n => { ChurchgroupInmenu = n.GetBoolValue(); } },
                 { "churchgroup_name", n => { ChurchgroupName = n.GetStringValue(); } },
                 { "churchgroup_name_default", n => { ChurchgroupNameDefault = n.GetStringValue(); } },
-                { "churchgroup_sortcode", n => { ChurchgroupSortcode = n.GetStringValue(); } },
+                { "churchgroup_sortcode", n => { ChurchgroupSortcode = n.GetIntValue(); } },
                 { "churchreport_active", n => { ChurchreportActive = n.GetBoolValue(); } },
                 { "churchreport_name", n => { ChurchreportName = n.GetStringValue(); } },
                 { "churchreport_name_default", n => { ChurchreportNameDefault = n.GetStringValue(); } },
@@ -1792,7 +1784,7 @@ namespace Fegmm.ChurchTools.Config
                 { "churchsync_inmenu", n => { ChurchsyncInmenu = n.GetBoolValue(); } },
                 { "churchsync_name", n => { ChurchsyncName = n.GetStringValue(); } },
                 { "churchsync_name_default", n => { ChurchsyncNameDefault = n.GetStringValue(); } },
-                { "churchsync_sortcode", n => { ChurchsyncSortcode = n.GetStringValue(); } },
+                { "churchsync_sortcode", n => { ChurchsyncSortcode = n.GetIntValue(); } },
                 { "churchwiki_active", n => { ChurchwikiActive = n.GetBoolValue(); } },
                 { "churchwiki_name", n => { ChurchwikiName = n.GetStringValue(); } },
                 { "churchwiki_name_default", n => { ChurchwikiNameDefault = n.GetStringValue(); } },
@@ -1831,10 +1823,12 @@ namespace Fegmm.ChurchTools.Config
                 { "feature_custommodule", n => { FeatureCustommodule = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_custommodule>(); } },
                 { "feature_darkmode", n => { FeatureDarkmode = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_darkmode>(); } },
                 { "feature_dynamic_groups", n => { FeatureDynamicGroups = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_dynamic_groups>(); } },
+                { "feature_eubp", n => { FeatureEubp = n.GetBoolValue(); } },
                 { "feature_event_fact_widget", n => { FeatureEventFactWidget = n.GetBoolValue(); } },
                 { "feature_flags_ui", n => { FeatureFlagsUi = n.GetBoolValue(); } },
                 { "feature_group", n => { FeatureGroup = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_group>(); } },
                 { "feature_markdown", n => { FeatureMarkdown = n.GetBoolValue(); } },
+                { "feature_markdown_group", n => { FeatureMarkdownGroup = n.GetBoolValue(); } },
                 { "feature_mobile_groups", n => { FeatureMobileGroups = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_mobile_groups>(); } },
                 { "feature_org_chart_groups", n => { FeatureOrgChartGroups = n.GetStringValue(); } },
                 { "feature_posts", n => { FeaturePosts = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_posts>(); } },
@@ -2006,12 +2000,13 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_allowoptigemsync>("allowoptigemsync", Allowoptigemsync);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_allowsync>("allowsync", Allowsync);
             writer.WriteBoolValue("app_security_request", AppSecurityRequest);
-            writer.WriteStringValue("auth_cache_time", AuthCacheTime);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse.ConfigGetResponse_auth_cache_time>("auth_cache_time", AuthCacheTime);
             writer.WriteStringValue("authorized_persons", AuthorizedPersons);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_brand>("brand", Brand);
             writer.WriteStringValue("build", Build);
             writer.WriteStringValue("ccli_access_token", CcliAccessToken);
             writer.WriteBoolValue("ccli_auto_reporting_enabled", CcliAutoReportingEnabled);
+            writer.WriteBoolValue("ccli_enabled", CcliEnabled);
             writer.WriteStringValue("ccli_last_token_refresh", CcliLastTokenRefresh);
             writer.WriteStringValue("ccli_refresh_token", CcliRefreshToken);
             writer.WriteStringValue("chatServer", ChatServer);
@@ -2060,7 +2055,6 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteStringValue("churchdb_cleverreach_scopes", ChurchdbCleverreachScopes);
             writer.WriteStringValue("churchdb_cleverreach_token_expiry", ChurchdbCleverreachTokenExpiry);
             writer.WriteStringValue("churchdb_emailseparator", ChurchdbEmailseparator);
-            writer.WriteIntValue("churchdb_groupnotchoosable", ChurchdbGroupnotchoosable);
             writer.WriteStringValue("churchdb_home_lat", ChurchdbHomeLat);
             writer.WriteStringValue("churchdb_home_lng", ChurchdbHomeLng);
             writer.WriteStringValue("churchdb_mailchimp_apikey", ChurchdbMailchimpApikey);
@@ -2084,7 +2078,7 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteBoolValue("churchgroup_inmenu", ChurchgroupInmenu);
             writer.WriteStringValue("churchgroup_name", ChurchgroupName);
             writer.WriteStringValue("churchgroup_name_default", ChurchgroupNameDefault);
-            writer.WriteStringValue("churchgroup_sortcode", ChurchgroupSortcode);
+            writer.WriteIntValue("churchgroup_sortcode", ChurchgroupSortcode);
             writer.WriteBoolValue("churchreport_active", ChurchreportActive);
             writer.WriteStringValue("churchreport_name", ChurchreportName);
             writer.WriteStringValue("churchreport_name_default", ChurchreportNameDefault);
@@ -2112,7 +2106,7 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteBoolValue("churchsync_inmenu", ChurchsyncInmenu);
             writer.WriteStringValue("churchsync_name", ChurchsyncName);
             writer.WriteStringValue("churchsync_name_default", ChurchsyncNameDefault);
-            writer.WriteStringValue("churchsync_sortcode", ChurchsyncSortcode);
+            writer.WriteIntValue("churchsync_sortcode", ChurchsyncSortcode);
             writer.WriteBoolValue("churchwiki_active", ChurchwikiActive);
             writer.WriteStringValue("churchwiki_name", ChurchwikiName);
             writer.WriteStringValue("churchwiki_name_default", ChurchwikiNameDefault);
@@ -2151,10 +2145,12 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_custommodule>("feature_custommodule", FeatureCustommodule);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_darkmode>("feature_darkmode", FeatureDarkmode);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_dynamic_groups>("feature_dynamic_groups", FeatureDynamicGroups);
+            writer.WriteBoolValue("feature_eubp", FeatureEubp);
             writer.WriteBoolValue("feature_event_fact_widget", FeatureEventFactWidget);
             writer.WriteBoolValue("feature_flags_ui", FeatureFlagsUi);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_group>("feature_group", FeatureGroup);
             writer.WriteBoolValue("feature_markdown", FeatureMarkdown);
+            writer.WriteBoolValue("feature_markdown_group", FeatureMarkdownGroup);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_mobile_groups>("feature_mobile_groups", FeatureMobileGroups);
             writer.WriteStringValue("feature_org_chart_groups", FeatureOrgChartGroups);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_posts>("feature_posts", FeaturePosts);
@@ -2289,6 +2285,67 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteStringValue("welcome_subtext", WelcomeSubtext);
             writer.WriteStringValue("wget_path", WgetPath);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="int"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ConfigGetResponse_auth_cache_time : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? Integer { get; set; }
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Config.ConfigGetResponse.ConfigGetResponse_auth_cache_time"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Config.ConfigGetResponse.ConfigGetResponse_auth_cache_time CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Config.ConfigGetResponse.ConfigGetResponse_auth_cache_time();
+                if(parseNode.GetIntValue() is int integerValue)
+                {
+                    result.Integer = integerValue;
+                }
+                else if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(Integer != null)
+                {
+                    writer.WriteIntValue(null, Integer);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
         }
     }
 }

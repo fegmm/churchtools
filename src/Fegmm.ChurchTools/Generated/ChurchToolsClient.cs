@@ -21,6 +21,7 @@ using Fegmm.ChurchTools.Dbfieldtypes;
 using Fegmm.ChurchTools.Departments;
 using Fegmm.ChurchTools.Domainobjects;
 using Fegmm.ChurchTools.Dynamicgroups;
+using Fegmm.ChurchTools.Emails;
 using Fegmm.ChurchTools.Evangelischetermine;
 using Fegmm.ChurchTools.Event;
 using Fegmm.ChurchTools.Events;
@@ -58,6 +59,7 @@ using Fegmm.ChurchTools.Oauthclients;
 using Fegmm.ChurchTools.Permissions;
 using Fegmm.ChurchTools.Person;
 using Fegmm.ChurchTools.Persons;
+using Fegmm.ChurchTools.Placeholders;
 using Fegmm.ChurchTools.Pollfornews;
 using Fegmm.ChurchTools.Post;
 using Fegmm.ChurchTools.Posts;
@@ -214,6 +216,11 @@ namespace Fegmm.ChurchTools
         public global::Fegmm.ChurchTools.Dynamicgroups.DynamicgroupsRequestBuilder Dynamicgroups
         {
             get => new global::Fegmm.ChurchTools.Dynamicgroups.DynamicgroupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The emails property</summary>
+        public global::Fegmm.ChurchTools.Emails.EmailsRequestBuilder Emails
+        {
+            get => new global::Fegmm.ChurchTools.Emails.EmailsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The evangelischetermine property</summary>
         public global::Fegmm.ChurchTools.Evangelischetermine.EvangelischetermineRequestBuilder Evangelischetermine
@@ -399,6 +406,11 @@ namespace Fegmm.ChurchTools
         public global::Fegmm.ChurchTools.Persons.PersonsRequestBuilder Persons
         {
             get => new global::Fegmm.ChurchTools.Persons.PersonsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The placeholders property</summary>
+        public global::Fegmm.ChurchTools.Placeholders.PlaceholdersRequestBuilder Placeholders
+        {
+            get => new global::Fegmm.ChurchTools.Placeholders.PlaceholdersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The pollfornews property</summary>
         public global::Fegmm.ChurchTools.Pollfornews.PollfornewsRequestBuilder Pollfornews

@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Grouphomepages.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithHashItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/grouphomepages/{hash}", pathParameters)
+        public WithHashItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/grouphomepages/{hash}{?depth*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,29 +29,29 @@ namespace Fegmm.ChurchTools.Grouphomepages.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithHashItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/grouphomepages/{hash}", rawUrl)
+        public WithHashItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/grouphomepages/{hash}{?depth*}", rawUrl)
         {
         }
         /// <summary>
-        /// Get all information necessary to display public groups. The response will provide setting information and all public groups with information for the page.
+        /// Returns the group homepage identified by its random hash. The response contains the page settings, available filter definitions including their options, and the public groups that should be displayed on the page. The optional depth query parameter can limit how many hierarchy levels below the homepage&apos;s parent group are included.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse?> GetAsWithHashGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse?> GetAsWithHashGetResponseAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse> GetAsWithHashGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse> GetAsWithHashGetResponseAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse>(requestInfo, global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all information necessary to display public groups. The response will provide setting information and all public groups with information for the page.
+        /// Returns the group homepage identified by its random hash. The response contains the page settings, available filter definitions including their options, and the public groups that should be displayed on the page. The optional depth query parameter can limit how many hierarchy levels below the homepage&apos;s parent group are included.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -59,28 +59,28 @@ namespace Fegmm.ChurchTools.Grouphomepages.Item
         [Obsolete("This method is obsolete. Use GetAsWithHashGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashResponse?> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashResponse> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashResponse>(requestInfo, global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all information necessary to display public groups. The response will provide setting information and all public groups with information for the page.
+        /// Returns the group homepage identified by its random hash. The response contains the page settings, available filter definitions including their options, and the public groups that should be displayed on the page. The optional depth query parameter can limit how many hierarchy levels below the homepage&apos;s parent group are included.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -98,11 +98,21 @@ namespace Fegmm.ChurchTools.Grouphomepages.Item
             return new global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
+        /// Returns the group homepage identified by its random hash. The response contains the page settings, available filter definitions including their options, and the public groups that should be displayed on the page. The optional depth query parameter can limit how many hierarchy levels below the homepage&apos;s parent group are included.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithHashItemRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Optional hierarchy depth to load below the group homepage&apos;s parent group. If omitted, the stored depth setting of the group homepage is used.</summary>
+            [QueryParameter("depth")]
+            public int? Depth { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithHashItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class WithHashItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Fegmm.ChurchTools.Grouphomepages.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderGetQueryParameters>
         {
         }
     }

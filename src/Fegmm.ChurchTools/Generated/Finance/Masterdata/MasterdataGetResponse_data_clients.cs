@@ -48,6 +48,22 @@ namespace Fegmm.ChurchTools.Finance.Masterdata
 #else
         public string Email { get; set; }
 #endif
+        /// <summary>Business name (Betriebsname) for euBP transmission</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EubpBusinessName { get; set; }
+#nullable restore
+#else
+        public string EubpBusinessName { get; set; }
+#endif
+        /// <summary>Business number (Betriebsnummer) for euBP transmission</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EubpBusinessNumber { get; set; }
+#nullable restore
+#else
+        public string EubpBusinessNumber { get; set; }
+#endif
         /// <summary>The id property</summary>
         public int? Id { get; set; }
         /// <summary>The meta property</summary>
@@ -133,6 +149,8 @@ namespace Fegmm.ChurchTools.Finance.Masterdata
                 { "datevConsultantNumber", n => { DatevConsultantNumber = n.GetStringValue(); } },
                 { "datevSupported", n => { DatevSupported = n.GetBoolValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
+                { "eubpBusinessName", n => { EubpBusinessName = n.GetStringValue(); } },
+                { "eubpBusinessNumber", n => { EubpBusinessNumber = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Finance.Masterdata.MasterdataGetResponse_data_clients_meta>(global::Fegmm.ChurchTools.Finance.Masterdata.MasterdataGetResponse_data_clients_meta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -156,6 +174,8 @@ namespace Fegmm.ChurchTools.Finance.Masterdata
             writer.WriteStringValue("datevConsultantNumber", DatevConsultantNumber);
             writer.WriteBoolValue("datevSupported", DatevSupported);
             writer.WriteStringValue("email", Email);
+            writer.WriteStringValue("eubpBusinessName", EubpBusinessName);
+            writer.WriteStringValue("eubpBusinessNumber", EubpBusinessNumber);
             writer.WriteIntValue("id", Id);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Finance.Masterdata.MasterdataGetResponse_data_clients_meta>("meta", Meta);
             writer.WriteStringValue("name", Name);

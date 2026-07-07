@@ -18,28 +18,28 @@ namespace Fegmm.ChurchTools.Htmltemplates
     public partial class HtmltemplatesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Fegmm.ChurchTools.htmltemplates.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.Item.HtmltemplatesItemRequestBuilder"/></returns>
-        public global::Fegmm.ChurchTools.Htmltemplates.Item.HtmltemplatesItemRequestBuilder this[int position]
+        /// <param name="position">ID of an HTML template</param>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.Item.WithTemplateItemRequestBuilder"/></returns>
+        public global::Fegmm.ChurchTools.Htmltemplates.Item.WithTemplateItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("id", position);
-                return new global::Fegmm.ChurchTools.Htmltemplates.Item.HtmltemplatesItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("templateId", position);
+                return new global::Fegmm.ChurchTools.Htmltemplates.Item.WithTemplateItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>Gets an item from the Fegmm.ChurchTools.htmltemplates.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.Item.HtmltemplatesItemRequestBuilder"/></returns>
+        /// <param name="position">ID of an HTML template</param>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.Item.WithTemplateItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Fegmm.ChurchTools.Htmltemplates.Item.HtmltemplatesItemRequestBuilder this[string position]
+        public global::Fegmm.ChurchTools.Htmltemplates.Item.WithTemplateItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Fegmm.ChurchTools.Htmltemplates.Item.HtmltemplatesItemRequestBuilder(urlTplParams, RequestAdapter);
+                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("templateId", position);
+                return new global::Fegmm.ChurchTools.Htmltemplates.Item.WithTemplateItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace Fegmm.ChurchTools.Htmltemplates
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HtmltemplatesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates", pathParameters)
+        public HtmltemplatesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates{?onlyOwn*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,11 +55,11 @@ namespace Fegmm.ChurchTools.Htmltemplates
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HtmltemplatesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates", rawUrl)
+        public HtmltemplatesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/htmltemplates{?onlyOwn*}", rawUrl)
         {
         }
         /// <summary>
-        /// GET HTML templates of one template type
+        /// Returns the HTML templates of the requested domain type that are visible to the current user. By default this includes own templates and global templates the user may view. Set `onlyOwn` to only return templates owned by the current user.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -77,7 +77,7 @@ namespace Fegmm.ChurchTools.Htmltemplates
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesGetResponse>(requestInfo, global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// GET HTML templates of one template type
+        /// Returns the HTML templates of the requested domain type that are visible to the current user. By default this includes own templates and global templates the user may view. Set `onlyOwn` to only return templates owned by the current user.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -96,7 +96,7 @@ namespace Fegmm.ChurchTools.Htmltemplates
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesResponse>(requestInfo, global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create HTML template
+        /// Creates an HTML template for the given domain type. Templates can contain HTML content, MJML content, or both. When `isGlobal` is omitted, a private template for the current user is created. Some domain types only allow global templates.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -116,7 +116,7 @@ namespace Fegmm.ChurchTools.Htmltemplates
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse>(requestInfo, global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create HTML template
+        /// Creates an HTML template for the given domain type. Templates can contain HTML content, MJML content, or both. When `isGlobal` is omitted, a private template for the current user is created. Some domain types only allow global templates.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -137,7 +137,7 @@ namespace Fegmm.ChurchTools.Htmltemplates
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesResponse>(requestInfo, global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// GET HTML templates of one template type
+        /// Returns the HTML templates of the requested domain type that are visible to the current user. By default this includes own templates and global templates the user may view. Set `onlyOwn` to only return templates owned by the current user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -150,13 +150,13 @@ namespace Fegmm.ChurchTools.Htmltemplates
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesRequestBuilder.HtmltemplatesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/htmltemplates?domain_type={domain_type}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/htmltemplates?domain_type={domain_type}{&onlyOwn*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Create HTML template
+        /// Creates an HTML template for the given domain type. Templates can contain HTML content, MJML content, or both. When `isGlobal` is omitted, a private template for the current user is created. Some domain types only allow global templates.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -187,11 +187,12 @@ namespace Fegmm.ChurchTools.Htmltemplates
             return new global::Fegmm.ChurchTools.Htmltemplates.HtmltemplatesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// GET HTML templates of one template type
+        /// Returns the HTML templates of the requested domain type that are visible to the current user. By default this includes own templates and global templates the user may view. Set `onlyOwn` to only return templates owned by the current user.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class HtmltemplatesRequestBuilderGetQueryParameters 
         {
+            /// <summary>Domain type the HTML templates are used for.</summary>
             [Obsolete("This property is deprecated, use DomainTypeAsGetDomainTypeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -202,8 +203,12 @@ namespace Fegmm.ChurchTools.Htmltemplates
             [QueryParameter("domain_type")]
             public string DomainType { get; set; }
 #endif
+            /// <summary>Domain type the HTML templates are used for.</summary>
             [QueryParameter("domain_type")]
             public global::Fegmm.ChurchTools.Htmltemplates.GetDomain_typeQueryParameterType? DomainTypeAsGetDomainTypeQueryParameterType { get; set; }
+            /// <summary>Only return templates owned by the current user.</summary>
+            [QueryParameter("onlyOwn")]
+            public bool? OnlyOwn { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

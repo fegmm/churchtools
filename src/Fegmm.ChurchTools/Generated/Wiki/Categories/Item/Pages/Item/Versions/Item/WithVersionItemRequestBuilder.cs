@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item
         {
         }
         /// <summary>
-        /// Returns the wiki page with the given identifier and version.
+        /// Returns the wiki page with the given identifier and version number. The identifier may be the page GUID (recommended) or the page title (legacy, for backwards compatibility only).
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionGetResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the wiki page with the given identifier and version.
+        /// Returns the wiki page with the given identifier and version number. The identifier may be the page GUID (recommended) or the page title (legacy, for backwards compatibility only).
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.Versions.Item.WithVersionResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the wiki page with the given identifier and version.
+        /// Returns the wiki page with the given identifier and version number. The identifier may be the page GUID (recommended) or the page title (legacy, for backwards compatibility only).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
