@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Wiki.Pages
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wiki/pages{?limit*,order_directions%5B%5D*,order_fields%5B%5D*,page*,query*,wiki_category_ids%5B%5D*}", pathParameters)
+        public PagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wiki/pages{?include%5B%5D*,limit*,order_directions%5B%5D*,order_fields%5B%5D*,page*,preview_length*,query*,wiki_category_ids%5B%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,11 +29,11 @@ namespace Fegmm.ChurchTools.Wiki.Pages
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wiki/pages{?limit*,order_directions%5B%5D*,order_fields%5B%5D*,page*,query*,wiki_category_ids%5B%5D*}", rawUrl)
+        public PagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/wiki/pages{?include%5B%5D*,limit*,order_directions%5B%5D*,order_fields%5B%5D*,page*,preview_length*,query*,wiki_category_ids%5B%5D*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns a paginated list of latest wiki page versions. The list can be filtered by a search query and wiki category. If `query` is provided, results are ordered by explicit order fields when present, otherwise by the same relevance rules as the wiki search endpoint. If no wiki category is provided, all wiki categories viewable by the current user are searched; categories the user cannot view are silently filtered out.
+        /// Returns a paginated list of latest wiki page versions. The list can be filtered by a search query and wiki category. If `query` is provided, results are ordered by explicit order fields when present, otherwise by the same relevance rules as the wiki search endpoint. If no wiki category is provided, all wiki categories viewable by the current user are searched; categories the user cannot view are silently filtered out. Page content is omitted by default. Use `include[]=text` to request the full page text, or `include[]=preview` to request a bounded text preview.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Pages.PagesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Wiki.Pages
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Pages.PagesGetResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Pages.PagesGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a paginated list of latest wiki page versions. The list can be filtered by a search query and wiki category. If `query` is provided, results are ordered by explicit order fields when present, otherwise by the same relevance rules as the wiki search endpoint. If no wiki category is provided, all wiki categories viewable by the current user are searched; categories the user cannot view are silently filtered out.
+        /// Returns a paginated list of latest wiki page versions. The list can be filtered by a search query and wiki category. If `query` is provided, results are ordered by explicit order fields when present, otherwise by the same relevance rules as the wiki search endpoint. If no wiki category is provided, all wiki categories viewable by the current user are searched; categories the user cannot view are silently filtered out. Page content is omitted by default. Use `include[]=text` to request the full page text, or `include[]=preview` to request a bounded text preview.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Wiki.Pages.PagesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Wiki.Pages
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Wiki.Pages.PagesResponse>(requestInfo, global::Fegmm.ChurchTools.Wiki.Pages.PagesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a paginated list of latest wiki page versions. The list can be filtered by a search query and wiki category. If `query` is provided, results are ordered by explicit order fields when present, otherwise by the same relevance rules as the wiki search endpoint. If no wiki category is provided, all wiki categories viewable by the current user are searched; categories the user cannot view are silently filtered out.
+        /// Returns a paginated list of latest wiki page versions. The list can be filtered by a search query and wiki category. If `query` is provided, results are ordered by explicit order fields when present, otherwise by the same relevance rules as the wiki search endpoint. If no wiki category is provided, all wiki categories viewable by the current user are searched; categories the user cannot view are silently filtered out. Page content is omitted by default. Use `include[]=text` to request the full page text, or `include[]=preview` to request a bounded text preview.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,11 +98,32 @@ namespace Fegmm.ChurchTools.Wiki.Pages
             return new global::Fegmm.ChurchTools.Wiki.Pages.PagesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a paginated list of latest wiki page versions. The list can be filtered by a search query and wiki category. If `query` is provided, results are ordered by explicit order fields when present, otherwise by the same relevance rules as the wiki search endpoint. If no wiki category is provided, all wiki categories viewable by the current user are searched; categories the user cannot view are silently filtered out.
+        /// Returns a paginated list of latest wiki page versions. The list can be filtered by a search query and wiki category. If `query` is provided, results are ordered by explicit order fields when present, otherwise by the same relevance rules as the wiki search endpoint. If no wiki category is provided, all wiki categories viewable by the current user are searched; categories the user cannot view are silently filtered out. Page content is omitted by default. Use `include[]=text` to request the full page text, or `include[]=preview` to request a bounded text preview.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PagesRequestBuilderGetQueryParameters 
         {
+            /// <summary>Optional content fields to include. Without this parameter, page content is omitted. Use `text` for full raw page text and `preview` for a bounded coarse text preview.</summary>
+            [Obsolete("This property is deprecated, use IncludeAsGetIncludeQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("include%5B%5D")]
+            public string[]? Include { get; set; }
+#nullable restore
+#else
+            [QueryParameter("include%5B%5D")]
+            public string[] Include { get; set; }
+#endif
+            /// <summary>Optional content fields to include. Without this parameter, page content is omitted. Use `text` for full raw page text and `preview` for a bounded coarse text preview.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("include%5B%5D")]
+            public global::Fegmm.ChurchTools.Wiki.Pages.GetIncludeQueryParameterType[]? IncludeAsGetIncludeQueryParameterType { get; set; }
+#nullable restore
+#else
+            [QueryParameter("include%5B%5D")]
+            public global::Fegmm.ChurchTools.Wiki.Pages.GetIncludeQueryParameterType[] IncludeAsGetIncludeQueryParameterType { get; set; }
+#endif
             /// <summary>Number of results per page.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
@@ -151,6 +172,9 @@ namespace Fegmm.ChurchTools.Wiki.Pages
             /// <summary>Page number to show page in pagination. If empty, start at first page.</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
+            /// <summary>Maximum number of characters returned in `textPreview` when `include[]=preview` is requested. Ignored without `include[]=preview`.</summary>
+            [QueryParameter("preview_length")]
+            public int? PreviewLength { get; set; }
             /// <summary>Search term for page titles and content. If provided, results are ordered by search relevance unless explicit order fields are given.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

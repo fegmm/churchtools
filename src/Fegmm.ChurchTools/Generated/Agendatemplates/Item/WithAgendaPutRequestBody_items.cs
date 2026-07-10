@@ -35,6 +35,14 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item
 #else
         public string Responsible { get; set; }
 #endif
+        /// <summary>Array of notes per service group</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Agendatemplates.Item.WithAgendaPutRequestBody_items_serviceGroupNotes>? ServiceGroupNotes { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Agendatemplates.Item.WithAgendaPutRequestBody_items_serviceGroupNotes> ServiceGroupNotes { get; set; }
+#endif
         /// <summary>The title of the agenda item</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,6 +82,7 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item
                 { "duration", n => { Duration = n.GetIntValue(); } },
                 { "note", n => { Note = n.GetStringValue(); } },
                 { "responsible", n => { Responsible = n.GetStringValue(); } },
+                { "serviceGroupNotes", n => { ServiceGroupNotes = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Agendatemplates.Item.WithAgendaPutRequestBody_items_serviceGroupNotes>(global::Fegmm.ChurchTools.Agendatemplates.Item.WithAgendaPutRequestBody_items_serviceGroupNotes.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Fegmm.ChurchTools.Agendatemplates.Item.WithAgendaPutRequestBody_items_type>(); } },
             };
@@ -89,6 +98,7 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item
             writer.WriteIntValue("duration", Duration);
             writer.WriteStringValue("note", Note);
             writer.WriteStringValue("responsible", Responsible);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Agendatemplates.Item.WithAgendaPutRequestBody_items_serviceGroupNotes>("serviceGroupNotes", ServiceGroupNotes);
             writer.WriteStringValue("title", Title);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Agendatemplates.Item.WithAgendaPutRequestBody_items_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

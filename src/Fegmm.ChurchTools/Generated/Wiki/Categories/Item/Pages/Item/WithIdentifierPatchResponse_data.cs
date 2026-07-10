@@ -67,7 +67,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
 #else
         public string RedirectTo { get; set; }
 #endif
-        /// <summary>Present when the page list endpoint is called with a search query.</summary>
+        /// <summary>Query-focused preview snippet. Present when the page list endpoint is called with a search query.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SearchPreview { get; set; }
@@ -75,13 +75,21 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
 #else
         public string SearchPreview { get; set; }
 #endif
-        /// <summary>The text property</summary>
+        /// <summary>Page text. Present in the all-pages endpoint only when `include[]=text` is requested.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Text { get; set; }
 #nullable restore
 #else
         public string Text { get; set; }
+#endif
+        /// <summary>Start-of-page preview from normalized page text. Present in the all-pages endpoint only when `include[]=preview` is requested.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TextPreview { get; set; }
+#nullable restore
+#else
+        public string TextPreview { get; set; }
 #endif
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -136,6 +144,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
                 { "redirectTo", n => { RedirectTo = n.GetStringValue(); } },
                 { "searchPreview", n => { SearchPreview = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
+                { "textPreview", n => { TextPreview = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetIntValue(); } },
                 { "wikiCategory", n => { WikiCategory = n.GetObjectValue<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchResponse_data_wikiCategory>(global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchResponse_data_wikiCategory.CreateFromDiscriminatorValue); } },
@@ -158,6 +167,7 @@ namespace Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item
             writer.WriteStringValue("redirectTo", RedirectTo);
             writer.WriteStringValue("searchPreview", SearchPreview);
             writer.WriteStringValue("text", Text);
+            writer.WriteStringValue("textPreview", TextPreview);
             writer.WriteStringValue("title", Title);
             writer.WriteIntValue("version", Version);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Wiki.Categories.Item.Pages.Item.WithIdentifierPatchResponse_data_wikiCategory>("wikiCategory", WikiCategory);
