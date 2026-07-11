@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$OpenApiUrl = "https://demo.church.tools/system/runtime/swagger/openapi.json"
+$OpenApiUrl = "https://fegmm.church.tools/system/runtime/swagger/openapi.json"
 $EtagFile = ".openapi-etag"
 $OpenApiFile = "openapi.json"
 $OutputFolder = "src/Fegmm.ChurchTools/Generated"
