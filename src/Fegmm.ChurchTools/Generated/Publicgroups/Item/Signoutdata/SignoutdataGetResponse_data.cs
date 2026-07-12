@@ -37,10 +37,10 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Signoutdata
         /// <summary>The requester property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_requester? Requester { get; set; }
+        public UntypedNode? Requester { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_requester Requester { get; set; }
+        public UntypedNode Requester { get; set; }
 #endif
         /// <summary>The requesterEmail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,7 +95,7 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Signoutdata
                 { "groupHasAutoAccept", n => { GroupHasAutoAccept = n.GetBoolValue(); } },
                 { "leaderSignOutPersons", n => { LeaderSignOutPersons = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_leaderSignOutPersons>(global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_leaderSignOutPersons.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "noUserCreated", n => { NoUserCreated = n.GetBoolValue(); } },
-                { "requester", n => { Requester = n.GetObjectValue<global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_requester>(global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_requester.CreateFromDiscriminatorValue); } },
+                { "requester", n => { Requester = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "requesterEmail", n => { RequesterEmail = n.GetStringValue(); } },
                 { "selfSignOutPersons", n => { SelfSignOutPersons = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_selfSignOutPersons>(global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_selfSignOutPersons.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
@@ -112,7 +112,7 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Signoutdata
             writer.WriteBoolValue("groupHasAutoAccept", GroupHasAutoAccept);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_leaderSignOutPersons>("leaderSignOutPersons", LeaderSignOutPersons);
             writer.WriteBoolValue("noUserCreated", NoUserCreated);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_requester>("requester", Requester);
+            writer.WriteObjectValue<UntypedNode>("requester", Requester);
             writer.WriteStringValue("requesterEmail", RequesterEmail);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Publicgroups.Item.Signoutdata.SignoutdataGetResponse_data_selfSignOutPersons>("selfSignOutPersons", SelfSignOutPersons);
             writer.WriteStringValue("token", Token);

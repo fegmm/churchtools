@@ -14,8 +14,28 @@ namespace Fegmm.ChurchTools.Tags.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>A color in ChurchTools</summary>
+        public global::Fegmm.ChurchTools.Tags.Item.DomainTypePutResponse_data_color? Color { get; set; }
         /// <summary>The count property</summary>
         public int? Count { get; set; }
+        /// <summary>The description property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
+        /// <summary>The id property</summary>
+        public int? Id { get; set; }
+        /// <summary>The name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Tags.Item.DomainTypePutResponse_data"/> and sets the default values.
         /// </summary>
@@ -41,7 +61,11 @@ namespace Fegmm.ChurchTools.Tags.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "color", n => { Color = n.GetEnumValue<global::Fegmm.ChurchTools.Tags.Item.DomainTypePutResponse_data_color>(); } },
                 { "count", n => { Count = n.GetIntValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -51,7 +75,11 @@ namespace Fegmm.ChurchTools.Tags.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Tags.Item.DomainTypePutResponse_data_color>("color", Color);
             writer.WriteIntValue("count", Count);
+            writer.WriteStringValue("description", Description);
+            writer.WriteIntValue("id", Id);
+            writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

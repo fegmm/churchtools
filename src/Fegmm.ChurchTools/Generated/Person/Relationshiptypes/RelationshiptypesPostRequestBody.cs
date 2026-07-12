@@ -14,6 +14,44 @@ namespace Fegmm.ChurchTools.Person.Relationshiptypes
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Name of degree A (e.g. Parent)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DegreeNameA { get; set; }
+#nullable restore
+#else
+        public string DegreeNameA { get; set; }
+#endif
+        /// <summary>Name of degree B (e.g. Child)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DegreeNameB { get; set; }
+#nullable restore
+#else
+        public string DegreeNameB { get; set; }
+#endif
+        /// <summary>Title for export</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExportTitle { get; set; }
+#nullable restore
+#else
+        public string ExportTitle { get; set; }
+#endif
+        /// <summary>Include in export</summary>
+        public bool? IncludeInExport { get; set; }
+        /// <summary>Name of relationship type</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
+        /// <summary>Security level ID</summary>
+        public int? SecurityLevelId { get; set; }
+        /// <summary>Sort key for ordering</summary>
+        public int? SortKey { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Person.Relationshiptypes.RelationshiptypesPostRequestBody"/> and sets the default values.
         /// </summary>
@@ -39,6 +77,13 @@ namespace Fegmm.ChurchTools.Person.Relationshiptypes
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "degreeNameA", n => { DegreeNameA = n.GetStringValue(); } },
+                { "degreeNameB", n => { DegreeNameB = n.GetStringValue(); } },
+                { "exportTitle", n => { ExportTitle = n.GetStringValue(); } },
+                { "includeInExport", n => { IncludeInExport = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "securityLevelId", n => { SecurityLevelId = n.GetIntValue(); } },
+                { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -48,6 +93,13 @@ namespace Fegmm.ChurchTools.Person.Relationshiptypes
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("degreeNameA", DegreeNameA);
+            writer.WriteStringValue("degreeNameB", DegreeNameB);
+            writer.WriteStringValue("exportTitle", ExportTitle);
+            writer.WriteBoolValue("includeInExport", IncludeInExport);
+            writer.WriteStringValue("name", Name);
+            writer.WriteIntValue("securityLevelId", SecurityLevelId);
+            writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
