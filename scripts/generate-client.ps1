@@ -34,6 +34,10 @@ if ([string]::IsNullOrEmpty($currentEtag)) {
 Write-Host "Downloading the latest OpenAPI specification..."
 Invoke-WebRequest -Uri $OpenApiUrl -OutFile $OpenApiFile -UseBasicParsing
 
+Write-Host "Preprocessing OpenAPI specification for Kiota compatibility..."
+# Run the allOf fix script
+dotnet run ./scripts/fix-openapi-allof.cs $OpenApiFile
+
 Write-Host "Generating Kiota C# Client..."
 # Ensure the output directory is clean if needed, Kiota usually overwrites but it's safe to just run it:
 kiota generate -l CSharp -c $ClientClassName -n $Namespace -d $OpenApiFile -o $OutputFolder --clean-output
