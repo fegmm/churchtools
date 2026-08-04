@@ -50,7 +50,7 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Items.Item.Servicegroups.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Add or update a service group note for an agenda template item.
+        /// Add or update a service group note for an agenda template item. Sending an empty body removes the note, but the DELETE endpoint should be used for explicit deletion.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -88,7 +88,7 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Items.Item.Servicegroups.Item
             return requestInfo;
         }
         /// <summary>
-        /// Add or update a service group note for an agenda template item.
+        /// Add or update a service group note for an agenda template item. Sending an empty body removes the note, but the DELETE endpoint should be used for explicit deletion.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

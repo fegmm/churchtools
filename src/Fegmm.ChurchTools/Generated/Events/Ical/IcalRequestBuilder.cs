@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Events.Ical
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IcalRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/events/ical", pathParameters)
+        public IcalRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/events/ical?personId={personId}", pathParameters)
         {
         }
         /// <summary>
@@ -29,9 +29,12 @@ namespace Fegmm.ChurchTools.Events.Ical
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IcalRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/events/ical", rawUrl)
+        public IcalRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/events/ical?personId={personId}", rawUrl)
         {
         }
+        /// <summary>
+        /// Returns the roster iCal subscription setting for the requested person. If no roster secret exists yet, the endpoint creates one and returns the setting together with the generated iCal URL in `meta.iCalUrl`.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Ical.IcalGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,6 +50,9 @@ namespace Fegmm.ChurchTools.Events.Ical
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Ical.IcalGetResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Ical.IcalGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns the roster iCal subscription setting for the requested person. If no roster secret exists yet, the endpoint creates one and returns the setting together with the generated iCal URL in `meta.iCalUrl`.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Ical.IcalResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -63,37 +69,46 @@ namespace Fegmm.ChurchTools.Events.Ical
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Ical.IcalResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Ical.IcalResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Creates a new roster iCal subscription secret for the requested person and returns the updated setting plus the generated iCal URL. Existing roster links for that person are replaced by the newly created secret.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Ical.IcalPostResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Events.Ical.IcalPostResponse?> PostAsIcalPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Events.Ical.IcalPostResponse?> PostAsIcalPostResponseAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Ical.IcalRequestBuilder.IcalRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Events.Ical.IcalPostResponse> PostAsIcalPostResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Events.Ical.IcalPostResponse> PostAsIcalPostResponseAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Ical.IcalRequestBuilder.IcalRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Ical.IcalPostResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Ical.IcalPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Creates a new roster iCal subscription secret for the requested person and returns the updated setting plus the generated iCal URL. Existing roster links for that person are replaced by the newly created secret.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Ical.IcalResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PostAsIcalPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Events.Ical.IcalResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Events.Ical.IcalResponse?> PostAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Ical.IcalRequestBuilder.IcalRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Events.Ical.IcalResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Events.Ical.IcalResponse> PostAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Ical.IcalRequestBuilder.IcalRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Ical.IcalResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Ical.IcalResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns the roster iCal subscription setting for the requested person. If no roster secret exists yet, the endpoint creates one and returns the setting together with the generated iCal URL in `meta.iCalUrl`.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -105,20 +120,23 @@ namespace Fegmm.ChurchTools.Events.Ical
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Ical.IcalRequestBuilder.IcalRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/events/ical?personId={personId}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
+        /// <summary>
+        /// Creates a new roster iCal subscription secret for the requested person and returns the updated setting plus the generated iCal URL. Existing roster links for that person are replaced by the newly created secret.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Ical.IcalRequestBuilder.IcalRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Ical.IcalRequestBuilder.IcalRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
@@ -135,10 +153,11 @@ namespace Fegmm.ChurchTools.Events.Ical
         {
             return new global::Fegmm.ChurchTools.Events.Ical.IcalRequestBuilder(rawUrl, RequestAdapter);
         }
+        /// <summary>
+        /// Returns the roster iCal subscription setting for the requested person. If no roster secret exists yet, the endpoint creates one and returns the setting together with the generated iCal URL in `meta.iCalUrl`.
+        /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        #pragma warning disable CS1591
         public partial class IcalRequestBuilderGetQueryParameters 
-        #pragma warning restore CS1591
         {
             [QueryParameter("personId")]
             public int? PersonId { get; set; }
@@ -152,11 +171,21 @@ namespace Fegmm.ChurchTools.Events.Ical
         {
         }
         /// <summary>
+        /// Creates a new roster iCal subscription secret for the requested person and returns the updated setting plus the generated iCal URL. Existing roster links for that person are replaced by the newly created secret.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class IcalRequestBuilderPostQueryParameters 
+        {
+            /// <summary>Person ID to create a new iCal roster link for.</summary>
+            [QueryParameter("personId")]
+            public int? PersonId { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class IcalRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class IcalRequestBuilderPostRequestConfiguration : RequestConfiguration<global::Fegmm.ChurchTools.Events.Ical.IcalRequestBuilder.IcalRequestBuilderPostQueryParameters>
         {
         }
     }

@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons
         {
         }
         /// <summary>
-        /// Gets a list of all possible persons for a service with their availability
+        /// Gets all persons that can potentially be assigned to the specified service of an event. The response includes availability information, service history, and conflicts that help decide whether a person is a good candidate for the service request.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets a list of all possible persons for a service with their availability
+        /// Gets all persons that can potentially be assigned to the specified service of an event. The response includes availability information, service history, and conflicts that help decide whether a person is a good candidate for the service request.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets a list of all possible persons for a service with their availability
+        /// Gets all persons that can potentially be assigned to the specified service of an event. The response includes availability information, service history, and conflicts that help decide whether a person is a good candidate for the service request.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

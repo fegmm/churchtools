@@ -15,6 +15,14 @@ namespace Fegmm.ChurchTools.Events.Facts
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Deprecated { get; set; }
+#nullable restore
+#else
+        public string Deprecated { get; set; }
+#endif
         /// <summary>The eventId property</summary>
         public int? EventId { get; set; }
         /// <summary>The factId property</summary>
@@ -66,6 +74,7 @@ namespace Fegmm.ChurchTools.Events.Facts
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "@deprecated", n => { Deprecated = n.GetStringValue(); } },
                 { "eventId", n => { EventId = n.GetIntValue(); } },
                 { "factId", n => { FactId = n.GetIntValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Facts.FactsGetResponse_data_meta>(global::Fegmm.ChurchTools.Events.Facts.FactsGetResponse_data_meta.CreateFromDiscriminatorValue); } },
@@ -81,6 +90,7 @@ namespace Fegmm.ChurchTools.Events.Facts
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("@deprecated", Deprecated);
             writer.WriteIntValue("eventId", EventId);
             writer.WriteIntValue("factId", FactId);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Facts.FactsGetResponse_data_meta>("meta", Meta);

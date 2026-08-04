@@ -7,14 +7,15 @@ using System.IO;
 using System;
 namespace Fegmm.ChurchTools.Pr.Masterdata
 {
+    /// <summary>
+    /// Master data used by the public relations and public profile UI.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class MasterdataGetResponse_data : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The associations property</summary>
+        /// <summary>Associations that can be assigned to a public profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_associations>? Associations { get; set; }
@@ -22,7 +23,7 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
 #else
         public List<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_associations> Associations { get; set; }
 #endif
-        /// <summary>The denominations property</summary>
+        /// <summary>Denominations that can be assigned to a public profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_denominations>? Denominations { get; set; }
@@ -30,7 +31,7 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
 #else
         public List<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_denominations> Denominations { get; set; }
 #endif
-        /// <summary>The groupHomepages property</summary>
+        /// <summary>Public group homepages with their owning group IDs and URLs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_groupHomepages>? GroupHomepages { get; set; }
@@ -38,15 +39,15 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
 #else
         public List<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_groupHomepages> GroupHomepages { get; set; }
 #endif
-        /// <summary>The socialMedia property</summary>
+        /// <summary>Supported social media channels for public profile links.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SocialMedia { get; set; }
+        public List<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_socialMedia?>? SocialMedia { get; set; }
 #nullable restore
 #else
-        public List<string> SocialMedia { get; set; }
+        public List<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_socialMedia?> SocialMedia { get; set; }
 #endif
-        /// <summary>The tags property</summary>
+        /// <summary>Tags that can describe a public profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_tags>? Tags { get; set; }
@@ -82,7 +83,7 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
                 { "associations", n => { Associations = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_associations>(global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_associations.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "denominations", n => { Denominations = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_denominations>(global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_denominations.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "groupHomepages", n => { GroupHomepages = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_groupHomepages>(global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_groupHomepages.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "socialMedia", n => { SocialMedia = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "socialMedia", n => { SocialMedia = n.GetCollectionOfEnumValues<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_socialMedia>()?.AsList(); } },
                 { "tags", n => { Tags = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_tags>(global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_tags.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -96,7 +97,7 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_associations>("associations", Associations);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_denominations>("denominations", Denominations);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_groupHomepages>("groupHomepages", GroupHomepages);
-            writer.WriteCollectionOfPrimitiveValues<string>("socialMedia", SocialMedia);
+            writer.WriteCollectionOfEnumValues<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_socialMedia>("socialMedia", SocialMedia);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_tags>("tags", Tags);
             writer.WriteAdditionalData(AdditionalData);
         }

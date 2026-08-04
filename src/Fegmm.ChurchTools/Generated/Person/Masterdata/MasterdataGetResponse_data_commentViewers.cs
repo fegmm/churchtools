@@ -32,6 +32,8 @@ namespace Fegmm.ChurchTools.Person.Masterdata
 #else
         public string NameTranslated { get; set; }
 #endif
+        /// <summary>Position of the comment viewer group in sorted lists</summary>
+        public int? SortKey { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Person.Masterdata.MasterdataGetResponse_data_commentViewers"/> and sets the default values.
         /// </summary>
@@ -60,6 +62,7 @@ namespace Fegmm.ChurchTools.Person.Masterdata
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
+                { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -72,6 +75,7 @@ namespace Fegmm.ChurchTools.Person.Masterdata
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nameTranslated", NameTranslated);
+            writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

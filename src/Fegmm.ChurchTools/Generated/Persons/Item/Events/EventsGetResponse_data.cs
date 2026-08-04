@@ -34,6 +34,14 @@ namespace Fegmm.ChurchTools.Persons.Item.Events
 #endif
         /// <summary>status of chat room</summary>
         public global::Fegmm.ChurchTools.Persons.Item.Events.EventsGetResponse_data_chatStatus? ChatStatus { get; set; }
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Deprecated { get; set; }
+#nullable restore
+#else
+        public string Deprecated { get; set; }
+#endif
         /// <summary>The description property</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,6 +106,14 @@ namespace Fegmm.ChurchTools.Persons.Item.Events
 #else
         public string Note { get; set; }
 #endif
+        /// <summary>The permissions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Persons.Item.Events.EventsGetResponse_data_permissions? Permissions { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Persons.Item.Events.EventsGetResponse_data_permissions Permissions { get; set; }
+#endif
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? StartDate { get; set; }
         /// <summary>
@@ -129,6 +145,7 @@ namespace Fegmm.ChurchTools.Persons.Item.Events
                 { "appointmentId", n => { AppointmentId = n.GetIntValue(); } },
                 { "calendar", n => { Calendar = n.GetObjectValue<global::Fegmm.ChurchTools.Persons.Item.Events.EventsGetResponse_data_calendar>(global::Fegmm.ChurchTools.Persons.Item.Events.EventsGetResponse_data_calendar.CreateFromDiscriminatorValue); } },
                 { "chatStatus", n => { ChatStatus = n.GetEnumValue<global::Fegmm.ChurchTools.Persons.Item.Events.EventsGetResponse_data_chatStatus>(); } },
+                { "@deprecated", n => { Deprecated = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "endDate", n => { EndDate = n.GetDateTimeOffsetValue(); } },
                 { "eventAdminIds", n => { EventAdminIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
@@ -139,6 +156,7 @@ namespace Fegmm.ChurchTools.Persons.Item.Events
                 { "isCanceled", n => { IsCanceled = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "note", n => { Note = n.GetStringValue(); } },
+                { "permissions", n => { Permissions = n.GetObjectValue<global::Fegmm.ChurchTools.Persons.Item.Events.EventsGetResponse_data_permissions>(global::Fegmm.ChurchTools.Persons.Item.Events.EventsGetResponse_data_permissions.CreateFromDiscriminatorValue); } },
                 { "startDate", n => { StartDate = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -153,6 +171,7 @@ namespace Fegmm.ChurchTools.Persons.Item.Events
             writer.WriteIntValue("appointmentId", AppointmentId);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Item.Events.EventsGetResponse_data_calendar>("calendar", Calendar);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Persons.Item.Events.EventsGetResponse_data_chatStatus>("chatStatus", ChatStatus);
+            writer.WriteStringValue("@deprecated", Deprecated);
             writer.WriteStringValue("description", Description);
             writer.WriteDateTimeOffsetValue("endDate", EndDate);
             writer.WriteCollectionOfPrimitiveValues<int?>("eventAdminIds", EventAdminIds);
@@ -163,6 +182,7 @@ namespace Fegmm.ChurchTools.Persons.Item.Events
             writer.WriteBoolValue("isCanceled", IsCanceled);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("note", Note);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Persons.Item.Events.EventsGetResponse_data_permissions>("permissions", Permissions);
             writer.WriteDateTimeOffsetValue("startDate", StartDate);
             writer.WriteAdditionalData(AdditionalData);
         }

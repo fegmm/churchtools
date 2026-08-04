@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Departments
         {
         }
         /// <summary>
-        /// Get all departments
+        /// Returns all departments that the current user may see. Departments are used as person-related master data and the response includes a `meta` count with the number of returned entries.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Departments.DepartmentsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Departments
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Departments.DepartmentsGetResponse>(requestInfo, global::Fegmm.ChurchTools.Departments.DepartmentsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all departments
+        /// Returns all departments that the current user may see. Departments are used as person-related master data and the response includes a `meta` count with the number of returned entries.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Departments.DepartmentsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Departments
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Departments.DepartmentsResponse>(requestInfo, global::Fegmm.ChurchTools.Departments.DepartmentsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get all departments
+        /// Returns all departments that the current user may see. Departments are used as person-related master data and the response includes a `meta` count with the number of returned entries.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

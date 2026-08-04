@@ -22,6 +22,14 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Item.Item
 #else
         public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment Appointment { get; set; }
 #endif
+        /// <summary>The base property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_base? Base { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_base Base { get; set; }
+#endif
         /// <summary>The bookings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,21 +38,37 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Item.Item
 #else
         public List<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_bookings> Bookings { get; set; }
 #endif
-        /// <summary>Event as Domain Object</summary>
+        /// <summary>The calculated property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_event? Event { get; set; }
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_calculated? Calculated { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_event Event { get; set; }
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_calculated Calculated { get; set; }
+#endif
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_Deprecated Deprecated { get; set; }
+#endif
+        /// <summary>The event property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UntypedNode? Event { get; set; }
+#nullable restore
+#else
+        public UntypedNode Event { get; set; }
 #endif
         /// <summary>The group property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_group? Group { get; set; }
+        public UntypedNode? Group { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_group Group { get; set; }
+        public UntypedNode Group { get; set; }
 #endif
         /// <summary>The meetingRequests property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -80,9 +104,12 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Item.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "appointment", n => { Appointment = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment.CreateFromDiscriminatorValue); } },
+                { "base", n => { Base = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_base>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_base.CreateFromDiscriminatorValue); } },
                 { "bookings", n => { Bookings = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_bookings>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_bookings.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "event", n => { Event = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_event>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_event.CreateFromDiscriminatorValue); } },
-                { "group", n => { Group = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_group>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_group.CreateFromDiscriminatorValue); } },
+                { "calculated", n => { Calculated = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_calculated>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_calculated.CreateFromDiscriminatorValue); } },
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_Deprecated>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_Deprecated.CreateFromDiscriminatorValue); } },
+                { "event", n => { Event = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "group", n => { Group = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "meetingRequests", n => { MeetingRequests = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_meetingRequests>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_meetingRequests.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -94,9 +121,12 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Item.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment>("appointment", Appointment);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_base>("base", Base);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_bookings>("bookings", Bookings);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_event>("event", Event);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_group>("group", Group);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_calculated>("calculated", Calculated);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_Deprecated>("@deprecated", Deprecated);
+            writer.WriteObjectValue<UntypedNode>("event", Event);
+            writer.WriteObjectValue<UntypedNode>("group", Group);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_meetingRequests>("meetingRequests", MeetingRequests);
             writer.WriteAdditionalData(AdditionalData);
         }

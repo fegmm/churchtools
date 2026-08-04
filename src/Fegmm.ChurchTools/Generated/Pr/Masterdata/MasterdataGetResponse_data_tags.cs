@@ -14,23 +14,11 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The key property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Key { get; set; }
-#nullable restore
-#else
-        public string Key { get; set; }
-#endif
-        /// <summary>The name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
-#endif
-        /// <summary>The nameTranslated property</summary>
+        /// <summary>Technical enum case name used by ChurchTools.</summary>
+        public global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_tags_key? Key { get; set; }
+        /// <summary>Translation key of the public relation profile tag.</summary>
+        public global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_tags_name? Name { get; set; }
+        /// <summary>Localized public relation profile tag name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NameTranslated { get; set; }
@@ -63,8 +51,8 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "key", n => { Key = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "key", n => { Key = n.GetEnumValue<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_tags_key>(); } },
+                { "name", n => { Name = n.GetEnumValue<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_tags_name>(); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
             };
         }
@@ -75,8 +63,8 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("key", Key);
-            writer.WriteStringValue("name", Name);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_tags_key>("key", Key);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_tags_name>("name", Name);
             writer.WriteStringValue("nameTranslated", NameTranslated);
             writer.WriteAdditionalData(AdditionalData);
         }

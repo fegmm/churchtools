@@ -22,53 +22,13 @@ namespace Fegmm.ChurchTools.Events.Item
 #else
         public List<int?> AdminIds { get; set; }
 #endif
-        /// <summary>The appointmentId property</summary>
-        public int? AppointmentId { get; set; }
-        /// <summary>Calendar as Domain Object</summary>
+        /// <summary>The appointment property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_calendar? Calendar { get; set; }
+        public global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_appointment? Appointment { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_calendar Calendar { get; set; }
-#endif
-        /// <summary>status of chat room</summary>
-        public global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_chatStatus? ChatStatus { get; set; }
-        /// <summary>The description property</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Description { get; set; }
-#nullable restore
-#else
-        public string Description { get; set; }
-#endif
-        /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
-        public DateTimeOffset? EndDate { get; set; }
-        /// <summary>The eventAdminIds property</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<int?>? EventAdminIds { get; set; }
-#nullable restore
-#else
-        public List<int?> EventAdminIds { get; set; }
-#endif
-        /// <summary>The eventFiles property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventFiles>? EventFiles { get; set; }
-#nullable restore
-#else
-        public List<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventFiles> EventFiles { get; set; }
-#endif
-        /// <summary>to include set query-param `include=eventServices`</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventServices>? EventServices { get; set; }
-#nullable restore
-#else
-        public List<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventServices> EventServices { get; set; }
+        public global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_appointment Appointment { get; set; }
 #endif
         /// <summary>The guid property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,14 +42,6 @@ namespace Fegmm.ChurchTools.Events.Item
         public int? Id { get; set; }
         /// <summary>The isCanceled property</summary>
         public bool? IsCanceled { get; set; }
-        /// <summary>The name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
-#endif
         /// <summary>The note property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,8 +50,6 @@ namespace Fegmm.ChurchTools.Events.Item
 #else
         public string Note { get; set; }
 #endif
-        /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
-        public DateTimeOffset? StartDate { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data"/> and sets the default values.
         /// </summary>
@@ -126,20 +76,11 @@ namespace Fegmm.ChurchTools.Events.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "adminIds", n => { AdminIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
-                { "appointmentId", n => { AppointmentId = n.GetIntValue(); } },
-                { "calendar", n => { Calendar = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_calendar>(global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_calendar.CreateFromDiscriminatorValue); } },
-                { "chatStatus", n => { ChatStatus = n.GetEnumValue<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_chatStatus>(); } },
-                { "description", n => { Description = n.GetStringValue(); } },
-                { "endDate", n => { EndDate = n.GetDateTimeOffsetValue(); } },
-                { "eventAdminIds", n => { EventAdminIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
-                { "eventFiles", n => { EventFiles = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventFiles>(global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventFiles.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "eventServices", n => { EventServices = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventServices>(global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventServices.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "appointment", n => { Appointment = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_appointment>(global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_appointment.CreateFromDiscriminatorValue); } },
                 { "guid", n => { Guid = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "isCanceled", n => { IsCanceled = n.GetBoolValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
                 { "note", n => { Note = n.GetStringValue(); } },
-                { "startDate", n => { StartDate = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -150,20 +91,11 @@ namespace Fegmm.ChurchTools.Events.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<int?>("adminIds", AdminIds);
-            writer.WriteIntValue("appointmentId", AppointmentId);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_calendar>("calendar", Calendar);
-            writer.WriteEnumValue<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_chatStatus>("chatStatus", ChatStatus);
-            writer.WriteStringValue("description", Description);
-            writer.WriteDateTimeOffsetValue("endDate", EndDate);
-            writer.WriteCollectionOfPrimitiveValues<int?>("eventAdminIds", EventAdminIds);
-            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventFiles>("eventFiles", EventFiles);
-            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_eventServices>("eventServices", EventServices);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.EventPutResponse_data_appointment>("appointment", Appointment);
             writer.WriteStringValue("guid", Guid);
             writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("isCanceled", IsCanceled);
-            writer.WriteStringValue("name", Name);
             writer.WriteStringValue("note", Note);
-            writer.WriteDateTimeOffsetValue("startDate", StartDate);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

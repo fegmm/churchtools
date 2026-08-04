@@ -748,8 +748,6 @@ namespace Fegmm.ChurchTools.Config
 #else
         public string CronLastExecution { get; set; }
 #endif
-        /// <summary>The csrf_enabled property</summary>
-        public bool? CsrfEnabled { get; set; }
         /// <summary>The current_config_file property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -916,8 +914,6 @@ namespace Fegmm.ChurchTools.Config
         public bool? FeatureFlagsUi { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
         public global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_group? FeatureGroup { get; set; }
-        /// <summary>The feature_markdown property</summary>
-        public bool? FeatureMarkdown { get; set; }
         /// <summary>The feature_markdown_group property</summary>
         public bool? FeatureMarkdownGroup { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
@@ -934,6 +930,8 @@ namespace Fegmm.ChurchTools.Config
         public global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_posts? FeaturePosts { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
         public global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_resources_app? FeatureResourcesApp { get; set; }
+        /// <summary>The feature_sessionless_login property</summary>
+        public bool? FeatureSessionlessLogin { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
         public global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_sync? FeatureSync { get; set; }
         /// <summary>The feature_usechurchquery property</summary>
@@ -1076,6 +1074,8 @@ namespace Fegmm.ChurchTools.Config
         public bool? IsChurchtoolsBlogWidgetActive { get; set; }
         /// <summary>The is_churchtools_onboarding_widget_active property</summary>
         public bool? IsChurchtoolsOnboardingWidgetActive { get; set; }
+        /// <summary>Whether the current user is configured as an authorized person.</summary>
+        public bool? IsCurrentUserAuthorizedPerson { get; set; }
         /// <summary>The isPostsActive property</summary>
         public bool? IsPostsActive { get; set; }
         /// <summary>The is_pr_widget_active property</summary>
@@ -1197,6 +1197,14 @@ namespace Fegmm.ChurchTools.Config
 #nullable restore
 #else
         public string MailSmtpArgsUsername { get; set; }
+#endif
+        /// <summary>The matomo_uri property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MatomoUri { get; set; }
+#nullable restore
+#else
+        public string MatomoUri { get; set; }
 #endif
         /// <summary>The max_uploadfile_size_kb property</summary>
         public int? MaxUploadfileSizeKb { get; set; }
@@ -1794,7 +1802,6 @@ namespace Fegmm.ChurchTools.Config
                 { "cron_last_execution", n => { CronLastExecution = n.GetStringValue(); } },
                 { "cronjob_dbdump", n => { CronjobDbdump = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_cronjob_dbdump>(); } },
                 { "cronjob_delay", n => { CronjobDelay = n.GetIntValue(); } },
-                { "csrf_enabled", n => { CsrfEnabled = n.GetBoolValue(); } },
                 { "_current_config_file", n => { CurrentConfigFile = n.GetStringValue(); } },
                 { "currently_mail_sending", n => { CurrentlyMailSending = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_currently_mail_sending>(); } },
                 { "datasecurity_banner_enabled", n => { DatasecurityBannerEnabled = n.GetBoolValue(); } },
@@ -1827,12 +1834,12 @@ namespace Fegmm.ChurchTools.Config
                 { "feature_event_fact_widget", n => { FeatureEventFactWidget = n.GetBoolValue(); } },
                 { "feature_flags_ui", n => { FeatureFlagsUi = n.GetBoolValue(); } },
                 { "feature_group", n => { FeatureGroup = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_group>(); } },
-                { "feature_markdown", n => { FeatureMarkdown = n.GetBoolValue(); } },
                 { "feature_markdown_group", n => { FeatureMarkdownGroup = n.GetBoolValue(); } },
                 { "feature_mobile_groups", n => { FeatureMobileGroups = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_mobile_groups>(); } },
                 { "feature_org_chart_groups", n => { FeatureOrgChartGroups = n.GetStringValue(); } },
                 { "feature_posts", n => { FeaturePosts = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_posts>(); } },
                 { "feature_resources_app", n => { FeatureResourcesApp = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_resources_app>(); } },
+                { "feature_sessionless_login", n => { FeatureSessionlessLogin = n.GetBoolValue(); } },
                 { "feature_sync", n => { FeatureSync = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_sync>(); } },
                 { "feature_usechurchquery", n => { FeatureUsechurchquery = n.GetStringValue(); } },
                 { "file_meta_cron_last_file_size_id", n => { FileMetaCronLastFileSizeId = n.GetStringValue(); } },
@@ -1859,6 +1866,7 @@ namespace Fegmm.ChurchTools.Config
                 { "invite_email_text", n => { InviteEmailText = n.GetStringValue(); } },
                 { "is_churchtools_blog_widget_active", n => { IsChurchtoolsBlogWidgetActive = n.GetBoolValue(); } },
                 { "is_churchtools_onboarding_widget_active", n => { IsChurchtoolsOnboardingWidgetActive = n.GetBoolValue(); } },
+                { "isCurrentUserAuthorizedPerson", n => { IsCurrentUserAuthorizedPerson = n.GetBoolValue(); } },
                 { "isPostsActive", n => { IsPostsActive = n.GetBoolValue(); } },
                 { "is_pr_widget_active", n => { IsPrWidgetActive = n.GetBoolValue(); } },
                 { "is_rss_widget_active", n => { IsRssWidgetActive = n.GetBoolValue(); } },
@@ -1881,6 +1889,7 @@ namespace Fegmm.ChurchTools.Config
                 { "mail_smtp_args_port", n => { MailSmtpArgsPort = n.GetStringValue(); } },
                 { "mail_smtp_args_smtpsecure", n => { MailSmtpArgsSmtpsecure = n.GetStringValue(); } },
                 { "mail_smtp_args_username", n => { MailSmtpArgsUsername = n.GetStringValue(); } },
+                { "matomo_uri", n => { MatomoUri = n.GetStringValue(); } },
                 { "max_uploadfile_size_kb", n => { MaxUploadfileSizeKb = n.GetIntValue(); } },
                 { "memberlist_birthday_full", n => { MemberlistBirthdayFull = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_memberlist_birthday_full>(); } },
                 { "memberlist_email", n => { MemberlistEmail = n.GetEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_memberlist_email>(); } },
@@ -2116,7 +2125,6 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_cronjob_dbdump>("cronjob_dbdump", CronjobDbdump);
             writer.WriteIntValue("cronjob_delay", CronjobDelay);
             writer.WriteStringValue("cron_last_execution", CronLastExecution);
-            writer.WriteBoolValue("csrf_enabled", CsrfEnabled);
             writer.WriteStringValue("_current_config_file", CurrentConfigFile);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_currently_mail_sending>("currently_mail_sending", CurrentlyMailSending);
             writer.WriteBoolValue("datasecurity_banner_enabled", DatasecurityBannerEnabled);
@@ -2149,12 +2157,12 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteBoolValue("feature_event_fact_widget", FeatureEventFactWidget);
             writer.WriteBoolValue("feature_flags_ui", FeatureFlagsUi);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_group>("feature_group", FeatureGroup);
-            writer.WriteBoolValue("feature_markdown", FeatureMarkdown);
             writer.WriteBoolValue("feature_markdown_group", FeatureMarkdownGroup);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_mobile_groups>("feature_mobile_groups", FeatureMobileGroups);
             writer.WriteStringValue("feature_org_chart_groups", FeatureOrgChartGroups);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_posts>("feature_posts", FeaturePosts);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_resources_app>("feature_resources_app", FeatureResourcesApp);
+            writer.WriteBoolValue("feature_sessionless_login", FeatureSessionlessLogin);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_feature_sync>("feature_sync", FeatureSync);
             writer.WriteStringValue("feature_usechurchquery", FeatureUsechurchquery);
             writer.WriteStringValue("file_meta_cron_last_file_size_id", FileMetaCronLastFileSizeId);
@@ -2181,6 +2189,7 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteStringValue("invite_email_text", InviteEmailText);
             writer.WriteBoolValue("is_churchtools_blog_widget_active", IsChurchtoolsBlogWidgetActive);
             writer.WriteBoolValue("is_churchtools_onboarding_widget_active", IsChurchtoolsOnboardingWidgetActive);
+            writer.WriteBoolValue("isCurrentUserAuthorizedPerson", IsCurrentUserAuthorizedPerson);
             writer.WriteBoolValue("isPostsActive", IsPostsActive);
             writer.WriteBoolValue("is_pr_widget_active", IsPrWidgetActive);
             writer.WriteBoolValue("is_rss_widget_active", IsRssWidgetActive);
@@ -2203,6 +2212,7 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteStringValue("mail_smtp_args_port", MailSmtpArgsPort);
             writer.WriteStringValue("mail_smtp_args_smtpsecure", MailSmtpArgsSmtpsecure);
             writer.WriteStringValue("mail_smtp_args_username", MailSmtpArgsUsername);
+            writer.WriteStringValue("matomo_uri", MatomoUri);
             writer.WriteIntValue("max_uploadfile_size_kb", MaxUploadfileSizeKb);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_memberlist_birthday_full>("memberlist_birthday_full", MemberlistBirthdayFull);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Config.ConfigGetResponse_memberlist_email>("memberlist_email", MemberlistEmail);

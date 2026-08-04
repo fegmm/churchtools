@@ -13,11 +13,13 @@ namespace Fegmm.ChurchTools.Printers
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PrintersGetResponse_data : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Whether this printer is active and available for check-in printing.</summary>
+        public bool? Active { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The id property</summary>
         public int? Id { get; set; }
-        /// <summary>The location property</summary>
+        /// <summary>Human-readable location of the printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Location { get; set; }
@@ -33,7 +35,7 @@ namespace Fegmm.ChurchTools.Printers
 #else
         public global::Fegmm.ChurchTools.Printers.PrintersGetResponse_data_meta Meta { get; set; }
 #endif
-        /// <summary>The title property</summary>
+        /// <summary>Human-readable printer name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Title { get; set; }
@@ -66,6 +68,7 @@ namespace Fegmm.ChurchTools.Printers
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "active", n => { Active = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "location", n => { Location = n.GetStringValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Printers.PrintersGetResponse_data_meta>(global::Fegmm.ChurchTools.Printers.PrintersGetResponse_data_meta.CreateFromDiscriminatorValue); } },
@@ -79,6 +82,7 @@ namespace Fegmm.ChurchTools.Printers
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("active", Active);
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("location", Location);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Printers.PrintersGetResponse_data_meta>("meta", Meta);

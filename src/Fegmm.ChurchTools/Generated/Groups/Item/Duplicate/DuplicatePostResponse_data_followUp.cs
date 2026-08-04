@@ -14,16 +14,8 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The sendReminderMails property</summary>
-        public bool? SendReminderMails { get; set; }
-        /// <summary>The targetGroupMemberStatusId property</summary>
-        public int? TargetGroupMemberStatusId { get; set; }
-        /// <summary>The targetObjectId property</summary>
-        public int? TargetObjectId { get; set; }
-        /// <summary>The targetTypeId property</summary>
-        public int? TargetTypeId { get; set; }
-        /// <summary>The typeId property</summary>
-        public int? TypeId { get; set; }
+        /// <summary>The reminder property</summary>
+        public bool? Reminder { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Groups.Item.Duplicate.DuplicatePostResponse_data_followUp"/> and sets the default values.
         /// </summary>
@@ -49,11 +41,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "sendReminderMails", n => { SendReminderMails = n.GetBoolValue(); } },
-                { "targetGroupMemberStatusId", n => { TargetGroupMemberStatusId = n.GetIntValue(); } },
-                { "targetObjectId", n => { TargetObjectId = n.GetIntValue(); } },
-                { "targetTypeId", n => { TargetTypeId = n.GetIntValue(); } },
-                { "typeId", n => { TypeId = n.GetIntValue(); } },
+                { "reminder", n => { Reminder = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -63,11 +51,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("sendReminderMails", SendReminderMails);
-            writer.WriteIntValue("targetGroupMemberStatusId", TargetGroupMemberStatusId);
-            writer.WriteIntValue("targetObjectId", TargetObjectId);
-            writer.WriteIntValue("targetTypeId", TargetTypeId);
-            writer.WriteIntValue("typeId", TypeId);
+            writer.WriteBoolValue("reminder", Reminder);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

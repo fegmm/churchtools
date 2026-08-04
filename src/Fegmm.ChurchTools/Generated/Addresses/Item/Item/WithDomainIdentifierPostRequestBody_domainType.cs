@@ -7,6 +7,18 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WithDomainIdentifierPostRequestBody_domainType
     {
+        [EnumMember(Value = "appointment")]
+        #pragma warning disable CS1591
+        Appointment,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "campus")]
+        #pragma warning disable CS1591
+        Campus,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "church")]
+        #pragma warning disable CS1591
+        Church,
+        #pragma warning restore CS1591
         [EnumMember(Value = "group")]
         #pragma warning disable CS1591
         Group,

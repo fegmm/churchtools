@@ -56,10 +56,10 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Songs
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? KeyOfArrangement { get; set; }
+        public string? KeyOfArrangement { get; set; }
 #nullable restore
 #else
-        public UntypedNode KeyOfArrangement { get; set; }
+        public string KeyOfArrangement { get; set; }
 #endif
         /// <summary>List of links &quot;uploaded&quot; to that arrangement</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -89,10 +89,10 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Songs
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Note { get; set; }
+        public string? Note { get; set; }
 #nullable restore
 #else
-        public UntypedNode Note { get; set; }
+        public string Note { get; set; }
 #endif
         /// <summary>Source of a song resp. arrangement</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -146,11 +146,11 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Songs
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
                 { "key", n => { Key = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements.SongsGetResponse_data_arrangements_key>(global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements.SongsGetResponse_data_arrangements_key.CreateFromDiscriminatorValue); } },
-                { "keyOfArrangement", n => { KeyOfArrangement = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "keyOfArrangement", n => { KeyOfArrangement = n.GetStringValue(); } },
                 { "links", n => { Links = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links>(global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_meta>(global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_meta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "note", n => { Note = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "note", n => { Note = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_source>(global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_source.CreateFromDiscriminatorValue); } },
                 { "sourceId", n => { SourceId = n.GetIntValue(); } },
                 { "sourceReference", n => { SourceReference = n.GetStringValue(); } },
@@ -171,11 +171,11 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Songs
             writer.WriteIntValue("id", Id);
             writer.WriteBoolValue("isDefault", IsDefault);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements.SongsGetResponse_data_arrangements_key>("key", Key);
-            writer.WriteObjectValue<UntypedNode>("keyOfArrangement", KeyOfArrangement);
+            writer.WriteStringValue("keyOfArrangement", KeyOfArrangement);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_links>("links", Links);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_meta>("meta", Meta);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<UntypedNode>("note", Note);
+            writer.WriteStringValue("note", Note);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.Agenda.Songs.SongsGetResponse_data_arrangements_source>("source", Source);
             writer.WriteIntValue("sourceId", SourceId);
             writer.WriteStringValue("sourceReference", SourceReference);

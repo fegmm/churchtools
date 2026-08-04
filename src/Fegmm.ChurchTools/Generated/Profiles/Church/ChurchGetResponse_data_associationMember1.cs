@@ -22,7 +22,7 @@ namespace Fegmm.ChurchTools.Profiles.Church
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The country property</summary>
+        /// <summary>ISO 3166-1 alpha-2 country code of the association.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Country { get; set; }
@@ -31,7 +31,7 @@ namespace Fegmm.ChurchTools.Profiles.Church
         public string Country { get; set; }
 #endif
         /// <summary>The id property</summary>
-        public double? Id { get; set; }
+        public int? Id { get; set; }
         /// <summary>The key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,7 +75,7 @@ namespace Fegmm.ChurchTools.Profiles.Church
             {
                 { "abbreviation", n => { Abbreviation = n.GetStringValue(); } },
                 { "country", n => { Country = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetDoubleValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
@@ -89,7 +89,7 @@ namespace Fegmm.ChurchTools.Profiles.Church
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("abbreviation", Abbreviation);
             writer.WriteStringValue("country", Country);
-            writer.WriteDoubleValue("id", Id);
+            writer.WriteIntValue("id", Id);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);

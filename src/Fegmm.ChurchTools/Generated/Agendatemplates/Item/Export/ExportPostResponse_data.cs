@@ -14,7 +14,7 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Export
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The songsWithMultipleFiles property</summary>
+        /// <summary>Song titles for which multiple files exist and the exporter could not choose one automatically.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? SongsWithMultipleFiles { get; set; }
@@ -22,7 +22,7 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Export
 #else
         public List<string> SongsWithMultipleFiles { get; set; }
 #endif
-        /// <summary>The url property</summary>
+        /// <summary>Relative download URL for the generated archive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Url { get; set; }

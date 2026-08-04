@@ -28,6 +28,14 @@ namespace Fegmm.ChurchTools.Dbfields.Item.Options.Metadata
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The nameTranslated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NameTranslated { get; set; }
+#nullable restore
+#else
+        public string NameTranslated { get; set; }
+#endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +73,7 @@ namespace Fegmm.ChurchTools.Dbfields.Item.Options.Metadata
                 { "isNullable", n => { IsNullable = n.GetBoolValue(); } },
                 { "length", n => { Length = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -79,6 +88,7 @@ namespace Fegmm.ChurchTools.Dbfields.Item.Options.Metadata
             writer.WriteBoolValue("isNullable", IsNullable);
             writer.WriteIntValue("length", Length);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("nameTranslated", NameTranslated);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

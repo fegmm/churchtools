@@ -15,18 +15,8 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The date property</summary>
+        /// <summary>A simple date in ISO format, e.g. &apos;2022-10-19&apos;</summary>
         public Date? Date { get; set; }
-        /// <summary>The id property</summary>
-        public int? Id { get; set; }
-        /// <summary>The meta property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_exceptions_meta? Meta { get; set; }
-#nullable restore
-#else
-        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_exceptions_meta Meta { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_exceptions"/> and sets the default values.
         /// </summary>
@@ -53,8 +43,6 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "date", n => { Date = n.GetDateValue(); } },
-                { "id", n => { Id = n.GetIntValue(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_exceptions_meta>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_exceptions_meta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -65,8 +53,6 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateValue("date", Date);
-            writer.WriteIntValue("id", Id);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_exceptions_meta>("meta", Meta);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

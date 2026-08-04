@@ -35,21 +35,43 @@ namespace Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept
         /// <summary>
         /// Accept the specified service request.
         /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task PostAsync(global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptPostResponse?> PostAsAcceptPostResponseAsync(global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task PostAsync(global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptPostResponse> PostAsAcceptPostResponseAsync(global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptPostResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Accept the specified service request.
+        /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptResponse"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("This method is obsolete. Use PostAsAcceptPostResponseAsync instead.")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptResponse?> PostAsync(global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptResponse> PostAsync(global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept.AcceptResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Accept the specified service request.
@@ -69,7 +91,7 @@ namespace Fegmm.ChurchTools.Events.Item.Servicerequests.Item.Accept
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }

@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Export
         {
         }
         /// <summary>
-        /// Export the specified agenda template as a presenter import archive.
+        /// Export the specified agenda template as a presenter import archive. The response contains a temporary download URL and a list of songs that have multiple files and may need manual handling after import.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Agendatemplates.Item.Export.ExportPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -53,7 +53,7 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Export
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Agendatemplates.Item.Export.ExportPostResponse>(requestInfo, global::Fegmm.ChurchTools.Agendatemplates.Item.Export.ExportPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Export the specified agenda template as a presenter import archive.
+        /// Export the specified agenda template as a presenter import archive. The response contains a temporary download URL and a list of songs that have multiple files and may need manual handling after import.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Agendatemplates.Item.Export.ExportResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -74,7 +74,7 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Export
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Agendatemplates.Item.Export.ExportResponse>(requestInfo, global::Fegmm.ChurchTools.Agendatemplates.Item.Export.ExportResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Export the specified agenda template as a presenter import archive.
+        /// Export the specified agenda template as a presenter import archive. The response contains a temporary download URL and a list of songs that have multiple files and may need manual handling after import.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -105,12 +105,12 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Export
             return new global::Fegmm.ChurchTools.Agendatemplates.Item.Export.ExportRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Export the specified agenda template as a presenter import archive.
+        /// Export the specified agenda template as a presenter import archive. The response contains a temporary download URL and a list of songs that have multiple files and may need manual handling after import.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ExportRequestBuilderPostQueryParameters 
         {
-            /// <summary>Presenter format to export the agenda template for</summary>
+            /// <summary>Presenter format to export the agenda template for.</summary>
             [Obsolete("This property is deprecated, use FormatAsPostFormatQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -121,7 +121,7 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Export
             [QueryParameter("format")]
             public string Format { get; set; }
 #endif
-            /// <summary>Presenter format to export the agenda template for</summary>
+            /// <summary>Presenter format to export the agenda template for.</summary>
             [QueryParameter("format")]
             public global::Fegmm.ChurchTools.Agendatemplates.Item.Export.PostFormatQueryParameterType? FormatAsPostFormatQueryParameterType { get; set; }
         }

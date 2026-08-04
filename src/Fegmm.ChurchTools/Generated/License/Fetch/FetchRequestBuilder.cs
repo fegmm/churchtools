@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.License.Fetch
         {
         }
         /// <summary>
-        /// TODO 200
+        /// Fetches and stores the current license information.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.License.Fetch
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// TODO 200
+        /// Fetches and stores the current license information.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Export
         {
         }
         /// <summary>
-        /// Export the specified event agenda as a presenter import archive.
+        /// Exports the agenda of the specified event for the selected presenter format. The response contains a download URL and a list of songs that could not be exported unambiguously because multiple files were available.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Agenda.Export.ExportPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -53,7 +53,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Export
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Agenda.Export.ExportPostResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Agenda.Export.ExportPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Export the specified event agenda as a presenter import archive.
+        /// Exports the agenda of the specified event for the selected presenter format. The response contains a download URL and a list of songs that could not be exported unambiguously because multiple files were available.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Agenda.Export.ExportResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -74,7 +74,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Export
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Agenda.Export.ExportResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Agenda.Export.ExportResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Export the specified event agenda as a presenter import archive.
+        /// Exports the agenda of the specified event for the selected presenter format. The response contains a download URL and a list of songs that could not be exported unambiguously because multiple files were available.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -105,7 +105,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Export
             return new global::Fegmm.ChurchTools.Events.Item.Agenda.Export.ExportRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Export the specified event agenda as a presenter import archive.
+        /// Exports the agenda of the specified event for the selected presenter format. The response contains a download URL and a list of songs that could not be exported unambiguously because multiple files were available.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ExportRequestBuilderPostQueryParameters 

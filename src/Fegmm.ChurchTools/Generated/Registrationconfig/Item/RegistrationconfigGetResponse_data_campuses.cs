@@ -14,7 +14,7 @@ namespace Fegmm.ChurchTools.Registrationconfig.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Campus with possible address.</summary>
+        /// <summary>Profiles are representing campuses and the church itself.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Fegmm.ChurchTools.Registrationconfig.Item.RegistrationconfigGetResponse_data_campuses_campus? Campus { get; set; }

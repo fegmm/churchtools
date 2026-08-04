@@ -14,29 +14,21 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Item.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The additionalInfos property</summary>
+        /// <summary>The base property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_additionalInfos? AdditionalInfos { get; set; }
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_base? Base { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_additionalInfos AdditionalInfos { get; set; }
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_base Base { get; set; }
 #endif
-        /// <summary>The appointment property</summary>
+        /// <summary>The calculated property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_appointment? Appointment { get; set; }
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_calculated? Calculated { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_appointment Appointment { get; set; }
-#endif
-        /// <summary>The calculatedDates property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_calculatedDates? CalculatedDates { get; set; }
-#nullable restore
-#else
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_calculatedDates CalculatedDates { get; set; }
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_calculated Calculated { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment"/> and sets the default values.
@@ -63,9 +55,8 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Item.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "additionalInfos", n => { AdditionalInfos = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_additionalInfos>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_additionalInfos.CreateFromDiscriminatorValue); } },
-                { "appointment", n => { Appointment = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_appointment>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_appointment.CreateFromDiscriminatorValue); } },
-                { "calculatedDates", n => { CalculatedDates = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_calculatedDates>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_calculatedDates.CreateFromDiscriminatorValue); } },
+                { "base", n => { Base = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_base>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_base.CreateFromDiscriminatorValue); } },
+                { "calculated", n => { Calculated = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_calculated>(global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_calculated.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,9 +66,8 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Item.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_additionalInfos>("additionalInfos", AdditionalInfos);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_appointment>("appointment", Appointment);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_calculatedDates>("calculatedDates", CalculatedDates);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_base>("base", Base);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateGetResponse_data_appointment_calculated>("calculated", Calculated);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

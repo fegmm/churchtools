@@ -53,21 +53,43 @@ namespace Fegmm.ChurchTools.Events.Item.Servicerequests.Item
         /// <summary>
         /// Update the specified service request.
         /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestPutResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task PutAsync(global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestPutResponse?> PutAsWithRequestPutResponseAsync(global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task PutAsync(global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestPutResponse> PutAsWithRequestPutResponseAsync(global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestPutResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestPutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Update the specified service request.
+        /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestResponse"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("This method is obsolete. Use PutAsWithRequestPutResponseAsync instead.")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestResponse?> PutAsync(global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestResponse> PutAsync(global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Servicerequests.Item.WithRequestResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Update the specified service request.
@@ -87,7 +109,7 @@ namespace Fegmm.ChurchTools.Events.Item.Servicerequests.Item
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }

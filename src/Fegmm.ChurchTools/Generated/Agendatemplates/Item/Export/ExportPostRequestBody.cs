@@ -14,11 +14,11 @@ namespace Fegmm.ChurchTools.Agendatemplates.Item.Export
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The appendArrangement property</summary>
+        /// <summary>Append the arrangement name to exported song titles.</summary>
         public bool? AppendArrangement { get; set; }
-        /// <summary>The exportSongs property</summary>
+        /// <summary>Include song files in the presenter archive.</summary>
         public bool? ExportSongs { get; set; }
-        /// <summary>The withCategory property</summary>
+        /// <summary>Include song categories in the exported presenter data.</summary>
         public bool? WithCategory { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Agendatemplates.Item.Export.ExportPostRequestBody"/> and sets the default values.

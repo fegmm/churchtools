@@ -32,6 +32,9 @@ namespace Fegmm.ChurchTools.Domainobjects
         public DomainobjectsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/domainobjects", rawUrl)
         {
         }
+        /// <summary>
+        /// Resolves one or more domain object references passed as query arrays. `domain_types[]` and `domain_identifiers[]` must have the same number of entries; each pair is resolved to the matching domain object representation if the current user is allowed to access it.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Domainobjects.DomainobjectsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,6 +50,9 @@ namespace Fegmm.ChurchTools.Domainobjects
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Domainobjects.DomainobjectsGetResponse>(requestInfo, global::Fegmm.ChurchTools.Domainobjects.DomainobjectsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Resolves one or more domain object references passed as query arrays. `domain_types[]` and `domain_identifiers[]` must have the same number of entries; each pair is resolved to the matching domain object representation if the current user is allowed to access it.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Domainobjects.DomainobjectsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -63,6 +69,9 @@ namespace Fegmm.ChurchTools.Domainobjects
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Domainobjects.DomainobjectsResponse>(requestInfo, global::Fegmm.ChurchTools.Domainobjects.DomainobjectsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Resolves one or more domain object references from a JSON request body. Use this variant when the list of references is easier to send as JSON; `domain_types` and `domain_identifiers` must contain matching pairs in the same order.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Domainobjects.DomainobjectsPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,6 +89,9 @@ namespace Fegmm.ChurchTools.Domainobjects
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Domainobjects.DomainobjectsPostResponse>(requestInfo, global::Fegmm.ChurchTools.Domainobjects.DomainobjectsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Resolves one or more domain object references from a JSON request body. Use this variant when the list of references is easier to send as JSON; `domain_types` and `domain_identifiers` must contain matching pairs in the same order.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Domainobjects.DomainobjectsResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -98,6 +110,9 @@ namespace Fegmm.ChurchTools.Domainobjects
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Domainobjects.DomainobjectsResponse>(requestInfo, global::Fegmm.ChurchTools.Domainobjects.DomainobjectsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Resolves one or more domain object references passed as query arrays. `domain_types[]` and `domain_identifiers[]` must have the same number of entries; each pair is resolved to the matching domain object representation if the current user is allowed to access it.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -114,6 +129,9 @@ namespace Fegmm.ChurchTools.Domainobjects
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
+        /// <summary>
+        /// Resolves one or more domain object references from a JSON request body. Use this variant when the list of references is easier to send as JSON; `domain_types` and `domain_identifiers` must contain matching pairs in the same order.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,10 +160,11 @@ namespace Fegmm.ChurchTools.Domainobjects
         {
             return new global::Fegmm.ChurchTools.Domainobjects.DomainobjectsRequestBuilder(rawUrl, RequestAdapter);
         }
+        /// <summary>
+        /// Resolves one or more domain object references passed as query arrays. `domain_types[]` and `domain_identifiers[]` must have the same number of entries; each pair is resolved to the matching domain object representation if the current user is allowed to access it.
+        /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        #pragma warning disable CS1591
         public partial class DomainobjectsRequestBuilderGetQueryParameters 
-        #pragma warning restore CS1591
         {
             /// <summary>Identifiers of domain objects to retrieve</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

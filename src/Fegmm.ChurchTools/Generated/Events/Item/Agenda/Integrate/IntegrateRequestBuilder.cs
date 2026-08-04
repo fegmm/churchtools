@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Integrate
         {
         }
         /// <summary>
-        /// Integrate the agenda from another event into the specified event. After integration both events share the same agenda.
+        /// Integrates the agenda from another event into the specified target event. After integration both events share the same agenda, so later agenda changes affect all integrated events. The target event must not already have its own agenda.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Agenda.Integrate.IntegratePostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -53,7 +53,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Integrate
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Agenda.Integrate.IntegratePostResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Agenda.Integrate.IntegratePostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Integrate the agenda from another event into the specified event. After integration both events share the same agenda.
+        /// Integrates the agenda from another event into the specified target event. After integration both events share the same agenda, so later agenda changes affect all integrated events. The target event must not already have its own agenda.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Agenda.Integrate.IntegrateResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -74,7 +74,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Integrate
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Agenda.Integrate.IntegrateResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Agenda.Integrate.IntegrateResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Integrate the agenda from another event into the specified event. After integration both events share the same agenda.
+        /// Integrates the agenda from another event into the specified target event. After integration both events share the same agenda, so later agenda changes affect all integrated events. The target event must not already have its own agenda.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -105,7 +105,7 @@ namespace Fegmm.ChurchTools.Events.Item.Agenda.Integrate
             return new global::Fegmm.ChurchTools.Events.Item.Agenda.Integrate.IntegrateRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Integrate the agenda from another event into the specified event. After integration both events share the same agenda.
+        /// Integrates the agenda from another event into the specified target event. After integration both events share the same agenda, so later agenda changes affect all integrated events. The target event must not already have its own agenda.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class IntegrateRequestBuilderPostQueryParameters 

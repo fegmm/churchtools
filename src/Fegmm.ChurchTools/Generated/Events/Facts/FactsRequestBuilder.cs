@@ -39,7 +39,7 @@ namespace Fegmm.ChurchTools.Events.Facts
         {
         }
         /// <summary>
-        /// Fetch all event facts with optional filtering by date range, events, and facts.
+        /// Fetch all event facts with optional filtering by date range, events, and facts. The endpoint returns paginated event fact values that are visible to the current user, including the referenced event, fact definition, and stored value.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Facts.FactsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Fegmm.ChurchTools.Events.Facts
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Facts.FactsGetResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Facts.FactsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch all event facts with optional filtering by date range, events, and facts.
+        /// Fetch all event facts with optional filtering by date range, events, and facts. The endpoint returns paginated event fact values that are visible to the current user, including the referenced event, fact definition, and stored value.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Facts.FactsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Fegmm.ChurchTools.Events.Facts
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Facts.FactsResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Facts.FactsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch all event facts with optional filtering by date range, events, and facts.
+        /// Fetch all event facts with optional filtering by date range, events, and facts. The endpoint returns paginated event fact values that are visible to the current user, including the referenced event, fact definition, and stored value.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Fegmm.ChurchTools.Events.Facts
             return new global::Fegmm.ChurchTools.Events.Facts.FactsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Fetch all event facts with optional filtering by date range, events, and facts.
+        /// Fetch all event facts with optional filtering by date range, events, and facts. The endpoint returns paginated event fact values that are visible to the current user, including the referenced event, fact definition, and stored value.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FactsRequestBuilderGetQueryParameters 

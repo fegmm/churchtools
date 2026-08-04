@@ -18,14 +18,27 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields.Group
     public partial class GroupRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Fegmm.ChurchTools.groups.item.memberfields.group.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">ID of the group member field.</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldItemRequestBuilder"/></returns>
-        public global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldItemRequestBuilder this[string position]
+        public global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("groupMemberFieldId", position);
+                return new global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
+        /// <summary>Gets an item from the Fegmm.ChurchTools.groups.item.memberfields.group.item collection</summary>
+        /// <param name="position">ID of the group member field.</param>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldItemRequestBuilder"/></returns>
+        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
+        public global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("groupMemberFieldId", position);
                 return new global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
@@ -46,40 +59,66 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields.Group
         {
         }
         /// <summary>
-        /// TODO 200
+        /// Creates a custom group member field for the group.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupPostResponse"/></returns>
+        /// <param name="body">Request body for creating a group member field.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupPostResponse?> PostAsGroupPostResponseAsync(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupPostResponse> PostAsGroupPostResponseAsync(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupPostResponse>(requestInfo, global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// TODO 200
+        /// Creates a custom group member field for the group.
+        /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupResponse"/></returns>
+        /// <param name="body">Request body for creating a group member field.</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("This method is obsolete. Use PostAsGroupPostResponseAsync instead.")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupResponse?> PostAsync(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupResponse> PostAsync(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupResponse>(requestInfo, global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Creates a custom group member field for the group.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">Request body for creating a group member field.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.GroupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>

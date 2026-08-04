@@ -46,7 +46,7 @@ namespace Fegmm.ChurchTools.Events.Item.Facts
         {
         }
         /// <summary>
-        /// Read facts for event
+        /// Returns all fact values stored for the specified event that are visible to the current user. The response contains the fact definition, event reference, and the saved value for each matching fact.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Facts.FactsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -64,7 +64,7 @@ namespace Fegmm.ChurchTools.Events.Item.Facts
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Facts.FactsGetResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Facts.FactsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read facts for event
+        /// Returns all fact values stored for the specified event that are visible to the current user. The response contains the fact definition, event reference, and the saved value for each matching fact.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Facts.FactsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -83,7 +83,7 @@ namespace Fegmm.ChurchTools.Events.Item.Facts
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Facts.FactsResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Facts.FactsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read facts for event
+        /// Returns all fact values stored for the specified event that are visible to the current user. The response contains the fact definition, event reference, and the saved value for each matching fact.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

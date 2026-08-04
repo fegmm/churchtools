@@ -18,14 +18,27 @@ namespace Fegmm.ChurchTools.Facts
     public partial class FactsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Fegmm.ChurchTools.facts.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">ID of the fact master data entry.</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder"/></returns>
-        public global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder this[string position]
+        public global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
+                return new global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
+        /// <summary>Gets an item from the Fegmm.ChurchTools.facts.item collection</summary>
+        /// <param name="position">ID of the fact master data entry.</param>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder"/></returns>
+        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
+        public global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
                 return new global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
@@ -46,7 +59,7 @@ namespace Fegmm.ChurchTools.Facts
         {
         }
         /// <summary>
-        /// Fetch all facts (masterdata).
+        /// Fetch all fact master data entries.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Facts.FactsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -64,7 +77,7 @@ namespace Fegmm.ChurchTools.Facts
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Facts.FactsGetResponse>(requestInfo, global::Fegmm.ChurchTools.Facts.FactsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch all facts (masterdata).
+        /// Fetch all fact master data entries.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Facts.FactsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -83,19 +96,19 @@ namespace Fegmm.ChurchTools.Facts
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Facts.FactsResponse>(requestInfo, global::Fegmm.ChurchTools.Facts.FactsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Save new fact master data entry.
+        /// Create a new fact master data entry. Use `type: number` with a `unit` for numeric facts or `type: select` with `options` for select facts.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Facts.FactsPostResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Input schema for creating or updating a fact master data entry.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Facts.FactsPostResponse?> PostAsFactsPostResponseAsync(global::Fegmm.ChurchTools.Facts.FactsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Facts.FactsPostResponse?> PostAsFactsPostResponseAsync(global::Fegmm.ChurchTools.Facts.FactsRequestBuilder.FactsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Facts.FactsPostResponse> PostAsFactsPostResponseAsync(global::Fegmm.ChurchTools.Facts.FactsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Facts.FactsPostResponse> PostAsFactsPostResponseAsync(global::Fegmm.ChurchTools.Facts.FactsRequestBuilder.FactsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -103,20 +116,20 @@ namespace Fegmm.ChurchTools.Facts
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Facts.FactsPostResponse>(requestInfo, global::Fegmm.ChurchTools.Facts.FactsPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Save new fact master data entry.
+        /// Create a new fact master data entry. Use `type: number` with a `unit` for numeric facts or `type: select` with `options` for select facts.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Facts.FactsResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Input schema for creating or updating a fact master data entry.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PostAsFactsPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Facts.FactsResponse?> PostAsync(global::Fegmm.ChurchTools.Facts.FactsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Facts.FactsResponse?> PostAsync(global::Fegmm.ChurchTools.Facts.FactsRequestBuilder.FactsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Facts.FactsResponse> PostAsync(global::Fegmm.ChurchTools.Facts.FactsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Facts.FactsResponse> PostAsync(global::Fegmm.ChurchTools.Facts.FactsRequestBuilder.FactsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -124,7 +137,7 @@ namespace Fegmm.ChurchTools.Facts
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Facts.FactsResponse>(requestInfo, global::Fegmm.ChurchTools.Facts.FactsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch all facts (masterdata).
+        /// Fetch all fact master data entries.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,18 +156,18 @@ namespace Fegmm.ChurchTools.Facts
             return requestInfo;
         }
         /// <summary>
-        /// Save new fact master data entry.
+        /// Create a new fact master data entry. Use `type: number` with a `unit` for numeric facts or `type: select` with `options` for select facts.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Input schema for creating or updating a fact master data entry.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Fegmm.ChurchTools.Facts.FactsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Fegmm.ChurchTools.Facts.FactsRequestBuilder.FactsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Fegmm.ChurchTools.Facts.FactsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Fegmm.ChurchTools.Facts.FactsRequestBuilder.FactsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -172,6 +185,73 @@ namespace Fegmm.ChurchTools.Facts
         public global::Fegmm.ChurchTools.Facts.FactsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Fegmm.ChurchTools.Facts.FactsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Facts.FactsPostRequestBodyMember1"/>, <see cref="global::Fegmm.ChurchTools.Facts.FactsPostRequestBodyMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class FactsPostRequestBody : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Facts.FactsPostRequestBodyMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Facts.FactsPostRequestBodyMember1? FactsPostRequestBodyMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Facts.FactsPostRequestBodyMember1 FactsPostRequestBodyMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Facts.FactsPostRequestBodyMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Facts.FactsPostRequestBodyMember2? FactsPostRequestBodyMember2 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Facts.FactsPostRequestBodyMember2 FactsPostRequestBodyMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Facts.FactsRequestBuilder.FactsPostRequestBody"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Facts.FactsRequestBuilder.FactsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Facts.FactsRequestBuilder.FactsPostRequestBody();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(FactsPostRequestBodyMember1 != null)
+                {
+                    return FactsPostRequestBodyMember1.GetFieldDeserializers();
+                }
+                else if(FactsPostRequestBodyMember2 != null)
+                {
+                    return FactsPostRequestBodyMember2.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(FactsPostRequestBodyMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Facts.FactsPostRequestBodyMember1>(null, FactsPostRequestBodyMember1);
+                }
+                else if(FactsPostRequestBodyMember2 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Facts.FactsPostRequestBodyMember2>(null, FactsPostRequestBodyMember2);
+                }
+            }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

@@ -14,31 +14,13 @@ namespace Fegmm.ChurchTools.Captcha
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The algorithm property</summary>
+        /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Algorithm { get; set; }
+        public global::Fegmm.ChurchTools.Captcha.CaptchaGetResponse_parameters? Parameters { get; set; }
 #nullable restore
 #else
-        public string Algorithm { get; set; }
-#endif
-        /// <summary>The challenge property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Challenge { get; set; }
-#nullable restore
-#else
-        public string Challenge { get; set; }
-#endif
-        /// <summary>The maxnumber property</summary>
-        public int? Maxnumber { get; set; }
-        /// <summary>The salt property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Salt { get; set; }
-#nullable restore
-#else
-        public string Salt { get; set; }
+        public global::Fegmm.ChurchTools.Captcha.CaptchaGetResponse_parameters Parameters { get; set; }
 #endif
         /// <summary>The signature property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,10 +55,7 @@ namespace Fegmm.ChurchTools.Captcha
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "algorithm", n => { Algorithm = n.GetStringValue(); } },
-                { "challenge", n => { Challenge = n.GetStringValue(); } },
-                { "maxnumber", n => { Maxnumber = n.GetIntValue(); } },
-                { "salt", n => { Salt = n.GetStringValue(); } },
+                { "parameters", n => { Parameters = n.GetObjectValue<global::Fegmm.ChurchTools.Captcha.CaptchaGetResponse_parameters>(global::Fegmm.ChurchTools.Captcha.CaptchaGetResponse_parameters.CreateFromDiscriminatorValue); } },
                 { "signature", n => { Signature = n.GetStringValue(); } },
             };
         }
@@ -87,10 +66,7 @@ namespace Fegmm.ChurchTools.Captcha
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("algorithm", Algorithm);
-            writer.WriteStringValue("challenge", Challenge);
-            writer.WriteIntValue("maxnumber", Maxnumber);
-            writer.WriteStringValue("salt", Salt);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Captcha.CaptchaGetResponse_parameters>("parameters", Parameters);
             writer.WriteStringValue("signature", Signature);
             writer.WriteAdditionalData(AdditionalData);
         }

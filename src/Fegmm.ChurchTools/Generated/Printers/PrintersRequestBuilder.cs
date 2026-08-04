@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Printers
         {
         }
         /// <summary>
-        /// All printers
+        /// Returns all printers that can be used for check-in code printing.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Printers.PrintersGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Printers
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Printers.PrintersGetResponse>(requestInfo, global::Fegmm.ChurchTools.Printers.PrintersGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// All printers
+        /// Returns all printers that can be used for check-in code printing.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Printers.PrintersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Printers
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Printers.PrintersResponse>(requestInfo, global::Fegmm.ChurchTools.Printers.PrintersResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// All printers
+        /// Returns all printers that can be used for check-in code printing.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

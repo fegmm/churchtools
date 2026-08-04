@@ -77,7 +77,7 @@ namespace Fegmm.ChurchTools.Groups
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GroupsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups{?agegroup_ids%5B%5D*,allow_posts*,campus_ids%5B%5D*,group_category_ids%5B%5D*,group_status_ids%5B%5D*,group_type_ids%5B%5D*,has_meeting_place*,has_posts*,ids%5B%5D*,include%5B%5D*,is_open_for_members*,limit*,only_my_groups*,order_directions*,order_fields*,page*,query*,tag_ids%5B%5D*,target_group_ids%5B%5D*,visibility*,weekdays%5B%5D*,without_my_groups*}", pathParameters)
+        public GroupsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups{?agegroup_ids%5B%5D*,allow_posts*,campus_ids%5B%5D*,group_category_ids%5B%5D*,group_status_ids%5B%5D*,group_type_ids%5B%5D*,has_active_chat*,has_meeting_place*,has_posts*,ids%5B%5D*,include%5B%5D*,is_open_for_members*,limit*,only_my_groups*,order_directions*,order_fields*,page*,query*,tag_ids%5B%5D*,target_group_ids%5B%5D*,visibility*,weekdays%5B%5D*,without_my_groups*}", pathParameters)
         {
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace Fegmm.ChurchTools.Groups
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GroupsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups{?agegroup_ids%5B%5D*,allow_posts*,campus_ids%5B%5D*,group_category_ids%5B%5D*,group_status_ids%5B%5D*,group_type_ids%5B%5D*,has_meeting_place*,has_posts*,ids%5B%5D*,include%5B%5D*,is_open_for_members*,limit*,only_my_groups*,order_directions*,order_fields*,page*,query*,tag_ids%5B%5D*,target_group_ids%5B%5D*,visibility*,weekdays%5B%5D*,without_my_groups*}", rawUrl)
+        public GroupsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups{?agegroup_ids%5B%5D*,allow_posts*,campus_ids%5B%5D*,group_category_ids%5B%5D*,group_status_ids%5B%5D*,group_type_ids%5B%5D*,has_active_chat*,has_meeting_place*,has_posts*,ids%5B%5D*,include%5B%5D*,is_open_for_members*,limit*,only_my_groups*,order_directions*,order_fields*,page*,query*,tag_ids%5B%5D*,target_group_ids%5B%5D*,visibility*,weekdays%5B%5D*,without_my_groups*}", rawUrl)
         {
         }
         /// <summary>
@@ -275,6 +275,9 @@ namespace Fegmm.ChurchTools.Groups
             [QueryParameter("group_type_ids%5B%5D")]
             public int?[] GroupTypeIds { get; set; }
 #endif
+            /// <summary>Filter groups based on whether they have an active chat</summary>
+            [QueryParameter("has_active_chat")]
+            public bool? HasActiveChat { get; set; }
             /// <summary>Only show groups with meeting place</summary>
             [QueryParameter("has_meeting_place")]
             public bool? HasMeetingPlace { get; set; }

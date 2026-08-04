@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithStartDateItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calendars/{calendarId}/appointments/{appointmentId}/{startDate}", pathParameters)
+        public WithStartDateItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calendars/{calendarId}/appointments/{appointmentId}/{startDate}{?include%5B%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithStartDateItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calendars/{calendarId}/appointments/{appointmentId}/{startDate}", rawUrl)
+        public WithStartDateItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calendars/{calendarId}/appointments/{appointmentId}/{startDate}{?include%5B%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -40,11 +40,11 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateGetResponse?> GetAsWithStartDateGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateGetResponse?> GetAsWithStartDateGetResponseAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateItemRequestBuilder.WithStartDateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateGetResponse> GetAsWithStartDateGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateGetResponse> GetAsWithStartDateGetResponseAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateItemRequestBuilder.WithStartDateItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -59,11 +59,11 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item
         [Obsolete("This method is obsolete. Use GetAsWithStartDateGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateResponse?> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateItemRequestBuilder.WithStartDateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateResponse> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateItemRequestBuilder.WithStartDateItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -76,11 +76,11 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateItemRequestBuilder.WithStartDateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateItemRequestBuilder.WithStartDateItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -98,11 +98,39 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item
             return new global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
+        /// Get an appointment with all bookings and meeting requests
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithStartDateItemRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Additional appointment information to include in the response.</summary>
+            [Obsolete("This property is deprecated, use IncludeAsGetIncludeQueryParameterType instead")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("include%5B%5D")]
+            public string[]? Include { get; set; }
+#nullable restore
+#else
+            [QueryParameter("include%5B%5D")]
+            public string[] Include { get; set; }
+#endif
+            /// <summary>Additional appointment information to include in the response.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("include%5B%5D")]
+            public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.GetIncludeQueryParameterType[]? IncludeAsGetIncludeQueryParameterType { get; set; }
+#nullable restore
+#else
+            [QueryParameter("include%5B%5D")]
+            public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.GetIncludeQueryParameterType[] IncludeAsGetIncludeQueryParameterType { get; set; }
+#endif
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithStartDateItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class WithStartDateItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Item.WithStartDateItemRequestBuilder.WithStartDateItemRequestBuilderGetQueryParameters>
         {
         }
     }

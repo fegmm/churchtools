@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Events.Item.Facts.Item
         {
         }
         /// <summary>
-        /// Delete event fact
+        /// Deletes the value of the specified fact for the given event. Use this to remove an event-specific fact value without deleting the fact definition itself.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -50,7 +50,7 @@ namespace Fegmm.ChurchTools.Events.Item.Facts.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read one event fact
+        /// Returns one specific fact value for the given event and fact definition. The current user must be allowed to view the requested fact on that event.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -68,7 +68,7 @@ namespace Fegmm.ChurchTools.Events.Item.Facts.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactGetResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Read one event fact
+        /// Returns one specific fact value for the given event and fact definition. The current user must be allowed to view the requested fact on that event.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -87,7 +87,7 @@ namespace Fegmm.ChurchTools.Events.Item.Facts.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create or update event fact
+        /// Creates or updates the value of the specified fact for the given event. Numeric facts require a numeric value, while select facts require one of the configured options for the fact definition.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactPutResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -112,7 +112,7 @@ namespace Fegmm.ChurchTools.Events.Item.Facts.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactPutResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactPutResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create or update event fact
+        /// Creates or updates the value of the specified fact for the given event. Numeric facts require a numeric value, while select facts require one of the configured options for the fact definition.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -138,7 +138,7 @@ namespace Fegmm.ChurchTools.Events.Item.Facts.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete event fact
+        /// Deletes the value of the specified fact for the given event. Use this to remove an event-specific fact value without deleting the fact definition itself.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -157,7 +157,7 @@ namespace Fegmm.ChurchTools.Events.Item.Facts.Item
             return requestInfo;
         }
         /// <summary>
-        /// Read one event fact
+        /// Returns one specific fact value for the given event and fact definition. The current user must be allowed to view the requested fact on that event.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -176,7 +176,7 @@ namespace Fegmm.ChurchTools.Events.Item.Facts.Item
             return requestInfo;
         }
         /// <summary>
-        /// Create or update event fact
+        /// Creates or updates the value of the specified fact for the given event. Numeric facts require a numeric value, while select facts require one of the configured options for the fact definition.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -207,7 +207,7 @@ namespace Fegmm.ChurchTools.Events.Item.Facts.Item
             return new global::Fegmm.ChurchTools.Events.Item.Facts.Item.WithFactItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Delete event fact
+        /// Deletes the value of the specified fact for the given event. Use this to remove an event-specific fact value without deleting the fact definition itself.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithFactItemRequestBuilderDeleteQueryParameters 

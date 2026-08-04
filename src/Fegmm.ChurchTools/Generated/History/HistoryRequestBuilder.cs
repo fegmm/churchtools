@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.History
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HistoryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/history?domain_identifiers[]={domain_identifiers%5B%5D}&domain_types[]={domain_types%5B%5D}{&action*,query*}", pathParameters)
+        public HistoryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/history?domain_identifiers[]={domain_identifiers%5B%5D}&domain_types[]={domain_types%5B%5D}{&action*,actor_id*,from*,limit*,origin*,page*,query*,to*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Fegmm.ChurchTools.History
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HistoryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/history?domain_identifiers[]={domain_identifiers%5B%5D}&domain_types[]={domain_types%5B%5D}{&action*,query*}", rawUrl)
+        public HistoryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/history?domain_identifiers[]={domain_identifiers%5B%5D}&domain_types[]={domain_types%5B%5D}{&action*,actor_id*,from*,limit*,origin*,page*,query*,to*}", rawUrl)
         {
         }
         /// <summary>
@@ -113,6 +113,9 @@ namespace Fegmm.ChurchTools.History
             [QueryParameter("action")]
             public string Action { get; set; }
 #endif
+            /// <summary>Return entries created by this person.</summary>
+            [QueryParameter("actor_id")]
+            public int? ActorId { get; set; }
             /// <summary>Identifiers of domain objects to retrieve</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -133,6 +136,25 @@ namespace Fegmm.ChurchTools.History
             [QueryParameter("domain_types%5B%5D")]
             public string[] DomainTypes { get; set; }
 #endif
+            /// <summary>Return entities starting from this date.</summary>
+            [QueryParameter("from")]
+            public Date? From { get; set; }
+            /// <summary>Number of results per page.</summary>
+            [QueryParameter("limit")]
+            public int? Limit { get; set; }
+            /// <summary>Return entries with this origin.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("origin")]
+            public string? Origin { get; set; }
+#nullable restore
+#else
+            [QueryParameter("origin")]
+            public string Origin { get; set; }
+#endif
+            /// <summary>Page number to show page in pagination. If empty, start at first page.</summary>
+            [QueryParameter("page")]
+            public int? Page { get; set; }
             /// <summary>Full-Text Search for the Entry Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -143,6 +165,9 @@ namespace Fegmm.ChurchTools.History
             [QueryParameter("query")]
             public string Query { get; set; }
 #endif
+            /// <summary>Return entities up to (but not including) this date.</summary>
+            [QueryParameter("to")]
+            public Date? To { get; set; }
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

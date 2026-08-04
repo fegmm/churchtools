@@ -27,6 +27,14 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Item.Followups
 #endif
         /// <summary>A simple date in ISO format, e.g. &apos;2022-10-19&apos;</summary>
         public Date? DueDate { get; set; }
+        /// <summary>At least one of `dueDate` or `duration` MUST be specified. Within `duration`, at least one of `numDays`, `numMonths`, or `numYears` MUST be specified.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Groups.Item.Members.Item.Followups.FollowupsPostRequestBody_duration? Duration { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Groups.Item.Members.Item.Followups.FollowupsPostRequestBody_duration Duration { get; set; }
+#endif
         /// <summary>The icon property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,6 +95,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Item.Followups
                 { "color", n => { Color = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.Members.Item.Followups.FollowupsPostRequestBody_color>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "dueDate", n => { DueDate = n.GetDateValue(); } },
+                { "duration", n => { Duration = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.Item.Members.Item.Followups.FollowupsPostRequestBody_duration>(global::Fegmm.ChurchTools.Groups.Item.Members.Item.Followups.FollowupsPostRequestBody_duration.CreateFromDiscriminatorValue); } },
                 { "icon", n => { Icon = n.GetStringValue(); } },
                 { "ownerId", n => { OwnerId = n.GetIntValue(); } },
                 { "successGroupId", n => { SuccessGroupId = n.GetIntValue(); } },
@@ -106,6 +115,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Item.Followups
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.Members.Item.Followups.FollowupsPostRequestBody_color>("color", Color);
             writer.WriteStringValue("description", Description);
             writer.WriteDateValue("dueDate", DueDate);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Members.Item.Followups.FollowupsPostRequestBody_duration>("duration", Duration);
             writer.WriteStringValue("icon", Icon);
             writer.WriteIntValue("ownerId", OwnerId);
             writer.WriteIntValue("successGroupId", SuccessGroupId);

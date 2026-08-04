@@ -33,43 +33,106 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item
         {
         }
         /// <summary>
-        /// TODO 200
+        /// Deletes a custom group member field definition from the group.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// TODO 200
+        /// Partially updates a group member field. Only provided fields are updated. When replacing options for a select-like field, send existing options with their numeric option ids and new options without an id (or with `id: null`).
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPatchResponse"/></returns>
+        /// <param name="body">Request body for partially updating a group member field.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPatchResponse?> PatchAsWithGroupMemberFieldPatchResponseAsync(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PutAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPatchResponse> PatchAsWithGroupMemberFieldPatchResponseAsync(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToPutRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPatchResponse>(requestInfo, global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPatchResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// TODO 200
+        /// Partially updates a group member field. Only provided fields are updated. When replacing options for a select-like field, send existing options with their numeric option ids and new options without an id (or with `id: null`).
+        /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldResponse"/></returns>
+        /// <param name="body">Request body for partially updating a group member field.</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("This method is obsolete. Use PatchAsWithGroupMemberFieldPatchResponseAsync instead.")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldResponse?> PatchAsync(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldResponse> PatchAsync(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldResponse>(requestInfo, global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Updates the given group member field definition. The same option rules as for PATCH apply: existing select-like options should be sent with numeric ids, new options without ids. The `referenceName` is required for this full update endpoint.
+        /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPutResponse"/></returns>
+        /// <param name="body">Request body for replacing a group member field definition.</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPutResponse?> PutAsWithGroupMemberFieldPutResponseAsync(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPutResponse> PutAsWithGroupMemberFieldPutResponseAsync(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPutResponse>(requestInfo, global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Updates the given group member field definition. The same option rules as for PATCH apply: existing select-like options should be sent with numeric ids, new options without ids. The `referenceName` is required for this full update endpoint.
+        /// </summary>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldResponse"/></returns>
+        /// <param name="body">Request body for replacing a group member field definition.</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("This method is obsolete. Use PutAsWithGroupMemberFieldPutResponseAsync instead.")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldResponse?> PutAsync(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldResponse> PutAsync(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldResponse>(requestInfo, global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Deletes a custom group member field definition from the group.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -88,22 +151,47 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item
             return requestInfo;
         }
         /// <summary>
-        /// TODO 200
+        /// Partially updates a group member field. Only provided fields are updated. When replacing options for a select-like field, send existing options with their numeric option ids and new options without an id (or with `id: null`).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">Request body for partially updating a group member field.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
+            return requestInfo;
+        }
+        /// <summary>
+        /// Updates the given group member field definition. The same option rules as for PATCH apply: existing select-like options should be sent with numeric ids, new options without ids. The `referenceName` is required for this full update endpoint.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">Request body for replacing a group member field definition.</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToPutRequestInformation(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToPutRequestInformation(global::Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item.WithGroupMemberFieldPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>
@@ -121,6 +209,14 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields.Group.Item
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithGroupMemberFieldItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        {
+        }
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithGroupMemberFieldItemRequestBuilderPatchRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
         {
         }
         /// <summary>

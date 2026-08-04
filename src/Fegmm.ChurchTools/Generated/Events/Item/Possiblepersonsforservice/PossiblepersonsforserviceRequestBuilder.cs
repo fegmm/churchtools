@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Events.Item.Possiblepersonsforservice
         {
         }
         /// <summary>
-        /// Gets a list of all possible persons for a service with their availability. This endpoint is used to get the persons for a service that is not part of an event.
+        /// Gets all persons that can potentially serve in the specified service, independent of a concrete event. Use this endpoint for service-level candidate lists where event-specific availability and conflicts are not needed.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Possiblepersonsforservice.PossiblepersonsforserviceGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Fegmm.ChurchTools.Events.Item.Possiblepersonsforservice
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Possiblepersonsforservice.PossiblepersonsforserviceGetResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Possiblepersonsforservice.PossiblepersonsforserviceGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets a list of all possible persons for a service with their availability. This endpoint is used to get the persons for a service that is not part of an event.
+        /// Gets all persons that can potentially serve in the specified service, independent of a concrete event. Use this endpoint for service-level candidate lists where event-specific availability and conflicts are not needed.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.Possiblepersonsforservice.PossiblepersonsforserviceResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace Fegmm.ChurchTools.Events.Item.Possiblepersonsforservice
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Events.Item.Possiblepersonsforservice.PossiblepersonsforserviceResponse>(requestInfo, global::Fegmm.ChurchTools.Events.Item.Possiblepersonsforservice.PossiblepersonsforserviceResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets a list of all possible persons for a service with their availability. This endpoint is used to get the persons for a service that is not part of an event.
+        /// Gets all persons that can potentially serve in the specified service, independent of a concrete event. Use this endpoint for service-level candidate lists where event-specific availability and conflicts are not needed.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

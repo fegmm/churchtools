@@ -25,10 +25,18 @@ namespace Fegmm.ChurchTools.Followups.Item.Dismiss
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>A simple date in ISO format, e.g. &apos;2022-10-19&apos;</summary>
-        public Date? DoneDate { get; set; }
+        /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
+        public DateTimeOffset? DoneDate { get; set; }
         /// <summary>A simple date in ISO format, e.g. &apos;2022-10-19&apos;</summary>
         public Date? DueDate { get; set; }
+        /// <summary>At least one of `dueDate` or `duration` MUST be specified. Within `duration`, at least one of `numDays`, `numMonths`, or `numYears` MUST be specified.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Followups.Item.Dismiss.DismissPostResponse_data_duration? Duration { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Followups.Item.Dismiss.DismissPostResponse_data_duration Duration { get; set; }
+#endif
         /// <summary>A simple date in ISO format, e.g. &apos;2022-10-19&apos;</summary>
         public Date? EffectiveDueDate { get; set; }
         /// <summary>The groupId property</summary>
@@ -108,8 +116,9 @@ namespace Fegmm.ChurchTools.Followups.Item.Dismiss
             {
                 { "color", n => { Color = n.GetEnumValue<global::Fegmm.ChurchTools.Followups.Item.Dismiss.DismissPostResponse_data_color>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "doneDate", n => { DoneDate = n.GetDateValue(); } },
+                { "doneDate", n => { DoneDate = n.GetDateTimeOffsetValue(); } },
                 { "dueDate", n => { DueDate = n.GetDateValue(); } },
+                { "duration", n => { Duration = n.GetObjectValue<global::Fegmm.ChurchTools.Followups.Item.Dismiss.DismissPostResponse_data_duration>(global::Fegmm.ChurchTools.Followups.Item.Dismiss.DismissPostResponse_data_duration.CreateFromDiscriminatorValue); } },
                 { "effectiveDueDate", n => { EffectiveDueDate = n.GetDateValue(); } },
                 { "groupId", n => { GroupId = n.GetIntValue(); } },
                 { "icon", n => { Icon = n.GetStringValue(); } },
@@ -135,8 +144,9 @@ namespace Fegmm.ChurchTools.Followups.Item.Dismiss
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Followups.Item.Dismiss.DismissPostResponse_data_color>("color", Color);
             writer.WriteStringValue("description", Description);
-            writer.WriteDateValue("doneDate", DoneDate);
+            writer.WriteDateTimeOffsetValue("doneDate", DoneDate);
             writer.WriteDateValue("dueDate", DueDate);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Followups.Item.Dismiss.DismissPostResponse_data_duration>("duration", Duration);
             writer.WriteDateValue("effectiveDueDate", EffectiveDueDate);
             writer.WriteIntValue("groupId", GroupId);
             writer.WriteStringValue("icon", Icon);

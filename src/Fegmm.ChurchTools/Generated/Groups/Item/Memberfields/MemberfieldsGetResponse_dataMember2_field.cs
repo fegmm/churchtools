@@ -14,15 +14,15 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The defaultValue property</summary>
+        /// <summary>Default value stored for this member field. For select-like fields this is the selected option id; multiselect values are comma-separated option ids.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DefaultValue { get; set; }
+        public global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field.MemberfieldsGetResponse_dataMember2_field_defaultValue? DefaultValue { get; set; }
 #nullable restore
 #else
-        public string DefaultValue { get; set; }
+        public global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field.MemberfieldsGetResponse_dataMember2_field_defaultValue DefaultValue { get; set; }
 #endif
-        /// <summary>The fieldName property</summary>
+        /// <summary>Use `name` instead.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,15 +33,15 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields
 #endif
         /// <summary>The intern code of the field type the field belongs to. This is used to define the type of the field.</summary>
         public global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field_fieldTypeCode? FieldTypeCode { get; set; }
-        /// <summary>The fieldTypeId property</summary>
+        /// <summary>Numeric id of the field type.</summary>
         public int? FieldTypeId { get; set; }
-        /// <summary>The groupId property</summary>
+        /// <summary>ID of the group this member field belongs to.</summary>
         public int? GroupId { get; set; }
-        /// <summary>The id property</summary>
+        /// <summary>ID of the group member field.</summary>
         public int? Id { get; set; }
-        /// <summary>The maxLength property</summary>
+        /// <summary>Maximum stored value length for member field data.</summary>
         public int? MaxLength { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>Internal field name shown to administrators.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -49,7 +49,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The nameInSignupForm property</summary>
+        /// <summary>Optional field name shown in the signup form.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NameInSignupForm { get; set; }
@@ -57,7 +57,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields
 #else
         public string NameInSignupForm { get; set; }
 #endif
-        /// <summary>The note property</summary>
+        /// <summary>Internal field description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Note { get; set; }
@@ -65,7 +65,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields
 #else
         public string Note { get; set; }
 #endif
-        /// <summary>The noteInSignupForm property</summary>
+        /// <summary>Optional field description shown in the signup form.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NoteInSignupForm { get; set; }
@@ -73,7 +73,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields
 #else
         public string NoteInSignupForm { get; set; }
 #endif
-        /// <summary>The options property</summary>
+        /// <summary>Backend-assigned options for select-like fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field_options>? Options { get; set; }
@@ -81,7 +81,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields
 #else
         public List<global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field_options> Options { get; set; }
 #endif
-        /// <summary>The referenceName property</summary>
+        /// <summary>Stable machine-readable key for this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ReferenceName { get; set; }
@@ -89,13 +89,13 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields
 #else
         public string ReferenceName { get; set; }
 #endif
-        /// <summary>The requiredInRegistrationForm property</summary>
+        /// <summary>Whether this field is mandatory in the signup form.</summary>
         public bool? RequiredInRegistrationForm { get; set; }
-        /// <summary>The securityLevel property</summary>
+        /// <summary>Security level required to see and edit this field.</summary>
         public int? SecurityLevel { get; set; }
-        /// <summary>The sortKey property</summary>
+        /// <summary>Sort order among group member fields.</summary>
         public int? SortKey { get; set; }
-        /// <summary>The useInRegistrationForm property</summary>
+        /// <summary>Whether this field is shown in the signup form.</summary>
         public bool? UseInRegistrationForm { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field"/> and sets the default values.
@@ -122,7 +122,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "defaultValue", n => { DefaultValue = n.GetStringValue(); } },
+                { "defaultValue", n => { DefaultValue = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field.MemberfieldsGetResponse_dataMember2_field_defaultValue>(global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field.MemberfieldsGetResponse_dataMember2_field_defaultValue.CreateFromDiscriminatorValue); } },
                 { "fieldName", n => { FieldName = n.GetStringValue(); } },
                 { "fieldTypeCode", n => { FieldTypeCode = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field_fieldTypeCode>(); } },
                 { "fieldTypeId", n => { FieldTypeId = n.GetIntValue(); } },
@@ -148,7 +148,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("defaultValue", DefaultValue);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field.MemberfieldsGetResponse_dataMember2_field_defaultValue>("defaultValue", DefaultValue);
             writer.WriteStringValue("fieldName", FieldName);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field_fieldTypeCode>("fieldTypeCode", FieldTypeCode);
             writer.WriteIntValue("fieldTypeId", FieldTypeId);
@@ -166,6 +166,77 @@ namespace Fegmm.ChurchTools.Groups.Item.Memberfields
             writer.WriteIntValue("sortKey", SortKey);
             writer.WriteBoolValue("useInRegistrationForm", UseInRegistrationForm);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="bool"/>, <see cref="int"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class MemberfieldsGetResponse_dataMember2_field_defaultValue : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="bool"/></summary>
+            public bool? Boolean { get; set; }
+            /// <summary>Composed type representation for type <see cref="int"/></summary>
+            public int? Integer { get; set; }
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field.MemberfieldsGetResponse_dataMember2_field_defaultValue"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field.MemberfieldsGetResponse_dataMember2_field_defaultValue CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Groups.Item.Memberfields.MemberfieldsGetResponse_dataMember2_field.MemberfieldsGetResponse_dataMember2_field_defaultValue();
+                if(parseNode.GetBoolValue() is bool booleanValue)
+                {
+                    result.Boolean = booleanValue;
+                }
+                else if(parseNode.GetIntValue() is int integerValue)
+                {
+                    result.Integer = integerValue;
+                }
+                else if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(Boolean != null)
+                {
+                    writer.WriteBoolValue(null, Boolean);
+                }
+                else if(Integer != null)
+                {
+                    writer.WriteIntValue(null, Integer);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
         }
     }
 }

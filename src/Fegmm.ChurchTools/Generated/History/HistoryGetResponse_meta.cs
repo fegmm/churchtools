@@ -14,8 +14,18 @@ namespace Fegmm.ChurchTools.History
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The all property</summary>
+        public int? All { get; set; }
         /// <summary>The count property</summary>
         public int? Count { get; set; }
+        /// <summary>The pagination property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.History.HistoryGetResponse_meta_pagination? Pagination { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.History.HistoryGetResponse_meta_pagination Pagination { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.History.HistoryGetResponse_meta"/> and sets the default values.
         /// </summary>
@@ -41,7 +51,9 @@ namespace Fegmm.ChurchTools.History
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "all", n => { All = n.GetIntValue(); } },
                 { "count", n => { Count = n.GetIntValue(); } },
+                { "pagination", n => { Pagination = n.GetObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_meta_pagination>(global::Fegmm.ChurchTools.History.HistoryGetResponse_meta_pagination.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -51,7 +63,9 @@ namespace Fegmm.ChurchTools.History
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("all", All);
             writer.WriteIntValue("count", Count);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.History.HistoryGetResponse_meta_pagination>("pagination", Pagination);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

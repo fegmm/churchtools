@@ -92,6 +92,14 @@ namespace Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons
 #else
         public List<global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data_servicesOnSameDay> ServicesOnSameDay { get; set; }
 #endif
+        /// <summary>The servicesPreviouslyDeclined property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data_servicesPreviouslyDeclined>? ServicesPreviouslyDeclined { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data_servicesPreviouslyDeclined> ServicesPreviouslyDeclined { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data"/> and sets the default values.
         /// </summary>
@@ -129,6 +137,7 @@ namespace Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons
                 { "serviceGroupPreferences", n => { ServiceGroupPreferences = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data_serviceGroupPreferences>(global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data_serviceGroupPreferences.CreateFromDiscriminatorValue); } },
                 { "serviceOnSameDay", n => { ServiceOnSameDay = n.GetBoolValue(); } },
                 { "servicesOnSameDay", n => { ServicesOnSameDay = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data_servicesOnSameDay>(global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data_servicesOnSameDay.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "servicesPreviouslyDeclined", n => { ServicesPreviouslyDeclined = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data_servicesPreviouslyDeclined>(global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data_servicesPreviouslyDeclined.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -150,6 +159,7 @@ namespace Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data_serviceGroupPreferences>("serviceGroupPreferences", ServiceGroupPreferences);
             writer.WriteBoolValue("serviceOnSameDay", ServiceOnSameDay);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data_servicesOnSameDay>("servicesOnSameDay", ServicesOnSameDay);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Events.Item.Services.Item.Possiblepersons.PossiblepersonsGetResponse_data_servicesPreviouslyDeclined>("servicesPreviouslyDeclined", ServicesPreviouslyDeclined);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

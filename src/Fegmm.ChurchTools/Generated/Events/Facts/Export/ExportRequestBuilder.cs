@@ -33,7 +33,7 @@ namespace Fegmm.ChurchTools.Events.Facts.Export
         {
         }
         /// <summary>
-        /// Export event facts as CSV or XLSX, respectively.
+        /// Exports event facts for the selected calendars and optional date range. The export format is selected with the `format` query parameter and the generated file contains the visible facts for matching events.
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">The request body</param>
@@ -53,7 +53,7 @@ namespace Fegmm.ChurchTools.Events.Facts.Export
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Export event facts as CSV or XLSX, respectively.
+        /// Exports event facts for the selected calendars and optional date range. The export format is selected with the `format` query parameter and the generated file contains the visible facts for matching events.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -84,7 +84,7 @@ namespace Fegmm.ChurchTools.Events.Facts.Export
             return new global::Fegmm.ChurchTools.Events.Facts.Export.ExportRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Export event facts as CSV or XLSX, respectively.
+        /// Exports event facts for the selected calendars and optional date range. The export format is selected with the `format` query parameter and the generated file contains the visible facts for matching events.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ExportRequestBuilderPostQueryParameters 

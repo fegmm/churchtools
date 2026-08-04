@@ -51,10 +51,16 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Item
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Number of member requests</summary>
+        /// <summary>Use `requestedSeatsCount` instead.</summary>
+        [Obsolete("")]
         public int? RequestedPlacesCount { get; set; }
-        /// <summary>Number of member requests with waiting list position</summary>
+        /// <summary>Number of requested seats</summary>
+        public int? RequestedSeatsCount { get; set; }
+        /// <summary>Use `requestedWaitinglistSeatsCount` instead.</summary>
+        [Obsolete("")]
         public int? RequestedWaitinglistPlacesCount { get; set; }
+        /// <summary>Number of requested seats with waiting list position</summary>
+        public int? RequestedWaitinglistSeatsCount { get; set; }
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,7 +132,9 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Item
                 { "maxMemberCount", n => { MaxMemberCount = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "requestedPlacesCount", n => { RequestedPlacesCount = n.GetIntValue(); } },
+                { "requestedSeatsCount", n => { RequestedSeatsCount = n.GetIntValue(); } },
                 { "requestedWaitinglistPlacesCount", n => { RequestedWaitinglistPlacesCount = n.GetIntValue(); } },
+                { "requestedWaitinglistSeatsCount", n => { RequestedWaitinglistSeatsCount = n.GetIntValue(); } },
                 { "settings", n => { Settings = n.GetObjectValue<global::Fegmm.ChurchTools.Publicgroups.Item.Item.WithHashGetResponse_settings>(global::Fegmm.ChurchTools.Publicgroups.Item.Item.WithHashGetResponse_settings.CreateFromDiscriminatorValue); } },
                 { "showPublicCannotViewGroup", n => { ShowPublicCannotViewGroup = n.GetBoolValue(); } },
                 { "signUpConditions", n => { SignUpConditions = n.GetObjectValue<global::Fegmm.ChurchTools.Publicgroups.Item.Item.WithHashGetResponse_signUpConditions>(global::Fegmm.ChurchTools.Publicgroups.Item.Item.WithHashGetResponse_signUpConditions.CreateFromDiscriminatorValue); } },
@@ -152,7 +160,9 @@ namespace Fegmm.ChurchTools.Publicgroups.Item.Item
             writer.WriteIntValue("maxMemberCount", MaxMemberCount);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("requestedPlacesCount", RequestedPlacesCount);
+            writer.WriteIntValue("requestedSeatsCount", RequestedSeatsCount);
             writer.WriteIntValue("requestedWaitinglistPlacesCount", RequestedWaitinglistPlacesCount);
+            writer.WriteIntValue("requestedWaitinglistSeatsCount", RequestedWaitinglistSeatsCount);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Publicgroups.Item.Item.WithHashGetResponse_settings>("settings", Settings);
             writer.WriteBoolValue("showPublicCannotViewGroup", ShowPublicCannotViewGroup);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Publicgroups.Item.Item.WithHashGetResponse_signUpConditions>("signUpConditions", SignUpConditions);

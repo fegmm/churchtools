@@ -32,6 +32,9 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
         public MasterdataRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pr/masterdata", rawUrl)
         {
         }
+        /// <summary>
+        /// Returns the master data used by the public relations module and public profiles. The response groups each master data collection under `data` and returns the item count for each collection under `meta`.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -47,6 +50,9 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse>(requestInfo, global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns the master data used by the public relations module and public profiles. The response groups each master data collection under `data` and returns the item count for each collection under `meta`.
+        /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -63,6 +69,9 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataResponse>(requestInfo, global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
+        /// <summary>
+        /// Returns the master data used by the public relations module and public profiles. The response groups each master data collection under `data` and returns the item count for each collection under `meta`.
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

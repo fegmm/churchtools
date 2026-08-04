@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Profiles.Slugcheck.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSlugItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/profiles/slugcheck/{slug}", pathParameters)
+        public WithSlugItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/profiles/slugcheck/{slug}{?guid*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Fegmm.ChurchTools.Profiles.Slugcheck.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSlugItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/profiles/slugcheck/{slug}", rawUrl)
+        public WithSlugItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/profiles/slugcheck/{slug}{?guid*}", rawUrl)
         {
         }
         /// <summary>
@@ -40,11 +40,11 @@ namespace Fegmm.ChurchTools.Profiles.Slugcheck.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Profiles.Slugcheck.Item.WithSlugItemRequestBuilder.WithSlugItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> GetAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Profiles.Slugcheck.Item.WithSlugItemRequestBuilder.WithSlugItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -57,11 +57,11 @@ namespace Fegmm.ChurchTools.Profiles.Slugcheck.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Profiles.Slugcheck.Item.WithSlugItemRequestBuilder.WithSlugItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Profiles.Slugcheck.Item.WithSlugItemRequestBuilder.WithSlugItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -78,11 +78,28 @@ namespace Fegmm.ChurchTools.Profiles.Slugcheck.Item
             return new global::Fegmm.ChurchTools.Profiles.Slugcheck.Item.WithSlugItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
+        /// Published profiles are visibale in ChurchTools Finder. Each profile has an unique slug (URI). This endpoint can be used to check if a slug is free.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithSlugItemRequestBuilderGetQueryParameters 
+        {
+            /// <summary>GUID of the profile currently being edited. If this profile already uses the slug, the slug is considered available.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("guid")]
+            public string? Guid { get; set; }
+#nullable restore
+#else
+            [QueryParameter("guid")]
+            public string Guid { get; set; }
+#endif
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithSlugItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class WithSlugItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Fegmm.ChurchTools.Profiles.Slugcheck.Item.WithSlugItemRequestBuilder.WithSlugItemRequestBuilderGetQueryParameters>
         {
         }
     }

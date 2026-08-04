@@ -30,6 +30,22 @@ namespace Fegmm.ChurchTools.Events.Item
         /// <summary>use `index` instead</summary>
         [Obsolete("")]
         public int? Counter { get; set; }
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_Deprecated Deprecated { get; set; }
+#endif
+        /// <summary>The event property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices.EventGetResponse_data_eventServices_event? Event { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices.EventGetResponse_data_eventServices_event Event { get; set; }
+#endif
         /// <summary>The id property</summary>
         public int? Id { get; set; }
         /// <summary>The index property</summary>
@@ -38,6 +54,14 @@ namespace Fegmm.ChurchTools.Events.Item
         public bool? IsAccepted { get; set; }
         /// <summary>The isValid property</summary>
         public bool? IsValid { get; set; }
+        /// <summary>The meta property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_meta? Meta { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_meta Meta { get; set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,32 +78,40 @@ namespace Fegmm.ChurchTools.Events.Item
 #else
         public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_permissions Permissions { get; set; }
 #endif
-        /// <summary>Person as Domain Object</summary>
+        /// <summary>The person property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_person? Person { get; set; }
+        public UntypedNode? Person { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_person Person { get; set; }
+        public UntypedNode Person { get; set; }
 #endif
         /// <summary>The personId property</summary>
         [Obsolete("")]
         public int? PersonId { get; set; }
         /// <summary>The requestedDate property</summary>
         public DateTimeOffset? RequestedDate { get; set; }
-        /// <summary>Person as Domain Object</summary>
+        /// <summary>The requesterPerson property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_requesterPerson? RequesterPerson { get; set; }
+        public UntypedNode? RequesterPerson { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_requesterPerson RequesterPerson { get; set; }
+        public UntypedNode RequesterPerson { get; set; }
 #endif
         /// <summary>The requesterPersonId property</summary>
         [Obsolete("")]
         public int? RequesterPersonId { get; set; }
         /// <summary>The serviceId property</summary>
         public int? ServiceId { get; set; }
+        /// <summary>The serviceName property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ServiceName { get; set; }
+#nullable restore
+#else
+        public string ServiceName { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices"/> and sets the default values.
         /// </summary>
@@ -109,18 +141,22 @@ namespace Fegmm.ChurchTools.Events.Item
                 { "allowChat", n => { AllowChat = n.GetBoolValue(); } },
                 { "comment", n => { Comment = n.GetStringValue(); } },
                 { "counter", n => { Counter = n.GetIntValue(); } },
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_Deprecated>(global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_Deprecated.CreateFromDiscriminatorValue); } },
+                { "event", n => { Event = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices.EventGetResponse_data_eventServices_event>(global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices.EventGetResponse_data_eventServices_event.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "index", n => { Index = n.GetIntValue(); } },
                 { "isAccepted", n => { IsAccepted = n.GetBoolValue(); } },
                 { "isValid", n => { IsValid = n.GetBoolValue(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_meta>(global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_meta.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_permissions>(global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_permissions.CreateFromDiscriminatorValue); } },
-                { "person", n => { Person = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_person>(global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_person.CreateFromDiscriminatorValue); } },
+                { "person", n => { Person = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "personId", n => { PersonId = n.GetIntValue(); } },
                 { "requestedDate", n => { RequestedDate = n.GetDateTimeOffsetValue(); } },
-                { "requesterPerson", n => { RequesterPerson = n.GetObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_requesterPerson>(global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_requesterPerson.CreateFromDiscriminatorValue); } },
+                { "requesterPerson", n => { RequesterPerson = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "requesterPersonId", n => { RequesterPersonId = n.GetIntValue(); } },
                 { "serviceId", n => { ServiceId = n.GetIntValue(); } },
+                { "serviceName", n => { ServiceName = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -134,19 +170,89 @@ namespace Fegmm.ChurchTools.Events.Item
             writer.WriteBoolValue("allowChat", AllowChat);
             writer.WriteStringValue("comment", Comment);
             writer.WriteIntValue("counter", Counter);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_Deprecated>("@deprecated", Deprecated);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices.EventGetResponse_data_eventServices_event>("event", Event);
             writer.WriteIntValue("id", Id);
             writer.WriteIntValue("index", Index);
             writer.WriteBoolValue("isAccepted", IsAccepted);
             writer.WriteBoolValue("isValid", IsValid);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_meta>("meta", Meta);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_permissions>("permissions", Permissions);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_person>("person", Person);
+            writer.WriteObjectValue<UntypedNode>("person", Person);
             writer.WriteIntValue("personId", PersonId);
             writer.WriteDateTimeOffsetValue("requestedDate", RequestedDate);
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_requesterPerson>("requesterPerson", RequesterPerson);
+            writer.WriteObjectValue<UntypedNode>("requesterPerson", RequesterPerson);
             writer.WriteIntValue("requesterPersonId", RequesterPersonId);
             writer.WriteIntValue("serviceId", ServiceId);
+            writer.WriteStringValue("serviceName", ServiceName);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember1"/>, <see cref="global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember2"/>, <see cref="global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember3"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class EventGetResponse_data_eventServices_event : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember1? EventGetResponseDataEventServicesEventMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember1 EventGetResponseDataEventServicesEventMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember2? EventGetResponseDataEventServicesEventMember2 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember2 EventGetResponseDataEventServicesEventMember2 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember3? EventGetResponseDataEventServicesEventMember3 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember3 EventGetResponseDataEventServicesEventMember3 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices.EventGetResponse_data_eventServices_event"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices.EventGetResponse_data_eventServices_event CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices.EventGetResponse_data_eventServices_event();
+                result.EventGetResponseDataEventServicesEventMember1 = new global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember1();
+                result.EventGetResponseDataEventServicesEventMember2 = new global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember2();
+                result.EventGetResponseDataEventServicesEventMember3 = new global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember3();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(EventGetResponseDataEventServicesEventMember1 != null || EventGetResponseDataEventServicesEventMember2 != null || EventGetResponseDataEventServicesEventMember3 != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(EventGetResponseDataEventServicesEventMember1, EventGetResponseDataEventServicesEventMember2, EventGetResponseDataEventServicesEventMember3);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                writer.WriteObjectValue<global::Fegmm.ChurchTools.Events.Item.EventGetResponse_data_eventServices_eventMember1>(null, EventGetResponseDataEventServicesEventMember1, EventGetResponseDataEventServicesEventMember2, EventGetResponseDataEventServicesEventMember3);
+            }
         }
     }
 }

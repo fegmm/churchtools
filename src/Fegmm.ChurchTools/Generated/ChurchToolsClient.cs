@@ -25,6 +25,7 @@ using Fegmm.ChurchTools.Emails;
 using Fegmm.ChurchTools.Evangelischetermine;
 using Fegmm.ChurchTools.Event;
 using Fegmm.ChurchTools.Events;
+using Fegmm.ChurchTools.Eventtemplates;
 using Fegmm.ChurchTools.Externallogins;
 using Fegmm.ChurchTools.Externalposts;
 using Fegmm.ChurchTools.Facts;
@@ -236,6 +237,11 @@ namespace Fegmm.ChurchTools
         public global::Fegmm.ChurchTools.Events.EventsRequestBuilder Events
         {
             get => new global::Fegmm.ChurchTools.Events.EventsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The eventtemplates property</summary>
+        public global::Fegmm.ChurchTools.Eventtemplates.EventtemplatesRequestBuilder Eventtemplates
+        {
+            get => new global::Fegmm.ChurchTools.Eventtemplates.EventtemplatesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The externallogins property</summary>
         public global::Fegmm.ChurchTools.Externallogins.ExternalloginsRequestBuilder Externallogins

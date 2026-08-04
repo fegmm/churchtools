@@ -27,10 +27,10 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
         /// <summary>The facts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_facts>? Facts { get; set; }
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_facts? Facts { get; set; }
 #nullable restore
 #else
-        public List<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_facts> Facts { get; set; }
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_facts Facts { get; set; }
 #endif
         /// <summary>The note property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -77,7 +77,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
             {
                 { "adminIds", n => { AdminIds = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "eventTemplateId", n => { EventTemplateId = n.GetIntValue(); } },
-                { "facts", n => { Facts = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_facts>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_facts.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "facts", n => { Facts = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_facts>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_facts.CreateFromDiscriminatorValue); } },
                 { "note", n => { Note = n.GetStringValue(); } },
                 { "services", n => { Services = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_services>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_services.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "startDate", n => { StartDate = n.GetDateTimeOffsetValue(); } },
@@ -92,7 +92,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<int?>("adminIds", AdminIds);
             writer.WriteIntValue("eventTemplateId", EventTemplateId);
-            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_facts>("facts", Facts);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_facts>("facts", Facts);
             writer.WriteStringValue("note", Note);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.AppointmentsPostRequestBody_events_services>("services", Services);
             writer.WriteDateTimeOffsetValue("startDate", StartDate);

@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -14,8 +15,126 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The additionals property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_additionals>? Additionals { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_additionals> Additionals { get; set; }
+#endif
+        /// <summary>The address property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_address? Address { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_address Address { get; set; }
+#endif
         /// <summary>The appointmentId property</summary>
         public int? AppointmentId { get; set; }
+        /// <summary>The bookings property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_bookings>? Bookings { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_bookings> Bookings { get; set; }
+#endif
+        /// <summary>The calendarId property</summary>
+        public int? CalendarId { get; set; }
+        /// <summary>The description property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
+        /// <summary>The endDate property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_endDate? EndDate { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_endDate EndDate { get; set; }
+#endif
+        /// <summary>The events property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_events>? Events { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_events> Events { get; set; }
+#endif
+        /// <summary>The exceptions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_exceptions>? Exceptions { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_exceptions> Exceptions { get; set; }
+#endif
+        /// <summary>The isInternal property</summary>
+        public bool? IsInternal { get; set; }
+        /// <summary>The link property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Link { get; set; }
+#nullable restore
+#else
+        public string Link { get; set; }
+#endif
+        /// <summary>The meetingrequests property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_meetingrequests>? Meetingrequests { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_meetingrequests> Meetingrequests { get; set; }
+#endif
+        /// <summary>The onBehalfOfPid property</summary>
+        public int? OnBehalfOfPid { get; set; }
+        /// <summary>The repeatFrequency property</summary>
+        public int? RepeatFrequency { get; set; }
+        /// <summary>ID of the repeat pattern, NONE = 0, DAILY = 1, WEEKLY = 7, MONTHLY_BY_DATE = 31, MONTHLY_BY_WEEKDAY = 32, YEARLY = 365, MANUALLY = 999</summary>
+        public int? RepeatId { get; set; }
+        /// <summary>The repeatOption property</summary>
+        public int? RepeatOption { get; set; }
+        /// <summary>A simple date in ISO format, e.g. &apos;2022-10-19&apos;</summary>
+        public Date? RepeatUntil { get; set; }
+        /// <summary>The signup property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_signup? Signup { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_signup Signup { get; set; }
+#endif
+        /// <summary>The startDate property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_startDate? StartDate { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_startDate StartDate { get; set; }
+#endif
+        /// <summary>The subtitle property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Subtitle { get; set; }
+#nullable restore
+#else
+        public string Subtitle { get; set; }
+#endif
+        /// <summary>The title property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
+        public string Title { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody"/> and sets the default values.
         /// </summary>
@@ -41,7 +160,27 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "additionals", n => { Additionals = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_additionals>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_additionals.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "address", n => { Address = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_address>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_address.CreateFromDiscriminatorValue); } },
                 { "appointmentId", n => { AppointmentId = n.GetIntValue(); } },
+                { "bookings", n => { Bookings = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_bookings>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_bookings.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "calendarId", n => { CalendarId = n.GetIntValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "endDate", n => { EndDate = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_endDate>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_endDate.CreateFromDiscriminatorValue); } },
+                { "events", n => { Events = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_events>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_events.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "exceptions", n => { Exceptions = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_exceptions>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_exceptions.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "isInternal", n => { IsInternal = n.GetBoolValue(); } },
+                { "link", n => { Link = n.GetStringValue(); } },
+                { "meetingrequests", n => { Meetingrequests = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_meetingrequests>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_meetingrequests.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "onBehalfOfPid", n => { OnBehalfOfPid = n.GetIntValue(); } },
+                { "repeatFrequency", n => { RepeatFrequency = n.GetIntValue(); } },
+                { "repeatId", n => { RepeatId = n.GetIntValue(); } },
+                { "repeatOption", n => { RepeatOption = n.GetIntValue(); } },
+                { "repeatUntil", n => { RepeatUntil = n.GetDateValue(); } },
+                { "signup", n => { Signup = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_signup>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_signup.CreateFromDiscriminatorValue); } },
+                { "startDate", n => { StartDate = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_startDate>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_startDate.CreateFromDiscriminatorValue); } },
+                { "subtitle", n => { Subtitle = n.GetStringValue(); } },
+                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -51,8 +190,136 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_additionals>("additionals", Additionals);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_address>("address", Address);
             writer.WriteIntValue("appointmentId", AppointmentId);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_bookings>("bookings", Bookings);
+            writer.WriteIntValue("calendarId", CalendarId);
+            writer.WriteStringValue("description", Description);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_endDate>("endDate", EndDate);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_events>("events", Events);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_exceptions>("exceptions", Exceptions);
+            writer.WriteBoolValue("isInternal", IsInternal);
+            writer.WriteStringValue("link", Link);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_meetingrequests>("meetingrequests", Meetingrequests);
+            writer.WriteIntValue("onBehalfOfPid", OnBehalfOfPid);
+            writer.WriteIntValue("repeatFrequency", RepeatFrequency);
+            writer.WriteIntValue("repeatId", RepeatId);
+            writer.WriteIntValue("repeatOption", RepeatOption);
+            writer.WriteDateValue("repeatUntil", RepeatUntil);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_signup>("signup", Signup);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_startDate>("startDate", StartDate);
+            writer.WriteStringValue("subtitle", Subtitle);
+            writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="Date"/>, <see cref="DateTimeOffset"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithAppointmentPutRequestBody_endDate : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="Date"/></summary>
+            public Date? DateOnly { get; set; }
+            /// <summary>Composed type representation for type <see cref="DateTimeOffset"/></summary>
+            public DateTimeOffset? DateTimeOffset { get; set; }
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_endDate"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_endDate CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_endDate();
+                if(parseNode.GetDateValue() is Date dateOnlyValue)
+                {
+                    result.DateOnly = dateOnlyValue;
+                }
+                else if(parseNode.GetDateTimeOffsetValue() is DateTimeOffset dateTimeOffsetValue)
+                {
+                    result.DateTimeOffset = dateTimeOffsetValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(DateOnly != null)
+                {
+                    writer.WriteDateValue(null, DateOnly);
+                }
+                else if(DateTimeOffset != null)
+                {
+                    writer.WriteDateTimeOffsetValue(null, DateTimeOffset);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="Date"/>, <see cref="DateTimeOffset"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithAppointmentPutRequestBody_startDate : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="Date"/></summary>
+            public Date? DateOnly { get; set; }
+            /// <summary>Composed type representation for type <see cref="DateTimeOffset"/></summary>
+            public DateTimeOffset? DateTimeOffset { get; set; }
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_startDate"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_startDate CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody.WithAppointmentPutRequestBody_startDate();
+                if(parseNode.GetDateValue() is Date dateOnlyValue)
+                {
+                    result.DateOnly = dateOnlyValue;
+                }
+                else if(parseNode.GetDateTimeOffsetValue() is DateTimeOffset dateTimeOffsetValue)
+                {
+                    result.DateTimeOffset = dateTimeOffsetValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(DateOnly != null)
+                {
+                    writer.WriteDateValue(null, DateOnly);
+                }
+                else if(DateTimeOffset != null)
+                {
+                    writer.WriteDateTimeOffsetValue(null, DateTimeOffset);
+                }
+            }
         }
     }
 }

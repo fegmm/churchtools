@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Facts.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FactsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/facts/{id}", pathParameters)
+        public FactsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/facts/{id}{?dry_run*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,28 +29,28 @@ namespace Fegmm.ChurchTools.Facts.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FactsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/facts/{id}", rawUrl)
+        public FactsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/facts/{id}{?dry_run*}", rawUrl)
         {
         }
         /// <summary>
-        /// Delete a fact
+        /// Delete a fact master data entry. Use the `dry_run` query parameter to check if the fact can be deleted without actually deleting it.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch one fact by its ID
+        /// Fetch one fact master data entry by its ID.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Facts.Item.FactsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -68,7 +68,7 @@ namespace Fegmm.ChurchTools.Facts.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Facts.Item.FactsGetResponse>(requestInfo, global::Fegmm.ChurchTools.Facts.Item.FactsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Fetch one fact by its ID
+        /// Fetch one fact master data entry by its ID.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Facts.Item.FactsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -87,19 +87,19 @@ namespace Fegmm.ChurchTools.Facts.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Facts.Item.FactsResponse>(requestInfo, global::Fegmm.ChurchTools.Facts.Item.FactsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a fact
+        /// Update a fact master data entry. Use `type: number` with a `unit` for numeric facts or `type: select` with `options` for select facts.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Facts.Item.FactsPutResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Input schema for creating or updating a fact master data entry.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Facts.Item.FactsPutResponse?> PutAsFactsPutResponseAsync(global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Facts.Item.FactsPutResponse?> PutAsFactsPutResponseAsync(global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Facts.Item.FactsPutResponse> PutAsFactsPutResponseAsync(global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Facts.Item.FactsPutResponse> PutAsFactsPutResponseAsync(global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -107,20 +107,20 @@ namespace Fegmm.ChurchTools.Facts.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Facts.Item.FactsPutResponse>(requestInfo, global::Fegmm.ChurchTools.Facts.Item.FactsPutResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update a fact
+        /// Update a fact master data entry. Use `type: number` with a `unit` for numeric facts or `type: select` with `options` for select facts.
         /// </summary>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Facts.Item.FactsResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Input schema for creating or updating a fact master data entry.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         [Obsolete("This method is obsolete. Use PutAsFactsPutResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Facts.Item.FactsResponse?> PutAsync(global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Facts.Item.FactsResponse?> PutAsync(global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Facts.Item.FactsResponse> PutAsync(global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Fegmm.ChurchTools.Facts.Item.FactsResponse> PutAsync(global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -128,25 +128,26 @@ namespace Fegmm.ChurchTools.Facts.Item
             return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Facts.Item.FactsResponse>(requestInfo, global::Fegmm.ChurchTools.Facts.Item.FactsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a fact
+        /// Delete a fact master data entry. Use the `dry_run` query parameter to check if the fact can be deleted without actually deleting it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
             return requestInfo;
         }
         /// <summary>
-        /// Fetch one fact by its ID
+        /// Fetch one fact master data entry by its ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -165,18 +166,18 @@ namespace Fegmm.ChurchTools.Facts.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update a fact
+        /// Update a fact master data entry. Use `type: number` with a `unit` for numeric facts or `type: select` with `options` for select facts.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Input schema for creating or updating a fact master data entry.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -196,11 +197,21 @@ namespace Fegmm.ChurchTools.Facts.Item
             return new global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
+        /// Delete a fact master data entry. Use the `dry_run` query parameter to check if the fact can be deleted without actually deleting it.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class FactsItemRequestBuilderDeleteQueryParameters 
+        {
+            /// <summary>If true, only checks whether the fact can be deleted without actually deleting it.</summary>
+            [QueryParameter("dry_run")]
+            public bool? DryRun { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FactsItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class FactsItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsItemRequestBuilderDeleteQueryParameters>
         {
         }
         /// <summary>
@@ -218,6 +229,73 @@ namespace Fegmm.ChurchTools.Facts.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FactsItemRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
         {
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBodyMember1"/>, <see cref="global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBodyMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class FactsPutRequestBody : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBodyMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBodyMember1? FactsPutRequestBodyMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBodyMember1 FactsPutRequestBodyMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBodyMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBodyMember2? FactsPutRequestBodyMember2 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBodyMember2 FactsPutRequestBodyMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsPutRequestBody"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsPutRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Facts.Item.FactsItemRequestBuilder.FactsPutRequestBody();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(FactsPutRequestBodyMember1 != null)
+                {
+                    return FactsPutRequestBodyMember1.GetFieldDeserializers();
+                }
+                else if(FactsPutRequestBodyMember2 != null)
+                {
+                    return FactsPutRequestBodyMember2.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(FactsPutRequestBodyMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBodyMember1>(null, FactsPutRequestBodyMember1);
+                }
+                else if(FactsPutRequestBodyMember2 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Facts.Item.FactsPutRequestBodyMember2>(null, FactsPutRequestBodyMember2);
+                }
+            }
         }
     }
 }

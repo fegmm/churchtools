@@ -18,12 +18,25 @@ namespace Fegmm.ChurchTools.Calendars.Appointments.Item
         /// <summary>Gets an item from the Fegmm.ChurchTools.calendars.appointments.item.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateItemRequestBuilder"/></returns>
-        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateItemRequestBuilder this[string position]
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateItemRequestBuilder this[Date position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("startDate", position);
+                return new global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
+        /// <summary>Gets an item from the Fegmm.ChurchTools.calendars.appointments.item.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateItemRequestBuilder"/></returns>
+        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
+        public global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("startDate", position);
                 return new global::Fegmm.ChurchTools.Calendars.Appointments.Item.Item.WithStartDateItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }

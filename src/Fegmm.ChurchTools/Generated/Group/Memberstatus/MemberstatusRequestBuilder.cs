@@ -35,39 +35,21 @@ namespace Fegmm.ChurchTools.Group.Memberstatus
         /// <summary>
         /// Get all member status. The member status are used to define the membership status of a person in a group.
         /// </summary>
-        /// <returns>A <see cref="global::Fegmm.ChurchTools.Group.Memberstatus.MemberstatusGetResponse"/></returns>
+        /// <returns>A List&lt;global::Fegmm.ChurchTools.Group.Memberstatus.Memberstatus&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Fegmm.ChurchTools.Group.Memberstatus.MemberstatusGetResponse?> GetAsMemberstatusGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Fegmm.ChurchTools.Group.Memberstatus.Memberstatus>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Fegmm.ChurchTools.Group.Memberstatus.MemberstatusGetResponse> GetAsMemberstatusGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Fegmm.ChurchTools.Group.Memberstatus.Memberstatus>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Group.Memberstatus.MemberstatusGetResponse>(requestInfo, global::Fegmm.ChurchTools.Group.Memberstatus.MemberstatusGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Get all member status. The member status are used to define the membership status of a person in a group.
-        /// </summary>
-        /// <returns>A <see cref="global::Fegmm.ChurchTools.Group.Memberstatus.MemberstatusResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsMemberstatusGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Fegmm.ChurchTools.Group.Memberstatus.MemberstatusResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Fegmm.ChurchTools.Group.Memberstatus.MemberstatusResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Fegmm.ChurchTools.Group.Memberstatus.MemberstatusResponse>(requestInfo, global::Fegmm.ChurchTools.Group.Memberstatus.MemberstatusResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Fegmm.ChurchTools.Group.Memberstatus.Memberstatus>(requestInfo, global::Fegmm.ChurchTools.Group.Memberstatus.Memberstatus.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return collectionResult?.AsList();
         }
         /// <summary>
         /// Get all member status. The member status are used to define the membership status of a person in a group.

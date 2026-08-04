@@ -32,6 +32,8 @@ namespace Fegmm.ChurchTools.Groups.Item
         public bool? AutoAccept { get; set; }
         /// <summary>In combination with waiting list: People automatically move up in waiting list.</summary>
         public bool? AutomaticMoveUp { get; set; }
+        /// <summary>Indicator whether the chat history should be visible for new chat group members.</summary>
+        public bool? ChatHistoryVisible { get; set; }
         /// <summary>Default value for whether posts can be commented on.</summary>
         public bool? DefaultPostCommentsActive { get; set; }
         /// <summary>Default value for post notification scope.</summary>
@@ -156,6 +158,7 @@ namespace Fegmm.ChurchTools.Groups.Item
                 { "appointmentStartDate", n => { AppointmentStartDate = n.GetDateTimeOffsetValue(); } },
                 { "autoAccept", n => { AutoAccept = n.GetBoolValue(); } },
                 { "automaticMoveUp", n => { AutomaticMoveUp = n.GetBoolValue(); } },
+                { "chatHistoryVisible", n => { ChatHistoryVisible = n.GetBoolValue(); } },
                 { "defaultPostCommentsActive", n => { DefaultPostCommentsActive = n.GetBoolValue(); } },
                 { "defaultPostNotificationScope", n => { DefaultPostNotificationScope = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.WithGroupGetResponse_data_settings_defaultPostNotificationScope>(); } },
                 { "defaultPostPlaceholderText", n => { DefaultPostPlaceholderText = n.GetStringValue(); } },
@@ -204,6 +207,7 @@ namespace Fegmm.ChurchTools.Groups.Item
             writer.WriteDateTimeOffsetValue("appointmentStartDate", AppointmentStartDate);
             writer.WriteBoolValue("autoAccept", AutoAccept);
             writer.WriteBoolValue("automaticMoveUp", AutomaticMoveUp);
+            writer.WriteBoolValue("chatHistoryVisible", ChatHistoryVisible);
             writer.WriteBoolValue("defaultPostCommentsActive", DefaultPostCommentsActive);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.WithGroupGetResponse_data_settings_defaultPostNotificationScope>("defaultPostNotificationScope", DefaultPostNotificationScope);
             writer.WriteStringValue("defaultPostPlaceholderText", DefaultPostPlaceholderText);

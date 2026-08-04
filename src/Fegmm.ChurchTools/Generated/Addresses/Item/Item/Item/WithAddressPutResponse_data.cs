@@ -50,14 +50,14 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item.Item
 #else
         public string LongitudeLoose { get; set; }
 #endif
-        /// <summary>Use `color` instead</summary>
+        /// <summary>The markerColor property</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MarkerColor { get; set; }
+        public global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data.WithAddressPutResponse_data_markerColor? MarkerColor { get; set; }
 #nullable restore
 #else
-        public string MarkerColor { get; set; }
+        public global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data.WithAddressPutResponse_data_markerColor MarkerColor { get; set; }
 #endif
         /// <summary>Use `icon` instead</summary>
         [Obsolete("")]
@@ -124,7 +124,7 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item.Item
                 { "geoLng", n => { GeoLng = n.GetStringValue(); } },
                 { "latitudeLoose", n => { LatitudeLoose = n.GetStringValue(); } },
                 { "longitudeLoose", n => { LongitudeLoose = n.GetStringValue(); } },
-                { "markerColor", n => { MarkerColor = n.GetStringValue(); } },
+                { "markerColor", n => { MarkerColor = n.GetObjectValue<global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data.WithAddressPutResponse_data_markerColor>(global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data.WithAddressPutResponse_data_markerColor.CreateFromDiscriminatorValue); } },
                 { "markerIcon", n => { MarkerIcon = n.GetStringValue(); } },
                 { "markerUrl", n => { MarkerUrl = n.GetStringValue(); } },
                 { "meetingAt", n => { MeetingAt = n.GetStringValue(); } },
@@ -142,12 +142,79 @@ namespace Fegmm.ChurchTools.Addresses.Item.Item.Item
             writer.WriteStringValue("geoLng", GeoLng);
             writer.WriteStringValue("latitudeLoose", LatitudeLoose);
             writer.WriteStringValue("longitudeLoose", LongitudeLoose);
-            writer.WriteStringValue("markerColor", MarkerColor);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data.WithAddressPutResponse_data_markerColor>("markerColor", MarkerColor);
             writer.WriteStringValue("markerIcon", MarkerIcon);
             writer.WriteStringValue("markerUrl", MarkerUrl);
             writer.WriteStringValue("meetingAt", MeetingAt);
             writer.WriteStringValue("postalcode", Postalcode);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data_markerColorMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithAddressPutResponse_data_markerColor : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data_markerColorMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data_markerColorMember1? WithAddressPutResponseDataMarkerColorMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data_markerColorMember1 WithAddressPutResponseDataMarkerColorMember1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data.WithAddressPutResponse_data_markerColor"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data.WithAddressPutResponse_data_markerColor CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data.WithAddressPutResponse_data_markerColor();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(WithAddressPutResponseDataMarkerColorMember1 != null)
+                {
+                    return WithAddressPutResponseDataMarkerColorMember1.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(WithAddressPutResponseDataMarkerColorMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Addresses.Item.Item.Item.WithAddressPutResponse_data_markerColorMember1>(null, WithAddressPutResponseDataMarkerColorMember1);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
         }
     }
 }

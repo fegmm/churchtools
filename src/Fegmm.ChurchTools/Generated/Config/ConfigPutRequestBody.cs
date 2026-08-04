@@ -386,8 +386,6 @@ namespace Fegmm.ChurchTools.Config
         public int? ChurchwikiSortcode { get; set; }
         /// <summary>The cronjob_delay property</summary>
         public int? CronjobDelay { get; set; }
-        /// <summary>The csrf_enabled property</summary>
-        public bool? CsrfEnabled { get; set; }
         /// <summary>The data_privacy_text property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -454,6 +452,8 @@ namespace Fegmm.ChurchTools.Config
 #endif
         /// <summary>The feature_code_based_adhoc_reports property</summary>
         public bool? FeatureCodeBasedAdhocReports { get; set; }
+        /// <summary>The feature_sessionless_login property</summary>
+        public bool? FeatureSessionlessLogin { get; set; }
         /// <summary>The hide_licensetab property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -547,6 +547,14 @@ namespace Fegmm.ChurchTools.Config
 #nullable restore
 #else
         public string MailSmtpArgsUsername { get; set; }
+#endif
+        /// <summary>The matomo_uri property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MatomoUri { get; set; }
+#nullable restore
+#else
+        public string MatomoUri { get; set; }
 #endif
         /// <summary>The max_uploadfile_size_kb property</summary>
         public int? MaxUploadfileSizeKb { get; set; }
@@ -797,7 +805,6 @@ namespace Fegmm.ChurchTools.Config
                 { "churchwiki_name", n => { ChurchwikiName = n.GetStringValue(); } },
                 { "churchwiki_sortcode", n => { ChurchwikiSortcode = n.GetIntValue(); } },
                 { "cronjob_delay", n => { CronjobDelay = n.GetIntValue(); } },
-                { "csrf_enabled", n => { CsrfEnabled = n.GetBoolValue(); } },
                 { "data_privacy_text", n => { DataPrivacyText = n.GetStringValue(); } },
                 { "datasecurity_banner_enabled", n => { DatasecurityBannerEnabled = n.GetBoolValue(); } },
                 { "datasecurity_privacy_agreement_text", n => { DatasecurityPrivacyAgreementText = n.GetStringValue(); } },
@@ -810,6 +817,7 @@ namespace Fegmm.ChurchTools.Config
                 { "evangelische_termine_url", n => { EvangelischeTermineUrl = n.GetStringValue(); } },
                 { "evangelische_termine_vid", n => { EvangelischeTermineVid = n.GetStringValue(); } },
                 { "feature_code_based_adhoc_reports", n => { FeatureCodeBasedAdhocReports = n.GetBoolValue(); } },
+                { "feature_sessionless_login", n => { FeatureSessionlessLogin = n.GetBoolValue(); } },
                 { "hide_licensetab", n => { HideLicensetab = n.GetStringValue(); } },
                 { "impressum_external", n => { ImpressumExternal = n.GetStringValue(); } },
                 { "impressum_external_link", n => { ImpressumExternalLink = n.GetStringValue(); } },
@@ -827,6 +835,7 @@ namespace Fegmm.ChurchTools.Config
                 { "mail_smtp_args_port", n => { MailSmtpArgsPort = n.GetStringValue(); } },
                 { "mail_smtp_args_smtpsecure", n => { MailSmtpArgsSmtpsecure = n.GetStringValue(); } },
                 { "mail_smtp_args_username", n => { MailSmtpArgsUsername = n.GetStringValue(); } },
+                { "matomo_uri", n => { MatomoUri = n.GetStringValue(); } },
                 { "max_uploadfile_size_kb", n => { MaxUploadfileSizeKb = n.GetIntValue(); } },
                 { "post_active", n => { PostActive = n.GetBoolValue(); } },
                 { "post_edit_time_limited", n => { PostEditTimeLimited = n.GetBoolValue(); } },
@@ -952,7 +961,6 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteStringValue("churchwiki_name", ChurchwikiName);
             writer.WriteIntValue("churchwiki_sortcode", ChurchwikiSortcode);
             writer.WriteIntValue("cronjob_delay", CronjobDelay);
-            writer.WriteBoolValue("csrf_enabled", CsrfEnabled);
             writer.WriteStringValue("data_privacy_text", DataPrivacyText);
             writer.WriteBoolValue("datasecurity_banner_enabled", DatasecurityBannerEnabled);
             writer.WriteStringValue("datasecurity_privacy_agreement_text", DatasecurityPrivacyAgreementText);
@@ -965,6 +973,7 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteStringValue("evangelische_termine_url", EvangelischeTermineUrl);
             writer.WriteStringValue("evangelische_termine_vid", EvangelischeTermineVid);
             writer.WriteBoolValue("feature_code_based_adhoc_reports", FeatureCodeBasedAdhocReports);
+            writer.WriteBoolValue("feature_sessionless_login", FeatureSessionlessLogin);
             writer.WriteStringValue("hide_licensetab", HideLicensetab);
             writer.WriteStringValue("impressum_external", ImpressumExternal);
             writer.WriteStringValue("impressum_external_link", ImpressumExternalLink);
@@ -982,6 +991,7 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteStringValue("mail_smtp_args_port", MailSmtpArgsPort);
             writer.WriteStringValue("mail_smtp_args_smtpsecure", MailSmtpArgsSmtpsecure);
             writer.WriteStringValue("mail_smtp_args_username", MailSmtpArgsUsername);
+            writer.WriteStringValue("matomo_uri", MatomoUri);
             writer.WriteIntValue("max_uploadfile_size_kb", MaxUploadfileSizeKb);
             writer.WriteBoolValue("post_active", PostActive);
             writer.WriteBoolValue("post_edit_time_limited", PostEditTimeLimited);

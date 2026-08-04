@@ -63,7 +63,7 @@ namespace Fegmm.ChurchTools.Events.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EventItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/events/{event%2Did}", pathParameters)
+        public EventItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/events/{event%2Did}{?dryRun*,sendMail*}", pathParameters)
         {
         }
         /// <summary>
@@ -71,26 +71,24 @@ namespace Fegmm.ChurchTools.Events.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EventItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/events/{event%2Did}", rawUrl)
+        public EventItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/events/{event%2Did}{?dryRun*,sendMail*}", rawUrl)
         {
         }
         /// <summary>
         /// Delete an event
         /// </summary>
-        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(global::Fegmm.ChurchTools.Events.Item.EventDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Item.EventItemRequestBuilder.EventItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task DeleteAsync(global::Fegmm.ChurchTools.Events.Item.EventDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Item.EventItemRequestBuilder.EventItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToDeleteRequestInformation(body, requestConfiguration);
+            var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
@@ -175,22 +173,19 @@ namespace Fegmm.ChurchTools.Events.Item
         /// Delete an event
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(global::Fegmm.ChurchTools.Events.Item.EventDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Item.EventItemRequestBuilder.EventItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(global::Fegmm.ChurchTools.Events.Item.EventDeleteRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Events.Item.EventItemRequestBuilder.EventItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>
@@ -244,11 +239,24 @@ namespace Fegmm.ChurchTools.Events.Item
             return new global::Fegmm.ChurchTools.Events.Item.EventItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
+        /// Delete an event
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class EventItemRequestBuilderDeleteQueryParameters 
+        {
+            /// <summary>If true, only checks whether the event can be deleted without actually deleting it.</summary>
+            [QueryParameter("dryRun")]
+            public bool? DryRun { get; set; }
+            /// <summary>If true, sends an email notification to affected persons when deleting the event.</summary>
+            [QueryParameter("sendMail")]
+            public bool? SendMail { get; set; }
+        }
+        /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EventItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        public partial class EventItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<global::Fegmm.ChurchTools.Events.Item.EventItemRequestBuilder.EventItemRequestBuilderDeleteQueryParameters>
         {
         }
         /// <summary>

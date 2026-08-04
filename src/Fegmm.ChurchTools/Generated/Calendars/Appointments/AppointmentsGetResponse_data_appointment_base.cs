@@ -59,6 +59,14 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
 #else
         public string Caption { get; set; }
 #endif
+        /// <summary>The Deprecated property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_Deprecated? Deprecated { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_Deprecated Deprecated { get; set; }
+#endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -204,6 +212,7 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
                 { "allDay", n => { AllDay = n.GetBoolValue(); } },
                 { "calendar", n => { Calendar = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_calendar>(global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_calendar.CreateFromDiscriminatorValue); } },
                 { "caption", n => { Caption = n.GetStringValue(); } },
+                { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_Deprecated>(global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_Deprecated.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "endDate", n => { EndDate = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base.AppointmentsGetResponse_data_appointment_base_endDate>(global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base.AppointmentsGetResponse_data_appointment_base_endDate.CreateFromDiscriminatorValue); } },
                 { "exceptions", n => { Exceptions = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_exceptions>(global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_exceptions.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -239,6 +248,7 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
             writer.WriteBoolValue("allDay", AllDay);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_calendar>("calendar", Calendar);
             writer.WriteStringValue("caption", Caption);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_Deprecated>("@deprecated", Deprecated);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base.AppointmentsGetResponse_data_appointment_base_endDate>("endDate", EndDate);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base_exceptions>("exceptions", Exceptions);
@@ -279,7 +289,6 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
             public static global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base.AppointmentsGetResponse_data_appointment_base_endDate CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base.AppointmentsGetResponse_data_appointment_base_endDate();
                 if(parseNode.GetDateValue() is Date dateOnlyValue)
                 {
@@ -448,7 +457,6 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
             public static global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base.AppointmentsGetResponse_data_appointment_base_startDate CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Fegmm.ChurchTools.Calendars.Appointments.AppointmentsGetResponse_data_appointment_base.AppointmentsGetResponse_data_appointment_base_startDate();
                 if(parseNode.GetDateValue() is Date dateOnlyValue)
                 {

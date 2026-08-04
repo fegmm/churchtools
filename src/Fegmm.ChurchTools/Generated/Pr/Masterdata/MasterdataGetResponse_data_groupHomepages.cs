@@ -14,7 +14,7 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The groupHomepageUrl property</summary>
+        /// <summary>Absolute public URL of the group homepage.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? GroupHomepageUrl { get; set; }
@@ -22,7 +22,7 @@ namespace Fegmm.ChurchTools.Pr.Masterdata
 #else
         public string GroupHomepageUrl { get; set; }
 #endif
-        /// <summary>The groupId property</summary>
+        /// <summary>ID of the group that owns the public group homepage.</summary>
         public int? GroupId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Pr.Masterdata.MasterdataGetResponse_data_groupHomepages"/> and sets the default values.

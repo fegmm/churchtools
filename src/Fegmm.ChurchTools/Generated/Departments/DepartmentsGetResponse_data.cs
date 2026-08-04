@@ -32,13 +32,22 @@ namespace Fegmm.ChurchTools.Departments
 #else
         public string NameTranslated { get; set; }
 #endif
-        /// <summary>The short property</summary>
+        /// <summary>Use `shorty` instead</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Short { get; set; }
 #nullable restore
 #else
         public string Short { get; set; }
+#endif
+        /// <summary>The shorty property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Shorty { get; set; }
+#nullable restore
+#else
+        public string Shorty { get; set; }
 #endif
         /// <summary>The sortKey property</summary>
         public int? SortKey { get; set; }
@@ -71,6 +80,7 @@ namespace Fegmm.ChurchTools.Departments
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nameTranslated", n => { NameTranslated = n.GetStringValue(); } },
                 { "short", n => { Short = n.GetStringValue(); } },
+                { "shorty", n => { Shorty = n.GetStringValue(); } },
                 { "sortKey", n => { SortKey = n.GetIntValue(); } },
             };
         }
@@ -85,6 +95,7 @@ namespace Fegmm.ChurchTools.Departments
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nameTranslated", NameTranslated);
             writer.WriteStringValue("short", Short);
+            writer.WriteStringValue("shorty", Shorty);
             writer.WriteIntValue("sortKey", SortKey);
             writer.WriteAdditionalData(AdditionalData);
         }
