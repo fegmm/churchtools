@@ -42,6 +42,16 @@ namespace Fegmm.ChurchTools.Posts.Item
 #endif
         /// <summary>The expirationDate property</summary>
         public DateTimeOffset? ExpirationDate { get; set; }
+        /// <summary>Person identified by expirationPid. Null when expirationPid is null or identifies the post author; otherwise populated with the person who last set or changed the expiration date.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UntypedNode? ExpirationPerson { get; set; }
+#nullable restore
+#else
+        public UntypedNode ExpirationPerson { get; set; }
+#endif
+        /// <summary>ID of the person who last set or changed the expiration date.</summary>
+        public int? ExpirationPid { get; set; }
         /// <summary>The group property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -158,6 +168,8 @@ namespace Fegmm.ChurchTools.Posts.Item
                 { "commentsActive", n => { CommentsActive = n.GetBoolValue(); } },
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "expirationDate", n => { ExpirationDate = n.GetDateTimeOffsetValue(); } },
+                { "expirationPerson", n => { ExpirationPerson = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "expirationPid", n => { ExpirationPid = n.GetIntValue(); } },
                 { "group", n => { Group = n.GetObjectValue<global::Fegmm.ChurchTools.Posts.Item.WithPostPatchResponse_data_group>(global::Fegmm.ChurchTools.Posts.Item.WithPostPatchResponse_data_group.CreateFromDiscriminatorValue); } },
                 { "groupVisibility", n => { GroupVisibility = n.GetEnumValue<global::Fegmm.ChurchTools.Posts.Item.WithPostPatchResponse_data_groupVisibility>(); } },
                 { "guid", n => { Guid = n.GetStringValue(); } },
@@ -188,6 +200,8 @@ namespace Fegmm.ChurchTools.Posts.Item
             writer.WriteBoolValue("commentsActive", CommentsActive);
             writer.WriteStringValue("content", Content);
             writer.WriteDateTimeOffsetValue("expirationDate", ExpirationDate);
+            writer.WriteObjectValue<UntypedNode>("expirationPerson", ExpirationPerson);
+            writer.WriteIntValue("expirationPid", ExpirationPid);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Posts.Item.WithPostPatchResponse_data_group>("group", Group);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Posts.Item.WithPostPatchResponse_data_groupVisibility>("groupVisibility", GroupVisibility);
             writer.WriteStringValue("guid", Guid);

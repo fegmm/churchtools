@@ -450,8 +450,6 @@ namespace Fegmm.ChurchTools.Config
 #else
         public string EvangelischeTermineVid { get; set; }
 #endif
-        /// <summary>The feature_code_based_adhoc_reports property</summary>
-        public bool? FeatureCodeBasedAdhocReports { get; set; }
         /// <summary>The feature_sessionless_login property</summary>
         public bool? FeatureSessionlessLogin { get; set; }
         /// <summary>The hide_licensetab property</summary>
@@ -816,7 +814,6 @@ namespace Fegmm.ChurchTools.Config
                 { "evangelische_termine_name", n => { EvangelischeTermineName = n.GetStringValue(); } },
                 { "evangelische_termine_url", n => { EvangelischeTermineUrl = n.GetStringValue(); } },
                 { "evangelische_termine_vid", n => { EvangelischeTermineVid = n.GetStringValue(); } },
-                { "feature_code_based_adhoc_reports", n => { FeatureCodeBasedAdhocReports = n.GetBoolValue(); } },
                 { "feature_sessionless_login", n => { FeatureSessionlessLogin = n.GetBoolValue(); } },
                 { "hide_licensetab", n => { HideLicensetab = n.GetStringValue(); } },
                 { "impressum_external", n => { ImpressumExternal = n.GetStringValue(); } },
@@ -972,7 +969,6 @@ namespace Fegmm.ChurchTools.Config
             writer.WriteStringValue("evangelische_termine_name", EvangelischeTermineName);
             writer.WriteStringValue("evangelische_termine_url", EvangelischeTermineUrl);
             writer.WriteStringValue("evangelische_termine_vid", EvangelischeTermineVid);
-            writer.WriteBoolValue("feature_code_based_adhoc_reports", FeatureCodeBasedAdhocReports);
             writer.WriteBoolValue("feature_sessionless_login", FeatureSessionlessLogin);
             writer.WriteStringValue("hide_licensetab", HideLicensetab);
             writer.WriteStringValue("impressum_external", ImpressumExternal);

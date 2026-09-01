@@ -17,10 +17,10 @@ namespace Fegmm.ChurchTools.Externallogins
         /// <summary>The config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_config? Config { get; set; }
+        public global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data.ExternalloginsPostResponse_data_config? Config { get; set; }
 #nullable restore
 #else
-        public global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_config Config { get; set; }
+        public global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data.ExternalloginsPostResponse_data_config Config { get; set; }
 #endif
         /// <summary>The createNewPerson property</summary>
         public bool? CreateNewPerson { get; set; }
@@ -50,14 +50,18 @@ namespace Fegmm.ChurchTools.Externallogins
         public int? NewPersonDepartmentId { get; set; }
         /// <summary>The newPersonStatusId property</summary>
         public int? NewPersonStatusId { get; set; }
-        /// <summary>The type property</summary>
+        /// <summary>The primaryLogin property</summary>
+        public bool? PrimaryLogin { get; set; }
+        /// <summary>The subtitle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public string? Subtitle { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public string Subtitle { get; set; }
 #endif
+        /// <summary>The type property</summary>
+        public global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_type? Type { get; set; }
         /// <summary>The updateDataOnLogin property</summary>
         public bool? UpdateDataOnLogin { get; set; }
         /// <summary>
@@ -66,6 +70,7 @@ namespace Fegmm.ChurchTools.Externallogins
         public ExternalloginsPostResponse_data()
         {
             AdditionalData = new Dictionary<string, object>();
+            PrimaryLogin = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -85,7 +90,7 @@ namespace Fegmm.ChurchTools.Externallogins
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "config", n => { Config = n.GetObjectValue<global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_config>(global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_config.CreateFromDiscriminatorValue); } },
+                { "config", n => { Config = n.GetObjectValue<global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data.ExternalloginsPostResponse_data_config>(global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data.ExternalloginsPostResponse_data_config.CreateFromDiscriminatorValue); } },
                 { "createNewPerson", n => { CreateNewPerson = n.GetBoolValue(); } },
                 { "hasRegistration", n => { HasRegistration = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
@@ -94,7 +99,9 @@ namespace Fegmm.ChurchTools.Externallogins
                 { "newPersonCampusId", n => { NewPersonCampusId = n.GetIntValue(); } },
                 { "newPersonDepartmentId", n => { NewPersonDepartmentId = n.GetIntValue(); } },
                 { "newPersonStatusId", n => { NewPersonStatusId = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "primaryLogin", n => { PrimaryLogin = n.GetBoolValue(); } },
+                { "subtitle", n => { Subtitle = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_type>(); } },
                 { "updateDataOnLogin", n => { UpdateDataOnLogin = n.GetBoolValue(); } },
             };
         }
@@ -105,7 +112,7 @@ namespace Fegmm.ChurchTools.Externallogins
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_config>("config", Config);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data.ExternalloginsPostResponse_data_config>("config", Config);
             writer.WriteBoolValue("createNewPerson", CreateNewPerson);
             writer.WriteBoolValue("hasRegistration", HasRegistration);
             writer.WriteIntValue("id", Id);
@@ -114,9 +121,78 @@ namespace Fegmm.ChurchTools.Externallogins
             writer.WriteIntValue("newPersonCampusId", NewPersonCampusId);
             writer.WriteIntValue("newPersonDepartmentId", NewPersonDepartmentId);
             writer.WriteIntValue("newPersonStatusId", NewPersonStatusId);
-            writer.WriteStringValue("type", Type);
+            writer.WriteBoolValue("primaryLogin", PrimaryLogin);
+            writer.WriteStringValue("subtitle", Subtitle);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_type>("type", Type);
             writer.WriteBoolValue("updateDataOnLogin", UpdateDataOnLogin);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_configMember1"/>, <see cref="global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_configMember2"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ExternalloginsPostResponse_data_config : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_configMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_configMember1? ExternalloginsPostResponseDataConfigMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_configMember1 ExternalloginsPostResponseDataConfigMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_configMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_configMember2? ExternalloginsPostResponseDataConfigMember2 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_configMember2 ExternalloginsPostResponseDataConfigMember2 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data.ExternalloginsPostResponse_data_config"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data.ExternalloginsPostResponse_data_config CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data.ExternalloginsPostResponse_data_config();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(ExternalloginsPostResponseDataConfigMember1 != null)
+                {
+                    return ExternalloginsPostResponseDataConfigMember1.GetFieldDeserializers();
+                }
+                else if(ExternalloginsPostResponseDataConfigMember2 != null)
+                {
+                    return ExternalloginsPostResponseDataConfigMember2.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(ExternalloginsPostResponseDataConfigMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_configMember1>(null, ExternalloginsPostResponseDataConfigMember1);
+                }
+                else if(ExternalloginsPostResponseDataConfigMember2 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostResponse_data_configMember2>(null, ExternalloginsPostResponseDataConfigMember2);
+                }
+            }
         }
     }
 }

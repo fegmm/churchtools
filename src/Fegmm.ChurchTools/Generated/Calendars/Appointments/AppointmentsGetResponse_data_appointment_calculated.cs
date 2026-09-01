@@ -16,6 +16,14 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? EndDate { get; set; }
+        /// <summary>The iCalUid property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ICalUid { get; set; }
+#nullable restore
+#else
+        public string ICalUid { get; set; }
+#endif
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? StartDate { get; set; }
         /// <summary>
@@ -44,6 +52,7 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "endDate", n => { EndDate = n.GetDateTimeOffsetValue(); } },
+                { "iCalUid", n => { ICalUid = n.GetStringValue(); } },
                 { "startDate", n => { StartDate = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -55,6 +64,7 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("endDate", EndDate);
+            writer.WriteStringValue("iCalUid", ICalUid);
             writer.WriteDateTimeOffsetValue("startDate", StartDate);
             writer.WriteAdditionalData(AdditionalData);
         }

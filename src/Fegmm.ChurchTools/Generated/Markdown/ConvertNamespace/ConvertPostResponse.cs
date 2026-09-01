@@ -898,8 +898,6 @@ namespace Fegmm.ChurchTools.Markdown.ConvertNamespace
         public bool? FeatureAppointmentSearch { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
         public global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_automation? FeatureAutomation { get; set; }
-        /// <summary>The feature_code_based_adhoc_reports property</summary>
-        public bool? FeatureCodeBasedAdhocReports { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
         public global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_custommodule? FeatureCustommodule { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
@@ -918,6 +916,8 @@ namespace Fegmm.ChurchTools.Markdown.ConvertNamespace
         public bool? FeatureMarkdownGroup { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
         public global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_mobile_groups? FeatureMobileGroups { get; set; }
+        /// <summary>The feature_newsfeed_comment_reactions property</summary>
+        public bool? FeatureNewsfeedCommentReactions { get; set; }
         /// <summary>The feature_org_chart_groups property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -930,6 +930,8 @@ namespace Fegmm.ChurchTools.Markdown.ConvertNamespace
         public global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_posts? FeaturePosts { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
         public global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_resources_app? FeatureResourcesApp { get; set; }
+        /// <summary>The feature_saml_settings property</summary>
+        public bool? FeatureSamlSettings { get; set; }
         /// <summary>The feature_sessionless_login property</summary>
         public bool? FeatureSessionlessLogin { get; set; }
         /// <summary>This is a string that can only be true or false.</summary>
@@ -1826,7 +1828,6 @@ namespace Fegmm.ChurchTools.Markdown.ConvertNamespace
                 { "evangelische_termine_vid", n => { EvangelischeTermineVid = n.GetStringValue(); } },
                 { "feature_appointment_search", n => { FeatureAppointmentSearch = n.GetBoolValue(); } },
                 { "feature_automation", n => { FeatureAutomation = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_automation>(); } },
-                { "feature_code_based_adhoc_reports", n => { FeatureCodeBasedAdhocReports = n.GetBoolValue(); } },
                 { "feature_custommodule", n => { FeatureCustommodule = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_custommodule>(); } },
                 { "feature_darkmode", n => { FeatureDarkmode = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_darkmode>(); } },
                 { "feature_dynamic_groups", n => { FeatureDynamicGroups = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_dynamic_groups>(); } },
@@ -1836,9 +1837,11 @@ namespace Fegmm.ChurchTools.Markdown.ConvertNamespace
                 { "feature_group", n => { FeatureGroup = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_group>(); } },
                 { "feature_markdown_group", n => { FeatureMarkdownGroup = n.GetBoolValue(); } },
                 { "feature_mobile_groups", n => { FeatureMobileGroups = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_mobile_groups>(); } },
+                { "feature_newsfeed_comment_reactions", n => { FeatureNewsfeedCommentReactions = n.GetBoolValue(); } },
                 { "feature_org_chart_groups", n => { FeatureOrgChartGroups = n.GetStringValue(); } },
                 { "feature_posts", n => { FeaturePosts = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_posts>(); } },
                 { "feature_resources_app", n => { FeatureResourcesApp = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_resources_app>(); } },
+                { "feature_saml_settings", n => { FeatureSamlSettings = n.GetBoolValue(); } },
                 { "feature_sessionless_login", n => { FeatureSessionlessLogin = n.GetBoolValue(); } },
                 { "feature_sync", n => { FeatureSync = n.GetEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_sync>(); } },
                 { "feature_usechurchquery", n => { FeatureUsechurchquery = n.GetStringValue(); } },
@@ -2149,7 +2152,6 @@ namespace Fegmm.ChurchTools.Markdown.ConvertNamespace
             writer.WriteStringValue("evangelische_termine_vid", EvangelischeTermineVid);
             writer.WriteBoolValue("feature_appointment_search", FeatureAppointmentSearch);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_automation>("feature_automation", FeatureAutomation);
-            writer.WriteBoolValue("feature_code_based_adhoc_reports", FeatureCodeBasedAdhocReports);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_custommodule>("feature_custommodule", FeatureCustommodule);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_darkmode>("feature_darkmode", FeatureDarkmode);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_dynamic_groups>("feature_dynamic_groups", FeatureDynamicGroups);
@@ -2159,9 +2161,11 @@ namespace Fegmm.ChurchTools.Markdown.ConvertNamespace
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_group>("feature_group", FeatureGroup);
             writer.WriteBoolValue("feature_markdown_group", FeatureMarkdownGroup);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_mobile_groups>("feature_mobile_groups", FeatureMobileGroups);
+            writer.WriteBoolValue("feature_newsfeed_comment_reactions", FeatureNewsfeedCommentReactions);
             writer.WriteStringValue("feature_org_chart_groups", FeatureOrgChartGroups);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_posts>("feature_posts", FeaturePosts);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_resources_app>("feature_resources_app", FeatureResourcesApp);
+            writer.WriteBoolValue("feature_saml_settings", FeatureSamlSettings);
             writer.WriteBoolValue("feature_sessionless_login", FeatureSessionlessLogin);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Markdown.ConvertNamespace.ConvertPostResponse_feature_sync>("feature_sync", FeatureSync);
             writer.WriteStringValue("feature_usechurchquery", FeatureUsechurchquery);

@@ -5,11 +5,11 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Fegmm.ChurchTools.Externallogins
+namespace Fegmm.ChurchTools.Externallogins.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ExternalloginsPostRequestBody_config : IAdditionalDataHolder, IParsable
+    public partial class WithExternalLoginGetResponse_data_configMember1 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessTokenUrl property</summary>
@@ -63,21 +63,21 @@ namespace Fegmm.ChurchTools.Externallogins
         public string UrlResourceOwnerDetails { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostRequestBody_config"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Externallogins.Item.WithExternalLoginGetResponse_data_configMember1"/> and sets the default values.
         /// </summary>
-        public ExternalloginsPostRequestBody_config()
+        public WithExternalLoginGetResponse_data_configMember1()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostRequestBody_config"/></returns>
+        /// <returns>A <see cref="global::Fegmm.ChurchTools.Externallogins.Item.WithExternalLoginGetResponse_data_configMember1"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostRequestBody_config CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Fegmm.ChurchTools.Externallogins.Item.WithExternalLoginGetResponse_data_configMember1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Fegmm.ChurchTools.Externallogins.ExternalloginsPostRequestBody_config();
+            return new global::Fegmm.ChurchTools.Externallogins.Item.WithExternalLoginGetResponse_data_configMember1();
         }
         /// <summary>
         /// The deserialization information for the current model

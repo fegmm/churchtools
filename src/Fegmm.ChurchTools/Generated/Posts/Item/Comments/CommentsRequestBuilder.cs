@@ -18,7 +18,7 @@ namespace Fegmm.ChurchTools.Posts.Item.Comments
     public partial class CommentsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Fegmm.ChurchTools.posts.item.comments.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">ID of the post comment.</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Posts.Item.Comments.Item.WithCommentItemRequestBuilder"/></returns>
         public global::Fegmm.ChurchTools.Posts.Item.Comments.Item.WithCommentItemRequestBuilder this[int position]
         {
@@ -30,7 +30,7 @@ namespace Fegmm.ChurchTools.Posts.Item.Comments
             }
         }
         /// <summary>Gets an item from the Fegmm.ChurchTools.posts.item.comments.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">ID of the post comment.</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Posts.Item.Comments.Item.WithCommentItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
         public global::Fegmm.ChurchTools.Posts.Item.Comments.Item.WithCommentItemRequestBuilder this[string position]

@@ -20,7 +20,7 @@ namespace Fegmm.ChurchTools.Externallogins
         /// <summary>Gets an item from the Fegmm.ChurchTools.externallogins.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Fegmm.ChurchTools.Externallogins.Item.WithExternalLoginItemRequestBuilder"/></returns>
-        public global::Fegmm.ChurchTools.Externallogins.Item.WithExternalLoginItemRequestBuilder this[double position]
+        public global::Fegmm.ChurchTools.Externallogins.Item.WithExternalLoginItemRequestBuilder this[int position]
         {
             get
             {

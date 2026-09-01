@@ -20,7 +20,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item
         public int? LeadTimeMinutes { get; set; }
         /// <summary>The resourceId property</summary>
         public int? ResourceId { get; set; }
-        /// <summary>1 = PENDING, 2 = CONFIRMED, 3 = CANCELED, 99 = DELETED</summary>
+        /// <summary>1 = PENDING, 2 = CONFIRMED, 3 = CANCELED</summary>
         public int? StatusId { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.WithAppointmentPutRequestBody_bookings"/> and sets the default values.

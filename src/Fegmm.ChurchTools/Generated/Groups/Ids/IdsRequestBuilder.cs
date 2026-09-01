@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Groups.Ids
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IdsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/ids{?agegroup_ids%5B%5D*,allow_posts*,campus_ids%5B%5D*,group_category_ids%5B%5D*,group_status_ids%5B%5D*,group_type_ids%5B%5D*,has_active_chat*,has_meeting_place*,has_posts*,ids%5B%5D*,is_open_for_members*,limit*,only_my_groups*,page*,query*,tag_ids%5B%5D*,target_group_ids%5B%5D*,visibility*,weekdays%5B%5D*,without_my_groups*}", pathParameters)
+        public IdsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/ids{?agegroup_ids%5B%5D*,allow_posts*,campus_ids%5B%5D*,child_id*,group_category_ids%5B%5D*,group_status_ids%5B%5D*,group_type_ids%5B%5D*,has_active_chat*,has_meeting_place*,has_posts*,ids%5B%5D*,is_open_for_members*,limit*,only_my_groups*,page*,parent_id*,query*,tag_ids%5B%5D*,target_group_ids%5B%5D*,visibility*,weekdays%5B%5D*,without_my_groups*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Fegmm.ChurchTools.Groups.Ids
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public IdsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/ids{?agegroup_ids%5B%5D*,allow_posts*,campus_ids%5B%5D*,group_category_ids%5B%5D*,group_status_ids%5B%5D*,group_type_ids%5B%5D*,has_active_chat*,has_meeting_place*,has_posts*,ids%5B%5D*,is_open_for_members*,limit*,only_my_groups*,page*,query*,tag_ids%5B%5D*,target_group_ids%5B%5D*,visibility*,weekdays%5B%5D*,without_my_groups*}", rawUrl)
+        public IdsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/ids{?agegroup_ids%5B%5D*,allow_posts*,campus_ids%5B%5D*,child_id*,group_category_ids%5B%5D*,group_status_ids%5B%5D*,group_type_ids%5B%5D*,has_active_chat*,has_meeting_place*,has_posts*,ids%5B%5D*,is_open_for_members*,limit*,only_my_groups*,page*,parent_id*,query*,tag_ids%5B%5D*,target_group_ids%5B%5D*,visibility*,weekdays%5B%5D*,without_my_groups*}", rawUrl)
         {
         }
         /// <summary>
@@ -126,6 +126,9 @@ namespace Fegmm.ChurchTools.Groups.Ids
             [QueryParameter("campus_ids%5B%5D")]
             public int?[] CampusIds { get; set; }
 #endif
+            /// <summary>Return direct parent groups of this group</summary>
+            [QueryParameter("child_id")]
+            public int? ChildId { get; set; }
             /// <summary>Array of group category ids to filter the groups</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -187,6 +190,9 @@ namespace Fegmm.ChurchTools.Groups.Ids
             /// <summary>Page number to show page in pagination. If empty, start at first page.</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
+            /// <summary>Return direct child groups of this group</summary>
+            [QueryParameter("parent_id")]
+            public int? ParentId { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("query")]

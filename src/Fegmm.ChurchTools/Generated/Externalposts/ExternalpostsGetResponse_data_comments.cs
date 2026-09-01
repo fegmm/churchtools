@@ -44,6 +44,14 @@ namespace Fegmm.ChurchTools.Externalposts
 #endif
         /// <summary>The postId property</summary>
         public int? PostId { get; set; }
+        /// <summary>The reactions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Fegmm.ChurchTools.Externalposts.ExternalpostsGetResponse_data_comments_reactions>? Reactions { get; set; }
+#nullable restore
+#else
+        public List<global::Fegmm.ChurchTools.Externalposts.ExternalpostsGetResponse_data_comments_reactions> Reactions { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Externalposts.ExternalpostsGetResponse_data_comments"/> and sets the default values.
         /// </summary>
@@ -75,6 +83,7 @@ namespace Fegmm.ChurchTools.Externalposts
                 { "parentCommentId", n => { ParentCommentId = n.GetIntValue(); } },
                 { "person", n => { Person = n.GetObjectValue<global::Fegmm.ChurchTools.Externalposts.ExternalpostsGetResponse_data_comments_person>(global::Fegmm.ChurchTools.Externalposts.ExternalpostsGetResponse_data_comments_person.CreateFromDiscriminatorValue); } },
                 { "postId", n => { PostId = n.GetIntValue(); } },
+                { "reactions", n => { Reactions = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Externalposts.ExternalpostsGetResponse_data_comments_reactions>(global::Fegmm.ChurchTools.Externalposts.ExternalpostsGetResponse_data_comments_reactions.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -90,6 +99,7 @@ namespace Fegmm.ChurchTools.Externalposts
             writer.WriteIntValue("parentCommentId", ParentCommentId);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Externalposts.ExternalpostsGetResponse_data_comments_person>("person", Person);
             writer.WriteIntValue("postId", PostId);
+            writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Externalposts.ExternalpostsGetResponse_data_comments_reactions>("reactions", Reactions);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -43,6 +43,8 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Item
         public int? GroupTypeRoleId { get; set; }
         /// <summary>The ignoreGroupFull property</summary>
         public bool? IgnoreGroupFull { get; set; }
+        /// <summary>The ignoreWaitingListFull property</summary>
+        public bool? IgnoreWaitingListFull { get; set; }
         /// <summary>The informLeader property</summary>
         public bool? InformLeader { get; set; }
         /// <summary>A simple date in ISO format, e.g. &apos;2022-10-19&apos;</summary>
@@ -83,6 +85,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Item
                 { "groupMemberStatus", n => { GroupMemberStatus = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.Item.Members.Item.MemberPutRequestBody.MemberPutRequestBody_groupMemberStatus>(global::Fegmm.ChurchTools.Groups.Item.Members.Item.MemberPutRequestBody.MemberPutRequestBody_groupMemberStatus.CreateFromDiscriminatorValue); } },
                 { "groupTypeRoleId", n => { GroupTypeRoleId = n.GetIntValue(); } },
                 { "ignoreGroupFull", n => { IgnoreGroupFull = n.GetBoolValue(); } },
+                { "ignoreWaitingListFull", n => { IgnoreWaitingListFull = n.GetBoolValue(); } },
                 { "informLeader", n => { InformLeader = n.GetBoolValue(); } },
                 { "memberEndDate", n => { MemberEndDate = n.GetDateValue(); } },
                 { "memberStartDate", n => { MemberStartDate = n.GetDateValue(); } },
@@ -102,6 +105,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Item
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Members.Item.MemberPutRequestBody.MemberPutRequestBody_groupMemberStatus>("groupMemberStatus", GroupMemberStatus);
             writer.WriteIntValue("groupTypeRoleId", GroupTypeRoleId);
             writer.WriteBoolValue("ignoreGroupFull", IgnoreGroupFull);
+            writer.WriteBoolValue("ignoreWaitingListFull", IgnoreWaitingListFull);
             writer.WriteBoolValue("informLeader", InformLeader);
             writer.WriteDateValue("memberEndDate", MemberEndDate);
             writer.WriteDateValue("memberStartDate", MemberStartDate);

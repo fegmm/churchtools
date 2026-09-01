@@ -2,9 +2,11 @@
 #pragma warning disable CS0618
 using Fegmm.ChurchTools.Persons.Item.Absences;
 using Fegmm.ChurchTools.Persons.Item.Archive;
+using Fegmm.ChurchTools.Persons.Item.Confidentialityagreement;
 using Fegmm.ChurchTools.Persons.Item.Devices;
 using Fegmm.ChurchTools.Persons.Item.Events;
 using Fegmm.ChurchTools.Persons.Item.Exchangerequests;
+using Fegmm.ChurchTools.Persons.Item.ExternalLogins;
 using Fegmm.ChurchTools.Persons.Item.Followups;
 using Fegmm.ChurchTools.Persons.Item.Groups;
 using Fegmm.ChurchTools.Persons.Item.Invite;
@@ -44,6 +46,11 @@ namespace Fegmm.ChurchTools.Persons.Item
         {
             get => new global::Fegmm.ChurchTools.Persons.Item.Archive.ArchiveRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The confidentialityagreement property</summary>
+        public global::Fegmm.ChurchTools.Persons.Item.Confidentialityagreement.ConfidentialityagreementRequestBuilder Confidentialityagreement
+        {
+            get => new global::Fegmm.ChurchTools.Persons.Item.Confidentialityagreement.ConfidentialityagreementRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The devices property</summary>
         public global::Fegmm.ChurchTools.Persons.Item.Devices.DevicesRequestBuilder Devices
         {
@@ -58,6 +65,11 @@ namespace Fegmm.ChurchTools.Persons.Item
         public global::Fegmm.ChurchTools.Persons.Item.Exchangerequests.ExchangerequestsRequestBuilder Exchangerequests
         {
             get => new global::Fegmm.ChurchTools.Persons.Item.Exchangerequests.ExchangerequestsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The externalLogins property</summary>
+        public global::Fegmm.ChurchTools.Persons.Item.ExternalLogins.ExternalLoginsRequestBuilder ExternalLogins
+        {
+            get => new global::Fegmm.ChurchTools.Persons.Item.ExternalLogins.ExternalLoginsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The followups property</summary>
         public global::Fegmm.ChurchTools.Persons.Item.Followups.FollowupsRequestBuilder Followups

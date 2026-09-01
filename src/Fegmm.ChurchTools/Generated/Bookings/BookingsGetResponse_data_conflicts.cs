@@ -20,7 +20,7 @@ namespace Fegmm.ChurchTools.Bookings
         public DateTimeOffset? EndDate { get; set; }
         /// <summary>A timestamp in Zulu time format, e.g. &apos;2022-10-19T12:00:00Z&apos;</summary>
         public DateTimeOffset? StartDate { get; set; }
-        /// <summary>1 = PENDING, 2 = CONFIRMED, 3 = CANCELED, 99 = DELETED</summary>
+        /// <summary>1 = PENDING, 2 = CONFIRMED, 3 = CANCELED</summary>
         public int? StatusId { get; set; }
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -241,7 +241,7 @@ namespace Fegmm.ChurchTools.Bookings
             [QueryParameter("resource_ids%5B%5D")]
             public int?[] ResourceIds { get; set; }
 #endif
-            /// <summary>The status id can be one or more of the following values: 1 (pending), 2 (approved), 3 (canceled), 99 (deleted) -- default: 1, 2</summary>
+            /// <summary>The status id can be one or more of the following values: 1 (pending), 2 (approved), 3 (canceled) -- default: 1, 2</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("status_ids%5B%5D")]

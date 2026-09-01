@@ -42,6 +42,16 @@ namespace Fegmm.ChurchTools.SsoLogins
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The primaryLogin property</summary>
+        public bool? PrimaryLogin { get; set; }
+        /// <summary>The subtitle property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Subtitle { get; set; }
+#nullable restore
+#else
+        public string Subtitle { get; set; }
+#endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,6 +90,8 @@ namespace Fegmm.ChurchTools.SsoLogins
                 { "loginLink", n => { LoginLink = n.GetStringValue(); } },
                 { "logoUrl", n => { LogoUrl = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "primaryLogin", n => { PrimaryLogin = n.GetBoolValue(); } },
+                { "subtitle", n => { Subtitle = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -95,6 +107,8 @@ namespace Fegmm.ChurchTools.SsoLogins
             writer.WriteStringValue("loginLink", LoginLink);
             writer.WriteStringValue("logoUrl", LogoUrl);
             writer.WriteStringValue("name", Name);
+            writer.WriteBoolValue("primaryLogin", PrimaryLogin);
+            writer.WriteStringValue("subtitle", Subtitle);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

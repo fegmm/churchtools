@@ -15,6 +15,22 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Stored custom description for the group homepage header.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customDescription? CustomDescription { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customDescription CustomDescription { get; set; }
+#endif
+        /// <summary>Stored custom title for the group homepage header.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customTitle? CustomTitle { get; set; }
+#nullable restore
+#else
+        public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customTitle CustomTitle { get; set; }
+#endif
         /// <summary>Type how groups are listed on the page.</summary>
         public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_defaultView? DefaultView { get; set; }
         /// <summary>Maps deprecated response field names to their replacements.</summary>
@@ -27,6 +43,16 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
 #endif
         /// <summary>The depth of the group hierarchy that should be displayed on the group homepage.</summary>
         public int? Depth { get; set; }
+        /// <summary>Description of the group that owns the group homepage.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
+        /// <summary>Selects whether the header description is hidden, inherited from the group, or custom.</summary>
+        public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_descriptionMode? DescriptionMode { get; set; }
         /// <summary>Deprecated alias of filters.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -105,6 +131,8 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
         /// <summary>Use &apos;orderBy&apos; instead.</summary>
         [Obsolete("")]
         public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_sortBy? SortBy { get; set; }
+        /// <summary>Selects whether the header title is hidden, inherited from the group, or custom.</summary>
+        public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_titleMode? TitleMode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data"/> and sets the default values.
         /// </summary>
@@ -130,9 +158,13 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "customDescription", n => { CustomDescription = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customDescription>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customDescription.CreateFromDiscriminatorValue); } },
+                { "customTitle", n => { CustomTitle = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customTitle>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customTitle.CreateFromDiscriminatorValue); } },
                 { "defaultView", n => { DefaultView = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_defaultView>(); } },
                 { "@deprecated", n => { Deprecated = n.GetObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_Deprecated>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_Deprecated.CreateFromDiscriminatorValue); } },
                 { "depth", n => { Depth = n.GetIntValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "descriptionMode", n => { DescriptionMode = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_descriptionMode>(); } },
                 { "filter", n => { Filter = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filter>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filter.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "groups", n => { Groups = n.GetCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_groups>(global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_groups.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -152,6 +184,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
                 { "showLeaders", n => { ShowLeaders = n.GetBoolValue(); } },
                 { "showMap", n => { ShowMap = n.GetBoolValue(); } },
                 { "sortBy", n => { SortBy = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_sortBy>(); } },
+                { "titleMode", n => { TitleMode = n.GetEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_titleMode>(); } },
             };
         }
         /// <summary>
@@ -161,9 +194,13 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customDescription>("customDescription", CustomDescription);
+            writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customTitle>("customTitle", CustomTitle);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_defaultView>("defaultView", DefaultView);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_Deprecated>("@deprecated", Deprecated);
             writer.WriteIntValue("depth", Depth);
+            writer.WriteStringValue("description", Description);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_descriptionMode>("descriptionMode", DescriptionMode);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filter>("filter", Filter);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_filters>("filters", Filters);
             writer.WriteCollectionOfObjectValues<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_groups>("groups", Groups);
@@ -183,7 +220,142 @@ namespace Fegmm.ChurchTools.Groups.Item.Grouphomepage
             writer.WriteBoolValue("showLeaders", ShowLeaders);
             writer.WriteBoolValue("showMap", ShowMap);
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_sortBy>("sortBy", SortBy);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_titleMode>("titleMode", TitleMode);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_customDescriptionMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class GrouphomepagePutResponse_data_customDescription : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_customDescriptionMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_customDescriptionMember1? GrouphomepagePutResponseDataCustomDescriptionMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_customDescriptionMember1 GrouphomepagePutResponseDataCustomDescriptionMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customDescription"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customDescription CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customDescription();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(GrouphomepagePutResponseDataCustomDescriptionMember1 != null)
+                {
+                    return GrouphomepagePutResponseDataCustomDescriptionMember1.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(GrouphomepagePutResponseDataCustomDescriptionMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_customDescriptionMember1>(null, GrouphomepagePutResponseDataCustomDescriptionMember1);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_customTitleMember1"/>, <see cref="string"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class GrouphomepagePutResponse_data_customTitle : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_customTitleMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_customTitleMember1? GrouphomepagePutResponseDataCustomTitleMember1 { get; set; }
+#nullable restore
+#else
+            public global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_customTitleMember1 GrouphomepagePutResponseDataCustomTitleMember1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public string? String { get; set; }
+#nullable restore
+#else
+            public string String { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customTitle"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customTitle CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data.GrouphomepagePutResponse_data_customTitle();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(GrouphomepagePutResponseDataCustomTitleMember1 != null)
+                {
+                    return GrouphomepagePutResponseDataCustomTitleMember1.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(GrouphomepagePutResponseDataCustomTitleMember1 != null)
+                {
+                    writer.WriteObjectValue<global::Fegmm.ChurchTools.Groups.Item.Grouphomepage.GrouphomepagePutResponse_data_customTitleMember1>(null, GrouphomepagePutResponseDataCustomTitleMember1);
+                }
+                else if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+            }
         }
     }
 }
