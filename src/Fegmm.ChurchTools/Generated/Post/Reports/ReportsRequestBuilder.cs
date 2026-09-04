@@ -153,32 +153,46 @@ namespace Fegmm.ChurchTools.Post.Reports
         public partial class ReportsRequestBuilderGetQueryParameters 
         #pragma warning restore CS1591
         {
+            #pragma warning disable CS1591
             [QueryParameter("domain_id")]
             public int? DomainId { get; set; }
+            #pragma warning restore CS1591
             [Obsolete("This property is deprecated, use DomainTypeAsGetDomainTypeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("domain_type")]
             public string? DomainType { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("domain_type")]
             public string DomainType { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("domain_type")]
             public global::Fegmm.ChurchTools.Post.Reports.GetDomain_typeQueryParameterType? DomainTypeAsGetDomainTypeQueryParameterType { get; set; }
+            #pragma warning restore CS1591
             [Obsolete("This property is deprecated, use StatusAsGetStatusQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("status")]
             public string? Status { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("status")]
             public string Status { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("status")]
             public global::Fegmm.ChurchTools.Post.Reports.GetStatusQueryParameterType? StatusAsGetStatusQueryParameterType { get; set; }
+            #pragma warning restore CS1591
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

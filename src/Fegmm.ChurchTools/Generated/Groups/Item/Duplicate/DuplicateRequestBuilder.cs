@@ -103,20 +103,30 @@ namespace Fegmm.ChurchTools.Groups.Item.Duplicate
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DuplicateRequestBuilderPostQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("copyMembers")]
             public bool? CopyMembers { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("copyPermissions")]
             public bool? CopyPermissions { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("copyRoutines")]
             public bool? CopyRoutines { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("newName")]
             public string? NewName { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("newName")]
             public string NewName { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
         /// <summary>

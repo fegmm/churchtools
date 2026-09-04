@@ -53,7 +53,7 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AppointmentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calendars/appointments?calendar_ids[]={calendar_ids%5B%5D}{&from*,include%5B%5D*,query*,to*}", pathParameters)
+        public AppointmentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calendars/appointments{?from*,include%5B%5D*,query*,to*,calendar_ids%5B%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AppointmentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calendars/appointments?calendar_ids[]={calendar_ids%5B%5D}{&from*,include%5B%5D*,query*,to*}", rawUrl)
+        public AppointmentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/calendars/appointments{?from*,include%5B%5D*,query*,to*,calendar_ids%5B%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -137,12 +137,16 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("calendar_ids%5B%5D")]
             public int?[]? CalendarIds { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("calendar_ids%5B%5D")]
             public int?[] CalendarIds { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>Return entities starting from this date.</summary>
             [QueryParameter("from")]
@@ -150,30 +154,42 @@ namespace Fegmm.ChurchTools.Calendars.Appointments
             [Obsolete("This property is deprecated, use IncludeAsGetIncludeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("include%5B%5D")]
             public string[]? Include { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("include%5B%5D")]
             public string[] Include { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("include%5B%5D")]
             public global::Fegmm.ChurchTools.Calendars.Appointments.GetIncludeQueryParameterType[]? IncludeAsGetIncludeQueryParameterType { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("include%5B%5D")]
             public global::Fegmm.ChurchTools.Calendars.Appointments.GetIncludeQueryParameterType[] IncludeAsGetIncludeQueryParameterType { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("query")]
             public string? Query { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("query")]
             public string Query { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>Return entities up to (but not including) this date.</summary>
             [QueryParameter("to")]

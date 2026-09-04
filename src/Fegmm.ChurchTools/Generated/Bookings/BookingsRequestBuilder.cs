@@ -156,7 +156,7 @@ namespace Fegmm.ChurchTools.Bookings
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Bookings.BookingsRequestBuilder.BookingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/bookings?resource_ids[]={resource_ids%5B%5D}{&from*,include%5B%5D*,person_id*,query*,status_ids%5B%5D*,to*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/bookings{?from*,include%5B%5D*,person_id*,query*,status_ids%5B%5D*,to*,resource_ids%5B%5D*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -204,42 +204,58 @@ namespace Fegmm.ChurchTools.Bookings
             [Obsolete("This property is deprecated, use IncludeAsGetIncludeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("include%5B%5D")]
             public string[]? Include { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("include%5B%5D")]
             public string[] Include { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("include%5B%5D")]
             public global::Fegmm.ChurchTools.Bookings.GetIncludeQueryParameterType[]? IncludeAsGetIncludeQueryParameterType { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("include%5B%5D")]
             public global::Fegmm.ChurchTools.Bookings.GetIncludeQueryParameterType[] IncludeAsGetIncludeQueryParameterType { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>Filters all bookings created by this person or has this person set as onBehalfOfPid</summary>
             [QueryParameter("person_id")]
             public int? PersonId { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("query")]
             public string? Query { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("query")]
             public string Query { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("resource_ids%5B%5D")]
             public int?[]? ResourceIds { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("resource_ids%5B%5D")]
             public int?[] ResourceIds { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>The status id can be one or more of the following values: 1 (pending), 2 (approved), 3 (canceled) -- default: 1, 2</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

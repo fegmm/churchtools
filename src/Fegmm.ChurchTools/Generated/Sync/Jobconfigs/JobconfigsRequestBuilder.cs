@@ -105,12 +105,16 @@ namespace Fegmm.ChurchTools.Sync.Jobconfigs
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("external_system_ids%5B%5D")]
             public int?[]? ExternalSystemIds { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("external_system_ids%5B%5D")]
             public int?[] ExternalSystemIds { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
         /// <summary>

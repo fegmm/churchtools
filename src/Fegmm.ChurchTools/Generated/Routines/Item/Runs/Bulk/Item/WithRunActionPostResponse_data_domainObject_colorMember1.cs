@@ -18,7 +18,7 @@ namespace Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item
         /// <summary>A color in ChurchTools</summary>
         public global::Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item.WithRunActionPostResponse_data_domainObject_colorMember1_key? Key { get; set; }
         /// <summary>The shade property</summary>
-        public int? Shade { get; set; }
+        public global::Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item.WithRunActionPostResponse_data_domainObject_colorMember1_shade? Shade { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item.WithRunActionPostResponse_data_domainObject_colorMember1"/> and sets the default values.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "key", n => { Key = n.GetEnumValue<global::Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item.WithRunActionPostResponse_data_domainObject_colorMember1_key>(); } },
-                { "shade", n => { Shade = n.GetIntValue(); } },
+                { "shade", n => { Shade = n.GetEnumValue<global::Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item.WithRunActionPostResponse_data_domainObject_colorMember1_shade>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item.WithRunActionPostResponse_data_domainObject_colorMember1_key>("key", Key);
-            writer.WriteIntValue("shade", Shade);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Routines.Item.Runs.Bulk.Item.WithRunActionPostResponse_data_domainObject_colorMember1_shade>("shade", Shade);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

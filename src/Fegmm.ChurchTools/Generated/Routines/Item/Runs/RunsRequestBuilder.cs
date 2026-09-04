@@ -156,8 +156,10 @@ namespace Fegmm.ChurchTools.Routines.Item.Runs
             [QueryParameter("include")]
             public global::Fegmm.ChurchTools.Routines.Item.Runs.GetIncludeQueryParameterType[] IncludeAsGetIncludeQueryParameterType { get; set; }
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("with_potential_domain_objects")]
             public bool? WithPotentialDomainObjects { get; set; }
+            #pragma warning restore CS1591
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

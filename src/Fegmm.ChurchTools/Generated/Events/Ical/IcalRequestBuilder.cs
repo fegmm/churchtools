@@ -159,8 +159,10 @@ namespace Fegmm.ChurchTools.Events.Ical
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class IcalRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("personId")]
             public int? PersonId { get; set; }
+            #pragma warning restore CS1591
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

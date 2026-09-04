@@ -200,8 +200,10 @@ namespace Fegmm.ChurchTools.Group.Groupcategories.Item
         public partial class WithGroupCategoryItemRequestBuilderDeleteQueryParameters 
         #pragma warning restore CS1591
         {
+            #pragma warning disable CS1591
             [QueryParameter("dryRun")]
             public bool? DryRun { get; set; }
+            #pragma warning restore CS1591
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

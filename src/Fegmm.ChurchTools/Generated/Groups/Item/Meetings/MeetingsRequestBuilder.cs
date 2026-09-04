@@ -201,15 +201,21 @@ namespace Fegmm.ChurchTools.Groups.Item.Meetings
             [Obsolete("This property is deprecated, use DirectionAsGetDirectionQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("direction")]
             public string? Direction { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("direction")]
             public string Direction { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("direction")]
             public global::Fegmm.ChurchTools.Groups.Item.Meetings.GetDirectionQueryParameterType? DirectionAsGetDirectionQueryParameterType { get; set; }
+            #pragma warning restore CS1591
             /// <summary>Return entities starting from this date.</summary>
             [QueryParameter("from")]
             public Date? From { get; set; }

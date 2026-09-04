@@ -174,7 +174,7 @@ namespace Fegmm.ChurchTools.Finance.Accounts
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Finance.Accounts.AccountsRequestBuilder.AccountsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/finance/accounts?accounting_period_id={accounting_period_id}{&calculate_balance*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/finance/accounts{?calculate_balance*,accounting_period_id*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

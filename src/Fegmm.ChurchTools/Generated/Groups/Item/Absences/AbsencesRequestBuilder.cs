@@ -109,15 +109,21 @@ namespace Fegmm.ChurchTools.Groups.Item.Absences
             [Obsolete("This property is deprecated, use OrderDirectionAsGetOrderDirectionQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("order_direction")]
             public string? OrderDirection { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("order_direction")]
             public string OrderDirection { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("order_direction")]
             public global::Fegmm.ChurchTools.Groups.Item.Absences.GetOrder_directionQueryParameterType? OrderDirectionAsGetOrderDirectionQueryParameterType { get; set; }
+            #pragma warning restore CS1591
             /// <summary>Return entities up to (but not including) this date.</summary>
             [QueryParameter("to")]
             public Date? To { get; set; }

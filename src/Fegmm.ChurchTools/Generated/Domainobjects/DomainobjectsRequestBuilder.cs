@@ -124,7 +124,7 @@ namespace Fegmm.ChurchTools.Domainobjects
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Fegmm.ChurchTools.Domainobjects.DomainobjectsRequestBuilder.DomainobjectsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/domainobjects?domain_identifiers[]={domain_identifiers%5B%5D}&domain_types[]={domain_types%5B%5D}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/domainobjects{?domain_identifiers%5B%5D*,domain_types%5B%5D*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

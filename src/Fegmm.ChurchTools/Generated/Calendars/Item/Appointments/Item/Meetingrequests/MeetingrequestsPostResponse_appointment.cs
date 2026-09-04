@@ -142,7 +142,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
         /// <summary>The repeatFrequency property</summary>
         public int? RepeatFrequency { get; set; }
         /// <summary>ID of the repeat pattern, NONE = 0, DAILY = 1, WEEKLY = 7, MONTHLY_BY_DATE = 31, MONTHLY_BY_WEEKDAY = 32, YEARLY = 365, MANUALLY = 999</summary>
-        public int? RepeatId { get; set; }
+        public global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_appointment_repeatId? RepeatId { get; set; }
         /// <summary>The repeatOption property</summary>
         public int? RepeatOption { get; set; }
         /// <summary>A simple date in ISO format, e.g. &apos;2022-10-19&apos;</summary>
@@ -225,7 +225,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
                 { "note", n => { Note = n.GetStringValue(); } },
                 { "onBehalfOfPid", n => { OnBehalfOfPid = n.GetIntValue(); } },
                 { "repeatFrequency", n => { RepeatFrequency = n.GetIntValue(); } },
-                { "repeatId", n => { RepeatId = n.GetIntValue(); } },
+                { "repeatId", n => { RepeatId = n.GetEnumValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_appointment_repeatId>(); } },
                 { "repeatOption", n => { RepeatOption = n.GetIntValue(); } },
                 { "repeatUntil", n => { RepeatUntil = n.GetDateValue(); } },
                 { "signup", n => { Signup = n.GetObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_appointment.MeetingrequestsPostResponse_appointment_signup>(global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_appointment.MeetingrequestsPostResponse_appointment_signup.CreateFromDiscriminatorValue); } },
@@ -261,7 +261,7 @@ namespace Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests
             writer.WriteStringValue("note", Note);
             writer.WriteIntValue("onBehalfOfPid", OnBehalfOfPid);
             writer.WriteIntValue("repeatFrequency", RepeatFrequency);
-            writer.WriteIntValue("repeatId", RepeatId);
+            writer.WriteEnumValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_appointment_repeatId>("repeatId", RepeatId);
             writer.WriteIntValue("repeatOption", RepeatOption);
             writer.WriteDateValue("repeatUntil", RepeatUntil);
             writer.WriteObjectValue<global::Fegmm.ChurchTools.Calendars.Item.Appointments.Item.Meetingrequests.MeetingrequestsPostResponse_appointment.MeetingrequestsPostResponse_appointment_signup>("signup", Signup);

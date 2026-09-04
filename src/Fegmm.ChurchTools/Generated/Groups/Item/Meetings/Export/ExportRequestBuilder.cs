@@ -94,15 +94,21 @@ namespace Fegmm.ChurchTools.Groups.Item.Meetings.Export
             [Obsolete("This property is deprecated, use FormatAsGetFormatQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("format")]
             public string? Format { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("format")]
             public string Format { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("format")]
             public global::Fegmm.ChurchTools.Groups.Item.Meetings.Export.GetFormatQueryParameterType? FormatAsGetFormatQueryParameterType { get; set; }
+            #pragma warning restore CS1591
             /// <summary>Return entities starting from this date.</summary>
             [QueryParameter("from")]
             public Date? From { get; set; }
@@ -124,15 +130,21 @@ namespace Fegmm.ChurchTools.Groups.Item.Meetings.Export
             [Obsolete("This property is deprecated, use TypeAsGetTypeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("type")]
             public string? Type { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("type")]
             public string Type { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("type")]
             public global::Fegmm.ChurchTools.Groups.Item.Meetings.Export.GetTypeQueryParameterType? TypeAsGetTypeQueryParameterType { get; set; }
+            #pragma warning restore CS1591
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.

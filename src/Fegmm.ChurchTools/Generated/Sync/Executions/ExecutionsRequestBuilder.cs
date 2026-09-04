@@ -116,8 +116,10 @@ namespace Fegmm.ChurchTools.Sync.Executions
             [QueryParameter("es_ids%5B%5D")]
             public int?[] EsIds { get; set; }
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("is_dry_run")]
             public bool? IsDryRun { get; set; }
+            #pragma warning restore CS1591
             /// <summary>Filter by sync job configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

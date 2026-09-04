@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Statistics
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StatisticsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{groupId}/members/statistics?group_type_role_ids[]={group_type_role_ids%5B%5D}{&groupMemberFields%5B%5D*,personFields%5B%5D*}", pathParameters)
+        public StatisticsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{groupId}/members/statistics{?groupMemberFields%5B%5D*,personFields%5B%5D*,group_type_role_ids%5B%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Statistics
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StatisticsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{groupId}/members/statistics?group_type_role_ids[]={group_type_role_ids%5B%5D}{&groupMemberFields%5B%5D*,personFields%5B%5D*}", rawUrl)
+        public StatisticsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/groups/{groupId}/members/statistics{?groupMemberFields%5B%5D*,personFields%5B%5D*,group_type_role_ids%5B%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -115,12 +115,16 @@ namespace Fegmm.ChurchTools.Groups.Item.Members.Statistics
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("group_type_role_ids%5B%5D")]
             public int?[]? GroupTypeRoleIds { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("group_type_role_ids%5B%5D")]
             public int?[] GroupTypeRoleIds { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>person field keys</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

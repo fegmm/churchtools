@@ -21,7 +21,7 @@ namespace Fegmm.ChurchTools.Pollfornews
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PollfornewsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pollfornews?domain_types[]={domain_types%5B%5D}&since={since}", pathParameters)
+        public PollfornewsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pollfornews?since={since}{&domain_types%5B%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Fegmm.ChurchTools.Pollfornews
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PollfornewsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pollfornews?domain_types[]={domain_types%5B%5D}&since={since}", rawUrl)
+        public PollfornewsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/pollfornews?since={since}{&domain_types%5B%5D*}", rawUrl)
         {
         }
         /// <summary>
